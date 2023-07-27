@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/UI/star3.png" type="Texture2D" id=1]
+[ext_resource path="res://scripts/battle/StarDamageDisplay.gd" type="Script" id=2]
+[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
+
+[sub_resource type="FontFile" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.113725 )
+font_data = ExtResource( 3 )
+
+[node name="StarDamageDisplay" type="Node3D"]
+script = ExtResource( 2 )
+
+[node name="BigStar" type="Sprite3D" parent="."]
+transform = Transform3D( 0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 0, 0 )
+modulate = Color( 1, 1, 0.207843, 1 )
+texture = ExtResource( 1 )
+
+[node name="SmallStar" type="Sprite3D" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+texture = ExtResource( 1 )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71221, 3.03443, 9.73428 )
+fov = 81.5625
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -32.5
+offset_right = 46.0
+offset_bottom = 32.5
+theme_override_fonts/font = SubResource( 1 )
+theme_override_colors/font_color = Color( 1, 0, 0, 1 )
+theme_override_colors/font_shadow_color = Color( 0.384314, 0, 0, 1 )
+theme_override_constants/shadow_outline_size = 1
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

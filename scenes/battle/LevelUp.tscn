@@ -1,0 +1,182 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/battle/LevelUpOption.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/other/fp.png" type="Texture2D" id=2]
+[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
+[ext_resource path="res://sprites/other/bp.png" type="Texture2D" id=4]
+[ext_resource path="res://scripts/battle/LevelUp.gd" type="Script" id=5]
+[ext_resource path="res://sprites/UI/confetti.png" type="Texture2D" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id=7]
+offsets = PackedFloat32Array( 0, 0.242424, 0.660606, 1 )
+colors = PackedColorArray( 1, 1, 1, 0, 1, 1, 1, 0.633027, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticleProcessMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 900, 900, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 29.12
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 303.92
+initial_velocity_random = 0.38
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 437.6
+angle_random = 1.0
+color_ramp = SubResource( 8 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_speed = 1.0
+anim_speed_random = 0.43
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="FontFile" id=2]
+size = 100
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PackedFloat32Array( 0, 0.216749 )
+colors = PackedColorArray( 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 3 )
+
+[node name="LevelUp" type="Control"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 0.262745, 0.262745, 0.262745, 0.705882 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confetti" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.396078 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Confetti"]
+material = SubResource( 5 )
+position = Vector2( 1.87717, 9.66022 )
+emitting = false
+amount = 250
+lifetime = 4.0
+visibility_rect = Rect2( -7500, -600, 15000, 1200 )
+process_material = SubResource( 6 )
+texture = ExtResource( 6 )
+
+[node name="Choices" type="Control" parent="."]
+anchor_left = 0.488
+anchor_top = 0.577
+anchor_right = 0.488
+anchor_bottom = 0.577
+offset_left = -230.0
+offset_top = -76.2
+offset_right = 231.0
+offset_bottom = 75.8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Choices"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -292.5
+offset_top = -119.0
+offset_right = 292.5
+offset_bottom = -19.0
+theme_override_fonts/font = SubResource( 2 )
+theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+text = "LEVEL UP!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spotlight" type="Control" parent="Choices"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Polygon2d" type="Polygon2D" parent="Choices/Spotlight"]
+modulate = Color( 1, 1, 1, 0.52549 )
+show_behind_parent = true
+position = Vector2( 0.00921631, -216.151 )
+rotation = 2.83251
+offset = Vector2( -92.3427, -564.746 )
+texture = SubResource( 4 )
+polygon = PackedVector2Array( -189.202, 858.001, 360.343, 380.019, 277.136, 289.384 )
+
+[node name="HP" parent="Choices" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = -63.0
+offset_right = 127.0
+offset_bottom = 63.0
+pivot_offset = Vector2( 61.1441, 62.6348 )
+left_side = "55"
+right_side = "55"
+
+[node name="FP" parent="Choices" instance=ExtResource( 1 )]
+offset_left = -63.5
+offset_top = -63.0
+offset_right = 63.5
+offset_bottom = 63.0
+pivot_offset = Vector2( 64.3058, 63.5257 )
+stat_name = "FP"
+icon = ExtResource( 2 )
+left_side = "55"
+right_side = "55"
+
+[node name="BP" parent="Choices" instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_top = -61.5
+offset_right = 0.0
+offset_bottom = 63.5
+pivot_offset = Vector2( 65.1402, 62.0257 )
+stat_name = "BP"
+icon = ExtResource( 4 )
+left_side = "55"
+right_side = "55"

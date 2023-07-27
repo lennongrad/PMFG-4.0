@@ -1,0 +1,478 @@
+[gd_resource type="SpriteFrames" load_steps=61 format=3 uid="uid://cocdgwdhamcr7"]
+
+[ext_resource type="Texture2D" uid="uid://djigspifklp4d" path="res://sprites/mario/holdhammer2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://y6q4v5vxbim7" path="res://textures/mario/impacthammer.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bum7nom3w6qom" path="res://sprites/mario/airdiagrise.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d2yh00e2475ij" path="res://sprites/mario/hammerpreparation3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://t4hn3xe1pytt" path="res://sprites/mario/guard.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c1canq72515cr" path="res://sprites/mario/holdhammer1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b5gclsnujabmn" path="res://sprites/mario/airhorizontalfall.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bbhn2auf6fkrn" path="res://textures/mario/walkdiag.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://qulvnnbknmml" path="res://sprites/mario/airdiagfall.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://cyxy7um8sphli" path="res://sprites/mario/battlefall.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://c3k5pnfad7byr" path="res://sprites/mario/hammerpreparation2.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bfwxyr5231n81" path="res://sprites/mario/skip.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://cd8bil1od88c2" path="res://sprites/mario/spin.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://bqicrxtiai80j" path="res://sprites/mario/airhorizontalrise.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://dj02knl7h5u27" path="res://sprites/mario/stomp.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://6bxg7w0pt5bt" path="res://sprites/mario/hammerpreparation.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://blb4jvixfcr64" path="res://sprites/mario/jumpsquat.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://cj38gpfv0u4fv" path="res://sprites/mario/battlerise.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://bgbu4ci28psqi" path="res://sprites/mario/victory.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://batvm6blpljrk" path="res://sprites/mario/hurt.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://0kimqoq33jvc" path="res://sprites/mario/think.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://badqdu4gdvd1" path="res://sprites/mario/diagimpact.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://duocyi00bg1gw" path="res://sprites/mario/diagpreparation.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://f8517ry3c3w" path="res://sprites/mario/diagimpactstuck.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://dfwbvasv1ocor" path="res://sprites/mario/impactstuck.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://btospbgjpnwbw" path="res://sprites/mario/eat.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://ohbcd8rndspd" path="res://sprites/mario/swallow.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://nmqoec8bdo50" path="res://sprites/mario/present.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://cwbew0c25vfcu" path="res://textures/mario/pickup.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://bg6lvtpgptpjl" path="res://sprites/mario/walk.png" id="31"]
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("8")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("8")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("8")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("8")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("8")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="32"]
+atlas = ExtResource("27")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="33"]
+atlas = ExtResource("27")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="37"]
+atlas = ExtResource("6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="38"]
+atlas = ExtResource("6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="39"]
+atlas = ExtResource("31")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="40"]
+atlas = ExtResource("31")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="41"]
+atlas = ExtResource("31")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="42"]
+atlas = ExtResource("31")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="23"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="34"]
+atlas = ExtResource("17")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="35"]
+atlas = ExtResource("17")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="26"]
+atlas = ExtResource("30")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="27"]
+atlas = ExtResource("30")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="28"]
+atlas = ExtResource("30")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="36"]
+atlas = ExtResource("31")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="29"]
+atlas = ExtResource("15")
+region = Rect2(0, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="30"]
+atlas = ExtResource("15")
+region = Rect2(65, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="31"]
+atlas = ExtResource("15")
+region = Rect2(130, 0, 65, 64)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("19")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("19")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("31")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("31")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="21"]
+atlas = ExtResource("31")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="22"]
+atlas = ExtResource("31")
+region = Rect2(96, 0, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": true,
+"name": &"BattleFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18")
+}],
+"loop": true,
+"name": &"BattleRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"DiagFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23")
+}],
+"loop": true,
+"name": &"DiagImpact",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24")
+}],
+"loop": true,
+"name": &"DiagPreparation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"DiagRest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"DiagRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25")
+}],
+"loop": true,
+"name": &"DiagStuck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}, {
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}],
+"loop": true,
+"name": &"DiagWalk",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("32")
+}, {
+"duration": 1.0,
+"texture": SubResource("33")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"Guard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16")
+}],
+"loop": true,
+"name": &"HammerPreparation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
+"loop": true,
+"name": &"HammerPreparation2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"HammerPreparation3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("37")
+}, {
+"duration": 1.0,
+"texture": SubResource("38")
+}],
+"loop": true,
+"name": &"HoldHammer1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"HoldHammer2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"HorizontalFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14")
+}],
+"loop": true,
+"name": &"HorizontalRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("39")
+}, {
+"duration": 1.0,
+"texture": SubResource("40")
+}, {
+"duration": 1.0,
+"texture": SubResource("41")
+}, {
+"duration": 1.0,
+"texture": SubResource("42")
+}],
+"loop": true,
+"name": &"HorizontalWalk",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("23")
+}],
+"loop": true,
+"name": &"Impact1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("25")
+}],
+"loop": true,
+"name": &"Impact2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("34")
+}, {
+"duration": 1.0,
+"texture": SubResource("35")
+}],
+"loop": true,
+"name": &"Jumpsquat",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("28")
+}],
+"loop": false,
+"name": &"Pickup",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29")
+}],
+"loop": true,
+"name": &"Present",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("36")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": true,
+"name": &"Skip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
+"loop": true,
+"name": &"Spinning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("29")
+}, {
+"duration": 1.0,
+"texture": SubResource("30")
+}, {
+"duration": 1.0,
+"texture": SubResource("31")
+}],
+"loop": true,
+"name": &"Stomp",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26")
+}],
+"loop": true,
+"name": &"Stuck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28")
+}],
+"loop": true,
+"name": &"Swallow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21")
+}],
+"loop": true,
+"name": &"Think",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}],
+"loop": true,
+"name": &"Victory",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("19")
+}, {
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("21")
+}, {
+"duration": 1.0,
+"texture": SubResource("22")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]

@@ -1,0 +1,127 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://particles/DustUp.png" type="Texture2D" id=1]
+[ext_resource path="res://scripts/battle/SpriteHolderEnemy.gd" type="Script" id=2]
+[ext_resource path="res://textures/cheepcheep/hurt2.png" type="Texture2D" id=3]
+[ext_resource path="res://textures/cheepcheep/hurt4.png" type="Texture2D" id=4]
+[ext_resource path="res://textures/cheepcheep/hurt3.png" type="Texture2D" id=5]
+[ext_resource path="res://textures/cheepcheep/rest1.png" type="Texture2D" id=6]
+[ext_resource path="res://textures/cheepcheep/hurt1.png" type="Texture2D" id=7]
+[ext_resource path="res://textures/cheepcheep/rest2.png" type="Texture2D" id=8]
+[ext_resource path="res://textures/cheepcheep/rest3.png" type="Texture2D" id=9]
+[ext_resource path="res://textures/cheepcheep/jump2.png" type="Texture2D" id=10]
+[ext_resource path="res://textures/cheepcheep/run1.png" type="Texture2D" id=11]
+[ext_resource path="res://textures/cheepcheep/run2.png" type="Texture2D" id=12]
+[ext_resource path="res://textures/cheepcheep/rise1.png" type="Texture2D" id=13]
+[ext_resource path="res://textures/cheepcheep/rise2.png" type="Texture2D" id=14]
+[ext_resource path="res://textures/cheepcheep/jump1.png" type="Texture2D" id=15]
+[ext_resource path="res://textures/cheepcheep/jump3.png" type="Texture2D" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Rise",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Rest",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.01
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.936364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.372727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticleProcessMaterial" id=5]
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.5
+initial_velocity_random = 1.0
+angle = 110.7
+angle_random = 1.0
+scale = 2.0
+scale_curve = SubResource( 4 )
+anim_speed = 1.0
+
+[sub_resource type="StandardMaterial3D" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.584314, 0.584314, 0.584314, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 0.2, 0.2 )
+
+[node name="SpriteHolderEnemy" type="Marker3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0 )
+layers = 1025
+cast_shadow = 0
+alpha_cut = 1
+frames = SubResource( 1 )
+animation = "Fall"
+frame = 1
+playing = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatedSprite3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0626183, -0.152596, 0.00163472 )
+cast_shadow = 3
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.061
+one_shot = true
+
+[node name="DustParticles" type="Particles" parent="."]
+transform = Transform3D( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.0267356, 0.0966932 )
+emitting = false
+amount = 64
+lifetime = 0.4
+visibility_aabb = AABB( -0.25, -0.25, -0.25, 0.5, 0.5, 0.5 )
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

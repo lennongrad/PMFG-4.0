@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://sy2vy4sv7adc"]
+
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="1"]
+[ext_resource type="Texture2D" uid="uid://bpl5fae1y83ar" path="res://sprites/UI/cloud2.png" id="2"]
+[ext_resource type="Script" path="res://scripts/Text.gd" id="3"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="2"]
+offsets = PackedFloat32Array(0, 0.133333, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.517647)
+
+[sub_resource type="GradientTexture2D" id="3"]
+gradient = SubResource("2")
+
+[sub_resource type="Curve" id="4"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="5"]
+curve = SubResource("4")
+
+[sub_resource type="Curve" id="Curve_m27v6"]
+_data = [Vector2(0, 0.568421), 0.0, 0.0, 0, 0, Vector2(0.5, 0.968421), 0.0, 0.0, 0, 0, Vector2(1, 0.421053), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3vb3"]
+curve = SubResource("Curve_m27v6")
+
+[sub_resource type="ParticleProcessMaterial" id="6"]
+emission_shape = 3
+emission_box_extents = Vector3(482, 39.294, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_d3vb3")
+color_ramp = SubResource("3")
+hue_variation_curve = SubResource("5")
+
+[node name="Text" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -295.0
+offset_right = -331.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = SubResource("1")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id metus vitae urna scelerisque vulputate. "
+script = ExtResource("3")
+
+[node name="Clouds" type="Control" parent="."]
+show_behind_parent = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Clouds" type="GPUParticles2D" parent="Clouds"]
+self_modulate = Color(1, 1, 1, 0.741176)
+show_behind_parent = true
+position = Vector2(482, 59)
+amount = 500
+process_material = SubResource("6")
+texture = ExtResource("2")
+preprocess = 110.53
+speed_scale = 0.5
+explosiveness = 0.07
+visibility_rect = Rect2(-160, -40, 320, 80)
+local_coords = true

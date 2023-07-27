@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddxb2t13bohu"]
+
+[ext_resource type="Texture2D" uid="uid://chrwhnjtqyfyc" path="res://particles/circle_01.png" id="1"]
+
+[sub_resource type="Gradient" id="Gradient_d0s2m"]
+offsets = PackedFloat32Array(0, 0.788618)
+colors = PackedColorArray(0, 0, 0, 0.290196, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7fbxh"]
+gradient = SubResource("Gradient_d0s2m")
+
+[sub_resource type="Curve" id="35"]
+_data = [Vector2(0, 0.0693182), 0.0, 0.705929, 0, 0, Vector2(0.989362, 0.969318), -0.142424, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="36"]
+curve = SubResource("35")
+
+[sub_resource type="ParticleProcessMaterial" id="37"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("36")
+color_ramp = SubResource("GradientTexture1D_7fbxh")
+
+[sub_resource type="StandardMaterial3D" id="38"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1")
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="39"]
+material = SubResource("38")
+
+[node name="Circles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+amount = 3
+lifetime = 1.36
+speed_scale = 0.75
+local_coords = true
+process_material = SubResource("37")
+draw_pass_1 = SubResource("39")

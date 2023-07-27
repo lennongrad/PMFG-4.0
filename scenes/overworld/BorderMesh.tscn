@@ -1,0 +1,124 @@
+[gd_scene load_steps=16 format=3 uid="uid://btp7h1i2msuxu"]
+
+[ext_resource type="Script" path="res://scripts/overworld/BorderGenerator.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d22u322w4x7bs" path="res://textures/stone/stone-floor.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cxln8d4yhy8wj" path="res://textures/stone/stone.png" id="4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epsip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrvvn"]
+albedo_texture = ExtResource("2")
+uv1_scale = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_45onm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjr3t"]
+albedo_texture = ExtResource("4")
+uv1_scale = Vector3(2, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6rhx"]
+size = Vector3(1.01, 0.99, 1.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cylgf"]
+albedo_texture = ExtResource("3")
+uv1_scale = Vector3(4, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8jnqu"]
+size = Vector3(1, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kqjl"]
+albedo_texture = ExtResource("3")
+uv1_scale = Vector3(4, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7ldo"]
+size = Vector3(1, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mud1r"]
+albedo_texture = ExtResource("3")
+uv1_scale = Vector3(4, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fdv7y"]
+size = Vector3(1, 0.2, 0.2)
+
+[node name="BorderMesh" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 1025
+script = ExtResource("1")
+borderTexture = ExtResource("3")
+mainTexture = ExtResource("2")
+secondaryTexture = ExtResource("4")
+size = Vector3(1, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_epsip")
+
+[node name="MainMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jrvvn")
+mesh = SubResource("BoxMesh_45onm")
+
+[node name="SecondaryMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gjr3t")
+mesh = SubResource("BoxMesh_f6rhx")
+
+[node name="BorderMeshes" type="Marker3D" parent="."]
+
+[node name="@MeshInstance3D@48736" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, 0.41)
+material_override = SubResource("StandardMaterial3D_cylgf")
+mesh = SubResource("BoxMesh_8jnqu")
+
+[node name="@MeshInstance3D@48737" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41, -0.41)
+material_override = SubResource("StandardMaterial3D_cylgf")
+mesh = SubResource("BoxMesh_8jnqu")
+
+[node name="@MeshInstance3D@48738" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41, 0.41)
+material_override = SubResource("StandardMaterial3D_cylgf")
+mesh = SubResource("BoxMesh_8jnqu")
+
+[node name="@MeshInstance3D@48739" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41, -0.41)
+material_override = SubResource("StandardMaterial3D_cylgf")
+mesh = SubResource("BoxMesh_8jnqu")
+
+[node name="@MeshInstance3D@48740" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.415, 0, 0.415)
+material_override = SubResource("StandardMaterial3D_6kqjl")
+mesh = SubResource("BoxMesh_a7ldo")
+
+[node name="@MeshInstance3D@48741" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.415, 0, -0.415)
+material_override = SubResource("StandardMaterial3D_6kqjl")
+mesh = SubResource("BoxMesh_a7ldo")
+
+[node name="@MeshInstance3D@48742" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.415, 0, 0.415)
+material_override = SubResource("StandardMaterial3D_6kqjl")
+mesh = SubResource("BoxMesh_a7ldo")
+
+[node name="@MeshInstance3D@48743" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.415, 0, -0.415)
+material_override = SubResource("StandardMaterial3D_6kqjl")
+mesh = SubResource("BoxMesh_a7ldo")
+
+[node name="@MeshInstance3D@48744" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.42, 0.42, 0)
+material_override = SubResource("StandardMaterial3D_mud1r")
+mesh = SubResource("BoxMesh_fdv7y")
+
+[node name="@MeshInstance3D@48745" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.42, -0.42, 0)
+material_override = SubResource("StandardMaterial3D_mud1r")
+mesh = SubResource("BoxMesh_fdv7y")
+
+[node name="@MeshInstance3D@48746" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.42, 0.42, 0)
+material_override = SubResource("StandardMaterial3D_mud1r")
+mesh = SubResource("BoxMesh_fdv7y")
+
+[node name="@MeshInstance3D@48747" type="MeshInstance3D" parent="BorderMeshes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.42, -0.42, 0)
+material_override = SubResource("StandardMaterial3D_mud1r")
+mesh = SubResource("BoxMesh_fdv7y")

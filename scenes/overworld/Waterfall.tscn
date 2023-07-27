@@ -1,0 +1,123 @@
+[gd_scene load_steps=19 format=3 uid="uid://bxsxj2wuxccfx"]
+
+[ext_resource type="Texture2D" uid="uid://brmddt4y51ctb" path="res://textures/waterfall.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b5jeoqgfcyag3" path="res://textures/blocks/brickblock.png" id="4_wv5dy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lld4r"]
+height = 12.0
+
+[sub_resource type="Gradient" id="4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="5"]
+gradient = SubResource("4")
+
+[sub_resource type="Curve" id="6"]
+_data = [Vector2(0, 0.318182), 0.0, 0.0, 0, 0, Vector2(1, 0.772727), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="7"]
+curve = SubResource("6")
+
+[sub_resource type="ParticleProcessMaterial" id="8"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("7")
+color_ramp = SubResource("5")
+
+[sub_resource type="Shader" id="9"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled;
+ 
+uniform sampler2D dissolve_tex : hint_default_white;
+uniform vec4 front_color : source_color;
+uniform vec4 back_color : source_color;
+ 
+void fragment()
+{
+	float a = COLOR.r - texture(dissolve_tex, UV).x;
+	ALPHA_SCISSOR_THRESHOLD = 0.01;
+	ALPHA = step(0.0, a);
+	ALBEDO = front_color.rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id="10"]
+render_priority = 0
+shader = SubResource("9")
+shader_parameter/front_color = Color(1, 1, 1, 1)
+shader_parameter/back_color = null
+shader_parameter/dissolve_tex = ExtResource("2")
+
+[sub_resource type="SphereMesh" id="11"]
+material = SubResource("10")
+radial_segments = 16
+rings = 16
+
+[sub_resource type="ParticleProcessMaterial" id="15"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(1, 0, 1)
+spread = 180.0
+gravity = Vector3(0, -5, 0)
+color = Color(0.188235, 0.309804, 0.678431, 0.14902)
+
+[sub_resource type="StandardMaterial3D" id="16"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="17"]
+material = SubResource("16")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdh2c"]
+albedo_texture = ExtResource("4_wv5dy")
+uv1_scale = Vector3(4, 2, 16)
+
+[sub_resource type="CylinderMesh" id="12"]
+material = SubResource("StandardMaterial3D_fdh2c")
+top_radius = 0.6
+bottom_radius = 0.6
+
+[sub_resource type="CylinderMesh" id="14"]
+material = SubResource("StandardMaterial3D_fdh2c")
+top_radius = 0.001
+bottom_radius = 0.6
+height = 1.0
+
+[node name="Waterfall" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.10663, 2.14632, -1.70125)
+mesh = SubResource("CylinderMesh_lld4r")
+
+[node name="CollisionParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -5.98083, -0.0259163)
+amount = 40
+speed_scale = 2.0
+visibility_aabb = AABB(-4.25, -4, -4, 8, 8, 8)
+process_material = SubResource("8")
+draw_pass_1 = SubResource("11")
+
+[node name="WaterParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96043, 0)
+amount = 128
+lifetime = 4.0
+speed_scale = 2.0
+visibility_aabb = AABB(-0.9618, -6.03429, -1.31937, 1.9236, 12.0686, 2.63875)
+process_material = SubResource("15")
+draw_pass_1 = SubResource("17")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.63324, 0)
+mesh = SubResource("12")
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.12911, 0)
+mesh = SubResource("14")

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://bsllwvtyjnqfo"]
+
+[ext_resource type="Script" path="res://stats/herostats/herostats.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://vl86ebo8mlug" path="res://textures/goombario/_frames.tres" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/goombario/headbonk.tres" id="3"]
+[ext_resource type="Resource" path="res://stats/heroattack/goombario/tattle.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://c3l0hmg11l5bm" path="res://textures/goombario/icon.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c8uuw8jh3f7d3" path="res://textures/goombario/particles.png" id="6"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6")
+
+[sub_resource type="QuadMesh" id="2"]
+material = SubResource("1")
+size = Vector2(0.6, 0.6)
+
+[resource]
+script = ExtResource("1")
+frames_texture = ExtResource("2")
+jump_particles = SubResource("2")
+name = "Goombario"
+max_hp = 10
+attacks = [ExtResource("3"), ExtResource("4")]
+icon = ExtResource("5")

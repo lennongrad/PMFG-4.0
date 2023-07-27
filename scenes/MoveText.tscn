@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw0eqsy6ft8ja"]
+
+[ext_resource type="Texture2D" uid="uid://bc3nx4uhworxs" path="res://sprites/other/shine.png" id="1"]
+[ext_resource type="Script" path="res://scripts/MoveText.gd" id="2"]
+
+[node name="MoveText" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.9361
+offset_top = -20.9361
+offset_right = -980.936
+offset_bottom = -576.936
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(20.0186, 21.6362)
+texture = ExtResource("1")
+script = ExtResource("2")

@@ -1,0 +1,131 @@
+[gd_scene load_steps=20 format=3 uid="uid://doj4y83s7f3hh"]
+
+[ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bux3h2n5fu7ot" path="res://particles/fire_01.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://b1ymhre0xmjuu" path="res://particles/smoke_03.png" id="3"]
+[ext_resource type="Script" path="res://scenes/overworld/Torch.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="5"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+albedo_texture = ExtResource("1")
+uv1_scale = Vector3(4, 1, 2)
+uv1_offset = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="2"]
+material = SubResource("1")
+size = Vector3(0.8, 0.2, 0.4)
+
+[sub_resource type="Curve" id="3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.512987, 0.831579), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="4"]
+curve = SubResource("3")
+
+[sub_resource type="ParticleProcessMaterial" id="5"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.4
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("4")
+color = Color(0.792157, 0.639216, 0.176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="6"]
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="7"]
+material = SubResource("6")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="8"]
+offsets = PackedFloat32Array(0, 0.602094, 1)
+colors = PackedColorArray(0.176471, 0.176471, 0.176471, 0, 0.455078, 0.455078, 0.455078, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="9"]
+gradient = SubResource("8")
+
+[sub_resource type="ParticleProcessMaterial" id="10"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 0.0
+gravity = Vector3(0, 6, 0)
+scale_curve = SubResource("4")
+color_ramp = SubResource("9")
+
+[sub_resource type="StandardMaterial3D" id="11"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="12"]
+material = SubResource("11")
+
+[sub_resource type="StandardMaterial3D" id="13"]
+albedo_texture = ExtResource("5")
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="QuadMesh" id="14"]
+material = SubResource("13")
+size = Vector2(7, 7)
+
+[node name="Torch" type="MeshInstance3D"]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -1.35194, 1.20012, 0)
+mesh = SubResource("2")
+script = ExtResource("4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0352949, 0.47094, 0.21167)
+light_color = Color(0.627451, 0.294118, 0.0705882, 1)
+light_energy = 2.5
+light_indirect_energy = 1.5
+light_specular = 0.52
+shadow_enabled = true
+omni_attenuation = 2.0
+
+[node name="OmniLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0352949, 0.47094, 0.335024)
+light_color = Color(0.64, 0.336, 0.16, 1)
+light_energy = 2.2
+light_indirect_energy = 2.98
+light_specular = 0.52
+shadow_enabled = true
+omni_range = 1.1
+omni_attenuation = 0.5
+
+[node name="Flame" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.390002, 0)
+amount = 64
+visibility_aabb = AABB(-1, 0, -1, 2, 2, 2)
+process_material = SubResource("5")
+draw_pass_1 = SubResource("7")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0156989, 0.208556, 0.0315647)
+amount = 32
+lifetime = 0.6
+speed_scale = 0.2
+explosiveness = 0.05
+visibility_aabb = AABB(-1, 0, -1, 2, 2, 2)
+process_material = SubResource("10")
+draw_pass_1 = SubResource("12")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.191629)
+visible = false
+mesh = SubResource("14")

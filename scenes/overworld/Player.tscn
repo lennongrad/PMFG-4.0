@@ -1,0 +1,459 @@
+[gd_scene load_steps=61 format=3 uid="uid://ds1tf2gdnpfne"]
+
+[ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="1"]
+[ext_resource type="Script" path="res://scripts/overworld/Player.gd" id="2"]
+[ext_resource type="SpriteFrames" path="res://textures/hammer_basic/frames.tres" id="3"]
+[ext_resource type="Script" path="res://scripts/overworld/WaterParticles.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="5"]
+[ext_resource type="Script" path="res://scripts/overworld/HammerArea.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://c8vwhk3euf7md" path="res://particles/DustUp.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://4rlgpuow6f6" path="res://scenes/overworld/ItemGet.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://gl6flrha6303" path="res://particles/smoke_bright.png" id="9"]
+[ext_resource type="Script" path="res://scenes/overworld/ShakeCamera.gd" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="11"]
+[ext_resource type="Texture2D" uid="uid://h8oo4exwoa73" path="res://particles/star_06.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://chrwhnjtqyfyc" path="res://particles/circle_01.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://bycxt4bc2o1gp" path="res://textures/ui/controlstick.png" id="15"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("15")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("15")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Curve" id="4"]
+max_value = 20.0
+_data = [Vector2(0, 9.90909), 0.0, 0.0, 0, 0, Vector2(0.577922, 18.7368), 0.0, 0.0, 0, 0, Vector2(0.971963, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="5"]
+width = 4096
+curve = SubResource("4")
+
+[sub_resource type="ParticleProcessMaterial" id="6"]
+gravity = Vector3(0, 0, 0)
+scale_max = 4.0
+scale_curve = SubResource("5")
+
+[sub_resource type="StandardMaterial3D" id="7"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("9")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="QuadMesh" id="8"]
+material = SubResource("7")
+size = Vector2(0.01, 0.01)
+
+[sub_resource type="Curve" id="9"]
+_data = [Vector2(0, 0.936364), 0.0, 0.0, 0, 0, Vector2(1, 0.372727), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="10"]
+curve = SubResource("9")
+
+[sub_resource type="ParticleProcessMaterial" id="11"]
+direction = Vector3(1, 0, 1)
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_max = 2.0
+scale_curve = SubResource("10")
+color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="StandardMaterial3D" id="12"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.584314, 0.584314, 0.584314, 1)
+albedo_texture = ExtResource("7")
+billboard_mode = 3
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="13"]
+material = SubResource("12")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="Gradient" id="14"]
+offsets = PackedFloat32Array(0, 0.54375, 1)
+colors = PackedColorArray(0.0705882, 0.0705882, 0.0705882, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="15"]
+gradient = SubResource("14")
+
+[sub_resource type="CurveTexture" id="16"]
+width = 4096
+curve = SubResource("4")
+
+[sub_resource type="ParticleProcessMaterial" id="17"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.4
+scale_curve = SubResource("16")
+color_ramp = SubResource("15")
+
+[sub_resource type="QuadMesh" id="18"]
+material = SubResource("7")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Curve" id="19"]
+_data = [Vector2(0, 0.106818), 0.0, 0.0, 0, 0, Vector2(0.5, 0.352273), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="20"]
+curve = SubResource("19")
+
+[sub_resource type="ParticleProcessMaterial" id="21"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+flatness = 0.47
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_curve = SubResource("20")
+color = Color(0.223529, 0.223529, 0.223529, 0.372549)
+
+[sub_resource type="StandardMaterial3D" id="22"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="23"]
+material = SubResource("22")
+
+[sub_resource type="Gradient" id="24"]
+offsets = PackedFloat32Array(0, 0.369697, 0.836364, 0.878788)
+colors = PackedColorArray(1, 1, 1, 0.560784, 1, 1, 1, 0.0431373, 1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="25"]
+gradient = SubResource("24")
+
+[sub_resource type="Curve" id="26"]
+_data = [Vector2(0, 0.0693182), 0.0, 0.705929, 0, 0, Vector2(0.989362, 0.969318), -0.142424, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="27"]
+curve = SubResource("26")
+
+[sub_resource type="ParticleProcessMaterial" id="28"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("27")
+color_ramp = SubResource("25")
+
+[sub_resource type="StandardMaterial3D" id="29"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("13")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="30"]
+material = SubResource("29")
+
+[sub_resource type="Curve" id="31"]
+_data = [Vector2(0, 0.179545), 0.0, 0.0, 0, 0, Vector2(0.5, 0.525), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="32"]
+curve = SubResource("31")
+
+[sub_resource type="ParticleProcessMaterial" id="33"]
+direction = Vector3(0, 4, 0)
+spread = 37.06
+flatness = 0.63
+gravity = Vector3(0, -3, 0)
+scale_min = 0.4
+scale_max = 0.8
+scale_curve = SubResource("32")
+color = Color(0.901961, 1, 0.239216, 0.368627)
+
+[sub_resource type="StandardMaterial3D" id="34"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("12")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="35"]
+material = SubResource("34")
+
+[sub_resource type="Shader" id="36"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,unshaded;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color;
+uniform float specular;
+uniform float metallic;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	//MODELVIEW_MATRIX = INV_CAMERA_MATRIX * mat4(CAMERA_MATRIX[0],CAMERA_MATRIX[1],CAMERA_MATRIX[2],WORLD_MATRIX[3]);
+}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv - TIME * .5);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	METALLIC = metallic;
+	ROUGHNESS = roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="37"]
+render_priority = 0
+shader = SubResource("36")
+shader_parameter/albedo = Color(0.65098, 0.65098, 0.65098, 1)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/point_size = 1.0
+shader_parameter/uv1_scale = Vector3(64, 64, 32)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("14")
+
+[sub_resource type="QuadMesh" id="38"]
+material = SubResource("37")
+size = Vector2(16, 16)
+
+[sub_resource type="StandardMaterial3D" id="39"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.192157)
+
+[sub_resource type="QuadMesh" id="40"]
+material = SubResource("39")
+size = Vector2(16, 16)
+
+[sub_resource type="QuadMesh" id="41"]
+material = SubResource("39")
+size = Vector2(16, 8)
+
+[sub_resource type="CylinderMesh" id="42"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.01
+
+[sub_resource type="CylinderShape3D" id="44"]
+height = 0.535089
+radius = 0.19193
+
+[sub_resource type="CylinderShape3D" id="45"]
+height = 0.1
+radius = 0.176023
+
+[sub_resource type="BoxShape3D" id="46"]
+size = Vector3(0.316921, 0.330269, 0.135207)
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 6
+script = ExtResource("2")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.376, 0)
+layers = 1025
+cast_shadow = 0
+modulate = Color(1, 0.843137, 0.843137, 1)
+pixel_size = 0.0117
+alpha_cut = 1
+sprite_frames = ExtResource("1")
+animation = &"BattleFall"
+
+[node name="CameraClose" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.991218, 0.132239, 0, -0.132239, 0.991218, 0.0242862, 0.507654, 1.42752)
+script = ExtResource("10")
+
+[node name="CameraFar" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.975281, 0.22097, 0, -0.22097, 0.975281, 0, 1.1599, 2.43805)
+script = ExtResource("10")
+
+[node name="StickDown" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.975281, 0.22097, 0, -0.22097, 0.975281, 0, 0.735926, 0)
+modulate = Color(1, 1, 1, 0)
+sprite_frames = SubResource("3")
+frame = 1
+
+[node name="SpinDashParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142991, 0.0611513, 0)
+emitting = false
+amount = 6
+speed_scale = 4.0
+randomness = 0.13
+transform_align = 1
+process_material = SubResource("6")
+draw_pass_1 = SubResource("8")
+
+[node name="FallParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115538, 0.0248793, 0)
+emitting = false
+amount = 128
+lifetime = 0.48
+speed_scale = 2.0
+process_material = SubResource("11")
+draw_pass_1 = SubResource("13")
+
+[node name="WallJumpParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157652, 0.332608, 0)
+emitting = false
+amount = 16
+lifetime = 2.0
+speed_scale = 4.0
+randomness = 0.13
+process_material = SubResource("17")
+draw_pass_1 = SubResource("18")
+
+[node name="WaterParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 32
+speed_scale = 2.0
+process_material = SubResource("21")
+draw_pass_1 = SubResource("23")
+script = ExtResource("4")
+
+[node name="Circles" type="GPUParticles3D" parent="WaterParticles"]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0.0100566, 0.0906274, -0.0696199)
+emitting = false
+amount = 60
+lifetime = 1.36
+speed_scale = 0.75
+process_material = SubResource("28")
+draw_pass_1 = SubResource("30")
+
+[node name="CoinParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.295979, 0.00448245)
+emitting = false
+amount = 64
+lifetime = 0.5
+speed_scale = 2.0
+process_material = SubResource("33")
+draw_pass_1 = SubResource("35")
+script = ExtResource("4")
+
+[node name="Checkers" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.57932)
+visible = false
+layers = 1024
+cast_shadow = 0
+mesh = SubResource("38")
+
+[node name="Checkers2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 0, -0.402968)
+visible = false
+layers = 1024
+cast_shadow = 0
+mesh = SubResource("40")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Checkers2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.373039, 0.662556)
+layers = 1024
+light_color = Color(0.737255, 0.737255, 0.737255, 1)
+light_cull_mask = 4294967294
+shadow_enabled = true
+shadow_bias = 0.17
+
+[node name="Checkers3" type="MeshInstance3D" parent="Checkers2"]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 3.106, 4)
+layers = 1024
+cast_shadow = 0
+mesh = SubResource("41")
+
+[node name="Hammer" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.116554, 0.232203, -0.04)
+alpha_cut = 1
+sprite_frames = ExtResource("3")
+animation = &"Diag"
+
+[node name="Shadow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19043, 0.000731379)
+cast_shadow = 3
+mesh = SubResource("42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.298556, 0)
+shape = SubResource("44")
+
+[node name="HurtParticles" parent="." instance=ExtResource("11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0780494, -0.151995)
+
+[node name="NormalArea" type="Area3D" parent="."]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NormalArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.283422, 0)
+shape = SubResource("44")
+
+[node name="JumpArea" type="Area3D" parent="."]
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="JumpArea"]
+shape = SubResource("45")
+
+[node name="HammerArea" type="Area3D" parent="."]
+script = ExtResource("6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HammerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.420226, 0.289428, 0)
+shape = SubResource("46")
+disabled = true
+
+[node name="Particles" type="GPUParticles3D" parent="HammerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375538, 0.104634, 0)
+emitting = false
+amount = 128
+lifetime = 0.48
+speed_scale = 2.0
+process_material = SubResource("11")
+draw_pass_1 = SubResource("13")
+
+[node name="ItemGet" parent="." instance=ExtResource("8")]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="HammerArea" to="." method="_on_HammerArea_body_entered"]

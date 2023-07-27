@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://c71qr4iswnv5h"]
+
+[ext_resource type="Texture2D" uid="uid://dpi0q5sw734l3" path="res://sprites/UI/star.png" id="1"]
+[ext_resource type="Script" path="res://scripts/CutoutTransition.gd" id="3"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+uniform float TimerValue;
+uniform sampler2D TextureUniform;
+uniform sampler2D TextureUniform2;
+
+vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
+    float sine = sin(rotation);
+    float cosine = cos(rotation);
+
+    vec2 uve = uv - pivot;
+	uv -= pivot;
+    uv.x = uve.x * cosine - uve.y * sine;
+    uv.y = uve.x * sine + uve.y * cosine;
+    uv += pivot;
+	
+    return uv;
+}
+
+void vertex() {
+// Output:0
+
+}
+
+float getAlpha(float time, vec2 UVe) {
+	vec2 basis = vec2(.5, .5);
+	vec2 rotated = rotateUV(UVe, basis, time * 4.0);
+	vec2 scaledByTime = (vec2(rotated) - basis) * vec2(pow(time, 4)) + basis;
+
+	float starAlpha = texture(TextureUniform, scaledByTime.xy).a;
+	return starAlpha;
+}
+
+void fragment() {
+	float time = TimerValue + .1;
+	//float time = abs(cos(TIME / 2.0)) * 1.5;
+	
+	float repetitions = 5.0;
+	float alphaTotal = 0.0;
+	float alphaCount = 0.0;
+	for(float i = 0.0; i < repetitions; i++){
+		float currentAlpha = getAlpha(time * (1.0 - i * .02), UV);
+		if(currentAlpha <= 1.0 && currentAlpha >= 0.0){
+			alphaTotal += currentAlpha - i * .1;
+			alphaCount += 1.0;
+		}
+	}
+	alphaTotal /= alphaCount;
+	alphaTotal -= max(0, (time - 1.1) * 1.5);
+
+	COLOR.rgb = vec3(0.0);//rgb;
+	COLOR.a = max(0, .75 - alphaTotal);
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+shader_parameter/TimerValue = 0.0
+shader_parameter/TextureUniform = ExtResource("1")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("2")
+layout_mode = 0
+anchor_top = -0.333
+anchor_right = 1.0
+anchor_bottom = 1.333
+offset_top = -0.200012
+offset_right = 6.10352e-05
+offset_bottom = 0.200012

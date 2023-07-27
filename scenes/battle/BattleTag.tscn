@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/UI/enemyhp.png" type="Texture2D" id=1]
+[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=2]
+[ext_resource path="res://sprites/other/heart.png" type="Texture2D" id=3]
+[ext_resource path="res://sprites/other/HP.png" type="Texture2D" id=4]
+[ext_resource path="res://sprites/UI/enemyhp_progress.png" type="Texture2D" id=5]
+[ext_resource path="res://scripts/battle/BattleTag.gd" type="Script" id=6]
+[ext_resource path="res://sprites/UI/enemyhp_over.png" type="Texture2D" id=7]
+
+[sub_resource type="FontFile" id=1]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="BattleTag" type="Control"]
+modulate = Color( 1, 1, 1, 7.23701e-09 )
+anchor_left = -0.005
+anchor_right = 0.005
+offset_left = 5.0
+offset_right = 72.0
+offset_bottom = 19.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+show_text = false
+hp = 5
+
+[node name="ProgressUnder" type="TextureProgressBar" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 10.0
+offset_bottom = 24.0
+value = 10.0
+texture_under = ExtResource( 1 )
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+anchor_left = 0.169
+anchor_top = 1.368
+anchor_right = 1.104
+anchor_bottom = 2.158
+offset_left = -0.0130014
+offset_top = 0.00799942
+offset_right = -0.00801086
+offset_bottom = -0.0019989
+max_value = 5.0
+texture_progress = ExtResource( 5 )
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressOver" type="TextureProgressBar" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 10.0
+offset_bottom = 24.0
+value = 10.0
+texture_over = ExtResource( 7 )
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0619
+offset_top = 6.42047
+offset_right = 3.9381
+offset_bottom = 23.4205
+theme_override_fonts/font = SubResource( 1 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPIcon" type="TextureRect" parent="."]
+anchor_left = 0.083
+anchor_top = 0.632
+anchor_right = 0.346
+anchor_bottom = 1.316
+offset_left = 6.024
+offset_top = -0.00800037
+offset_right = 7.088
+offset_bottom = -0.00400162
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartIcon" type="TextureRect" parent="."]
+anchor_left = 0.231
+anchor_top = 0.462
+anchor_right = 0.6
+anchor_bottom = 1.304
+offset_left = 16.5743
+offset_top = -0.00693893
+offset_right = 6.00631
+offset_bottom = -0.00494003
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

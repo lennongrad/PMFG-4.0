@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bpy751feweb4f"
+path="res://.godot/imported/checker.png-50ad2371bb5f438b4662066793cd36c0.image"
+
+[deps]
+
+source_file="res://sprites/UI/checker.png"
+dest_files=["res://.godot/imported/checker.png-50ad2371bb5f438b4662066793cd36c0.image"]
+
+[params]
+

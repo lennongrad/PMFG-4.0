@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=2]
+
+[ext_resource path="res://textures/hammer_basic/slam.png" type="Texture2D" id=4]
+[ext_resource path="res://textures/hammer_basic/hold.png" type="Texture2D" id=8]
+[ext_resource path="res://textures/hammer_basic/diagblur.png" type="Texture2D" id=9]
+[ext_resource path="res://textures/hammer_basic/diaghold.png" type="Texture2D" id=11]
+[ext_resource path="res://textures/hammer_basic/sideways.png" type="Texture2D" id=12]
+[ext_resource path="res://textures/hammer_basic/diag.png" type="Texture2D" id=15]
+[ext_resource path="res://textures/hammer_basic/sidewaysblur.png" type="Texture2D" id=16]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "SidewaysBlur",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Slam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Sideways",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Hold",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Diag",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "DiagHold",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "DiagBlur",
+"speed": 5.0
+} ]

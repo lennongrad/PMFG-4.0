@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://cnne0bihla83e"]
+
+[ext_resource type="SpriteFrames" uid="uid://cocdgwdhamcr7" path="res://sprites/mario/_frames.tres" id="1"]
+[ext_resource type="Resource" path="res://stats/heroattack/hammer/basic.tres" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/jump/basic.tres" id="3"]
+[ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="4"]
+[ext_resource type="Script" path="res://stats/herostats/herostats.gd" id="5"]
+
+[sub_resource type="CompressedTexture2D" id="1"]
+
+[sub_resource type="CompressedTexture2D" id="2"]
+
+[sub_resource type="StandardMaterial3D" id="3"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("2")
+
+[sub_resource type="QuadMesh" id="4"]
+material = SubResource("3")
+size = Vector2(0.6, 0.6)
+
+[resource]
+script = ExtResource("5")
+frames_texture = ExtResource("4")
+frames_sprite = ExtResource("1")
+jump_particles = SubResource("4")
+name = "Mario"
+max_hp = 15
+attacks = [ExtResource("2"), ExtResource("3")]
+icon = SubResource("1")

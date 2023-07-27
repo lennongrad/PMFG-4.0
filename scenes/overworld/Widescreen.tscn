@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Letterbox.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Widescreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.11
+offset_bottom = -7.62939e-06
+theme_override_styles/panel = SubResource( 1 )
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_top = 0.89
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

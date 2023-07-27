@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
+[ext_resource path="res://textures/items/mushroom.png" type="Texture2D" id=2]
+[ext_resource path="res://stats/heroattack/items/_battlechoice.tres" type="Resource" id=3]
+[ext_resource path="res://sprites/items/mushroom.png" type="Texture2D" id=4]
+[ext_resource path="res://sprites/items/mushroom_gray.png" type="Texture2D" id=5]
+
+[resource]
+script = ExtResource( 1 )
+choice = ExtResource( 3 )
+icon = ExtResource( 4 )
+icon_texture = ExtResource( 2 )
+icon_gray = ExtResource( 5 )
+name = "Super Mushroom"
+description = "Super"
+steps = [ "walkto", "eat", "walkback" ]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = false
+firstStrike = false
+attributes = {
+"hp": 4
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
+[ext_resource path="res://sprites/tactics/partner_blue.png" type="Texture2D" id=2]
+[ext_resource path="res://stats/heroattack/goombario/_battlechoice.tres" type="Resource" id=3]
+[ext_resource path="res://sprites/tactics/partner_blue_gray.png" type="Texture2D" id=4]
+
+[resource]
+script = ExtResource( 1 )
+choice = ExtResource( 3 )
+icon = ExtResource( 2 )
+icon_gray = ExtResource( 4 )
+name = "Tattle"
+description = ""
+steps = [ "walkto", "tattle", "walkback" ]
+walkto_distance = 0.95
+fp_cost = 0
+skipEnemySelection = false
+firstStrike = false
+attributes = {
+
+}

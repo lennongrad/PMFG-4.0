@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://sprites/badges/multibounce.png" type="Texture2D" id=1]
+[ext_resource path="res://stats/badges/badge.gd" type="Script" id=2]
+[ext_resource path="res://stats/heroattack/jump/multibounce.tres" type="Resource" id=3]
+[ext_resource path="res://textures/badges/multibounce.png" type="Texture2D" id=4]
+
+[resource]
+script = ExtResource( 2 )
+icon = ExtResource( 1 )
+icon_texture = ExtResource( 4 )
+bp = 2
+name = "Multibounce"
+description = "Adds a new jump attack."
+attack = ExtResource( 3 )
+attributes = {
+
+}

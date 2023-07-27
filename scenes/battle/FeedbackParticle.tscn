@@ -1,0 +1,115 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://textures/ui/miss.png" type="Texture2D" id=1]
+[ext_resource path="res://textures/ui/nice.png" type="Texture2D" id=2]
+[ext_resource path="res://textures/ui/good.png" type="Texture2D" id=3]
+[ext_resource path="res://FeedbackParticle.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PackedFloat32Array( 0, 0.642424, 0.842424 )
+colors = PackedColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.0204545 ), 0.0, 0.0, 0, 0, Vector2( 0.345745, 0.875 ), -0.0234122, -0.0234122, 0, 0, Vector2( 0.680851, 0.956818 ), -0.0949496, -0.0949496, 0, 0, Vector2( 1, 0.0295454 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PackedFloat32Array( 0, 0.969697, 1 )
+colors = PackedColorArray( 0.868852, 0.868852, 0.868852, 0.131148, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.0159574, 0.877273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticleProcessMaterial" id=9]
+trail_size_modifier = SubResource( 8 )
+trail_color_modifier = SubResource( 6 )
+spread = 0.0
+gravity = Vector3( 0, 0.5, 0 )
+initial_velocity = 1.1
+damping = 1.0
+damping_random = 0.11
+angle_random = 1.0
+scale = 0.75
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="StandardMaterial3D" id=10]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_depth_draw_mode = 3
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
+
+[sub_resource type="StandardMaterial3D" id=12]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_depth_draw_mode = 3
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=13]
+material = SubResource( 12 )
+
+[sub_resource type="StandardMaterial3D" id=14]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_depth_draw_mode = 3
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=15]
+material = SubResource( 14 )
+
+[node name="FeedbackParticle" type="Node3D"]
+script = ExtResource( 4 )
+
+[node name="Nice" type="Particles" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11225 )
+emitting = false
+amount = 64
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="Miss" type="Particles" parent="."]
+emitting = false
+amount = 64
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 13 )
+
+[node name="Good" type="Particles" parent="."]
+emitting = false
+amount = 64
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 15 )

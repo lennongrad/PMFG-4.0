@@ -1,0 +1,164 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://textures/blocks/UsedYellow.tres" type="QuadMesh" id=1]
+[ext_resource path="res://scripts/overworld/QuestionBlockInternal.gd" type="Script" id=2]
+[ext_resource path="res://textures/blocks/QBlockYellow.tres" type="QuadMesh" id=3]
+[ext_resource path="res://particles/DustUp.png" type="Texture2D" id=4]
+[ext_resource path="res://scripts/overworld/QuestionBlockExternal.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape3D" id=1]
+size = Vector3( 0.15, 0.15, 0.15 )
+
+[sub_resource type="BoxShape3D" id=2]
+size = Vector3( 0.15, 0.0920016, 0.15 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.936364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.372727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticleProcessMaterial" id=5]
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.5
+initial_velocity_random = 1.0
+angle = 110.7
+angle_random = 1.0
+scale = 1.01
+scale_curve = SubResource( 4 )
+anim_speed = 1.0
+
+[sub_resource type="StandardMaterial3D" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.584314, 0.584314, 0.584314, 1 )
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 0.2, 0.2 )
+
+[sub_resource type="StandardMaterial3D" id=9]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.6 )
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 9 )
+
+[node name="QuestionBlock" type="Node3D"]
+script = ExtResource( 5 )
+distance = 0.9
+
+[node name="QuestionBlock" type="StaticBody3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0 )
+collision_layer = 5
+script = ExtResource( 2 )
+translation_y = 1.05
+coin_count = 5
+
+[node name="Top" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.15, 0 )
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Block1" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( -4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, 0.151, 0, 0 )
+visible = false
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Block2" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( -4.37114e-08, -4.37114e-08, 1, -1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, -0.15, 0, 0 )
+visible = false
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Block3" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, -4.37114e-08, 4.37114e-08, 8.74228e-08, -1, 0, 0, -0.15 )
+visible = false
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Block4" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, -4.37114e-08, 4.37114e-08, 8.74228e-08, -1, 0, 0, 0.15 )
+visible = false
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Bottom" type="MeshInstance3D" parent="QuestionBlock"]
+transform = Transform3D( -1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, -0.15, 0 )
+cast_shadow = 0
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QuestionBlock"]
+shape = SubResource( 1 )
+
+[node name="Area3D" type="Area3D" parent="QuestionBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="QuestionBlock/Area3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0747777, 0 )
+shape = SubResource( 2 )
+
+[node name="Face1" type="Node3D" parent="QuestionBlock"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0.15 )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionBlock/Face1"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
+cast_shadow = 0
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Face2" type="Node3D" parent="QuestionBlock"]
+transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.15, -0.15, 0 )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionBlock/Face2"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87863e-11, 0.15, -0.000429779 )
+cast_shadow = 0
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Face3" type="Node3D" parent="QuestionBlock"]
+transform = Transform3D( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.15, -0.15 )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionBlock/Face3"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
+cast_shadow = 0
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Face4" type="Node3D" parent="QuestionBlock"]
+transform = Transform3D( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, -0.15, -0.15, 0 )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="QuestionBlock/Face4"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0 )
+cast_shadow = 0
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Particles" type="Particles" parent="QuestionBlock"]
+transform = Transform3D( 2.65431e-14, 1.62921e-07, -1, 1, -1.62921e-07, 0, -1.62921e-07, -1, -1.62921e-07, 0, 0.175504, 0 )
+emitting = false
+amount = 64
+lifetime = 0.4
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Shadow" type="MeshInstance3D" parent="."]
+transform = Transform3D( 0.552674, 0, 0, 0, -4.37114e-08, 1, 0, -0.566852, -2.47779e-08, 0, 0.00141215, 0 )
+cast_shadow = 0
+mesh = SubResource( 8 )
+material/0 = null
+[connection signal="area_entered" from="QuestionBlock/Area3D" to="QuestionBlock" method="_on_Area_area_entered"]
+[connection signal="body_entered" from="QuestionBlock/Area3D" to="QuestionBlock" method="_on_Area_body_entered"]

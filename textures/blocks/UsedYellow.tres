@@ -1,0 +1,12 @@
+[gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://drnt5sx26pqjp"]
+
+[ext_resource type="Texture2D" uid="uid://h07enm5d1axe" path="res://textures/blocks/usedblock.png" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="1"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1")
+
+[resource]
+material = SubResource("1")
+size = Vector2(0.3, 0.3)

@@ -1,0 +1,157 @@
+[gd_scene load_steps=5 format=3 uid="uid://crtvt0pyfebxg"]
+
+[ext_resource type="SpriteFrames" uid="uid://vl86ebo8mlug" path="res://textures/goombario/_frames.tres" id="1"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends CharacterBody3D
+
+# constants
+@export var speed: float = 2.5
+@export var gravity: float = 15
+@export var jump_power: float = 5
+
+var player
+
+var target = Vector3.ZERO
+var spriteRotation = 0
+var timeSinceRest = 0
+var timeSinceWalk = 0
+var last_time_was_grounded = true
+var jump_attempts = 0
+var lastTarget = Vector3.ZERO
+var paused = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func _physics_process(delta):
+	if paused:
+		return
+	var shouldSnap = true
+	
+	if is_on_floor():
+		last_time_was_grounded = true
+		
+		if not is_on_wall():
+			jump_attempts = 0
+	else:
+		if last_time_was_grounded and target.y > position.y:
+			velocity.y += jump_power
+		last_time_was_grounded = false
+		
+	if is_on_wall() and is_on_floor():
+		if jump_attempts < 3:
+			jump_attempts += 1
+		velocity.y += jump_power * jump_attempts * .333
+		shouldSnap = false
+		last_time_was_grounded = false
+	
+	var goalDirection = Vector2(target.x, target.z) - Vector2(global_transform.origin.x, global_transform.origin.z)
+	if timeSinceRest > 300 or position.y < -1:
+		position = target
+		position.y += .1
+	if goalDirection.length() > 0.15 or (spriteRotation != 0 and spriteRotation != 180):
+		timeSinceWalk = 0
+		if goalDirection.length() > 1.5:
+			goalDirection = goalDirection.normalized() * speed * 2
+		else:
+			goalDirection = goalDirection.normalized() * speed
+		velocity = Vector3(goalDirection.x, velocity.y, goalDirection.y)
+			
+		goalDirection = goalDirection.rotated(deg_to_rad(rotation_degrees.y))
+		$AnimatedSprite3D.play(\"Walk\")
+		if goalDirection.x > -0.01:
+			if spriteRotation < 180:
+				spriteRotation = min(180, spriteRotation + delta * 2000)
+		elif goalDirection.x < 0.01:
+			if spriteRotation > 0:
+				spriteRotation = max(0, spriteRotation - delta * 2000)
+		timeSinceRest += 1
+	else:
+		velocity.x = 0
+		velocity.z = 0
+		timeSinceRest = 0
+		timeSinceWalk += 1
+		if timeSinceWalk > 10:
+			$AnimatedSprite3D.play(\"Rest\")
+	
+	velocity.y -= gravity * delta
+	if shouldSnap:
+		set_velocity(velocity)
+		# TODOConverter40 looks that snap in Godot 4.0 is float, not vector like in Godot 3 - previous value `Vector3(0,-.1,0)`
+		set_up_direction(Vector3(0,1,0))
+		set_floor_stop_on_slope_enabled(false)
+		set_max_slides(4)
+		set_floor_max_angle(PI/4)
+		# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
+		move_and_slide()
+		velocity = velocity
+	else:
+		set_velocity(velocity)
+		set_up_direction(Vector3(0,1,0))
+		set_floor_stop_on_slope_enabled(false)
+		set_max_slides(4)
+		set_floor_max_angle(PI/4)
+		# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
+		move_and_slide()
+		velocity = velocity
+	$AnimatedSprite3D.rotation_degrees.y = -spriteRotation
+	
+func _process(_delta):
+	if paused:
+		return
+	lastTarget = target
+	target = player.position
+	var last_v = Vector2(player.last_significant_velocity.x, player.last_significant_velocity.z)
+	if last_v.length() == 0:
+		last_v = Vector2(1,1)
+	last_v = Vector3(last_v.x, 0, last_v.y)
+	target -= last_v.normalized() * .5
+	target = target
+	if((lastTarget - target).length() > .1):
+		timeSinceRest = 0
+
+func pass_player(p_player):
+	player = p_player
+
+func _on_pause():
+	paused = true
+
+func _on_unpause():
+	paused = false
+"
+
+[sub_resource type="CylinderShape3D" id="2"]
+height = 0.417045
+radius = 0.171256
+
+[sub_resource type="CylinderMesh" id="3"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.01
+
+[node name="Partner" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322397, 0)
+collision_layer = 2147483657
+collision_mask = 4
+script = SubResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.282, 0, -0.121313, 0)
+shape = SubResource("2")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0529238, 0)
+layers = 1025
+cast_shadow = 0
+pixel_size = 0.0117
+alpha_cut = 1
+sprite_frames = ExtResource("1")
+animation = &"Victory"
+frame = 2
+
+[node name="Shadow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154659, 0.0893218)
+cast_shadow = 3
+mesh = SubResource("3")

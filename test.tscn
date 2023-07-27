@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqvlovbtxvq7"]
+
+[ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="1_icwob"]
+[ext_resource type="PackedScene" uid="uid://ds1tf2gdnpfne" path="res://scenes/overworld/Player.tscn" id="2_auhmd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BorderMesh" parent="." instance=ExtResource("1_icwob")]
+size = Vector3(2, 2, 2)
+
+[node name="Player" parent="." instance=ExtResource("2_auhmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80416, 0)

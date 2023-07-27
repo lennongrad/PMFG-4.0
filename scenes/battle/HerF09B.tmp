@@ -1,0 +1,379 @@
+[gd_scene load_steps=59 format=3 uid="uid://civqh7gvslnr4"]
+
+[ext_resource type="Resource" uid="uid://cnne0bihla83e" path="res://stats/herostats/mario.tres" id="1"]
+[ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="3"]
+[ext_resource type="SpriteFrames" path="res://textures/hammer_basic/frames.tres" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/DodgeParticles.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dgcfwydol4ur2" path="res://textures/items/mushroom.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://d0pwckvj7pabv" path="res://particles/star_08.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bsbrhnv6o565q" path="res://particles/star_05.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://wy52ubcfk1qw" path="res://particles/heart_big.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://wdpq0avorko8" path="res://sprites/UI/note.png" id="11"]
+[ext_resource type="Script" path="res://scripts/battle/HPUp.gd" id="12"]
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="13"]
+[ext_resource type="Script" path="res://scripts/battle/Hearts.gd" id="14"]
+[ext_resource type="PackedScene" path="res://scenes/Circles.tscn" id="15"]
+[ext_resource type="Script" path="res://scripts/overworld/WaterParticles.gd" id="16"]
+[ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="18"]
+[ext_resource type="PackedScene" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
+[ext_resource type="PackedScene" path="res://scenes/battle/Hammerlight.tscn" id="36"]
+[ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Marker3D
+
+@export var frames: Resource
+@export var particle_mesh: QuadMesh
+@export var flip_h: bool
+@export var emitting: bool
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func play(value):
+	$AnimatedSprite3D.play(value)
+
+func _process(_delta):
+	if $AnimatedSprite3D.sprite_frames != frames:
+		$AnimatedSprite3D.sprite_frames = frames
+	$AnimatedSprite3D.flip_h = flip_h
+	$AnimatedSprite3D/Particles.emitting = emitting
+	$AnimatedSprite3D/Particles.draw_pass_1 = particle_mesh
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="Gradient" id="2"]
+colors = PackedColorArray(1, 1, 1, 0.478431, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="3"]
+gradient = SubResource("2")
+
+[sub_resource type="Curve" id="4"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.990654, 0.738636), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="5"]
+curve = SubResource("4")
+
+[sub_resource type="Curve" id="6"]
+_data = [Vector2(0, 0.897727), 0.0, 0.0, 0, 0, Vector2(1, 0.534091), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="7"]
+curve = SubResource("6")
+
+[sub_resource type="ParticleProcessMaterial" id="8"]
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("7")
+color_ramp = SubResource("3")
+hue_variation_curve = SubResource("5")
+
+[sub_resource type="StandardMaterial3D" id="9"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("17")
+
+[sub_resource type="QuadMesh" id="10"]
+material = SubResource("9")
+size = Vector2(0.6, 0.6)
+
+[sub_resource type="Gradient" id="11"]
+offsets = PackedFloat32Array(0, 0.513089, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.847059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="12"]
+gradient = SubResource("11")
+
+[sub_resource type="Curve" id="13"]
+_data = [Vector2(0, 0.265909), 0.0, 0.0, 0, 0, Vector2(1, 0.8625), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="14"]
+curve = SubResource("13")
+
+[sub_resource type="ParticleProcessMaterial" id="15"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("14")
+color_ramp = SubResource("12")
+
+[sub_resource type="StandardMaterial3D" id="16"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("8")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="17"]
+material = SubResource("16")
+
+[sub_resource type="StandardMaterial3D" id="18"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("9")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="19"]
+material = SubResource("18")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="Gradient" id="20"]
+offsets = PackedFloat32Array(0.0209424, 0.544503, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="21"]
+gradient = SubResource("20")
+
+[sub_resource type="Curve" id="22"]
+_data = [Vector2(0.0140187, 0.251136), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="23"]
+curve = SubResource("22")
+
+[sub_resource type="ParticleProcessMaterial" id="24"]
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("23")
+color_ramp = SubResource("21")
+
+[sub_resource type="StandardMaterial3D" id="25"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("10")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="26"]
+material = SubResource("25")
+size = Vector2(0.4, 0.4)
+
+[sub_resource type="FontFile" id="27"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([ExtResource("13")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="28"]
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("23")
+color_ramp = SubResource("21")
+
+[sub_resource type="StandardMaterial3D" id="29"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="30"]
+material = SubResource("29")
+size = Vector2(0.5, 0.4)
+
+[sub_resource type="Curve" id="31"]
+_data = [Vector2(0, 0.106818), 0.0, 0.0, 0, 0, Vector2(0.5, 0.352273), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="32"]
+curve = SubResource("31")
+
+[sub_resource type="ParticleProcessMaterial" id="33"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+flatness = 0.47
+gravity = Vector3(0, -2, 0)
+scale_curve = SubResource("32")
+color = Color(0.223529, 0.223529, 0.223529, 0.372549)
+
+[sub_resource type="StandardMaterial3D" id="34"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("18")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="35"]
+material = SubResource("34")
+
+[sub_resource type="SphereMesh" id="36"]
+radius = 0.15
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="37"]
+radius = 0.249939
+
+[node name="HeroBattle" type="CharacterBody3D"]
+collision_layer = 10
+script = ExtResource("2")
+stats = ExtResource("1")
+
+[node name="Sprite2D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+script = SubResource("1")
+flip_h = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Sprite2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+flip_h = true
+alpha_cut = 1
+sprite_frames = ExtResource("3")
+animation = &"FingerWag"
+
+[node name="Particles" type="GPUParticles3D" parent="Sprite2D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 0.0248605, -0.05)
+emitting = false
+lifetime = 0.5
+process_material = SubResource("8")
+draw_pass_1 = SubResource("10")
+
+[node name="Exclamation" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00430261, 0.619125, 0)
+visible = false
+texture = ExtResource("39")
+
+[node name="Hammer" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11, 0.135, -0.01)
+flip_h = true
+sprite_frames = ExtResource("4")
+animation = &"DiagBlur"
+
+[node name="EatenItem" type="Sprite3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.0610288, 0.282208, 0.00607342)
+visible = false
+texture = ExtResource("7")
+
+[node name="Particles" type="GPUParticles3D" parent="EatenItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0138479)
+emitting = false
+amount = 12
+process_material = SubResource("15")
+draw_pass_1 = SubResource("17")
+
+[node name="Particles2" type="GPUParticles3D" parent="EatenItem"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00384602)
+emitting = false
+amount = 12
+process_material = SubResource("15")
+draw_pass_1 = SubResource("19")
+
+[node name="Hearts" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0.442621, 0)
+emitting = false
+amount = 16
+visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
+process_material = SubResource("24")
+draw_pass_1 = SubResource("26")
+script = ExtResource("14")
+
+[node name="HPUp" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0282601, 0.458318, 0.0524678)
+visible = false
+centered = false
+offset = Vector2(-24.578, 0)
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("11")
+script = ExtResource("12")
+
+[node name="Label" type="Label" parent="HPUp"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 56.0
+offset_bottom = 17.0
+theme_override_fonts/font = SubResource("27")
+text = "+4 HP"
+
+[node name="Hearts2" type="GPUParticles3D" parent="HPUp"]
+transform = Transform3D(-0.138361, 4.93389e-08, -0.990382, 0.990382, -3.7243e-08, -0.138361, -4.37114e-08, -1, -4.37114e-08, 0.0633511, 0.207668, -0.0659817)
+amount = 4
+visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
+process_material = SubResource("28")
+draw_pass_1 = SubResource("30")
+
+[node name="Circles" parent="." instance=ExtResource("15")]
+visible = false
+
+[node name="WaterParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 32
+speed_scale = 2.0
+process_material = SubResource("33")
+draw_pass_1 = SubResource("35")
+script = ExtResource("16")
+
+[node name="Circles" parent="WaterParticles" instance=ExtResource("15")]
+visible = false
+
+[node name="FeedbackParticle" parent="." instance=ExtResource("19")]
+
+[node name="Camera1" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99968, 0.0253046, 0, -0.0253046, 0.99968, 0.337, 0.444, 2.022)
+fov = 75.5
+
+[node name="Camera2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99968, 0.0253046, 0, -0.0253046, 0.99968, -0.169524, 0.444, 1.61027)
+fov = 75.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999976, -0.00698126, 0, 0.00698126, 0.999976, 0, 0, 0, 0.7, 0, 0.20871, 0)
+cast_shadow = 3
+mesh = SubResource("36")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 9
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.504, 0, 0, 0, 1.034, 0, 0, 0, 0.154, 0, 0.235598, 0)
+shape = SubResource("37")
+
+[node name="DodgeParticles" parent="." instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100163, 0.0404429, 0)
+
+[node name="HurtParticles" parent="." instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428051, 0.0299648)
+
+[node name="HammerLight" parent="." instance=ExtResource("36")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 0.0
+offset_right = 40.0
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

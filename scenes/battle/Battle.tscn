@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://dl453tpdxha5r"]
+
+[ext_resource type="PackedScene" uid="uid://bs6uu8aofak7r" path="res://scenes/battle/backgrounds/water_dungeon_flood.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://cm0e5asgfdnje" path="res://scenes/battle/backgrounds/water_dungeon.tscn" id="4"]
+[ext_resource type="Script" path="res://scripts/battle/Battle.gd" id="5"]
+[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_skyguy.tres" id="6"]
+[ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="7"]
+[ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/battle/ExperienceHolder.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cvtwnd0www7vq" path="res://scenes/battle/BattleUI.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/battle/LevelUp.tscn" id="11"]
+[ext_resource type="Resource" uid="uid://bsllwvtyjnqfo" path="res://stats/herostats/goombario.tres" id="17"]
+
+[sub_resource type="Environment" id="1"]
+background_mode = 1
+ambient_light_color = Color(0.278431, 0.278431, 0.278431, 1)
+ambient_light_energy = 0.4
+
+[sub_resource type="HeightMapShape3D" id="2"]
+map_width = 16
+map_depth = 16
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Battle" type="Node3D"]
+process_mode = 3
+script = ExtResource("5")
+data = ExtResource("6")
+battle_background = ExtResource("7")
+debug = true
+
+[node name="CameraPosition" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999945, 0.0104718, 0, -0.0104718, 0.999945, 1.43777, 0.8, 2.38856)
+fov = 65.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 1.303, 0.9, 2.332)
+current = true
+fov = 65.5
+
+[node name="Mario" parent="." instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37699, 0.0323859, -0.431132)
+
+[node name="Partner" parent="." instance=ExtResource("3")]
+stats = ExtResource("17")
+is_partner = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("1")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.807733, 0.554241, 0.200961, 0, -0.340872, 0.94011, 0.589549, 0.759357, 0.275334, 0, 3.63076, 0)
+visible = false
+light_color = Color(0.494118, 0.494118, 0.494118, 1)
+light_energy = 0.25
+light_indirect_energy = 1.4
+shadow_enabled = true
+
+[node name="Floor" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("2")
+
+[node name="Stage" parent="." instance=ExtResource("4")]
+visible = false
+
+[node name="Stage2" parent="." instance=ExtResource("1")]
+visible = false
+
+[node name="BattleUI" parent="." instance=ExtResource("10")]
+
+[node name="Spin" parent="." instance=ExtResource("2")]
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelUp" parent="." instance=ExtResource("11")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Status" parent="." instance=ExtResource("8")]
+
+[node name="ExperienceHolder" parent="." instance=ExtResource("9")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.609, 0.716797)
+
+[connection signal="finishedSpinning" from="Spin" to="." method="_on_Spin_finishedSpinning"]

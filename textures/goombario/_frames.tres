@@ -1,0 +1,193 @@
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://vl86ebo8mlug"]
+
+[ext_resource type="Texture2D" uid="uid://cnx4le8lyirbn" path="res://textures/goombario/jumpsquat.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cogxhbvkq3maf" path="res://textures/goombario/victory.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://qh3ll323mlt5" path="res://textures/goombario/think.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dkhr8fqhyg52p" path="res://textures/goombario/rest.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://df7s84flxgkte" path="res://textures/goombario/guard.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c5ti5akofi568" path="res://textures/goombario/hurt.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b1oyf6jfmpckk" path="res://textures/goombario/walk.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://d2a03i0hkq8ja" path="res://textures/goombario/rise.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://f6kxccv3rkdd" path="res://textures/goombario/fall.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dlxlsj338y8ns" path="res://textures/goombario/skip.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://c0ruc4faa41hu" path="res://textures/goombario/swim.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://b76uupcmowtc" path="res://textures/goombario/swim2.png" id="12"]
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("6")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("6")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("4")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("7")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("7")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("7")
+region = Rect2(64, 0, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"BattleFall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": true,
+"name": &"BattleRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"Guard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"Jumpsquat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": true,
+"name": &"Rise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": true,
+"name": &"Skip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"Stomp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
+"loop": true,
+"name": &"Swim",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"Think",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}],
+"loop": true,
+"name": &"Victory",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]

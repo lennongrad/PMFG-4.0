@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://bninm7ujk6u1q"]
+
+[ext_resource type="Script" path="res://scripts/battle/SlidePuzzle.gd" id="1"]
+[ext_resource type="Resource" uid="uid://djx0oyaubmg0v" path="res://stats/enemystats/enemystats_redshyguy.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://jlrce4443sgu" path="res://sprites/UI/slideback.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ckynk1rw7foxh" path="res://sprites/UI/progressprogress.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://d3d0j4p8yulte" path="res://sprites/UI/progressover.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cj7llkyk7doy2" path="res://sprites/UI/book.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ce4xa53g1e3hu" path="res://sprites/UI/tape1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://buos6dlykxu3s" path="res://sprites/UI/tape2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://w5jk8p6iy3jv" path="res://sprites/UI/lines.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://n8gxt38s06sw" path="res://sprites/UI/bigx.png" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/MoveText.tscn" id="11"]
+[ext_resource type="Script" path="res://addons/SyndiBox/syndibox.gd" id="12"]
+[ext_resource type="FontFile" path="res://fonts/borderfont.tres" id="13"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4763j"]
+font_size = 20
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SlidePuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.749176
+offset_bottom = -0.749146
+script = ExtResource("1")
+enemy = ExtResource("2")
+
+[node name="SlideBack" type="Sprite2D" parent="."]
+position = Vector2(94.542, 90.9743)
+texture = ExtResource("3")
+
+[node name="Slides" type="Node2D" parent="SlideBack"]
+
+[node name="BigX" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(94.542, 89.9743)
+rotation = 0.785398
+scale = Vector2(4, 4)
+texture = ExtResource("10")
+
+[node name="Book" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -0.570404
+offset_right = 389.92
+offset_bottom = 191.892
+texture = ExtResource("6")
+stretch_mode = 1
+
+[node name="Title" type="Label" parent="Book"]
+layout_mode = 0
+offset_left = 206.57
+offset_top = 11.0
+offset_right = 361.57
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("13")
+text = "Red Shy Guy"
+label_settings = SubResource("LabelSettings_4763j")
+
+[node name="BookText" type="ReferenceRect" parent="Book"]
+layout_mode = 0
+offset_left = 202.57
+offset_top = 43.0
+offset_right = 373.57
+offset_bottom = 154.0
+script = ExtResource("12")
+__meta__ = {
+"_edit_use_anchors_": false
+}
+FONT = "res://fonts/smallfont.tres"
+COLOR = Color(0.364706, 0.266667, 0.0705882, 1)
+ADVANCE_ACTION = "jump"
+PUNCTUATION_PAUSE_LENGTH = 1.0
+CUSTOM_EFFECTS = "res://addons/SyndiBox/custom.gd"
+
+[node name="TextureRect2" type="TextureRect" parent="Book"]
+self_modulate = Color(1, 1, 1, 0.223529)
+layout_mode = 0
+offset_left = 199.07
+offset_top = 28.9286
+offset_right = 379.07
+offset_bottom = 170.929
+texture = ExtResource("9")
+stretch_mode = 2
+
+[node name="MoveText" parent="Book" instance=ExtResource("11")]
+layout_mode = 0
+offset_left = 341.737
+offset_top = 129.136
+offset_right = -8.75302
+offset_bottom = -22.756
+
+[node name="Tape2" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.94902)
+layout_mode = 0
+offset_left = 11.2153
+offset_top = 98.9548
+offset_right = 51.2153
+offset_bottom = 174.955
+texture = ExtResource("8")
+
+[node name="Tape1" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.937255)
+layout_mode = 0
+offset_left = 128.567
+offset_top = 6.03567
+offset_right = 178.567
+offset_bottom = 46.0357
+texture = ExtResource("7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 30.0
+offset_bottom = 156.0
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_over = ExtResource("5")
+texture_progress = ExtResource("4")
+tint_progress = Color(0.305882, 0, 0.545098, 1)

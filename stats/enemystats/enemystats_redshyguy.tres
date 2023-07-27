@@ -1,0 +1,276 @@
+[gd_resource type="Resource" load_steps=42 format=3 uid="uid://djx0oyaubmg0v"]
+
+[ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_slingshot.tres" id="1"]
+[ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://dyahfui1h06sw" path="res://textures/redshyguy/run.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b6nbm3jeb5ve4" path="res://textures/redshyguy/getup.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://0c7mpjkxis6q" path="res://textures/redshyguy/fall.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b33x747tgjdsc" path="res://textures/redshyguy/rise.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c6lw81od6fjnj" path="res://textures/redshyguy/walk.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cevwnpmsmpsm" path="res://textures/redshyguy/down.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://kkw31ma1scbk" path="res://textures/redshyguy/sling.png" id="10"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://b4x7hyrllvbxw" path="res://textures/redshyguy/damage.png" id="12"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("8")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("8")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("5")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("12")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("12")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("7")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("7")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("7")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="26"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="27"]
+atlas = ExtResource("3")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="28"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("10")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("10")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("10")
+region = Rect2(96, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("10")
+region = Rect2(144, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("10")
+region = Rect2(192, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("10")
+region = Rect2(240, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("10")
+region = Rect2(288, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="20"]
+atlas = ExtResource("7")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="21"]
+atlas = ExtResource("7")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="22"]
+atlas = ExtResource("7")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="23"]
+atlas = ExtResource("7")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="24"]
+atlas = ExtResource("7")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("7")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="29"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"GetUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"Rise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("28")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}],
+"loop": true,
+"name": &"Slingshot",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("20")
+}, {
+"duration": 1.0,
+"texture": SubResource("21")
+}, {
+"duration": 1.0,
+"texture": SubResource("22")
+}, {
+"duration": 1.0,
+"texture": SubResource("23")
+}, {
+"duration": 1.0,
+"texture": SubResource("24")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 20.0
+}]
+
+[resource]
+script = ExtResource("11")
+health = 4
+frames = SubResource("29")
+name = "Red Shy Guy"
+attacks = [ExtResource("1"), ExtResource("2")]
+firstStrikeAttack = ExtResource("2")
+height = 0.32
+flying = false
+experience = 40
+atlas = ExtResource("9")
+tattle_description = "HP: 4. Masked fellers.
+They'll jump at you if given the chance, or sling their shot."
+attributes = {}

@@ -1,0 +1,309 @@
+[gd_scene load_steps=14 format=3 uid="uid://4rlgpuow6f6"]
+
+[ext_resource type="Texture2D" uid="uid://bwsehqencn05g" path="res://sprites/UI/itemacbk.png" id="1"]
+[ext_resource type="Script" path="res://scripts/overworld/ItemGet.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bncogeae4oy4w" path="res://textures/items/supermushroom.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dv6vm6t7lqe2y" path="res://sprites/UI/border2.png" id="4"]
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="5"]
+[ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://c4h0kcmmot7rt" path="res://sprites/UI/patch2.png" id="8"]
+
+[sub_resource type="ParticleProcessMaterial" id="1"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 126.95
+gravity = Vector3(0, 1, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -40.0
+angle_max = 40.0
+scale_min = 3.0
+scale_max = 4.0
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="6"]
+fallbacks = Array[Font]([ExtResource("5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xd6l5"]
+font_size = 50
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="7"]
+fallbacks = Array[Font]([ExtResource("5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="ItemGet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.838257
+offset_top = -0.793701
+offset_right = -0.838257
+offset_bottom = -0.793701
+script = ExtResource("2")
+
+[node name="Item" type="Control" parent="."]
+anchors_preset = 0
+anchor_left = 0.399
+anchor_top = 0.235
+anchor_right = 0.561
+anchor_bottom = 0.42
+offset_left = 2.65402
+offset_top = -5.29732
+offset_right = 2.65399
+offset_bottom = -5.29732
+
+[node name="Cloud" type="Control" parent="Item"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Item/Cloud"]
+modulate = Color(1, 1, 1, 0.266667)
+position = Vector2(24.8085, 13.1826)
+amount = 6
+process_material = SubResource("1")
+texture = ExtResource("1")
+lifetime = 0.3
+speed_scale = 0.5
+
+[node name="Item" type="TextureRect" parent="Item"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Rays" type="Control" parent="Item"]
+modulate = Color(1, 1, 1, 0.215686)
+show_behind_parent = true
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Polygon2D2" type="Polygon2D" parent="Item/Rays"]
+position = Vector2(1129.01, -442.649)
+rotation = 1.5708
+scale = Vector2(1, 3.74927)
+polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 438.074, 601.821)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Item/Rays"]
+position = Vector2(482.486, -1115.08)
+rotation = 0.785398
+scale = Vector2(1, 3.74927)
+polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 438.074, 601.821)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Item/Rays"]
+position = Vector2(-1111.52, -483.488)
+rotation = -0.785398
+scale = Vector2(1, 3.74927)
+polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 438.074, 601.821)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Item/Rays"]
+position = Vector2(-448.971, -1170.99)
+scale = Vector2(1, 3.74927)
+polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 446.026, 623.706)
+
+[node name="Description" type="Control" parent="."]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -285.953
+offset_top = -173.243
+offset_right = 146.047
+offset_bottom = 21.7573
+scale = Vector2(1.4, 1.4)
+
+[node name="Textbox" type="Panel" parent="Description"]
+layout_mode = 0
+anchor_left = 0.049
+anchor_top = 0.164
+anchor_right = 0.907
+anchor_bottom = 0.518
+offset_left = -18.168
+offset_top = -7.98006
+offset_right = 0.175964
+offset_bottom = -0.0101776
+theme_override_styles/panel = SubResource("2")
+
+[node name="TopBorder" type="NinePatchRect" parent="Description/Textbox"]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = -9.71411
+offset_right = 3.05176e-05
+offset_bottom = 38.2859
+texture = ExtResource("6")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+
+[node name="BottomBorder" type="NinePatchRect" parent="Description/Textbox"]
+layout_mode = 0
+anchor_top = 1.091
+anchor_right = 1.0
+anchor_bottom = 1.091
+offset_top = -36.8641
+offset_right = 6.10352e-05
+offset_bottom = 11.1359
+texture = ExtResource("8")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+
+[node name="Label" type="Label" parent="Description/Textbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("5")
+text = "You got an epic shroom because you are le king."
+autowrap_mode = 2
+max_lines_visible = 2
+
+[node name="Title" type="Control" parent="Description"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.2379
+offset_top = -83.172
+offset_right = 23.7622
+offset_bottom = -53.172
+
+[node name="Title3" type="NinePatchRect" parent="Description/Title"]
+modulate = Color(0, 0, 0, 0.639216)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.857
+offset_top = -36.8171
+offset_right = 486.143
+offset_bottom = 43.1829
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="Title" type="NinePatchRect" parent="Description/Title"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -39.0
+offset_right = 484.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="Label" type="Label" parent="Description/Title/Title"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_right = 13.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("6")
+text = "SUPER MUSHROOM"
+label_settings = SubResource("LabelSettings_xd6l5")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label" type="Label" parent="Description"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.9891
+offset_top = -32.007
+offset_right = -278.011
+offset_bottom = -202.007
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("7")
+text = "You Got..."

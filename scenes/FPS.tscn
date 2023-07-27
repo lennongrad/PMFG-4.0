@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/FPS.gd" type="Script" id=1]
+
+[node name="FPS" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.984
+anchor_top = 0.026
+anchor_right = 0.984
+anchor_bottom = 0.026
+offset_left = -39.6648
+offset_top = 29.8508
+offset_right = 0.335205
+offset_bottom = 43.8508
+theme_override_colors/font_shadow_color = Color( 0, 0, 0, 1 )
+theme_override_constants/shadow_outline_size = 3
+text = "60fps"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://cm0e5asgfdnje"]
+
+[ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/Torch.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="5"]
+[ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="5_0a7ai"]
+[ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="8"]
+
+[sub_resource type="StandardMaterial3D" id="17"]
+albedo_texture = ExtResource("6")
+uv1_scale = Vector3(16, 32, 1)
+
+[sub_resource type="QuadMesh" id="18"]
+size = Vector2(16, 16)
+
+[sub_resource type="QuadMesh" id="3"]
+size = Vector2(8, 0.125)
+
+[sub_resource type="StandardMaterial3D" id="5"]
+albedo_texture = ExtResource("8")
+uv1_scale = Vector3(4, 1, 2)
+uv1_offset = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="6"]
+material = SubResource("5")
+size = Vector3(0.8, 0.2, 0.4)
+
+[sub_resource type="QuadMesh" id="7"]
+material = ExtResource("5_0a7ai")
+size = Vector2(16, 4)
+
+[sub_resource type="Shader" id="21"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color;
+uniform float specular;
+uniform float metallic;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+uniform vec2 center;
+uniform float size;
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	//ALBEDO = albedo.rgb * albedo_tex.rgb;
+	METALLIC = metallic;
+	ROUGHNESS = roughness;
+	SPECULAR = specular;
+	
+	vec2 trueCenter = (center + vec2(18, 36)) / 6.0;
+	float mask = (1.0 - smoothstep(size - 0.1, size, length(UV - trueCenter))) * smoothstep(size - 0.2, size - 0.1, length(UV - trueCenter));
+	vec2 disp = normalize(UV - trueCenter) * .1 * mask;
+	ALBEDO = texture(texture_albedo, UV - disp).rgb;
+}
+"
+
+[sub_resource type="CompressedTexture2D" id="22"]
+
+[sub_resource type="ShaderMaterial" id="23"]
+render_priority = 0
+shader = SubResource("21")
+shader_parameter/albedo = Color(0.619608, 0.270588, 0.270588, 0.0901961)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/point_size = 1.0
+shader_parameter/uv1_scale = Vector3(6, 6, 4)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/center = Vector2(2.809, 0)
+shader_parameter/size = 0.238
+shader_parameter/texture_albedo = SubResource("22")
+
+[sub_resource type="PlaneMesh" id="24"]
+material = SubResource("23")
+size = Vector2(16, 4)
+
+[node name="Stage" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306564, 0, 0.285651)
+script = ExtResource("2")
+
+[node name="MainWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748708, -0.573717, -1.66455)
+material_override = SubResource("17")
+mesh = SubResource("18")
+
+[node name="Bezel" type="MeshInstance3D" parent="MainWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641365, 0.00999999)
+mesh = SubResource("3")
+
+[node name="Torch" parent="MainWall" instance=ExtResource("3")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -1.352, 2.60583, 0)
+mesh = SubResource("6")
+
+[node name="Torch2" parent="MainWall" instance=ExtResource("3")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, 2.92, 2.29134, 0)
+mesh = SubResource("6")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.287783, 0.0318917)
+mesh = SubResource("7")
+
+[node name="Underwater" type="MeshInstance3D" parent="Water"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0419931, -0.469077)
+mesh = SubResource("24")
+
+[node name="BorderMesh" parent="." instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702065, -2, -0.917)
+size = Vector3(8, 4, 2)
+
+[node name="Waterfall" parent="." instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.1, 2.146, -1.5)

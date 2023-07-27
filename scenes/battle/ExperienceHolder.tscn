@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/UI/progressover.png" type="Texture2D" id=1]
+[ext_resource path="res://scenes/battle/ExperienceHolder.gd" type="Script" id=2]
+[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.470588 )
+
+[sub_resource type="FontFile" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0.121569, 0.105882, 0.0705882, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="FontFile" id=3]
+size = 14
+outline_size = 1
+outline_color = Color( 0.121569, 0.105882, 0.0705882, 1 )
+font_data = ExtResource( 3 )
+
+[node name="ExperienceHolder" type="Control"]
+visible = false
+scale = Vector2( 1.57225, 1.1308 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -35.0
+texture = ExtResource( 1 )
+patch_margin_left = 8
+patch_margin_top = 4
+patch_margin_right = 8
+patch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteHolder" type="Control" parent="NinePatchRect/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+offset_left = -55.0
+offset_top = -49.0
+offset_right = 67.0
+offset_bottom = -11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Count" type="Label" parent="Text"]
+offset_left = -16.0
+offset_top = 4.0
+offset_right = 29.0
+offset_bottom = 35.0
+theme_override_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Text"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -15.0
+theme_override_fonts/font = SubResource( 3 )
+text = "STAR POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}

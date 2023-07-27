@@ -1,0 +1,1314 @@
+[gd_scene load_steps=57 format=3 uid="uid://bq4lo0uwxqgo7"]
+
+[ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c4h0kcmmot7rt" path="res://sprites/UI/patch2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ij4j0v0jl15q" path="res://sprites/UI/shadow.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://d4lxtiq1ebrgd" path="res://sprites/hammers/hammer_basic.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b74csev77yxgn" path="res://sprites/UI/menuheader.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dlyf6e7x38igq" path="res://sprites/UI/enemy_cursor.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://xx8sxbbhfyxu" path="res://sprites/UI/bar.png" id="8"]
+[ext_resource type="Script" path="res://scripts/overworld/OverworldMenu.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://dvnvwrxm4rpc2" path="res://sprites/UI/thinshadow.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dvpdjp6067tiv" path="res://sprites/UI/bubbleflip.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dpcwinv1auw4r" path="res://sprites/UI/cursor.png" id="12"]
+[ext_resource type="SpriteFrames" uid="uid://cocdgwdhamcr7" path="res://sprites/mario/_frames.tres" id="13"]
+[ext_resource type="Texture2D" uid="uid://jlrce4443sgu" path="res://sprites/UI/slideback.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://iw168lgachnc" path="res://sprites/badgepips/0e.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://chowyi5pgprt" path="res://sprites/items/fireflower.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://b7supm8rafo00" path="res://sprites/other/fp.png" id="17"]
+[ext_resource type="SpriteFrames" path="res://sprites/hammer_basic/frames.tres" id="18"]
+[ext_resource type="Texture2D" uid="uid://crjd435luk77c" path="res://sprites/other/bp.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://by4iqhjhx0ari" path="res://sprites/other/star_piece.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://dcu4swrsbn7t6" path="res://textures/mario/icon.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://d1ebok5k4sdxx" path="res://sprites/badges/multibounce.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://bc4au3byondaw" path="res://sprites/UI/star3.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://dch22mfn5qpbj" path="res://sprites/boots/jump_basic.png" id="52"]
+[ext_resource type="Texture2D" uid="uid://q7ihtrebce8e" path="res://sprites/UI/bubble.png" id="54"]
+[ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="55"]
+[ext_resource type="PackedScene" path="res://scenes/Text.tscn" id="56"]
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="57"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Shader" id="3"]
+code = "shader_type canvas_item;
+
+void fragment(){
+    vec2 newuv = UV;
+    newuv.x += TIME;
+    newuv.y += TIME;
+    vec4 c = texture(TEXTURE, newuv);
+    COLOR = c;
+}"
+
+[sub_resource type="ShaderMaterial" id="4"]
+shader = SubResource("3")
+
+[sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="6"]
+
+[sub_resource type="FontFile" id="7"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="10"]
+texture = ExtResource("14")
+region_rect = Rect2(0, 0, 146, 146)
+
+[sub_resource type="StyleBoxFlat" id="9"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 2
+corner_radius_top_left = 4
+anti_aliasing_size = 5.0
+
+[sub_resource type="FontFile" id="13"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("20")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("20")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("20")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="Gradient" id="19"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0823529)
+
+[sub_resource type="GradientTexture2D" id="20"]
+gradient = SubResource("19")
+
+[sub_resource type="ParticleProcessMaterial" id="21"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("20")
+
+[sub_resource type="FontFile" id="22"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="23"]
+fallbacks = Array[Font]([ExtResource("57")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="24"]
+atlas = ExtResource("7")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="25"]
+atlas = ExtResource("7")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="26"]
+atlas = ExtResource("7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="27"]
+atlas = ExtResource("7")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("24")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}, {
+"duration": 1.0,
+"texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("27")
+}, {
+"duration": 1.0,
+"texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("25")
+}, {
+"duration": 1.0,
+"texture": SubResource("24")
+}],
+"loop": true,
+"name": &"down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="Shader" id="29"]
+code = "/*
+	Port of libretro's crt-geom.glsl to Godot shading language.
+	Source: https://github.com/libretro/glsl-shaders/blob/master/crt/shaders/crt-geom.glsl
+	
+	This program is free software; you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by the Free
+	Software Foundation; either version 2 of the License, or (at your option)
+	any later version.
+*/
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+// CRTGeom Target Gamma
+uniform float CRTgamma: hint_range(0.1, 5.0, 0.1) = 2.4; // hola
+
+// CRTGeom Monitor Gamma
+uniform float monitorgamma: hint_range(0.1, 5.0, 0.1) = 2.2;
+
+// CRTGeom Distance
+uniform float d: hint_range(0.1, 3.0, 0.1) = 1.6;
+
+// CRTGeom Curvature Toggle
+uniform float CURVATURE: hint_range(0.0, 1.0, 1.0) = 1.0;
+
+// CRTGeom Curvature Radius
+uniform float R: hint_range(0.1, 10.0, 0.1) = 2.0;
+
+// CRTGeom Corner Size
+uniform float cornersize: hint_range(0.001, 1.0, 0.005) = 0.03;
+
+// CRTGeom Corner Smoothness
+uniform float cornersmooth: hint_range(80.0, 2000.0, 100.0) = 1000.0;
+
+// CRTGeom Horizontal Tilt
+uniform float x_tilt: hint_range(-0.5, 0.5, 0.05) = 0.0;
+
+// CRTGeom Vertical Tilt
+uniform float y_tilt: hint_range(-0.5, 0.5, 0.05) = 0.0;
+
+// CRTGeom Horiz. Overscan %
+uniform float overscan_x: hint_range(-125.0, 125.0, 1.0) = 100.0;
+
+// CRTGeom Vert. Overscan %
+uniform float overscan_y: hint_range(-125.0, 125.0, 1.0) = 100.0;
+
+// CRTGeom Dot Mask Toggle
+uniform float DOTMASK: hint_range(0.0, 0.3, 0.3) = 0.3;
+
+// CRTGeom Sharpness
+uniform float SHARPER: hint_range(1.0, 3.0, 1.0) = 1.0;
+
+// CRTGeom Scanline Weight
+uniform float scanline_weight: hint_range(0.1, 0.5, 0.05) = 0.3;
+
+// CRTGeom Luminance
+uniform float lum: hint_range(0.0, 0.1, 0.01) = 0.0;
+
+// CRTGeom Interlacing Simulation
+uniform float interlace_detect: hint_range(0.0, 1.0, 1.0) = 1.0;
+
+uniform vec2 OutputSize;
+uniform vec2 TextureSize;
+uniform vec2 InputSize;
+uniform int FrameCount;
+//uniform int FrameDirection; // not used
+
+varying vec2 overscan;
+varying vec2 aspect;
+varying vec3 stretch;
+varying vec2 sinangle;
+varying vec2 cosangle;
+varying vec2 one;
+varying float mod_factor;
+varying vec2 ilfac;
+
+/*
+NOTE: Godot shading language does not support \"\"#define\", so \"FIX(c)\"
+has been inlined where used, and commented accordingly.
+*/
+//#define FIX(c) max(abs(c), 1e-5);
+
+float intersect(vec2 xy) {
+	float A = dot(xy,xy)+d*d;
+	float B = 2.0*(R*(dot(xy,sinangle)-d*cosangle.x*cosangle.y)-d*d);
+	float C = d*d + 2.0*R*d*cosangle.x*cosangle.y;
+	return (-B-sqrt(B*B-4.0*A*C))/(2.0*A);
+}
+
+vec2 bkwtrans(vec2 xy) {
+	float c = intersect(xy);
+	vec2 point = vec2(c)*xy;
+	point -= vec2(-R)*sinangle;
+	point /= vec2(R);
+	vec2 tang = sinangle/cosangle;
+	vec2 poc = point/cosangle;
+	float A = dot(tang,tang)+1.0;
+	float B = -2.0*dot(poc,tang);
+	float C = dot(poc,poc)-1.0;
+	float a = (-B+sqrt(B*B-4.0*A*C))/(2.0*A);
+	vec2 uv = (point-a*sinangle)/cosangle;
+	float r = max(abs( R*acos(a) ), 1e-5); // FIX(R*acos(a))
+	return uv*r/sin(r/R);
+}
+
+vec2 fwtrans(vec2 uv) {
+	float r = max(abs( sqrt(dot(uv,uv)) ), 1e-5); // FIX(sqrt(dot(uv,uv)))
+	uv *= sin(r/R)/r;
+	float x = 1.0-cos(r/R);
+	float D = d/R + x*cosangle.x*cosangle.y+dot(uv,sinangle);
+	return d*(uv*cosangle-x*sinangle)/D;
+}
+
+vec3 maxscale() {
+	vec2 c = bkwtrans(-R * sinangle / (1.0 + R/d*cosangle.x*cosangle.y));
+	vec2 a = vec2(0.5,0.5)*aspect;
+	vec2 lo = vec2(fwtrans(vec2(-a.x,c.y)).x, fwtrans(vec2(c.x,-a.y)).y)/aspect;
+	vec2 hi = vec2(fwtrans(vec2(+a.x,c.y)).x, fwtrans(vec2(c.x,+a.y)).y)/aspect;
+	return vec3((hi+lo)*aspect*0.5,max(hi.x-lo.x,hi.y-lo.y));
+}
+
+
+void vertex() {
+	// START of parameters
+	
+	// gamma of simulated CRT
+	//CRTgamma = 1.8;
+	
+	// gamma of display monitor (typically 2.2 is correct)
+	//monitorgamma = 2.2;
+	
+	// overscan (e.g. 1.02 for 2% overscan)
+	overscan = vec2(1.00,1.00);
+	
+	// aspect ratio
+	aspect = vec2(1.0, 0.75);
+	
+	// lengths are measured in units of (approximately) the width
+	// of the monitor simulated distance from viewer to monitor
+	//d = 2.0;
+	
+	// radius of curvature
+	//R = 1.5;
+	
+	// tilt angle in radians
+	// (behavior might be a bit wrong if both components are
+	// nonzero)
+	const vec2 angle = vec2(0.0, 0.0);
+	
+	// size of curved corners
+	//cornersize = 0.03;
+	
+	// border smoothness parameter
+	// decrease if borders are too aliased
+	//cornersmooth = 1000.0;
+	
+	// END of parameters
+	
+	// Precalculate a bunch of useful values we'll need in the fragment
+	// shader.
+	sinangle = sin(vec2(x_tilt, y_tilt)) + vec2(0.001);//sin(vec2(max(abs(x_tilt), 1e-3), max(abs(y_tilt), 1e-3)));
+	cosangle = cos(vec2(x_tilt, y_tilt)) + vec2(0.001);//cos(vec2(max(abs(x_tilt), 1e-3), max(abs(y_tilt), 1e-3)));
+	stretch = maxscale();
+	
+	ilfac = vec2(1.0,clamp(floor(InputSize.y/200.0), 1.0, 2.0));
+	
+	// The size of one texel, in texture-coordinates.
+	vec2 sharpTextureSize = vec2(SHARPER * TextureSize.x, TextureSize.y);
+	one = ilfac / sharpTextureSize;
+	
+	// Resulting X pixel-coordinate of the pixel we're drawing.
+	mod_factor = UV.x * TextureSize.x * OutputSize.x / InputSize.x;
+}
+
+/*
+NOTE: Godot shading language does not support \"\"#define\", so these ones
+must be commented/uncommented in the corresponding \"#ifdef\"/\"#ifNdef\" sections.
+*/
+
+// Enable interpolation in linear gamma (disable for gain speed).
+// Default in original GLSL source: enabled
+//#define LINEAR_PROCESSING
+
+// Enable 3x oversampling of the beam profile
+// Default in original GLSL source: enabled
+//#define OVERSAMPLE
+
+// Use the older, purely gaussian beam profile
+// Default in original GLSL source: disabled
+//#define USEGAUSSIAN
+
+const float PI = 3.141592653589;
+
+/*
+NOTE: Godot shading language does not support \"\"#define\", so \"TEX2D(c)\"
+has been inlined and enclosed in corresponding \"\"#ifdef LINEAR_PROCESSING\"
+blocks.
+*/
+
+//#ifdef LINEAR_PROCESSING
+//#define TEX2D(c) pow(COMPAT_TEXTURE(Texture, (c)), vec4(CRTgamma))
+//#else
+//#define TEX2D(c) COMPAT_TEXTURE(Texture, (c))
+//#endif
+
+vec2 transform(vec2 coord) {
+	coord *= TextureSize / InputSize;
+	coord = (coord-vec2(0.5))*aspect*stretch.z+stretch.xy;
+	return (bkwtrans(coord)/vec2(overscan_x / 100.0, overscan_y / 100.0)/aspect+vec2(0.5)) * InputSize / TextureSize;
+}
+
+float corner(vec2 coord) {
+	coord *= TextureSize / InputSize;
+	coord = (coord - vec2(0.5)) * vec2(overscan_x / 100.0, overscan_y / 100.0) + vec2(0.5);
+	coord = min(coord, vec2(1.0)-coord) * aspect;
+	vec2 cdist = vec2(cornersize);
+	coord = (cdist - min(coord,cdist));
+	float dist = sqrt(dot(coord,coord));
+	return clamp((cdist.x-dist)*cornersmooth,0.0, 1.0);
+}
+
+// Calculate the influence of a scanline on the current pixel.
+//
+// 'distance' is the distance in texture coordinates from the current
+// pixel to the scanline in question.
+// 'color' is the colour of the scanline at the horizontal location of
+// the current pixel.
+vec4 scanlineWeights(float distance, vec4 color) {
+	// \"wid\" controls the width of the scanline beam, for each RGB
+	// channel The \"weights\" lines basically specify the formula
+	// that gives you the profile of the beam, i.e. the intensity as
+	// a function of distance from the vertical center of the
+	// scanline. In this case, it is gaussian if width=2, and
+	// becomes nongaussian for larger widths. Ideally this should
+	// be normalized so that the integral across the beam is
+	// independent of its width. That is, for a narrower beam
+	// \"weights\" should have a higher peak at the center of the
+	// scanline than for a wider beam.
+
+	//#ifdef USEGAUSSIAN
+	//vec4 wid = 0.3 + 0.1 * pow(color, vec4(3.0));
+	//vec4 weights = vec4(distance / wid);
+	//return (lum + 0.4) * exp(-weights * weights) / wid;
+	//#else
+	vec4 wid = 2.0 + 2.0 * pow(color, vec4(4.0));
+	vec4 weights = vec4(distance / scanline_weight);
+	return (lum + 1.4) * exp(-pow(weights * inversesqrt(0.5 * wid), wid)) / (0.6 + 0.2 * wid);
+	//#endiF
+}
+
+
+void fragment() {
+	// Here's a helpful diagram to keep in mind while trying to
+	// understand the code:
+	//
+	//  |      |      |      |      |
+	// -------------------------------
+	//  |      |      |      |      |
+	//  |  01  |  11  |  21  |  31  | <-- current scanline
+	//  |      | @    |      |      |
+	// -------------------------------
+	//  |      |      |      |      |
+	//  |  02  |  12  |  22  |  32  | <-- next scanline
+	//  |      |      |      |      |
+	// -------------------------------
+	//  |      |      |      |      |
+	//
+	// Each character-cell represents a pixel on the output
+	// surface, \"@\" represents the current pixel (always somewhere
+	// in the bottom half of the current scan-line, or the top-half
+	// of the next scanline). The grid of lines represents the
+	// edges of the texels of the underlying texture.
+	
+	// Texture coordinates of the texel containing the active pixel.
+	vec2 xy = (CURVATURE > 0.5) ? transform(UV.xy) : UV.xy;
+	
+	float cval = corner(xy);
+	
+	// Of all the pixels that are mapped onto the texel we are
+	// currently rendering, which pixel are we currently rendering?
+	vec2 ilvec = vec2(0.0,ilfac.y * interlace_detect > 1.5 ? mod(float(FrameCount),2.0) : 0.0);
+	vec2 ratio_scale = (xy * TextureSize - vec2(0.5) + ilvec)/ilfac;
+	
+	//#ifdef OVERSAMPLE
+	float filter_ = InputSize.y/OutputSize.y;//fwidth(ratio_scale.y);
+	//#endif
+	
+	vec2 uv_ratio = fract(ratio_scale);
+	
+	// Snap to the center of the underlying texel.
+	xy = (floor(ratio_scale)*ilfac + vec2(0.5) - ilvec) / TextureSize;
+	
+	// Calculate Lanczos scaling coefficients describing the effect
+	// of various neighbour texels in a scanline on the current
+	// pixel.
+	vec4 coeffs = PI * vec4(1.0 + uv_ratio.x, uv_ratio.x, 1.0 - uv_ratio.x, 2.0 - uv_ratio.x);
+	
+	// Prevent division by zero.
+	coeffs = max(abs( coeffs ), 1e-5); // FIX(coeffs)
+	
+	// Lanczos2 kernel.
+	coeffs = 2.0 * sin(coeffs) * sin(coeffs / 2.0) / (coeffs * coeffs);
+	
+	// Normalize.
+	coeffs /= dot(coeffs, vec4(1.0));
+	
+	// Calculate the effective colour of the current and next
+	// scanlines at the horizontal location of the current pixel,
+	// using the Lanczos coefficients above.
+	vec4 col  = clamp(mat4(
+					
+					//#ifdef LINEAR_PROCESSING
+					pow(texture(TEXTURE, ( xy + vec2(-one.x, 0.0)		)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy							)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy + vec2(one.x, 0.0)		)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy + vec2(2.0 * one.x, 0.0)	)), vec4(CRTgamma))) * coeffs,
+					//#else
+					//texture(TEXTURE, ( xy + vec2(-one.x, 0.0)		)),
+					//texture(TEXTURE, ( xy							)),
+					//texture(TEXTURE, ( xy + vec2(one.x, 0.0)		)),
+					//texture(TEXTURE, ( xy + vec2(2.0 * one.x, 0.0)	))) * coeffs,
+					//#endif
+					
+					0.0, 1.0);
+
+    vec4 col2 = clamp(mat4(
+					
+					//#ifdef LINEAR_PROCESSING
+					pow(texture(TEXTURE, ( xy + vec2(-one.x, one.y)		)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy + vec2(0.0, one.y)		)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy + one						)), vec4(CRTgamma)),
+					pow(texture(TEXTURE, ( xy + vec2(2.0 * one.x, one.y))), vec4(CRTgamma))) * coeffs,
+					//#else
+					//texture(TEXTURE, ( xy + vec2(-one.x, one.y)		)),
+					//texture(TEXTURE, ( xy + vec2(0.0, one.y)		)),
+					//texture(TEXTURE, ( xy + one						)),
+					//texture(TEXTURE, ( xy + vec2(2.0 * one.x, one.y)))) * coeffs,
+					//#endif
+					
+					0.0, 1.0);
+	
+	//#ifndef LINEAR_PROCESSING
+	//col  = pow(col , vec4(CRTgamma));
+	//col2 = pow(col2, vec4(CRTgamma));
+	//#endif
+	
+	// Calculate the influence of the current and next scanlines on
+	// the current pixel.
+	vec4 weights  = scanlineWeights(uv_ratio.y, col);
+	vec4 weights2 = scanlineWeights(1.0 - uv_ratio.y, col2);
+
+	//#ifdef OVERSAMPLE
+	uv_ratio.y =uv_ratio.y+1.0/3.0*filter_;
+	weights = (weights+scanlineWeights(uv_ratio.y, col))/3.0;
+	weights2=(weights2+scanlineWeights(abs(1.0-uv_ratio.y), col2))/3.0;
+	uv_ratio.y =uv_ratio.y-2.0/3.0*filter_;
+	weights=weights+scanlineWeights(abs(uv_ratio.y), col)/3.0;
+	weights2=weights2+scanlineWeights(abs(1.0-uv_ratio.y), col2)/3.0;
+	//#endif
+	
+	vec3 mul_res  = (col * weights + col2 * weights2).rgb * vec3(cval);
+	
+	// dot-mask emulation:
+	// Output pixels are alternately tinted green and magenta.
+	vec3 dotMaskWeights = mix(
+		vec3(1.0, 1.0 - DOTMASK, 1.0),
+		vec3(1.0 - DOTMASK, 1.0, 1.0 - DOTMASK),
+		floor(mod(mod_factor, 2.0))
+	);
+	
+	mul_res *= dotMaskWeights;
+	
+	// Convert the image gamma for display on our output device.
+	mul_res = pow(mul_res, vec3(1.0 / monitorgamma));
+	
+	// Color the texel.
+	COLOR = vec4(mul_res, 1.0);
+} 
+"
+
+[sub_resource type="ShaderMaterial" id="30"]
+resource_local_to_scene = true
+shader = SubResource("29")
+
+[node name="OverworldMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.7269
+offset_bottom = -1.72687
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9")
+
+[node name="Background" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+anchor_left = -1.094
+anchor_top = -1.565
+anchor_right = 1.955
+anchor_bottom = 2.392
+offset_left = 0.00012207
+offset_top = 0.00012207
+offset_right = 60.0
+offset_bottom = -0.200317
+theme_override_styles/panel = SubResource("1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+anchor_left = 0.333
+anchor_top = 0.426
+anchor_right = 0.676
+anchor_bottom = 0.729
+offset_left = -183.0
+offset_top = -99.119
+offset_right = 174.0
+offset_bottom = 119.081
+theme_override_styles/panel = SubResource("2")
+
+[node name="Checkers" type="TextureRect" parent="Panel"]
+modulate = Color(0.713726, 0.172549, 0.827451, 1)
+self_modulate = Color(1, 1, 1, 0.427451)
+material = SubResource("4")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.0
+texture = ExtResource("1")
+stretch_mode = 2
+
+[node name="TopBorder" type="NinePatchRect" parent="Panel"]
+modulate = Color(0.709804, 0.337255, 0.686275, 1)
+layout_mode = 0
+anchor_top = -0.06
+anchor_right = 1.0
+offset_top = 8.0
+offset_right = 1.0
+offset_bottom = 119.0
+texture = ExtResource("2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+
+[node name="BottomBorder" type="NinePatchRect" parent="Panel"]
+modulate = Color(0.709804, 0.337255, 0.686275, 1)
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.057
+offset_top = -119.0
+offset_right = 1.0
+offset_bottom = -6.80002
+texture = ExtResource("3")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+
+[node name="Text" parent="Panel" instance=ExtResource("56")]
+layout_mode = 0
+anchor_left = 0.041
+anchor_top = 0.79
+anchor_right = 0.484
+anchor_bottom = 0.956
+offset_left = 4.3
+offset_top = -10.0
+offset_right = 9.19998
+offset_bottom = -0.400024
+
+[node name="Buttons" type="Control" parent="Panel"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_right = -660.0
+offset_bottom = -381.0
+
+[node name="Mario" type="TextureButton" parent="Panel/Buttons"]
+self_modulate = Color(0.74902, 0.290196, 0.219608, 1)
+layout_mode = 0
+offset_left = 36.7027
+offset_top = -40.4054
+offset_right = 161.703
+offset_bottom = 20.5946
+tooltip_text = "See Mario's stats, change his equipment, or use items."
+focus_neighbor_right = NodePath("../Party")
+focus_neighbor_bottom = NodePath("../../TabContainer/Mario/Equipment/Bag")
+texture_normal = ExtResource("6")
+
+[node name="Label" type="Label" parent="Panel/Buttons/Mario"]
+layout_mode = 0
+offset_left = -3.68176
+offset_top = 1.79552
+offset_right = 128.318
+offset_bottom = 50.7955
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = SubResource("5")
+text = "MARIO"
+
+[node name="Party" type="TextureButton" parent="Panel/Buttons"]
+self_modulate = Color(0.729412, 0.215686, 0.54902, 1)
+layout_mode = 0
+offset_left = 167.703
+offset_top = -40.4054
+offset_right = 292.703
+offset_bottom = 20.5946
+pivot_offset = Vector2(1273.1, 631.301)
+focus_neighbor_right = NodePath("../Mario")
+texture_normal = ExtResource("6")
+
+[node name="Label" type="Label" parent="Panel/Buttons/Party"]
+layout_mode = 0
+offset_left = -3.68176
+offset_top = 1.79552
+offset_right = 128.318
+offset_bottom = 50.7955
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = SubResource("5")
+text = "PARTY"
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.993
+offset_top = -1.99998
+offset_bottom = -0.200012
+theme_override_styles/panel = SubResource("6")
+tabs_visible = false
+
+[node name="Mario" type="TabBar" parent="Panel/TabContainer"]
+layout_mode = 2
+
+[node name="ItemHeader" type="Control" parent="Panel/TabContainer/Mario"]
+anchors_preset = 0
+anchor_left = 0.541
+anchor_top = 0.119
+anchor_right = 0.971
+anchor_bottom = 0.14
+offset_left = 0.299988
+offset_top = -33.481
+offset_right = -0.700073
+offset_bottom = 4.14001
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Mario/ItemHeader"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.5
+offset_top = -15.0
+offset_right = 130.5
+offset_bottom = 4.0
+theme_override_fonts/font = SubResource("7")
+
+[node name="Background" type="NinePatchRect" parent="Panel/TabContainer/Mario/ItemHeader"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.228
+anchor_right = 0.5
+anchor_bottom = 0.228
+offset_left = -119.0
+offset_top = -13.488
+offset_right = 117.0
+offset_bottom = 21.512
+texture = ExtResource("8")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="BadgePips" type="ItemList" parent="Panel/TabContainer/Mario/ItemHeader"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.228
+anchor_right = 0.5
+anchor_bottom = 0.228
+offset_left = -106.5
+offset_top = 16.512
+offset_right = 118.5
+offset_bottom = 37.512
+scale = Vector2(1, -1)
+focus_mode = 0
+theme_override_colors/guide_color = Color(0.0627451, 0.0235294, 0.0235294, 0)
+auto_height = true
+max_columns = 15
+same_column_width = true
+fixed_column_width = 10
+
+[node name="ItemArea" type="Control" parent="Panel/TabContainer/Mario"]
+anchors_preset = 0
+anchor_left = 0.539
+anchor_top = 0.175
+anchor_right = 0.979
+anchor_bottom = 0.96
+offset_left = -0.300018
+offset_top = 0.175003
+offset_right = -0.299988
+offset_bottom = -0.0399475
+
+[node name=" Background" type="NinePatchRect" parent="Panel/TabContainer/Mario/ItemArea"]
+layout_mode = 0
+anchor_right = 2.002
+anchor_bottom = 1.997
+offset_right = 12.384
+offset_bottom = -1.06104
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="Tree" type="Tree" parent="Panel/TabContainer/Mario/ItemArea"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.629944
+offset_bottom = -0.629944
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/guide_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -3
+theme_override_constants/item_margin = 7
+theme_override_fonts/font = SubResource("12")
+theme_override_icons/arrow = ExtResource("15")
+theme_override_styles/selected = SubResource("10")
+theme_override_styles/button_pressed = SubResource("9")
+columns = 3
+select_mode = 2
+
+[node name="Header" type="Control" parent="Panel/TabContainer/Mario"]
+anchors_preset = 0
+anchor_left = 0.158
+anchor_top = 0.544
+anchor_right = 0.36
+anchor_bottom = 0.544
+offset_left = -72.6
+offset_top = -9.05598
+offset_right = 74.0
+offset_bottom = 43.944
+focus_neighbor_top = NodePath("../Equipment/Badges")
+focus_neighbor_bottom = NodePath("../Stats/HP")
+
+[node name="Bar" type="NinePatchRect" parent="Panel/TabContainer/Mario/Header"]
+self_modulate = Color(1, 0.27451, 0.27451, 1)
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 32.0
+texture = ExtResource("8")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Label" type="Label" parent="Panel/TabContainer/Mario/Header/Bar"]
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0079
+offset_top = -17.5
+offset_right = 112.008
+offset_bottom = 17.5
+tooltip_text = "You're Mario, silly!"
+focus_neighbor_top = NodePath("../../../Equipment/Badges")
+focus_neighbor_right = NodePath("../Level")
+focus_neighbor_bottom = NodePath("../../Stats/FP")
+focus_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("5")
+text = "Mario"
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Mario/Header/Bar"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -25.0
+offset_right = 27.0
+offset_bottom = 15.0
+
+[node name="Sprite2D" type="TextureRect" parent="Panel/TabContainer/Mario/Header/Bar/Control"]
+layout_mode = 0
+anchor_left = 0.17
+anchor_top = 0.206
+anchor_right = 0.97
+anchor_bottom = 1.0
+offset_left = -6.34016
+offset_top = -6.36756
+offset_right = 5.65984
+offset_bottom = 5.87244
+texture = ExtResource("21")
+expand_mode = 1
+
+[node name="Level" type="Label" parent="Panel/TabContainer/Mario/Header/Bar"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_bottom = -1.52588e-05
+tooltip_text = "Your current level. Every time you gain 100 EXP, you go up a level and can choose a new bonus."
+focus_neighbor_left = NodePath("../Label")
+focus_neighbor_top = NodePath("../../../Equipment/Boots")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Pieces")
+focus_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("13")
+text = "Lvl.20"
+
+[node name="Pieces" type="Label" parent="Panel/TabContainer/Mario/Header"]
+layout_mode = 0
+anchor_left = 0.817
+anchor_top = 0.604
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0280151
+offset_top = -0.012001
+tooltip_text = "How many Star Pieces you've collected. You can spend collected Star Pieces for permanent upgrades."
+focus_neighbor_left = NodePath("../Stats/BP")
+focus_neighbor_top = NodePath("../Bar/Level")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("14")
+text = "200"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/TabContainer/Mario/Header/Pieces"]
+position = Vector2(-9.54092, 11.2246)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("18")
+
+[node name="Stats" type="Control" parent="Panel/TabContainer/Mario/Header"]
+show_behind_parent = true
+anchors_preset = 0
+anchor_left = 0.063
+anchor_top = 0.703
+anchor_right = 0.204
+anchor_bottom = 1.458
+offset_left = -0.00374031
+offset_top = 0.0143471
+offset_right = -0.0477448
+offset_bottom = -0.000656128
+
+[node name="BP" type="Control" parent="Panel/TabContainer/Mario/Header/Stats"]
+show_behind_parent = true
+anchors_preset = 0
+offset_left = 90.0
+offset_right = 130.0
+offset_bottom = 40.0
+tooltip_text = "Your Badge Points stat. Having more BP allows you to equip more badges at once, granting useful effects."
+focus_neighbor_left = NodePath("../FP")
+focus_neighbor_top = NodePath("../../Bar/Level")
+focus_neighbor_right = NodePath("../../Pieces")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
+position = Vector2(18.6519, 19.8425)
+texture = ExtResource("19")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel/TabContainer/Mario/Header/Stats/BP/Sprite2D"]
+modulate = Color(0.333333, 1, 0.670588, 0.709804)
+show_behind_parent = true
+position = Vector2(0, -3)
+scale = Vector2(0.15, 0.15)
+amount = 4
+process_material = SubResource("21")
+texture = ExtResource("28")
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 5.0
+offset_right = 46.0
+offset_bottom = -10.0
+focus_neighbor_left = NodePath("..")
+focus_neighbor_top = NodePath("../../../Level")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("22")
+text = "20"
+
+[node name="Label3" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 29.0
+offset_right = 19.0
+offset_bottom = 6.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("23")
+text = "BP"
+
+[node name="FP" type="Control" parent="Panel/TabContainer/Mario/Header/Stats"]
+show_behind_parent = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "Your Flower Points stat. Every battle you start with a number of FP equal to this stat, and can spend it to use cool moves."
+focus_neighbor_top = NodePath("../../Bar/Label")
+focus_neighbor_right = NodePath("../BP")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+position = Vector2(18.6519, 19.8425)
+texture = ExtResource("17")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel/TabContainer/Mario/Header/Stats/FP/Sprite2D"]
+modulate = Color(0.556863, 1, 0.333333, 0.709804)
+show_behind_parent = true
+position = Vector2(0, -3)
+scale = Vector2(0.15, 0.15)
+amount = 4
+process_material = SubResource("21")
+texture = ExtResource("28")
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = -10.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("22")
+text = "20"
+
+[node name="Label3" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 33.0
+offset_top = 29.0
+offset_right = 15.0
+offset_bottom = 9.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("23")
+text = "FP"
+
+[node name="Equipment" type="Control" parent="Panel/TabContainer/Mario"]
+anchors_preset = 0
+anchor_left = 0.199
+anchor_top = 0.055
+anchor_right = 0.302
+anchor_bottom = 0.494
+offset_left = -103.3
+offset_top = 0.0550022
+offset_right = 110.6
+offset_bottom = -0.105988
+
+[node name="Hammer" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_bottom = 80.0003
+tooltip_text = "Choose this option to change which hammer you have equipped or see your collection."
+focus_neighbor_left = NodePath("../Bag")
+focus_neighbor_top = NodePath("../../../../Buttons/Mario")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Boots")
+texture_normal = ExtResource("54")
+
+[node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Hammer"]
+modulate = Color(0, 0, 0, 0.623529)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.74579
+offset_top = 5.74237
+offset_right = 103.746
+offset_bottom = 85.7424
+texture = ExtResource("54")
+stretch_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Equipment/Hammer"]
+position = Vector2(59.6495, 39.2438)
+scale = Vector2(2, 2)
+texture = ExtResource("5")
+
+[node name="Boots" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -80.0
+tooltip_text = "Choose this option to change which boots you have equipped or see your collection."
+focus_neighbor_left = NodePath("../Badges")
+focus_neighbor_top = NodePath("../Hammer")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Header/Bar/Level")
+texture_normal = ExtResource("54")
+
+[node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Boots"]
+modulate = Color(0, 0, 0, 0.623529)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.74579
+offset_top = 5.1124
+offset_right = 103.746
+offset_bottom = 85.1124
+texture = ExtResource("54")
+stretch_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Equipment/Boots"]
+position = Vector2(60.6495, 39.2438)
+scale = Vector2(2, 2)
+texture = ExtResource("52")
+
+[node name="Bag" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 80.0
+tooltip_text = "Choose this option to use items from your bag or see your collection."
+focus_neighbor_top = NodePath("../../../../Buttons/Mario")
+focus_neighbor_right = NodePath("../Hammer")
+focus_neighbor_bottom = NodePath("../Badges")
+texture_normal = ExtResource("11")
+
+[node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Bag"]
+modulate = Color(0, 0, 0, 0.623529)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.74579
+offset_top = 4.90147
+offset_right = 103.746
+offset_bottom = 84.9015
+texture = ExtResource("54")
+stretch_mode = 1
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Equipment/Bag"]
+position = Vector2(40.6495, 39.2438)
+scale = Vector2(2, 2)
+texture = ExtResource("16")
+
+[node name="Badges" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 99.0
+tooltip_text = "Select this option to choose which badges you have equipped or view your collection."
+focus_neighbor_top = NodePath("../Bag")
+focus_neighbor_right = NodePath("../Boots")
+focus_neighbor_bottom = NodePath("../../Header/Bar/Label")
+button_mask = 0
+texture_normal = ExtResource("11")
+stretch_mode = 4
+
+[node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Badges"]
+modulate = Color(0, 0, 0, 0.623529)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 4.74579
+offset_top = 4.30687
+offset_right = 103.746
+offset_bottom = 84.3069
+texture = ExtResource("54")
+stretch_mode = 1
+flip_h = true
+
+[node name="Sprite2D" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Badges"]
+layout_mode = 0
+anchor_left = 0.083
+anchor_top = 0.063
+anchor_right = 0.73
+anchor_bottom = 0.863
+offset_left = 0.0478621
+offset_top = 2.98704
+offset_right = -0.00514221
+offset_bottom = 2.98704
+texture = ExtResource("26")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Shadow2" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment"]
+modulate = Color(0, 0, 0, 0.654902)
+show_behind_parent = true
+layout_mode = 0
+anchor_left = 0.109
+anchor_top = 0.957
+anchor_right = 0.859
+anchor_bottom = 1.163
+offset_left = 47.826
+offset_top = -15.975
+offset_right = -38.674
+offset_bottom = -20.025
+texture = ExtResource("10")
+expand_mode = 1
+stretch_mode = 7
+
+[node name="Control" type="Control" parent="Panel/TabContainer/Mario/Equipment"]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -8.5
+offset_bottom = -5.5
+
+[node name="Mario" type="AnimatedSprite2D" parent="Panel/TabContainer/Mario/Equipment/Control"]
+position = Vector2(-11.971, -5)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("13")
+animation = &"HoldHammer1"
+frame = 1
+
+[node name="Hammer" type="AnimatedSprite2D" parent="Panel/TabContainer/Mario/Equipment/Control/Mario"]
+show_behind_parent = true
+position = Vector2(10.7194, -8.98711)
+rotation = -0.296706
+sprite_frames = ExtResource("18")
+animation = &"Hold"
+
+[node name="Party" type="TabBar" parent="Panel/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Panel/TabContainer/Party"]
+layout_mode = 0
+offset_left = 402.789
+offset_top = 221.156
+offset_right = 595.789
+offset_bottom = 375.156
+texture = ExtResource("4")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="Cursor" type="AnimatedSprite2D" parent="."]
+position = Vector2(250.461, 85.3794)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("28")
+animation = &"down"
+frame = 2
+
+[node name="Status" parent="." instance=ExtResource("55")]
+visible = false
+material = SubResource("30")
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+mouse_filter = 2
+mouse_default_cursor_shape = 7
+
+[connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Hammer" to="." method="_on_Hammer_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Boots" to="." method="_on_Boots_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Bag" to="." method="_on_Bag_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Badges" to="." method="_on_Badges_pressed"]

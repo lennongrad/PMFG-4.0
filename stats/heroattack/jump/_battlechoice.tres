@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://stats/heroattack/battlechoice.gd" type="Script" id=2]
+
+[sub_resource type="CompressedTexture2D" id=1]
+
+[resource]
+script = ExtResource( 2 )
+name = "Jump"
+icon = SubResource( 1 )
+order = 3

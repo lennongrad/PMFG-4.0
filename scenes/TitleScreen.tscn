@@ -1,0 +1,340 @@
+[gd_scene load_steps=22 format=3 uid="uid://divf7jrq67nb0"]
+
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="1"]
+[ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b74csev77yxgn" path="res://sprites/UI/menuheader.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dlyf6e7x38igq" path="res://sprites/UI/enemy_cursor.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dpcwinv1auw4r" path="res://sprites/UI/cursor.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bxh2fycuxeq4r" path="res://logo.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dr52c7r70mol8" path="res://sprites/UI/icons.png" id="7"]
+
+[sub_resource type="Shader" id="1"]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+varying flat vec4 modulate;
+void vertex() {
+	modulate = COLOR;
+}
+
+void fragment(){
+    vec2 newuv = UV;
+    newuv.x += TIME / 16.0;
+    newuv.y += TIME / 16.0;
+    vec4 c = texture(TEXTURE, newuv);
+	c.r *= modulate.r;
+	c.g *= modulate.g;
+	c.b *= modulate.b;
+	c.a *= modulate.a;
+	
+	//c *= .4;
+	if(c.a != 0.0){
+		//c.a *= .1;
+	}
+    COLOR = c;
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("1")
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.113725, 0.0941176, 0.176471, 1)
+
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/52/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/52/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3yx0"]
+font_size = 52
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7pyo"]
+font_size = 52
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/32/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/32/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/523/0/ascent = 0.0
+cache/0/523/0/descent = 0.0
+cache/0/523/0/underline_position = 0.0
+cache/0/523/0/underline_thickness = 0.0
+cache/0/523/0/scale = 1.0
+cache/0/523/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/523/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/523/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/523/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/523/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/523/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/52/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/32/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/523/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/52/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fx70p"]
+font_size = 52
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("4")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("4")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}, {
+"duration": 1.0,
+"texture": SubResource("6")
+}],
+"loop": true,
+"name": &"down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="Panel" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.921569, 0.760784, 0.192157)
+texture_repeat = 2
+material = SubResource("2")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("7")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="Panel"]
+show_behind_parent = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.18921
+offset_top = -1.18921
+offset_right = 1.18921
+offset_bottom = -1.18921
+theme_override_styles/panel = SubResource("3")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.292
+anchor_top = 0.117
+anchor_right = 0.708
+anchor_bottom = 0.463
+offset_left = -3.05176e-05
+offset_top = -0.200005
+offset_bottom = 0.199982
+texture = ExtResource("6")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = -108.0
+offset_top = 8.384
+offset_right = 303.001
+offset_bottom = 83.384
+rotation = -6.52362
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("4")
+text = "UNTITLED"
+label_settings = SubResource("LabelSettings_l3yx0")
+
+[node name="Label2" type="Label" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -4.224
+offset_right = 32.0
+offset_bottom = 51.776
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -0.0558291
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("4")
+text = "FANGAME"
+label_settings = SubResource("LabelSettings_n7pyo")
+
+[node name="StartButton" type="TextureButton" parent="."]
+self_modulate = Color(0.227451, 0.207843, 0.380392, 0.917647)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.737
+anchor_right = 0.5
+anchor_bottom = 0.737
+offset_left = -140.0
+offset_top = -54.2
+offset_right = 138.0
+offset_bottom = 55.8
+texture_normal = ExtResource("3")
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="StartButton"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("5")
+text = "START"
+label_settings = SubResource("LabelSettings_fx70p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.5
+offset_top = -50.0
+offset_right = 231.5
+offset_bottom = -5.0
+theme_override_fonts/font = SubResource("11")
+text = "Version 0.1. 2023 by lennongrad.
+https://github.com/lennongrad/PMFG"
+
+[node name="Cursor" type="AnimatedSprite2D" parent="."]
+position = Vector2(505.019, 416.013)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("10")
+animation = &"down"
+autoplay = "down"
+frame_progress = 0.878524
+
+[connection signal="pressed" from="StartButton" to="." method="_on_TextureButton_pressed"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://stats/enemystats/enemystats_redshyguy.tres" type="Resource" id=1]
+[ext_resource path="res://stats/enemyencounter/enemyencounter.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+enemies = [ ExtResource( 1 ), ExtResource( 1 ) ]
+flying = false
+swimming = false
+fly_level = 0.0
+attributes = {
+}

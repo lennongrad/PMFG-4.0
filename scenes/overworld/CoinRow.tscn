@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0psgji3r8243"]
+
+[ext_resource type="Script" path="res://scenes/overworld/CoinRow.gd" id="1"]
+
+[node name="CoinRow" type="Node3D"]
+script = ExtResource("1")
+coin_count = 6
+coin_distance = Vector3(0.1, 0.1, 0.1)

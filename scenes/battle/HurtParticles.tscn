@@ -1,0 +1,86 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://sprites/UI/star2.png" type="Texture2D" id=1]
+[ext_resource path="res://scripts/battle/HurtParticles.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=15]
+offsets = PackedFloat32Array( 0, 0.727749 )
+colors = PackedColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture2D" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Curve" id=3]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.490654, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.981308, 0.818182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, -2.30727, 0, 0, Vector2( 1, 0.154545 ), -1.05561, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 5 )
+
+[sub_resource type="Gradient" id=17]
+offsets = PackedFloat32Array( 0, 0.492147, 1 )
+colors = PackedColorArray( 1, 1, 1, 1, 0.509804, 0.509804, 0.509804, 1, 0, 0, 0, 0.392157 )
+
+[sub_resource type="GradientTexture2D" id=18]
+gradient = SubResource( 17 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0.819318 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.436364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticleProcessMaterial" id=11]
+trail_divisor = 5
+trail_size_modifier = SubResource( 20 )
+trail_color_modifier = SubResource( 18 )
+direction = Vector3( 0, 1, 0.1 )
+spread = 144.87
+flatness = 1.0
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 1.2
+initial_velocity_random = 0.2
+damping = 0.5
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 16 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+hue_variation_curve = SubResource( 4 )
+
+[sub_resource type="StandardMaterial3D" id=12]
+render_priority = 1
+flags_transparent = true
+flags_unshaded = true
+flags_no_depth_test = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=13]
+material = SubResource( 12 )
+size = Vector2( 0.25, 0.25 )
+
+[node name="HurtParticles" type="Marker3D"]
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Particles" type="Particles" parent="."]
+emitting = false
+amount = 40
+lifetime = 1.75
+speed_scale = 3.0
+explosiveness = 0.5
+visibility_aabb = AABB( -1, -1, -1, 2, 2, 2 )
+process_material = SubResource( 11 )
+draw_pass_1 = SubResource( 13 )

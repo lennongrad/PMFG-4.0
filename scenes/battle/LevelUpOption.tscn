@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/UI/border2.png" type="Texture2D" id=1]
+[ext_resource path="res://sprites/other/hphd.png" type="Texture2D" id=2]
+[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
+[ext_resource path="res://scripts/battle/LevelUpOption.gd" type="Script" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="FontFile" id=2]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="FontFile" id=3]
+size = 15
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="FontFile" id=4]
+size = 28
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="HP" type="NinePatchRect"]
+self_modulate = Color( 0.72, 0.6048, 0.288, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -65.5
+offset_right = 66.5
+offset_bottom = 65.5
+texture = ExtResource( 1 )
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+stat_name = "HP"
+icon = ExtResource( 2 )
+left_side = "5"
+right_side = "5"
+
+[node name="Icon" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -3.0
+texture = ExtResource( 2 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="TextureRect" parent="Icon"]
+modulate = Color( 0, 0, 0, 0.729412 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+scale = Vector2( 0.95, 0.95 )
+texture = ExtResource( 2 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -31.0
+offset_right = 30.0
+offset_bottom = 10.0
+theme_override_fonts/font = SubResource( 2 )
+theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Values" type="Control" parent="."]
+anchor_left = 0.158
+anchor_top = 0.771
+anchor_right = 0.887
+anchor_bottom = 1.076
+offset_left = 0.985998
+offset_top = -3.00101
+offset_right = -1.971
+offset_bottom = -2.95601
+
+[node name="Left" type="Label" parent="Values"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -18.0
+theme_override_fonts/font = SubResource( 3 )
+theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "5→"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Label" parent="Values"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.05
+offset_top = -31.0
+offset_right = 47.0
+offset_bottom = 3.8147e-06
+theme_override_fonts/font = SubResource( 4 )
+theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
