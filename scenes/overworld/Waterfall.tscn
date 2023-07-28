@@ -1,17 +1,90 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxsxj2wuxccfx"]
+[gd_scene load_steps=25 format=3 uid="uid://bxsxj2wuxccfx"]
 
+[ext_resource type="Texture2D" uid="uid://bp6c1s1ishabq" path="res://textures/disp.png" id="1_lj3r5"]
 [ext_resource type="Texture2D" uid="uid://brmddt4y51ctb" path="res://textures/waterfall.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ix8p5lh26q8a" path="res://textures/water/water.png" id="2_8scgy"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://b5jeoqgfcyag3" path="res://textures/blocks/brickblock.png" id="4_wv5dy"]
 
+[sub_resource type="Shader" id="1"]
+code = "shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+ 
+uniform vec4 main_color : source_color;
+uniform vec4 intersection_color : source_color;
+uniform float intersection_max_threshold = 0.5;
+uniform sampler2D displ_tex : hint_default_white;
+uniform float displ_amount = 0.6;
+uniform float near = 0.15;
+uniform float far = 300.0;
+ 
+float linearize(float c_depth) {
+	c_depth = 2.0 * c_depth - 1.0;
+	return near * far / (far + c_depth * (near - far));
+}
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+	VERTEX.y += cos(TIME + VERTEX.x * 1.0 + VERTEX.z * 1.0) * .05;
+	VERTEX.y += texture(displ_tex, (UV - TIME / 7.0) / 14.0).r * .1;
+}
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv - TIME / 14.0);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	
+	float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).x);
+	float zpos = linearize(FRAGCOORD.z);
+	float diff = zdepth - zpos;
+ 
+	ALBEDO = vec3(diff);
+	vec2 displ = texture(displ_tex, UV - TIME / 7.0).rg;
+	displ = ((displ * 2.0) - 1.0) * displ_amount;
+	diff += displ.x;
+	
+	vec4 tx = albedo_tex.rgba;
+	tx.rgb += vec3(displ.x, displ.x, displ.y) * .05;
+ 
+	vec4 col = mix(intersection_color, tx, step(intersection_max_threshold, diff));
+	ALBEDO = col.rgb;
+ 	ALPHA = .8;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnr1d"]
+render_priority = 0
+shader = SubResource("1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(16, 4, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/main_color = Color(1, 1, 1, 1)
+shader_parameter/intersection_color = Color(0.72549, 0.729412, 0.780392, 1)
+shader_parameter/intersection_max_threshold = 0.3
+shader_parameter/displ_amount = 0.3
+shader_parameter/near = 0.15
+shader_parameter/far = 600.0
+shader_parameter/texture_albedo = ExtResource("2_8scgy")
+shader_parameter/displ_tex = ExtResource("1_lj3r5")
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_lld4r"]
+material = SubResource("ShaderMaterial_mnr1d")
 height = 12.0
 
-[sub_resource type="Gradient" id="4"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_1ok8t"]
+offsets = PackedFloat32Array(0, 0.626016, 0.99187)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="5"]
-gradient = SubResource("4")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vfrxw"]
+gradient = SubResource("Gradient_1ok8t")
 
 [sub_resource type="Curve" id="6"]
 _data = [Vector2(0, 0.318182), 0.0, 0.0, 0, 0, Vector2(1, 0.772727), 0.0, 0.0, 0, 0]
@@ -22,12 +95,14 @@ curve = SubResource("6")
 
 [sub_resource type="ParticleProcessMaterial" id="8"]
 emission_shape = 2
-emission_sphere_radius = 1.0
+emission_sphere_radius = 0.5
 direction = Vector3(0, 1, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 0.8
 scale_curve = SubResource("7")
-color_ramp = SubResource("5")
+color_ramp = SubResource("GradientTexture1D_vfrxw")
 
 [sub_resource type="Shader" id="9"]
 code = "shader_type spatial;
@@ -43,13 +118,14 @@ void fragment()
 	ALPHA_SCISSOR_THRESHOLD = 0.01;
 	ALPHA = step(0.0, a);
 	ALBEDO = front_color.rgb;
+	
 }"
 
 [sub_resource type="ShaderMaterial" id="10"]
 render_priority = 0
 shader = SubResource("9")
 shader_parameter/front_color = Color(1, 1, 1, 1)
-shader_parameter/back_color = null
+shader_parameter/back_color = Color(0.760784, 0.760784, 0.760784, 1)
 shader_parameter/dissolve_tex = ExtResource("2")
 
 [sub_resource type="SphereMesh" id="11"]
@@ -57,20 +133,29 @@ material = SubResource("10")
 radial_segments = 16
 rings = 16
 
+[sub_resource type="Gradient" id="Gradient_87iyr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mv86g"]
+gradient = SubResource("Gradient_87iyr")
+
 [sub_resource type="ParticleProcessMaterial" id="15"]
 emission_shape = 2
-emission_sphere_radius = 1.0
+emission_sphere_radius = 0.75
 direction = Vector3(1, 0, 1)
 spread = 180.0
 gravity = Vector3(0, -5, 0)
-color = Color(0.188235, 0.309804, 0.678431, 0.14902)
+scale_min = 0.2
+scale_max = 0.3
+color = Color(0.678431, 0.678431, 0.678431, 0.509804)
+color_ramp = SubResource("GradientTexture1D_mv86g")
 
 [sub_resource type="StandardMaterial3D" id="16"]
 transparency = 1
-shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
@@ -98,7 +183,7 @@ transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.10663, 2.1463
 mesh = SubResource("CylinderMesh_lld4r")
 
 [node name="CollisionParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -5.98083, -0.0259163)
+transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -4.97333, -0.0259163)
 amount = 40
 speed_scale = 2.0
 visibility_aabb = AABB(-4.25, -4, -4, 8, 8, 8)
@@ -106,7 +191,7 @@ process_material = SubResource("8")
 draw_pass_1 = SubResource("11")
 
 [node name="WaterParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96043, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23811, 0)
 amount = 128
 lifetime = 4.0
 speed_scale = 2.0

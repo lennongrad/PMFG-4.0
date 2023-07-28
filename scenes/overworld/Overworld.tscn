@@ -1,10 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=49 format=3 uid="uid://djn7hpj5g1pku"]
 
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://t88yfifpfdu5" path="res://textures/wood/woodplank.png" id="3"]
 [ext_resource type="Script" path="res://scripts/overworld/Overworld.gd" id="4"]
 [ext_resource type="Resource" path="res://stats/heroattack/items/supermushroom.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/overworld/EnemySpawner.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://ds1tf2gdnpfne" path="res://scenes/overworld/Player.tscn" id="11"]
@@ -125,7 +126,6 @@ size = Vector2(32, 0.6)
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
-debug = true
 worldBackground = SubResource("2")
 
 [node name="Player" parent="." instance=ExtResource("11")]
@@ -513,6 +513,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64497, 1.01, -1.09)
 
 [node name="PipeExit" parent="Stage" instance=ExtResource("30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.08, 4.942, -3.208)
+
+[node name="Waterfall" parent="Stage" instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 2.6209, 2.14632, 2.01696)
+
+[node name="Waterfall2" parent="Stage" instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, -2.54491, 2.14632, 2.01696)
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Control_finishedSpinning"]
 [connection signal="done" from="TitleScreen" to="." method="_on_TitleScreen_done"]
