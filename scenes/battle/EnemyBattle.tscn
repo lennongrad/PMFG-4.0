@@ -1,7 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://cc6e8hf8dein5"]
+[gd_scene load_steps=42 format=3 uid="uid://cc6e8hf8dein5"]
 
 [ext_resource type="Resource" uid="uid://d2nm2n73ysnn4" path="res://stats/enemystats/enemystats_cheepcheep.tres" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/battle/enemy_states/enemy_state_persistent.gd" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://dlyf6e7x38igq" path="res://sprites/UI/enemy_cursor.png" id="5"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://scripts/battle/Balloons.gd" id="13"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="14"]
 [ext_resource type="PackedScene" uid="uid://ddxb2t13bohu" path="res://scenes/Circles.tscn" id="15"]
-[ext_resource type="PackedScene" path="res://scenes/battle/FeedbackParticle.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://1axryjolfwxg" path="res://scenes/battle/FeedbackParticle.tscn" id="16"]
 [ext_resource type="Texture2D" path="res://sprites/other/exp_animated.tres" id="17"]
 [ext_resource type="Script" path="res://scripts/battle/HurtParticles.gd" id="18"]
 [ext_resource type="Texture2D" uid="uid://bwsehqencn05g" path="res://sprites/UI/itemacbk.png" id="19"]
@@ -114,8 +114,12 @@ curve = SubResource("7")
 
 [sub_resource type="ParticleProcessMaterial" id="9"]
 direction = Vector3(0, 1, 0)
-spread = 60.0
-gravity = Vector3(0, -15, 0)
+spread = 102.47
+gravity = Vector3(0, -1, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.4
+scale_min = 0.1
+scale_max = 0.1
 scale_curve = SubResource("8")
 color = Color(1, 1, 1, 0.462745)
 
@@ -148,11 +152,18 @@ point_count = 2
 curve = SubResource("14")
 
 [sub_resource type="ParticleProcessMaterial" id="20"]
+particle_flag_disable_z = true
 direction = Vector3(0, 1, 0.1)
 spread = 144.87
 flatness = 1.0
 gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -5.0
+angle_max = 5.0
+scale_max = 1.2
 scale_curve = SubResource("15")
+color = Color(1, 1, 1, 0.12549)
 color_ramp = SubResource("13")
 
 [sub_resource type="StandardMaterial3D" id="21"]
@@ -180,7 +191,13 @@ radius = 0.08
 [sub_resource type="SphereShape3D" id="25"]
 radius = 0.162876
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lokhw"]
+radius = 0.0395126
+height = 0.307789
+
 [node name="Enemy_Battle" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("3")
 stats = ExtResource("1")
 
@@ -213,7 +230,7 @@ texture = ExtResource("14")
 [node name="Circles" parent="." instance=ExtResource("15")]
 
 [node name="ExperienceParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141949, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0738787, 0)
 emitting = false
 amount = 16
 lifetime = 0.5
@@ -235,6 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0826906, 0.201142, 0)
 emitting = false
 amount = 16
 lifetime = 1.75
+one_shot = true
 speed_scale = 3.0
 visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
 process_material = SubResource("20")
@@ -271,6 +289,10 @@ collision_mask = 3
 [node name="CollisionShape" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202069, 0)
 shape = SubResource("25")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16376, 0)
+shape = SubResource("CapsuleShape3D_lokhw")
 
 [connection signal="area_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_SlingshotArea_area_entered"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

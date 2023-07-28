@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cm0e5asgfdnje"]
 
 [ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/overworld/Torch.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="5"]
 [ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="5_0a7ai"]
@@ -110,7 +110,7 @@ transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, 2.92, 2.
 mesh = SubResource("6")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.287783, 0.0318917)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.301093, 0.0318917)
 mesh = SubResource("7")
 
 [node name="Underwater" type="MeshInstance3D" parent="Water"]
@@ -118,8 +118,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0
 mesh = SubResource("24")
 
 [node name="BorderMesh" parent="." instance=ExtResource("5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702065, -2, -0.917)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702065, -2.01331, -0.917)
 size = Vector3(8, 4, 2)
 
 [node name="Waterfall" parent="." instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.1, 2.146, -1.5)
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.1, 2.13269, -1.5)

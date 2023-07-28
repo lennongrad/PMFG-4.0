@@ -5,16 +5,15 @@
 [ext_resource type="Resource" path="res://stats/heroattack/jump/basic.tres" id="3"]
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="4"]
 [ext_resource type="Script" path="res://stats/herostats/herostats.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://8gnh8s8appm3" path="res://sprites/mario/particles.png" id="5_p67y4"]
 
 [sub_resource type="CompressedTexture2D" id="1"]
-
-[sub_resource type="CompressedTexture2D" id="2"]
 
 [sub_resource type="StandardMaterial3D" id="3"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("2")
+albedo_texture = ExtResource("5_p67y4")
 
 [sub_resource type="QuadMesh" id="4"]
 material = SubResource("3")

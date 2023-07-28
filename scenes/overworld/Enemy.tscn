@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="1"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/battle/Balloons.gd" id="4"]
 [ext_resource type="Texture2D" uid="uid://dwnrliqytbx0s" path="res://textures/skyguy/balloon2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://c5r863sb51knl" path="res://textures/skyguy/balloon1.png" id="6"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://n7ecmiglepdp" path="res://textures/skyguy/balloon5.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://ilcc0nh7slua" path="res://textures/skyguy/balloon4.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://j1kesg7rn8cc" path="res://textures/skyguy/balloon6.png" id="10"]
-[ext_resource type="PackedScene" path="res://scenes/Circles.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://ddxb2t13bohu" path="res://scenes/Circles.tscn" id="11"]
 [ext_resource type="Script" path="res://scripts/overworld/Enemy.tres.gd" id="12"]
 
 [sub_resource type="CylinderShape3D" id="1"]
@@ -63,7 +63,7 @@ radius = 0.856045
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("12")
 encounter_data = ExtResource("2")
 

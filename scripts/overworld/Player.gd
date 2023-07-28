@@ -43,6 +43,17 @@ var after_growing = false
 func _ready():
 	update_hammer(get_node("/root/MarioRun").get_equipped_hammer().type)
 
+func do_wall_slide():
+	if !is_on_wall():
+		return false
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var normal_cross = collision.get_normal().cross(Vector3.LEFT)
+		if(normal_cross.y >= -.1):
+			return true
+	return false
+
 func _physics_process(delta):
 	if paused:
 		if state == PLAYER_STATE.HAMMER:
@@ -355,7 +366,7 @@ func _physics_process(delta):
 				horizontalVelocity = horizontalVelocity.rotated(deg_to_rad(-rotation_degrees.y))
 				velocity = Vector3(horizontalVelocity.x, velocity.y, horizontalVelocity.y)
 				
-				if is_on_wall():
+				if do_wall_slide():
 					if velocity.y < 0:
 						velocity.y = -.6
 					if velocity.y > 0:

@@ -17,7 +17,7 @@ var is_victory_posing = false
 var is_selected_teammate = false
 var guarding = false
 var is_idle = false
-var first_strike_active
+var first_strike_active = false
 var is_in_water = false
 var level_up_waiting = false
 

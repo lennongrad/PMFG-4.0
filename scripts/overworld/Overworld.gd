@@ -164,7 +164,7 @@ func _on_Control_finishedSpinning():
 		encountered_enemy = null
 		need_player_position = [partner]
 	elif is_exiting:
-		pass
+		get_tree().goto_scene("res://scenes/overworld/Overworld.tscn")
 	else:
 		if has_node("Stage/PipeInto"):
 			start_pipe()

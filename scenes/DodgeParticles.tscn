@@ -1,113 +1,106 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=18 format=3 uid="uid://cb8klbah5i3xf"]
 
-[ext_resource path="res://particles/light_03.png" type="Texture2D" id=1]
-[ext_resource path="res://scripts/battle/DodgeParticles.gd" type="Script" id=2]
-[ext_resource path="res://particles/star_07.png" type="Texture2D" id=3]
+[ext_resource type="Texture2D" uid="uid://cj3bwhdhiuw0q" path="res://particles/light_03.png" id="1"]
+[ext_resource type="Script" path="res://scripts/battle/DodgeParticles.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dp5b2j5fa5ks3" path="res://particles/star_07.png" id="3"]
 
-
-
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id="1"]
 min_value = -360.0
 max_value = 360.0
-_data = [ Vector2( 0.0140187, -252 ), 0.0, 0.0, 0, 0, Vector2( 0.948598, 356.727 ), 0.0, 0.0, 0, 0 ]
+_data = [Vector2(0.0140187, -252), 0.0, 0.0, 0, 0, Vector2(0.948598, 356.727), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[sub_resource type="CurveTexture" id="2"]
+curve = SubResource("1")
 
-[sub_resource type="Gradient" id=3]
-offsets = PackedFloat32Array( 0, 0.696335, 1 )
-colors = PackedColorArray( 1, 1, 1, 1, 1, 1, 1, 0.584314, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="3"]
+offsets = PackedFloat32Array(0, 0.696335, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.584314, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture2D" id="4"]
+gradient = SubResource("3")
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id="5"]
 max_value = 10.0
-_data = [ Vector2( 0, 0.204545 ), 0.0, 0.0, 0, 0, Vector2( 1, 4.79545 ), 13.311, 0.0, 0, 0 ]
+_data = [Vector2(0, 0.204545), 0.0, 0.0, 0, 0, Vector2(1, 4.79545), 13.311, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=6]
+[sub_resource type="CurveTexture" id="6"]
 width = 4096
-curve = SubResource( 5 )
+curve = SubResource("5")
 
-[sub_resource type="ParticleProcessMaterial" id=7]
+[sub_resource type="ParticleProcessMaterial" id="7"]
 spread = 40.3
-gravity = Vector3( 0, 0, 0 )
-initial_velocity_random = 0.28
-angular_velocity = 1.0
-angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 2 )
-radial_accel = 1.0
-radial_accel_random = 1.0
-scale_random = 0.2
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+gravity = Vector3(0, 0, 0)
+angular_velocity_curve = SubResource("2")
+scale_curve = SubResource("6")
+color_ramp = SubResource("4")
 
-[sub_resource type="StandardMaterial3D" id=8]
-flags_transparent = true
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="8"]
+transparency = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color( 1, 1, 1, 0.709804 )
-albedo_texture = ExtResource( 1 )
+albedo_color = Color(1, 1, 1, 0.709804)
+albedo_texture = ExtResource("1")
 
-[sub_resource type="QuadMesh" id=9]
-material = SubResource( 8 )
-size = Vector2( 0.5, 0.5 )
+[sub_resource type="QuadMesh" id="9"]
+material = SubResource("8")
+size = Vector2(0.5, 0.5)
 
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.28972, 0.3625 ), 0.0, 0.0, 0, 0 ]
+[sub_resource type="Curve" id="10"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.28972, 0.3625), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
+[sub_resource type="CurveTexture" id="11"]
+curve = SubResource("10")
 
-[sub_resource type="ParticleProcessMaterial" id=12]
-direction = Vector3( 0, 0, 0 )
+[sub_resource type="ParticleProcessMaterial" id="12"]
+direction = Vector3(0, 1, 0)
 spread = 180.0
 flatness = 0.15
-gravity = Vector3( 0, -0.51, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 0.28
-angular_velocity = 1.0
-angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 2 )
-radial_accel = 1.0
-radial_accel_random = 1.0
-damping = 0.5
-damping_random = 0.4
-scale = 4.0
-scale_random = 0.5
-scale_curve = SubResource( 11 )
+gravity = Vector3(0, -0.51, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+angular_velocity_curve = SubResource("2")
+scale_curve = SubResource("11")
 
-[sub_resource type="StandardMaterial3D" id=13]
-flags_transparent = true
-flags_unshaded = true
+[sub_resource type="StandardMaterial3D" id="13"]
+transparency = 1
+shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color( 1, 1, 1, 0.709804 )
-albedo_texture = ExtResource( 3 )
+albedo_color = Color(1, 1, 1, 0.709804)
+albedo_texture = ExtResource("3")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id=14]
-material = SubResource( 13 )
-size = Vector2( 0.2, 0.2 )
+[sub_resource type="QuadMesh" id="14"]
+material = SubResource("13")
+size = Vector2(0.2, 0.2)
 
 [node name="DodgeParticles" type="Marker3D"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0363793 )
-script = ExtResource( 2 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0363793)
+script = ExtResource("2")
 
-[node name="Particles" type="Particles" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015712, 0.196372, 0.18604 )
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015712, 0.196372, 0.18604)
 emitting = false
 amount = 9
 speed_scale = 1.5
-process_material = SubResource( 7 )
-draw_pass_1 = SubResource( 9 )
+process_material = SubResource("7")
+draw_pass_1 = SubResource("9")
 
-[node name="Particles2" type="Particles" parent="."]
-transform = Transform3D( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0.0157119, 0.196372, 0.18604 )
+[node name="Particles2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0.0157119, 0.196372, 0.18604)
 emitting = false
 amount = 50
 speed_scale = 1.5
-local_coords = false
-process_material = SubResource( 12 )
-draw_pass_1 = SubResource( 14 )
+process_material = SubResource("12")
+draw_pass_1 = SubResource("14")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25

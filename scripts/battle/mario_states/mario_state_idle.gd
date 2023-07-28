@@ -21,10 +21,10 @@ func _process(_delta):
 		hero.get_node("Circles").visible = false
 	
 	var differenceFromHome = hero.get_home_position() - hero.position
-	if not hero.first_strike_active and differenceFromHome.length() > .05:
+	if differenceFromHome.length() > .05:
 		interpolate_property(hero, "position", hero.get_home_position(), .5)
 		finishedTween = false
-	if hero.get_node("DodgeParticles").isPlaying:
+	elif hero.get_node("DodgeParticles").isPlaying:
 		hero.get_node("Sprite2D").play("Guard")
 		hero.position = hero.get_home_position() + Vector3(cos(randi()) * .05,0,0)
 	elif hero.get_node("HurtParticles").isPlaying:

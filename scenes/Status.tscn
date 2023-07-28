@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://n7fuq2es8b13"]
+[gd_scene load_steps=21 format=3 uid="uid://n7fuq2es8b13"]
 
 [ext_resource type="Texture2D" uid="uid://bc4au3byondaw" path="res://sprites/UI/star3.png" id="1"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="2"]
@@ -12,17 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://b7supm8rafo00" path="res://sprites/other/fp.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://cxo3lpu0iwn5s" path="res://sprites/mario/iconhp.png" id="10"]
 
-[sub_resource type="Gradient" id="1"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0823529)
-
-[sub_resource type="GradientTexture2D" id="2"]
-gradient = SubResource("1")
-
 [sub_resource type="ParticleProcessMaterial" id="3"]
+particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
-scale_min = 0.2
-scale_max = 0.2
-color_ramp = SubResource("2")
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -5.0
+angle_max = 5.0
+scale_min = 0.15
+scale_max = 0.15
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("2")])
@@ -105,6 +103,7 @@ animations = [{
 }]
 
 [node name="Status" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.028
@@ -113,6 +112,7 @@ script = ExtResource("8")
 
 [node name="Status" type="NinePatchRect" parent="."]
 self_modulate = Color(0.611765, 0.360784, 0.117647, 0.470588)
+texture_filter = 1
 layout_mode = 0
 offset_left = -13.0
 offset_top = -26.0
@@ -126,18 +126,17 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="HP" type="Control" parent="Status"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 21.7292
 offset_top = 34.7586
 offset_right = 61.7292
 offset_bottom = 74.7586
 tooltip_text = "rrrr"
-focus_neighbor_top = NodePath("../../Header/NinePatchRect/Label")
-focus_neighbor_right = NodePath("../FP")
-focus_neighbor_bottom = NodePath("../SP")
 focus_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Status/HP"]
+texture_filter = 1
 position = Vector2(29.2865, 15.7692)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("10")
@@ -145,13 +144,15 @@ texture = ExtResource("10")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Status/HP/Sprite2D"]
 modulate = Color(1, 0.333333, 0.333333, 0.4)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
-scale = Vector2(0.05, 0.05)
 amount = 4
 process_material = SubResource("3")
 texture = ExtResource("1")
+local_coords = true
 
 [node name="Label2" type="Label" parent="Status/HP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -165,6 +166,7 @@ text = "20/20"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label3" type="Label" parent="Status/HP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -177,16 +179,15 @@ theme_override_fonts/font = SubResource("5")
 text = "MARIO"
 
 [node name="SP" type="Control" parent="Status"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 186.58
 offset_top = 30.9587
 offset_right = 226.58
 offset_bottom = 70.9587
-focus_neighbor_top = NodePath("../HP")
-focus_neighbor_right = NodePath("../BP")
-focus_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Status/SP"]
+texture_filter = 1
 position = Vector2(22.6519, 19.8425)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3")
@@ -194,13 +195,15 @@ texture = ExtResource("3")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Status/SP/Sprite2D"]
 modulate = Color(0.901961, 1, 0.333333, 0.4)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
-scale = Vector2(0.15, 0.15)
 amount = 4
 process_material = SubResource("3")
 texture = ExtResource("1")
+local_coords = true
 
 [node name="Label2" type="Label" parent="Status/SP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -214,6 +217,7 @@ text = "x45"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label3" type="Label" parent="Status/SP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -227,6 +231,7 @@ text = "SP"
 
 [node name="StatusFP" type="NinePatchRect" parent="."]
 self_modulate = Color(0.611765, 0.360784, 0.117647, 0.470588)
+texture_filter = 1
 layout_mode = 0
 anchor_left = 0.222
 anchor_right = 0.222
@@ -242,18 +247,16 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="FP" type="Control" parent="StatusFP"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 189.729
 offset_top = 34.1974
 offset_right = 229.729
 offset_bottom = 74.1974
 tooltip_text = "rrrr"
-focus_neighbor_top = NodePath("../../Header/NinePatchRect/Label")
-focus_neighbor_right = NodePath("../FP")
-focus_neighbor_bottom = NodePath("../SP")
-focus_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="StatusFP/FP"]
+texture_filter = 1
 position = Vector2(18.6519, 13.8425)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("9")
@@ -261,13 +264,15 @@ texture = ExtResource("9")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="StatusFP/FP/Sprite2D"]
 modulate = Color(0.556863, 1, 0.333333, 0.411765)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
-scale = Vector2(0.15, 0.15)
 amount = 4
 process_material = SubResource("3")
 texture = ExtResource("1")
+local_coords = true
 
 [node name="Label2" type="Label" parent="StatusFP/FP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -281,6 +286,7 @@ text = "20/20"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label3" type="Label" parent="StatusFP/FP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -293,18 +299,16 @@ theme_override_fonts/font = SubResource("5")
 text = "FP"
 
 [node name="HP2" type="Control" parent="StatusFP"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 17.9363
 offset_top = 33.7586
 offset_right = 57.9363
 offset_bottom = 73.7586
 tooltip_text = "rrrr"
-focus_neighbor_top = NodePath("../../Header/NinePatchRect/Label")
-focus_neighbor_right = NodePath("../FP")
-focus_neighbor_bottom = NodePath("../SP")
-focus_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="StatusFP/HP2"]
+texture_filter = 1
 position = Vector2(24.6519, 19.8425)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4")
@@ -312,13 +316,15 @@ texture = ExtResource("4")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="StatusFP/HP2/Sprite2D"]
 modulate = Color(1, 0.333333, 0.333333, 0.4)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
-scale = Vector2(0.15, 0.15)
 amount = 4
 process_material = SubResource("3")
 texture = ExtResource("1")
+local_coords = true
 
 [node name="Label2" type="Label" parent="StatusFP/HP2"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -332,6 +338,7 @@ text = "20/20"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label3" type="Label" parent="StatusFP/HP2"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -345,6 +352,7 @@ text = "GOOMBARIO"
 
 [node name="StatusEXP" type="NinePatchRect" parent="."]
 self_modulate = Color(0.611765, 0.360784, 0.117647, 0.470588)
+texture_filter = 1
 layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
@@ -360,18 +368,17 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="EXP" type="Control" parent="StatusEXP"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 20.7292
 offset_top = 34.7586
 offset_right = 60.7292
 offset_bottom = 74.7586
 tooltip_text = "rrrr"
-focus_neighbor_top = NodePath("../../Header/NinePatchRect/Label")
-focus_neighbor_right = NodePath("../FP")
-focus_neighbor_bottom = NodePath("../SP")
 focus_mode = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="StatusEXP/EXP"]
+texture_filter = 1
 position = Vector2(18.6519, 19.8425)
 scale = Vector2(1.25, 1.25)
 sprite_frames = ExtResource("6")
@@ -380,6 +387,7 @@ autoplay = "spin"
 frame_progress = 0.529232
 
 [node name="Value" type="Label" parent="StatusEXP/EXP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -393,6 +401,7 @@ text = "x99"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label" type="Label" parent="StatusEXP/EXP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -405,23 +414,23 @@ theme_override_fonts/font = SubResource("5")
 text = "EXP"
 
 [node name="Coins" type="Control" parent="StatusEXP"]
+texture_filter = 1
 anchors_preset = 0
 offset_left = 136.52
 offset_top = 30.9587
 offset_right = 176.52
 offset_bottom = 70.9587
-focus_neighbor_top = NodePath("../HP")
-focus_neighbor_right = NodePath("../BP")
-focus_mode = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="StatusEXP/Coins"]
-position = Vector2(18.6519, 19.8425)
+texture_filter = 1
+position = Vector2(18.6519, 24.8425)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("11")
 autoplay = "default"
 frame_progress = 0.852482
 
 [node name="Value" type="Label" parent="StatusEXP/Coins"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -435,6 +444,7 @@ text = "x999"
 label_settings = ExtResource("6_qywsl")
 
 [node name="Label" type="Label" parent="StatusEXP/Coins"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0

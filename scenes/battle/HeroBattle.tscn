@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="3"]
 [ext_resource type="SpriteFrames" path="res://textures/hammer_basic/frames.tres" id="4"]
-[ext_resource type="PackedScene" path="res://scenes/DodgeParticles.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cb8klbah5i3xf" path="res://scenes/DodgeParticles.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://dgcfwydol4ur2" path="res://textures/items/mushroom.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://d0pwckvj7pabv" path="res://particles/star_08.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bsbrhnv6o565q" path="res://particles/star_05.png" id="9"]
@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://scripts/overworld/WaterParticles.gd" id="16"]
 [ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="18"]
-[ext_resource type="PackedScene" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://1axryjolfwxg" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
 [ext_resource type="PackedScene" path="res://scenes/battle/Hammerlight.tscn" id="36"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
 
@@ -49,11 +49,12 @@ func _process(_delta):
 #	pass
 "
 
-[sub_resource type="Gradient" id="2"]
-colors = PackedColorArray(1, 1, 1, 0.478431, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_quxca"]
+offsets = PackedFloat32Array(0, 0.243902, 0.487805, 0.796748, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.0196078, 1, 0, 1, 0, 0.571833, 0.73, 1, 0.7225, 0, 0.85, 1, 1, 0, 0.0166664, 1)
 
-[sub_resource type="GradientTexture2D" id="3"]
-gradient = SubResource("2")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yout7"]
+gradient = SubResource("Gradient_quxca")
 
 [sub_resource type="Curve" id="4"]
 min_value = -1.0
@@ -75,7 +76,7 @@ direction = Vector3(0, 1, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("7")
-color_ramp = SubResource("3")
+color_ramp = SubResource("GradientTexture1D_yout7")
 hue_variation_curve = SubResource("5")
 
 [sub_resource type="StandardMaterial3D" id="9"]
@@ -149,8 +150,14 @@ point_count = 2
 curve = SubResource("22")
 
 [sub_resource type="ParticleProcessMaterial" id="24"]
+direction = Vector3(0, 1, 0)
+spread = 30.0
 flatness = 1.0
 gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+damping_min = 1.0
+damping_max = 1.0
 scale_curve = SubResource("23")
 color_ramp = SubResource("21")
 
@@ -160,6 +167,7 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("10")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
@@ -257,8 +265,7 @@ sprite_frames = ExtResource("3")
 animation = &"FingerWag"
 
 [node name="Particles" type="GPUParticles3D" parent="Sprite2D/AnimatedSprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 0.0248605, -0.05)
-emitting = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, -0.05)
 lifetime = 0.5
 process_material = SubResource("8")
 draw_pass_1 = SubResource("10")
@@ -296,7 +303,8 @@ draw_pass_1 = SubResource("19")
 [node name="Hearts" type="GPUParticles3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0.442621, 0)
 emitting = false
-amount = 16
+amount = 12
+one_shot = true
 visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
 process_material = SubResource("24")
 draw_pass_1 = SubResource("26")
@@ -313,6 +321,7 @@ script = ExtResource("12")
 
 [node name="Label" type="Label" parent="HPUp"]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 offset_left = -50.0
 offset_top = -16.0
 offset_right = 56.0
@@ -322,7 +331,9 @@ text = "+4 HP"
 
 [node name="Hearts2" type="GPUParticles3D" parent="HPUp"]
 transform = Transform3D(-0.138361, 4.93389e-08, -0.990382, 0.990382, -3.7243e-08, -0.138361, -4.37114e-08, -1, -4.37114e-08, 0.0633511, 0.207668, -0.0659817)
+emitting = false
 amount = 4
+one_shot = true
 visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
 process_material = SubResource("28")
 draw_pass_1 = SubResource("30")
@@ -342,6 +353,7 @@ script = ExtResource("16")
 visible = false
 
 [node name="FeedbackParticle" parent="." instance=ExtResource("19")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.145186)
 
 [node name="Camera1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.99968, 0.0253046, 0, -0.0253046, 0.99968, 0.337, 0.444, 2.022)

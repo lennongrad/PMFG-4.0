@@ -62,3 +62,15 @@ res://scripts/MoveText.gd
 res://scenes/Circles.tscn
 res://scripts/battle/enemy_states/enemy_state_down.gd
 res://scripts/battle/enemy_states/enemy_state_transforming.gd
+res://scenes/battle/HurtParticles.tscn
+res://scenes/battle/FeedbackParticle.tscn
+res://scenes/DodgeParticles.tscn
+res://scenes/battle/StarDamageDisplay.tscn
+res://scenes/battle/ExperienceHolder.tscn
+res://scenes/battle/BattleTag.tscn
+res://fonts/status_settings.tres
+res://scenes/overworld/PipeExit.tscn
+res://scenes/overworld/PipeInto.tscn
+res://scripts/overworld/Overworld.gd
+res://scenes/battle/backgrounds/water_dungeon.tscn
+res://scenes/battle/backgrounds/water_dungeon_flood.tscn

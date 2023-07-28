@@ -1,3 +1,7 @@
-RichTextLabel
 CollisionShape3D
+StaticBody3D
+SpotLight3D
+OmniLight3D
+Node
+RichTextLabel
 MeshInstance3D

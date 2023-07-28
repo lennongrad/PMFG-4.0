@@ -89,6 +89,14 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2te8c"]
 
@@ -208,7 +216,12 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0823529)
 gradient = SubResource("19")
 
 [sub_resource type="ParticleProcessMaterial" id="21"]
+particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -5.0
+angle_max = 5.0
 scale_min = 0.2
 scale_max = 0.2
 color_ramp = SubResource("20")
@@ -720,6 +733,7 @@ shader_parameter/InputSize = Vector2(256, 224)
 shader_parameter/FrameCount = 0
 
 [node name="OverworldMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -732,6 +746,7 @@ script = ExtResource("9")
 
 [node name="Background" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.094
@@ -746,6 +761,7 @@ theme_override_styles/panel = SubResource("1")
 
 [node name="Panel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0.294118)
+texture_filter = 1
 layout_mode = 0
 anchor_left = 0.333
 anchor_top = 0.426
@@ -760,6 +776,7 @@ theme_override_styles/panel = SubResource("2")
 [node name="Checkers" type="TextureRect" parent="Panel"]
 modulate = Color(0.713726, 0.172549, 0.827451, 1)
 self_modulate = Color(1, 1, 1, 0.807843)
+texture_filter = 1
 material = SubResource("4")
 layout_mode = 0
 anchor_right = 1.0
@@ -771,6 +788,7 @@ stretch_mode = 1
 
 [node name="TopBorder" type="NinePatchRect" parent="Panel"]
 modulate = Color(0.709804, 0.337255, 0.686275, 1)
+texture_filter = 1
 layout_mode = 0
 anchor_top = -0.06
 anchor_right = 1.0
@@ -786,6 +804,7 @@ axis_stretch_horizontal = 1
 
 [node name="BottomBorder" type="NinePatchRect" parent="Panel"]
 modulate = Color(0.709804, 0.337255, 0.686275, 1)
+texture_filter = 1
 layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -801,6 +820,7 @@ patch_margin_bottom = 24
 axis_stretch_horizontal = 1
 
 [node name="Text" parent="Panel" instance=ExtResource("56")]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.041
@@ -814,6 +834,7 @@ offset_bottom = -1.30405
 autowrap_mode = 2
 
 [node name="Buttons" type="Control" parent="Panel"]
+texture_filter = 1
 anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -823,6 +844,7 @@ offset_bottom = -381.0
 
 [node name="Mario" type="TextureButton" parent="Panel/Buttons"]
 self_modulate = Color(0.74902, 0.290196, 0.219608, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 36.7027
 offset_top = -40.4054
@@ -835,6 +857,7 @@ texture_normal = ExtResource("6")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Panel/Buttons/Mario"]
+texture_filter = 1
 layout_mode = 0
 offset_left = -3.68176
 offset_top = 1.79552
@@ -851,6 +874,7 @@ vertical_alignment = 1
 
 [node name="Party" type="TextureButton" parent="Panel/Buttons"]
 self_modulate = Color(0.729412, 0.215686, 0.54902, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 167.703
 offset_top = -35.4054
@@ -862,6 +886,7 @@ texture_normal = ExtResource("6")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Panel/Buttons/Party"]
+texture_filter = 1
 layout_mode = 0
 offset_left = -3.68176
 offset_top = 1.79552
@@ -877,6 +902,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="Panel"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 0.993
@@ -886,9 +912,11 @@ theme_override_styles/panel = SubResource("6")
 tabs_visible = false
 
 [node name="Mario" type="TabBar" parent="Panel/TabContainer"]
+texture_filter = 1
 layout_mode = 2
 
 [node name="ItemHeader" type="Control" parent="Panel/TabContainer/Mario"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.541
 anchor_top = 0.119
@@ -900,6 +928,7 @@ offset_right = -0.700073
 offset_bottom = 4.14001
 
 [node name="Label" type="Label" parent="Panel/TabContainer/Mario/ItemHeader"]
+texture_filter = 1
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
@@ -913,6 +942,7 @@ theme_override_fonts/font = SubResource("7")
 label_settings = ExtResource("8_d8q0o")
 
 [node name="Background" type="NinePatchRect" parent="Panel/TabContainer/Mario/ItemHeader"]
+texture_filter = 1
 layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.228
@@ -929,6 +959,7 @@ patch_margin_right = 12
 patch_margin_bottom = 12
 
 [node name="BadgePips" type="ItemList" parent="Panel/TabContainer/Mario/ItemHeader"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -949,6 +980,7 @@ same_column_width = true
 fixed_column_width = 10
 
 [node name="ItemArea" type="Control" parent="Panel/TabContainer/Mario"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.539
 anchor_top = 0.175
@@ -960,6 +992,7 @@ offset_right = -0.299988
 offset_bottom = -0.0399475
 
 [node name=" Background" type="NinePatchRect" parent="Panel/TabContainer/Mario/ItemArea"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 2.002
 anchor_bottom = 1.997
@@ -973,6 +1006,7 @@ patch_margin_right = 24
 patch_margin_bottom = 24
 
 [node name="Tree" type="Tree" parent="Panel/TabContainer/Mario/ItemArea"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -995,6 +1029,7 @@ columns = 3
 select_mode = 2
 
 [node name="Header" type="Control" parent="Panel/TabContainer/Mario"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.158
 anchor_top = 0.544
@@ -1005,10 +1040,11 @@ offset_top = -9.05598
 offset_right = 74.0
 offset_bottom = 43.944
 focus_neighbor_top = NodePath("../Equipment/Badges")
-focus_neighbor_bottom = NodePath("../Stats/HP")
+focus_neighbor_bottom = NodePath("Stats/FP")
 
 [node name="Bar" type="NinePatchRect" parent="Panel/TabContainer/Mario/Header"]
 self_modulate = Color(1, 0.27451, 0.27451, 1)
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 32.0
@@ -1019,6 +1055,7 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 
 [node name="Label" type="Label" parent="Panel/TabContainer/Mario/Header/Bar"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1039,6 +1076,7 @@ text = "Mario"
 label_settings = ExtResource("8_d8q0o")
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Mario/Header/Bar"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1065,6 +1103,7 @@ texture = ExtResource("21")
 expand_mode = 1
 
 [node name="Level" type="Label" parent="Panel/TabContainer/Mario/Header/Bar"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -1088,6 +1127,7 @@ text = "Lvl.20"
 label_settings = ExtResource("8_d8q0o")
 
 [node name="Pieces" type="Label" parent="Panel/TabContainer/Mario/Header"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.817
@@ -1118,6 +1158,7 @@ frame_progress = 0.648329
 
 [node name="Stats" type="Control" parent="Panel/TabContainer/Mario/Header"]
 show_behind_parent = true
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.063
 anchor_top = 0.703
@@ -1130,6 +1171,7 @@ offset_bottom = -0.000656128
 
 [node name="BP" type="Control" parent="Panel/TabContainer/Mario/Header/Stats"]
 show_behind_parent = true
+texture_filter = 1
 anchors_preset = 0
 offset_left = 90.0
 offset_right = 130.0
@@ -1148,6 +1190,7 @@ texture = ExtResource("19")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Panel/TabContainer/Mario/Header/Stats/BP/Sprite2D"]
 modulate = Color(0.333333, 1, 0.670588, 0.709804)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
 amount = 4
 process_material = SubResource("21")
@@ -1155,6 +1198,7 @@ texture = ExtResource("28")
 local_coords = true
 
 [node name="Label3" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1171,6 +1215,7 @@ text = "BP"
 label_settings = ExtResource("14_74af6")
 
 [node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1179,7 +1224,7 @@ offset_top = 5.0
 offset_right = 46.0
 offset_bottom = -10.0
 focus_neighbor_left = NodePath("..")
-focus_neighbor_top = NodePath("../../../Level")
+focus_neighbor_top = NodePath("../../../Bar/Level")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("22")
 text = "20"
@@ -1187,6 +1232,7 @@ label_settings = ExtResource("8_d8q0o")
 
 [node name="FP" type="Control" parent="Panel/TabContainer/Mario/Header/Stats"]
 show_behind_parent = true
+texture_filter = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1203,13 +1249,16 @@ texture = ExtResource("17")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Panel/TabContainer/Mario/Header/Stats/FP/Sprite2D"]
 modulate = Color(0.556863, 1, 0.333333, 0.709804)
 show_behind_parent = true
+texture_filter = 1
 position = Vector2(0, -3)
 amount = 4
 process_material = SubResource("21")
 texture = ExtResource("28")
+lifetime = 4.0
 local_coords = true
 
 [node name="Label3" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1226,6 +1275,7 @@ text = "FP"
 label_settings = ExtResource("14_74af6")
 
 [node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1239,6 +1289,7 @@ text = "20"
 label_settings = ExtResource("8_d8q0o")
 
 [node name="Equipment" type="Control" parent="Panel/TabContainer/Mario"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.199
 anchor_top = 0.055
@@ -1250,6 +1301,7 @@ offset_right = 110.6
 offset_bottom = -0.105988
 
 [node name="Hammer" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+texture_filter = 1
 layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1266,6 +1318,7 @@ stretch_mode = 0
 [node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Hammer"]
 modulate = Color(0, 0, 0, 0.623529)
 show_behind_parent = true
+texture_filter = 1
 layout_mode = 0
 offset_left = 4.74579
 offset_top = 5.74237
@@ -1280,6 +1333,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5")
 
 [node name="Boots" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+texture_filter = 1
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
@@ -1298,6 +1352,7 @@ stretch_mode = 0
 [node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Boots"]
 modulate = Color(0, 0, 0, 0.623529)
 show_behind_parent = true
+texture_filter = 1
 layout_mode = 0
 offset_left = 4.74579
 offset_top = 5.1124
@@ -1312,6 +1367,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("52")
 
 [node name="Bag" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 99.0
 offset_bottom = 80.0
@@ -1325,6 +1381,7 @@ stretch_mode = 0
 [node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Bag"]
 modulate = Color(0, 0, 0, 0.623529)
 show_behind_parent = true
+texture_filter = 1
 layout_mode = 0
 offset_left = 4.74579
 offset_top = 4.90147
@@ -1340,6 +1397,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("16")
 
 [node name="Badges" type="TextureButton" parent="Panel/TabContainer/Mario/Equipment"]
+texture_filter = 1
 layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1356,6 +1414,7 @@ stretch_mode = 0
 [node name="Shadow" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment/Badges"]
 modulate = Color(0, 0, 0, 0.623529)
 show_behind_parent = true
+texture_filter = 1
 layout_mode = 0
 offset_left = 4.74579
 offset_top = 4.30687
@@ -1381,6 +1440,7 @@ expand_mode = 1
 [node name="Shadow2" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment"]
 modulate = Color(0, 0, 0, 0.654902)
 show_behind_parent = true
+texture_filter = 1
 layout_mode = 0
 anchor_left = 0.109
 anchor_top = 0.957
@@ -1395,6 +1455,7 @@ expand_mode = 1
 stretch_mode = 7
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Mario/Equipment"]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1421,9 +1482,11 @@ animation = &"Hold"
 
 [node name="Party" type="TabBar" parent="Panel/TabContainer"]
 visible = false
+texture_filter = 1
 layout_mode = 2
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Panel/TabContainer/Party"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 402.789
 offset_top = 221.156
@@ -1436,12 +1499,13 @@ patch_margin_right = 24
 patch_margin_bottom = 24
 
 [node name="Cursor" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(250.461, 103.379)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("28")
 animation = &"down"
 autoplay = "down"
-frame_progress = 0.526128
+frame_progress = 0.960502
 
 [node name="Status" parent="." instance=ExtResource("55")]
 visible = false

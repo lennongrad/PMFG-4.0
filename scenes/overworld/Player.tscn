@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ds1tf2gdnpfne"]
+[gd_scene load_steps=59 format=3 uid="uid://ds1tf2gdnpfne"]
 
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/overworld/Player.gd" id="2"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4rlgpuow6f6" path="res://scenes/overworld/ItemGet.tscn" id="8"]
 [ext_resource type="Texture2D" uid="uid://gl6flrha6303" path="res://particles/smoke_bright.png" id="9"]
 [ext_resource type="Script" path="res://scenes/overworld/ShakeCamera.gd" id="10"]
-[ext_resource type="PackedScene" path="res://scenes/battle/HurtParticles.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="11"]
 [ext_resource type="Texture2D" uid="uid://h8oo4exwoa73" path="res://particles/star_06.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://chrwhnjtqyfyc" path="res://particles/circle_01.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="14"]
@@ -99,13 +99,6 @@ particles_anim_loop = false
 material = SubResource("12")
 size = Vector2(0.4, 0.4)
 
-[sub_resource type="Gradient" id="14"]
-offsets = PackedFloat32Array(0, 0.54375, 1)
-colors = PackedColorArray(0.0705882, 0.0705882, 0.0705882, 0, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="15"]
-gradient = SubResource("14")
-
 [sub_resource type="CurveTexture" id="16"]
 width = 4096
 curve = SubResource("4")
@@ -115,7 +108,6 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.4
 scale_curve = SubResource("16")
-color_ramp = SubResource("15")
 
 [sub_resource type="QuadMesh" id="18"]
 material = SubResource("7")

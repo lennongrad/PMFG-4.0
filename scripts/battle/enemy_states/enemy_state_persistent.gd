@@ -67,7 +67,7 @@ func _process(_delta):
 		battleTag.max_hp = stats.health
 		battleTag.hp = health
 		battleTag.show_text = $"/root/MarioRun".is_tattled(stats)
-		battleTag.set_position($"../Camera3D".unproject_position(get_position()) - Vector2(45, 0))
+		battleTag.set_position(get_viewport().get_camera_3d().unproject_position(get_position()) - Vector2(45, 0))
 
 func change_state(new_state_name):
 	if(state != null):

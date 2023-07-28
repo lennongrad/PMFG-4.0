@@ -35,7 +35,7 @@ func _process(delta):
 	$SmallStar.rotation_degrees.z = -timeMeasure * 40
 	$SmallStar.modulate.a = 1 - timeMeasure / 15
 	
-	$Label.set_position($"../../Camera3D".unproject_position($BigStar.global_transform.origin) - Vector2(44,33))
+	$Label.set_position(get_viewport().get_camera_3d().unproject_position($BigStar.global_transform.origin) - Vector2(44,33))
 	$Label.modulate.a = 1 - timeMeasure / 15
 	
 	if timeMeasure > 15:

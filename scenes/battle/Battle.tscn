@@ -8,7 +8,7 @@
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_skyguy.tres" id="6"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://scenes/battle/ExperienceHolder.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://6fsap7dhl5ku" path="res://scenes/battle/ExperienceHolder.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://cvtwnd0www7vq" path="res://scenes/battle/BattleUI.tscn" id="10"]
 [ext_resource type="PackedScene" path="res://scenes/battle/LevelUp.tscn" id="11"]
 [ext_resource type="Resource" uid="uid://bsllwvtyjnqfo" path="res://stats/herostats/goombario.tres" id="17"]
@@ -85,7 +85,6 @@ grow_vertical = 2
 [node name="Status" parent="." instance=ExtResource("8")]
 
 [node name="ExperienceHolder" parent="." instance=ExtResource("9")]
-layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -97,6 +96,5 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.609, 0.716797)
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Spin_finishedSpinning"]

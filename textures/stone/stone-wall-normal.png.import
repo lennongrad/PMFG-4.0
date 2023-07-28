@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc4au3byondaw"
-path.s3tc="res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.s3tc.ctex"
+uid="uid://cfy2ani88vk4k"
+path.s3tc="res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/UI/star3.png"
-dest_files=["res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.s3tc.ctex"]
+source_file="res://textures/stone/stone-wall-normal.png"
+dest_files=["res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://textures/stone/stone-wall-normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
