@@ -1,78 +1,50 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxsxj2wuxccfx"]
+[gd_scene load_steps=24 format=3 uid="uid://bxsxj2wuxccfx"]
 
 [ext_resource type="Texture2D" uid="uid://bp6c1s1ishabq" path="res://textures/disp.png" id="1_lj3r5"]
 [ext_resource type="Texture2D" uid="uid://brmddt4y51ctb" path="res://textures/waterfall.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://ix8p5lh26q8a" path="res://textures/water/water.png" id="2_8scgy"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://b5jeoqgfcyag3" path="res://textures/blocks/brickblock.png" id="4_wv5dy"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
-
-uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
-
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color;
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
+render_mode unshaded;
  
-uniform vec4 main_color : source_color;
-uniform vec4 intersection_color : source_color;
-uniform float intersection_max_threshold = 0.5;
-uniform sampler2D displ_tex : hint_default_white;
-uniform float displ_amount = 0.6;
-uniform float near = 0.15;
-uniform float far = 300.0;
+uniform sampler2D noise_tex;
+uniform sampler2D displ_tex;
+uniform vec4 top_light_color : source_color;
+uniform vec4 top_dark_color : source_color;
+uniform vec4 bot_light_color : source_color;
+uniform vec4 bot_dark_color : source_color;
+uniform float displ_amount = 0.02;
+uniform float bottom_foam_threshold = 0.48;
+uniform float speed = 4.25;
  
-float linearize(float c_depth) {
-	c_depth = 2.0 * c_depth - 1.0;
-	return near * far / (far + c_depth * (near - far));
-}
-
-void vertex() {
-	UV=UV*uv1_scale.xy+uv1_offset.xy;
-	VERTEX.y += cos(TIME + VERTEX.x * 1.0 + VERTEX.z * 1.0) * .05;
-	VERTEX.y += texture(displ_tex, (UV - TIME / 7.0) / 14.0).r * .1;
-}
-
-
-void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv - TIME / 14.0);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	
-	float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).x);
-	float zpos = linearize(FRAGCOORD.z);
-	float diff = zdepth - zpos;
- 
-	ALBEDO = vec3(diff);
-	vec2 displ = texture(displ_tex, UV - TIME / 7.0).rg;
+void fragment()
+{
+	vec2 displ = texture(displ_tex, UV - vec2(TIME / 8.0, TIME / 8.0)).xy;
 	displ = ((displ * 2.0) - 1.0) * displ_amount;
-	diff += displ.x;
-	
-	vec4 tx = albedo_tex.rgba;
-	tx.rgb += vec3(displ.x, displ.x, displ.y) * .05;
  
-	vec4 col = mix(intersection_color, tx, step(intersection_max_threshold, diff));
-	ALBEDO = col.rgb;
- 	ALPHA = .8;
-}
-"
+	float noise =  texture(noise_tex, vec2(UV.x, UV.y / 3.0 - TIME / 3.0) + displ).x;
+	noise =  floor(noise * 4.0) / 4.0;
+ 
+	vec4 col = mix(mix(top_dark_color, bot_dark_color, UV.y), mix(top_light_color, bot_light_color, UV.y), noise);
+	col = mix(vec4(1,1,1,1), col, step(UV.y + displ.y, bottom_foam_threshold));
+ 
+	ALBEDO =  col.xyz;
+	ALPHA = .05;//.6 + noise * .3;
+}"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vms2r"]
 render_priority = 0
 shader = SubResource("1")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/uv1_scale = Vector3(16, 4, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/main_color = Color(1, 1, 1, 1)
-shader_parameter/intersection_color = Color(0.929412, 0.933333, 1, 1)
-shader_parameter/intersection_max_threshold = 0.0
-shader_parameter/displ_amount = 0.3
-shader_parameter/near = 0.15
-shader_parameter/far = 600.0
-shader_parameter/texture_albedo = ExtResource("2_8scgy")
+shader_parameter/top_light_color = Color(0, 0, 0.607843, 1)
+shader_parameter/top_dark_color = Color(0, 0, 0.494118, 1)
+shader_parameter/bot_light_color = Color(0, 0, 0.843137, 1)
+shader_parameter/bot_dark_color = Color(0, 0, 0.254902, 1)
+shader_parameter/displ_amount = 0.1
+shader_parameter/bottom_foam_threshold = 0.41
+shader_parameter/speed = 0.19
+shader_parameter/noise_tex = ExtResource("2")
 shader_parameter/displ_tex = ExtResource("1_lj3r5")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lld4r"]
@@ -124,7 +96,7 @@ void fragment()
 [sub_resource type="ShaderMaterial" id="10"]
 render_priority = 0
 shader = SubResource("9")
-shader_parameter/front_color = Color(1, 1, 1, 1)
+shader_parameter/front_color = Color(0.341176, 0.341176, 0.341176, 1)
 shader_parameter/back_color = Color(0.760784, 0.760784, 0.760784, 1)
 shader_parameter/dissolve_tex = ExtResource("2")
 
@@ -184,7 +156,7 @@ mesh = SubResource("CylinderMesh_lld4r")
 
 [node name="CollisionParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -5.89816, -0.0259163)
-amount = 60
+amount = 30
 speed_scale = 2.0
 visibility_aabb = AABB(-4.25, -4, -4, 8, 8, 8)
 process_material = SubResource("8")

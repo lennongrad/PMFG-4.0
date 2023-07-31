@@ -15,7 +15,7 @@ func _process(_delta):
 	eatTimer += 1
 	if eatTimer < 75:
 		hero.get_node("Sprite2D").play("Present")
-		hero.get_node("EatenItem").opacity += (1 - hero.get_node("EatenItem").opacity) * .1
+		hero.get_node("EatenItem").modulate.a += (1 - hero.get_node("EatenItem").modulate.a) * .1
 		if eatTimer > 60:
 			hero.get_node("EatenItem/Particles").emitting = false
 			hero.get_node("EatenItem/Particles2").emitting = false
@@ -28,7 +28,7 @@ func _process(_delta):
 			hero.heal(hero.get_current_attack().attributes["hp"])
 	elif eatTimer < 245:
 		hero.get_node("Sprite2D").play("Swallow")
-		hero.get_node("EatenItem").opacity -= hero.get_node("EatenItem").opacity * .1
+		hero.get_node("EatenItem").modulate.a -= hero.get_node("EatenItem").modulate.a * .1
 	else:
 		hero.progress_attack()
 

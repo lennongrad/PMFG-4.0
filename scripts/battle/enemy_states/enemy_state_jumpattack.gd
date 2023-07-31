@@ -56,7 +56,6 @@ func area_body_entered(body):
 		else:
 			self.persistent_state.register_damage(self.mario, 2, "MISS")
 	if body == self.floorMesh:
-		print("hit floor")
 		self.persistent_state.velocity = Vector3.ZERO
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
 		self.persistent_state.get_node("Circles").emitting = self.persistent_state.in_water()

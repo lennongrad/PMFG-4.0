@@ -1,7 +1,7 @@
 extends Node
 
 var items = [
-	#("res://stats/heroattack/items/supermushroom.tres")
+	load("res://stats/heroattack/items/supermushroom.tres")
 ]
 
 var badges = []
@@ -182,8 +182,9 @@ func add_item(item):
 	else:
 		items.append(item)
 
+
 func item_used(item):
-	items.remove(items.find(item))
+	items.remove_at(items.find(item))
 
 func equip_boots(index):
 	equipped_boots = boots[index]

@@ -47,12 +47,18 @@ func change_choice(direction):
 	match current_choice:
 		0: 
 			$Choices/Spotlight/Polygon2d.rotation_degrees = 162.3;
+			$Choices/Spotlight.anchors_preset = PRESET_CENTER_LEFT
+			$Choices/Spotlight/Polygon2d.position.x = 60
 			$Choices/HP.modulate.v = 1
 		1: 
 			$Choices/Spotlight/Polygon2d.rotation_degrees = 131.6;
+			$Choices/Spotlight/Polygon2d.position.x = 20
+			$Choices/Spotlight.anchors_preset = PRESET_CENTER
 			$Choices/FP.modulate.v = 1
 		2: 
 			$Choices/Spotlight/Polygon2d.rotation_degrees = 101.4;
+			$Choices/Spotlight/Polygon2d.position.x = -10
+			$Choices/Spotlight.anchors_preset = PRESET_CENTER_RIGHT
 			$Choices/BP.modulate.v = 1
 	$Choices/Spotlight/Polygon2d.modulate.a = 0
 
@@ -82,16 +88,12 @@ func _process(_delta):
 				if Input.is_action_just_pressed("jump"):
 					select()
 				$Choices.position.y = 270
-				$Choices/HP.position.y = 13
-				$Choices/FP.position.y = 13
-				$Choices/BP.position.y = 13
 				$Choices/HP.modulate.a = 1
 				$Choices/FP.modulate.a = 1
 				$Choices/BP.modulate.a = 1
 				$Choices/HP.scale = Vector2(1, 1)
 				$Choices/FP.scale = Vector2(1, 1)
 				$Choices/BP.scale = Vector2(1, 1)
-				$Choices/Spotlight.position.y = 0
 				$Choices/Spotlight.modulate.a = 1
 		else:
 			var difference = 9

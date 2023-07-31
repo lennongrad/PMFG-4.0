@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bs6uu8aofak7r" path="res://scenes/battle/backgrounds/water_dungeon_flood.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
+[ext_resource type="Resource" uid="uid://5er3va3cwi1x" path="res://stats/enemyencounter/enemyencounter_test.tres" id="2_n42ea"]
 [ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://cm0e5asgfdnje" path="res://scenes/battle/backgrounds/water_dungeon.tscn" id="4"]
 [ext_resource type="Script" path="res://scripts/battle/Battle.gd" id="5"]
-[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_skyguy.tres" id="6"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://6fsap7dhl5ku" path="res://scenes/battle/ExperienceHolder.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://cvtwnd0www7vq" path="res://scenes/battle/BattleUI.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://scenes/battle/LevelUp.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://f7nmgoj22llb" path="res://scenes/battle/LevelUp.tscn" id="11"]
 [ext_resource type="Resource" uid="uid://bsllwvtyjnqfo" path="res://stats/herostats/goombario.tres" id="17"]
 
 [sub_resource type="Environment" id="1"]
@@ -26,7 +26,7 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="Battle" type="Node3D"]
 process_mode = 3
 script = ExtResource("5")
-data = ExtResource("6")
+data = ExtResource("2_n42ea")
 battle_background = ExtResource("7")
 debug = true
 
@@ -79,14 +79,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LevelUp" parent="." instance=ExtResource("11")]
-layout_mode = 3
-anchors_preset = 15
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="Status" parent="." instance=ExtResource("8")]
 
 [node name="ExperienceHolder" parent="." instance=ExtResource("9")]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -98,6 +97,8 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.609, 1.20952)
+scale = Vector2(1.37975, 1.16578)
+experience_count = 0
+centered = false
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Spin_finishedSpinning"]

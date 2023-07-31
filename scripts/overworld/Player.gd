@@ -19,6 +19,8 @@ var hammer_type
 var pipe_position = Vector3(0,0,0)
 var pipe_position_exit = Vector3(0,0,0)
 var over_pipe = false
+var original_sprite_y = .376
+var jump_timer = 0
 
 enum PLAYER_STATE {CONTROL, SPINNING, HAMMER, PIPE, EXIT, ITEM, MENU}
 var state = PLAYER_STATE.CONTROL
@@ -42,15 +44,18 @@ var after_growing = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_hammer(get_node("/root/MarioRun").get_equipped_hammer().type)
+	original_sprite_y = $AnimatedSprite3D.position.y
 
 func do_wall_slide():
 	if !is_on_wall():
+		return false
+	if jump_timer <= 0:
 		return false
 	
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var normal_cross = collision.get_normal().cross(Vector3.LEFT)
-		if(normal_cross.y >= -.1):
+		if(abs(normal_cross.y) <= .1):
 			return true
 	return false
 
@@ -93,8 +98,9 @@ func _physics_process(delta):
 			if exiting_timer == 50:
 				$"..".finish_exit()
 			$AnimatedSprite3D.play("LookDown")
-	
+
 	if is_on_floor():
+		jump_timer = 0
 		is_wall_sliding = false
 		last_height = position.y
 		over_pipe_timer += 1
@@ -117,6 +123,7 @@ func _physics_process(delta):
 		velocity = Vector3(0, velocity.y, 0)
 		
 		if Input.is_action_just_pressed("jump") and (state == PLAYER_STATE.CONTROL or state == PLAYER_STATE.SPINNING):
+			jump_timer = -6
 			velocity.y += effective_jump_power
 			shouldSnap = false
 		
@@ -133,11 +140,11 @@ func _physics_process(delta):
 				velocity.z = -1
 			else:
 				velocity.z = 0
-			if Input.is_action_just_pressed("spin"):
+			if Input.is_action_just_pressed("spin") and spin_timer >= 0 and not is_in_water:
 				state = PLAYER_STATE.SPINNING
 				last_direction = velocity.normalized()
 				spin_timer = 30
-			if Input.is_action_just_pressed("back"):
+			if Input.is_action_just_pressed("back") and not is_in_water:
 				state = PLAYER_STATE.HAMMER
 				hammer_timer = 0
 				hammer_stuck = false
@@ -164,10 +171,13 @@ func _physics_process(delta):
 		
 		match state:
 			PLAYER_STATE.SPINNING:
+				spriteRotation += (45 - abs(spin_timer - 15) * 3) * 60 * delta
+				
 				spin_timer -= 1
 				if spin_timer == 0:
 					state = PLAYER_STATE.CONTROL
 					spriteRotation = 0
+					spin_timer = -30
 				
 				var effective_speed = speed
 				if is_in_water:
@@ -177,7 +187,6 @@ func _physics_process(delta):
 				velocity.x = horizontalVelocity.x
 				velocity.z = horizontalVelocity.y
 				$AnimatedSprite3D.play("Spinning")
-				spriteRotation += (45 - abs(spin_timer - 15) * 3) * 60 * delta
 				$SpinDashParticles.emitting = true
 			PLAYER_STATE.ITEM:
 				spriteRotation = 0
@@ -191,11 +200,13 @@ func _physics_process(delta):
 					if Input.is_action_just_pressed("jump"):
 						$Checkers.visible = false
 						$Checkers2.visible = false
-						$"../Camera3D".cull_mask = 1047551
+						#$"../Camera3D".cull_mask = 1047551
 						state = PLAYER_STATE.CONTROL
 						shouldSnap = true
 				$"../Status".unhide()
 			PLAYER_STATE.CONTROL:
+				if spin_timer < 0:
+					spin_timer += 1
 				if horizontalVelocity.length() > 0.01:
 					var effective_speed = current_speed
 					if is_in_water:
@@ -213,10 +224,13 @@ func _physics_process(delta):
 					rest_timer = 0
 					over_pipe_timer = 0
 					
-					if is_diag:
-						$AnimatedSprite3D.play("DiagWalk")
+					if is_in_water:
+						$AnimatedSprite3D.play("Swim")
 					else:
-						$AnimatedSprite3D.play("HorizontalWalk")
+						if is_diag:
+							$AnimatedSprite3D.play("DiagWalk")
+						else:
+							$AnimatedSprite3D.play("HorizontalWalk")
 					
 					if horizontalVelocity.x > 0.05:
 						if spriteRotation < 180:
@@ -225,10 +239,13 @@ func _physics_process(delta):
 						if spriteRotation > 0:
 							spriteRotation = max(0, spriteRotation - delta * 2000)
 				else:
-					if is_diag:
-						$AnimatedSprite3D.play("DiagRest")
+					if is_in_water:
+						$AnimatedSprite3D.play("Swim")
 					else:
-						$AnimatedSprite3D.play("Rest")
+						if is_diag:
+							$AnimatedSprite3D.play("DiagRest")
+						else:
+							$AnimatedSprite3D.play("Rest")
 					if spriteRotation > 90:
 						spriteRotation = 180
 					else:
@@ -322,6 +339,7 @@ func _physics_process(delta):
 					if $Hammer.rotation_degrees.z > 0:
 						$Hammer.rotation_degrees.z *= -1
 	else:
+		jump_timer += 1
 		match state:
 			PLAYER_STATE.SPINNING:
 				state = PLAYER_STATE.CONTROL
@@ -460,7 +478,7 @@ func collect_item(item):
 	item_timer = 0
 	$Checkers.visible = true
 	$Checkers2.visible = true
-	$"../Camera3D".cull_mask = 1048574
+	#$"../Camera3D".cull_mask = 1048574
 
 func bounce():
 	dont_snap_next_frame = true
@@ -479,12 +497,20 @@ func play_hurt():
 	$AnimatedSprite3D.play("Hurt")
 	$HurtParticles.play()
 
-func enter_water():
+func enter_water(y_position):
 	is_in_water = true
+	$WaterParticles.set_global_position(Vector3(
+		$WaterParticles.global_position.x, 
+		y_position - .2, 
+		$WaterParticles.global_position.z));
 	$WaterParticles.play()
 
-func exit_water():
+func exit_water(y_position):
 	is_in_water = false
+	$WaterParticles.set_global_position(Vector3(
+		$WaterParticles.global_position.x, 
+		y_position - .2, 
+		$WaterParticles.global_position.z));
 	$WaterParticles.play()
 
 func collected_coin():

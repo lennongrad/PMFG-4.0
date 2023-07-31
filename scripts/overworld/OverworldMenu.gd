@@ -352,7 +352,7 @@ func show_items():
 		var tree_item = tree.create_item(root)
 		tree_item.set_icon(0, item.icon)
 		tree_item.set_expand_right(0, false)
-		tree_item.on_set_text(1, item.name)
+		tree_item.set_text(1, item.name)
 		tree_item.set_expand_right(1, true)
 
 func enter_boots_state():
@@ -391,7 +391,7 @@ func show_boots():
 			var tree_sub_item = tree.create_item(tree_item)
 			tree_sub_item.set_icon(0, badge.icon)
 			tree_sub_item.set_expand_right(0, false)
-			tree_sub_item.on_set_text(1, badge.name)
+			tree_sub_item.set_text(1, badge.name)
 			tree_sub_item.set_expand_right(1, true)
 			if item == get_node("/root/MarioRun").get_equipped_boots():
 				tree_sub_item.select(0)

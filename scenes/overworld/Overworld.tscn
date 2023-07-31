@@ -1,9 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=51 format=3 uid="uid://djn7hpj5g1pku"]
 
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://t88yfifpfdu5" path="res://textures/wood/woodplank.png" id="3"]
 [ext_resource type="Script" path="res://scripts/overworld/Overworld.gd" id="4"]
-[ext_resource type="Resource" path="res://stats/heroattack/items/supermushroom.tres" id="6"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://scenes/overworld/EnemySpawner.tscn" id="9"]
@@ -23,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="20"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="21"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="24"]
+[ext_resource type="Resource" uid="uid://biq8kj51yh4gp" path="res://stats/heroattack/items/extramushroom.tres" id="24_7m0nk"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="25"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="28"]
 [ext_resource type="PackedScene" path="res://scenes/overworld/Widescreen.tscn" id="29"]
@@ -51,12 +51,12 @@ adjustment_saturation = 8.0
 
 [sub_resource type="PlaneMesh" id="3"]
 material = ExtResource("14_o1xby")
-size = Vector2(32, 16)
+size = Vector2(32, 20)
 subdivide_width = 100
 subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="6"]
-size = Vector3(16, 4, 8)
+size = Vector3(32, 4, 16)
 
 [sub_resource type="StandardMaterial3D" id="7"]
 albedo_texture = ExtResource("3")
@@ -79,6 +79,8 @@ noise = SubResource("FastNoiseLite_p6rvx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d223v"]
 albedo_texture = ExtResource("2")
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 0.0
 normal_enabled = true
 normal_scale = 1.2
 normal_texture = ExtResource("19_mrdm8")
@@ -110,19 +112,39 @@ size = Vector3(8, 0.1, 8)
 albedo_texture = ExtResource("2")
 uv1_scale = Vector3(8, 8, 1)
 
-[sub_resource type="PlaneMesh" id="15"]
-size = Vector2(32, 8)
-
 [sub_resource type="BoxShape3D" id="17"]
-size = Vector3(16, 0.01, 4)
+size = Vector3(32, 0.01, 8)
 
 [sub_resource type="PlaneMesh" id="18"]
 material = SubResource("StandardMaterial3D_d223v")
 size = Vector2(32, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ca14p"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.313726)
+albedo_texture = ExtResource("2")
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 0.0
+normal_enabled = true
+normal_scale = 1.2
+normal_texture = ExtResource("19_mrdm8")
+detail_enabled = true
+detail_mask = SubResource("NoiseTexture2D_lblwo")
+detail_blend_mode = 3
+detail_albedo = ExtResource("18_y753s")
+uv1_scale = Vector3(16, 42, 1)
+uv2_offset = Vector3(1, 0, 0)
+
 [sub_resource type="PlaneMesh" id="20"]
-material = SubResource("StandardMaterial3D_d223v")
+material = SubResource("StandardMaterial3D_ca14p")
 size = Vector2(32, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmera"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rtral"]
+material = SubResource("StandardMaterial3D_rmera")
+size = Vector2(10, 10)
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
@@ -150,8 +172,8 @@ size = Vector3(2.6, 1, 3.9)
 battle_background = ExtResource("25")
 
 [node name="EnemySpawner2" parent="." instance=ExtResource("9")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6349, 4.93921, 1.85088)
-size = Vector3(3, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1054, 4.75244, 1.85088)
+size = Vector3(3, 1, 3)
 battle_background = ExtResource("25")
 
 [node name="EnemySpawner3" parent="." instance=ExtResource("9")]
@@ -191,13 +213,15 @@ one_shot = true
 
 [node name="Water" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97153, 0.586359, -4)
+collision_layer = 7
+collision_mask = 7
 
 [node name="Water" type="MeshInstance3D" parent="Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0276079, -0.204187, 0)
 mesh = SubResource("3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2184, -4.11087, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2184, -2.12421, 0)
 shape = SubResource("6")
 
 [node name="Stage" type="Marker3D" parent="."]
@@ -277,30 +301,28 @@ mesh = SubResource("PlaneMesh_tiitp")
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Underwater/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0603192, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329155, 0)
 shape = SubResource("11")
 
 [node name="Walls" type="Marker3D" parent="Stage"]
 
 [node name="Wall" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.5, 3, 0)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836229, 0.000783682, 0.00675249)
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall/StaticBody3D"]
 shape = SubResource("14")
 
 [node name="Wall8" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 7.54885, 3, -1.565)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall8"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall8/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 7.51669e-22, 0, 7.51669e-22, 1, 0, 0, 0)
@@ -308,11 +330,10 @@ shape = SubResource("14")
 
 [node name="Wall5" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.5, 3, 0)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall5"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall5/StaticBody3D"]
 shape = SubResource("14")
@@ -322,11 +343,10 @@ transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.6
 
 [node name="Wall10" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15.3706, 3, -6.88072e-07)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall10"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall10/StaticBody3D"]
 shape = SubResource("14")
@@ -342,11 +362,10 @@ transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.6
 
 [node name="Wall9" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.5, 3, 0)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall9"]
-collision_layer = 3
+collision_layer = 15
 collision_mask = 1025
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall9/StaticBody3D"]
@@ -360,13 +379,12 @@ transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.6
 
 [node name="Wall6" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -17.8591, 3, -3.67549)
-layers = 3
 material_override = SubResource("13")
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall6"]
 transform = Transform3D(-1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 2.38419e-07, 1.90735e-06, 0)
-collision_layer = 3
+collision_layer = 15
 collision_mask = 1025
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall6/StaticBody3D"]
@@ -378,24 +396,11 @@ transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.6
 
 [node name="Wall7" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 2.02319, 3.00624, -4.00141)
-layers = 3
-mesh = SubResource("15")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall7"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall7/StaticBody3D"]
-shape = SubResource("17")
-
-[node name="Wall11" type="MeshInstance3D" parent="Stage/Walls"]
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -29.9444, 3.00624, -4.00141)
-layers = 3
-mesh = SubResource("15")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall11"]
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall11/StaticBody3D"]
 shape = SubResource("17")
 
 [node name="Foreground" type="MeshInstance3D" parent="Stage/Walls"]
@@ -403,23 +408,25 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.023,
 layers = 3
 mesh = SubResource("18")
 
-[node name="Foreground3" type="MeshInstance3D" parent="Stage/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -22.9512, -1.90715, -4.04)
+[node name="Foreground3" type="MeshInstance3D" parent="Stage/Walls/Foreground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9742, 0, 0)
 layers = 3
 mesh = SubResource("18")
+skeleton = NodePath("../..")
 
-[node name="Foreground2" type="MeshInstance3D" parent="Stage/Walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.693, 0.3, -4.04)
+[node name="Foreground2" type="MeshInstance3D" parent="Stage/Walls/Foreground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.716, 0, 2.20715)
+visible = false
 layers = 3
 mesh = SubResource("20")
+skeleton = NodePath("../..")
 
 [node name="Wall4" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.147246, 3, 2.08337)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall4"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall4/StaticBody3D"]
 shape = SubResource("14")
@@ -429,11 +436,10 @@ transform = Transform3D(-0.714325, 3.67767e-08, -8.08527e-08, -1.01464e-07, -3.6
 
 [node name="Wall2" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 3.5, 3, 4)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall2"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall2/StaticBody3D"]
 shape = SubResource("14")
@@ -448,11 +454,10 @@ visible = false
 
 [node name="Wall3" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(1.31134e-07, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -1.31134e-07, -5.73206e-15, -3.5, 3, 4)
-layers = 3
 mesh = SubResource("12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Walls/Wall3"]
-collision_layer = 3
+collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stage/Walls/Wall3/StaticBody3D"]
 shape = SubResource("14")
@@ -479,7 +484,7 @@ distance = 0.0
 
 [node name="QuestionBlock3" parent="Stage" instance=ExtResource("12")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.855, 1.01017, -0.363)
-item_type = ExtResource("6")
+item_type = ExtResource("24_7m0nk")
 coin_count = 10
 distance = 1.2
 
@@ -522,6 +527,24 @@ transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 2.6209, 2.84213
 
 [node name="Waterfall2" parent="Stage" instance=ExtResource("8")]
 transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, -2.54491, 2.84213, 2.07575)
+
+[node name="BehindScenes1" type="MeshInstance3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12.6709, 1.661, -2.645)
+mesh = SubResource("PlaneMesh_rtral")
+
+[node name="BehindScenes2" type="MeshInstance3D" parent="Stage/BehindScenes1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rtral")
+skeleton = NodePath("../..")
+
+[node name="BehindScenes2" type="MeshInstance3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -22.938, 1.35022, -3.27136)
+mesh = SubResource("PlaneMesh_rtral")
+
+[node name="BehindScenes2" type="MeshInstance3D" parent="Stage/BehindScenes2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rtral")
+skeleton = NodePath("../..")
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Control_finishedSpinning"]
 [connection signal="done" from="TitleScreen" to="." method="_on_TitleScreen_done"]

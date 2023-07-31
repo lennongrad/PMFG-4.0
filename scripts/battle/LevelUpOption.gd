@@ -4,8 +4,8 @@ extends NinePatchRect
 
 @export var stat_name: String: set = change_name
 @export var icon: CompressedTexture2D: set = change_icon
-@export var left_side: String: set = change_left_side
-@export var right_side: String: set = change_right_side
+@export var left_side: int: set = change_left_side
+@export var right_side: int: set = change_right_side
 
 func change_name(p_name):
 	if not has_node("Name"):
@@ -24,13 +24,13 @@ func change_left_side(p_left_side):
 	if not has_node("Values/Left"):
 		return
 	left_side = p_left_side
-	$Values/Left.text = String(left_side) + "→"
+	$Values/Left.text = str(left_side) + "→"
 
 func change_right_side(p_right_side):
 	if not has_node("Values/Right"):
 		return
 	right_side = p_right_side
-	$Values/Right.text = String(right_side)
+	$Values/Right.text = str(right_side)
 
 func _ready():
 	pass 

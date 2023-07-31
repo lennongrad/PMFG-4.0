@@ -1,35 +1,118 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://41wflhs2tl64"]
 
-[ext_resource path="res://sprites/UI/border2.png" type="Texture2D" id=1]
-[ext_resource path="res://sprites/other/hphd.png" type="Texture2D" id=2]
-[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
-[ext_resource path="res://scripts/battle/LevelUpOption.gd" type="Script" id=4]
+[ext_resource type="Texture2D" uid="uid://dv6vm6t7lqe2y" path="res://sprites/UI/border2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://djpos7m1f7nsd" path="res://sprites/other/hphd.png" id="2"]
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="3"]
+[ext_resource type="Script" path="res://scripts/battle/LevelUpOption.gd" id="4"]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id="1"]
 
-[sub_resource type="FontFile" id=2]
-size = 40
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("3")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=3]
-size = 15
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+[sub_resource type="LabelSettings" id="LabelSettings_lt1g0"]
+font_size = 40
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
-[sub_resource type="FontFile" id=4]
-size = 28
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("3")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nopn6"]
+font_size = 25
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("3")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
 
 [node name="HP" type="NinePatchRect"]
-self_modulate = Color( 0.72, 0.6048, 0.288, 1 )
+self_modulate = Color(0.72, 0.6048, 0.288, 1)
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -38,63 +121,66 @@ offset_left = -66.5
 offset_top = -65.5
 offset_right = 66.5
 offset_bottom = 65.5
-texture = ExtResource( 1 )
+texture = ExtResource("1")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-stat_name = "HP"
-icon = ExtResource( 2 )
-left_side = "5"
-right_side = "5"
+script = ExtResource("4")
+left_side = ""
+right_side = ""
 
 [node name="Icon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -3.0
-texture = ExtResource( 2 )
+pivot_offset = Vector2(58.5, 60)
+texture = ExtResource("2")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Shadow" type="TextureRect" parent="Icon"]
-modulate = Color( 0, 0, 0, 0.729412 )
+modulate = Color(0, 0, 0, 0.729412)
 show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-scale = Vector2( 0.95, 0.95 )
-texture = ExtResource( 2 )
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 7.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("2")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Name" type="Label" parent="."]
-material = SubResource( 1 )
+material = SubResource("1")
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -30.0
 offset_top = -31.0
 offset_right = 30.0
 offset_bottom = 10.0
-theme_override_fonts/font = SubResource( 2 )
-theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+theme_override_colors/font_shadow_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = SubResource("2")
 text = "HP"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+label_settings = SubResource("LabelSettings_lt1g0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Values" type="Control" parent="."]
+anchors_preset = 0
 anchor_left = 0.158
 anchor_top = 0.771
 anchor_right = 0.887
@@ -105,37 +191,41 @@ offset_right = -1.971
 offset_bottom = -2.95601
 
 [node name="Left" type="Label" parent="Values"]
-material = SubResource( 1 )
+material = SubResource("1")
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -47.0
+offset_left = -51.0
 offset_top = -18.0
-theme_override_fonts/font = SubResource( 3 )
-theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+offset_right = -4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = SubResource("3")
 text = "5→"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+label_settings = SubResource("LabelSettings_nopn6")
+horizontal_alignment = 2
 
 [node name="Right" type="Label" parent="Values"]
-material = SubResource( 1 )
+material = SubResource("1")
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.05
-offset_top = -31.0
+offset_top = -39.0
 offset_right = 47.0
-offset_bottom = 3.8147e-06
-theme_override_fonts/font = SubResource( 4 )
-theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+offset_bottom = 11.0
+theme_override_colors/font_shadow_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("4")
 text = "5"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+label_settings = SubResource("LabelSettings_lt1g0")

@@ -72,7 +72,7 @@ func _process(_delta):
 		activeCamera.current = true;
 	#$Camera3D.target = "../Player/" + $Player.get_camera_3d()
 	
-	if cameraRotationsLeft == 0:
+	if cameraRotationsLeft == 0 and debug:
 		if Input.is_action_pressed("rotate_left"):
 			cameraRotateDirection = 1
 			cameraRotationsLeft = 16
@@ -171,11 +171,11 @@ func _on_Control_finishedSpinning():
 
 func _on_Water_body_exited(body):
 	if body.has_method("exit_water"):
-		body.exit_water()
+		body.exit_water($Water.global_position.y)
 
 func _on_Water_body_entered(body):
 	if body.has_method("enter_water"):
-		body.enter_water()
+		body.enter_water($Water.global_position.y)
 
 func _on_TitleScreen_done():
 	$Spin.spin_backwards()

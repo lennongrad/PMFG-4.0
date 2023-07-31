@@ -24,7 +24,6 @@ func shoot():
 	self.persistent_state.animated_sprite.play("Rest")
 	self.persistent_state.slingshot_ammo.position = self.persistent_state.slingshotHomePosition
 	self.persistent_state.slingshot_ammo.visible = true
-	print(self.persistent_state.position)
 	self.persistent_state.slingshotVelocity = (self.partner.position - self.persistent_state.position) * 2
 	shootTimer.call_deferred("free")
 

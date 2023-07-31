@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://8u8vygjmn473"]
 
-[ext_resource type="PackedScene" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cn1cvpdr81sc7" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="1"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/battle/Balloons.gd" id="4"]
@@ -97,6 +97,7 @@ shape = SubResource("1")
 
 [node name="Detection" type="Area3D" parent="."]
 collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474525, 0)

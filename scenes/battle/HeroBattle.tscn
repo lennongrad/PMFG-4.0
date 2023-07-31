@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://civqh7gvslnr4"]
+[gd_scene load_steps=63 format=3 uid="uid://civqh7gvslnr4"]
 
 [ext_resource type="Resource" uid="uid://cnne0bihla83e" path="res://stats/herostats/mario.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
@@ -6,7 +6,6 @@
 [ext_resource type="SpriteFrames" path="res://textures/hammer_basic/frames.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://cb8klbah5i3xf" path="res://scenes/DodgeParticles.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="6"]
-[ext_resource type="Texture2D" uid="uid://dgcfwydol4ur2" path="res://textures/items/mushroom.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://d0pwckvj7pabv" path="res://particles/star_08.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bsbrhnv6o565q" path="res://particles/star_05.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://wy52ubcfk1qw" path="res://particles/heart_big.png" id="10"]
@@ -14,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/battle/HPUp.gd" id="12"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="13"]
 [ext_resource type="Script" path="res://scripts/battle/Hearts.gd" id="14"]
+[ext_resource type="LabelSettings" uid="uid://b3bw580f7is53" path="res://fonts/status_settings.tres" id="14_jvhrl"]
 [ext_resource type="PackedScene" uid="uid://ddxb2t13bohu" path="res://scenes/Circles.tscn" id="15"]
 [ext_resource type="Script" path="res://scripts/overworld/WaterParticles.gd" id="16"]
 [ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
@@ -89,12 +89,20 @@ albedo_texture = ExtResource("17")
 material = SubResource("9")
 size = Vector2(0.6, 0.6)
 
-[sub_resource type="Gradient" id="11"]
-offsets = PackedFloat32Array(0, 0.513089, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.847059, 1, 1, 1, 0)
+[sub_resource type="Curve" id="Curve_mvfna"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="GradientTexture2D" id="12"]
-gradient = SubResource("11")
+[sub_resource type="CurveTexture" id="CurveTexture_y3uuc"]
+curve = SubResource("Curve_mvfna")
+
+[sub_resource type="Gradient" id="Gradient_8np3i"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g0src"]
+gradient = SubResource("Gradient_8np3i")
 
 [sub_resource type="Curve" id="13"]
 _data = [Vector2(0, 0.265909), 0.0, 0.0, 0, 0, Vector2(1, 0.8625), 0.0, 0.0, 0, 0]
@@ -105,8 +113,12 @@ curve = SubResource("13")
 
 [sub_resource type="ParticleProcessMaterial" id="15"]
 gravity = Vector3(0, 0, 0)
+angle_curve = SubResource("CurveTexture_y3uuc")
+scale_min = 0.5
+scale_max = 0.5
 scale_curve = SubResource("14")
-color_ramp = SubResource("12")
+color = Color(1, 1, 1, 0.317647)
+color_ramp = SubResource("GradientTexture1D_g0src")
 
 [sub_resource type="StandardMaterial3D" id="16"]
 transparency = 1
@@ -135,12 +147,11 @@ particles_anim_loop = false
 material = SubResource("18")
 size = Vector2(1.5, 1.5)
 
-[sub_resource type="Gradient" id="20"]
-offsets = PackedFloat32Array(0.0209424, 0.544503, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_svrmq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="21"]
-gradient = SubResource("20")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_20cx0"]
+gradient = SubResource("Gradient_svrmq")
 
 [sub_resource type="Curve" id="22"]
 _data = [Vector2(0.0140187, 0.251136), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -159,7 +170,7 @@ initial_velocity_max = 2.0
 damping_min = 1.0
 damping_max = 1.0
 scale_curve = SubResource("23")
-color_ramp = SubResource("21")
+color_ramp = SubResource("GradientTexture1D_20cx0")
 
 [sub_resource type="StandardMaterial3D" id="25"]
 transparency = 1
@@ -190,6 +201,21 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="20"]
+offsets = PackedFloat32Array(0.0209424, 0.544503, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="21"]
+gradient = SubResource("20")
 
 [sub_resource type="ParticleProcessMaterial" id="28"]
 spread = 180.0
@@ -287,14 +313,15 @@ animation = &"DiagBlur"
 
 [node name="EatenItem" type="Sprite3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.0610288, 0.282208, 0.00607342)
-visible = false
 texture_filter = 0
-texture = ExtResource("7")
 
 [node name="Particles" type="GPUParticles3D" parent="EatenItem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0138479)
 emitting = false
-amount = 12
+amount = 3
+lifetime = 2.0
+preprocess = 1.0
+speed_scale = 0.5
 process_material = SubResource("15")
 draw_pass_1 = SubResource("17")
 
@@ -334,6 +361,9 @@ offset_right = 56.0
 offset_bottom = 17.0
 theme_override_fonts/font = SubResource("27")
 text = "+4 HP"
+label_settings = ExtResource("14_jvhrl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Hearts2" type="GPUParticles3D" parent="HPUp"]
 transform = Transform3D(-0.138361, 4.93389e-08, -0.990382, 0.990382, -3.7243e-08, -0.138361, -4.37114e-08, -1, -4.37114e-08, 0.0633511, 0.207668, -0.0659817)

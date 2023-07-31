@@ -49,7 +49,7 @@ curve = SubResource("4")
 
 [sub_resource type="ParticleProcessMaterial" id="6"]
 gravity = Vector3(0, 0, 0)
-scale_max = 4.0
+scale_max = 3.0
 scale_curve = SubResource("5")
 
 [sub_resource type="StandardMaterial3D" id="7"]
@@ -117,7 +117,7 @@ size = Vector2(0.05, 0.05)
 _data = [Vector2(0, 0.106818), 0.0, 0.0, 0, 0, Vector2(0.5, 0.352273), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="20"]
+[sub_resource type="CurveTexture" id="CurveTexture_ryia2"]
 curve = SubResource("19")
 
 [sub_resource type="ParticleProcessMaterial" id="21"]
@@ -127,10 +127,12 @@ flatness = 0.47
 gravity = Vector3(0, -2, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
-scale_curve = SubResource("20")
+scale_min = 0.6
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_ryia2")
 color = Color(0.223529, 0.223529, 0.223529, 0.372549)
 
-[sub_resource type="StandardMaterial3D" id="22"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddwdb"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -141,28 +143,28 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="23"]
-material = SubResource("22")
+material = SubResource("StandardMaterial3D_ddwdb")
 
-[sub_resource type="Gradient" id="24"]
-offsets = PackedFloat32Array(0, 0.369697, 0.836364, 0.878788)
-colors = PackedColorArray(1, 1, 1, 0.560784, 1, 1, 1, 0.0431373, 1, 1, 1, 0, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_tw228"]
+offsets = PackedFloat32Array(0, 0.821138)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="25"]
-gradient = SubResource("24")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_13idg"]
+gradient = SubResource("Gradient_tw228")
 
 [sub_resource type="Curve" id="26"]
 _data = [Vector2(0, 0.0693182), 0.0, 0.705929, 0, 0, Vector2(0.989362, 0.969318), -0.142424, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="27"]
+[sub_resource type="CurveTexture" id="CurveTexture_o1k8e"]
 curve = SubResource("26")
 
 [sub_resource type="ParticleProcessMaterial" id="28"]
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("27")
-color_ramp = SubResource("25")
+scale_curve = SubResource("CurveTexture_o1k8e")
+color_ramp = SubResource("GradientTexture1D_13idg")
 
-[sub_resource type="StandardMaterial3D" id="29"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1bpb"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -171,7 +173,10 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="30"]
-material = SubResource("29")
+material = SubResource("StandardMaterial3D_u1bpb")
+subdivide_width = 5
+subdivide_depth = 5
+orientation = 1
 
 [sub_resource type="Curve" id="31"]
 _data = [Vector2(0, 0.179545), 0.0, 0.0, 0, 0, Vector2(0.5, 0.525), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -292,10 +297,11 @@ pixel_size = 0.0117
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = ExtResource("1")
-animation = &"BattleFall"
+animation = &"Swim"
 
 [node name="CameraClose" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.991218, 0.132239, 0, -0.132239, 0.991218, 0.0242862, 0.507654, 1.42752)
+cull_mask = 1048574
 script = ExtResource("10")
 
 [node name="CameraFar" type="Camera3D" parent="."]
@@ -310,11 +316,12 @@ sprite_frames = SubResource("3")
 frame = 1
 
 [node name="SpinDashParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142991, 0.0611513, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142991, 0.122053, 0)
 emitting = false
 amount = 6
 speed_scale = 4.0
 randomness = 0.13
+visibility_aabb = AABB(-4, -4, -1.18714, 8, 8, 2.37428)
 transform_align = 1
 process_material = SubResource("6")
 draw_pass_1 = SubResource("8")
@@ -350,8 +357,7 @@ script = ExtResource("4")
 transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0.0100566, 0.0906274, -0.0696199)
 emitting = false
 amount = 60
-lifetime = 1.36
-speed_scale = 0.75
+lifetime = 0.8
 process_material = SubResource("28")
 draw_pass_1 = SubResource("30")
 
@@ -443,11 +449,10 @@ draw_pass_1 = SubResource("13")
 
 [node name="ItemGet" parent="." instance=ExtResource("8")]
 visible = false
+texture_filter = 1
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="body_entered" from="HammerArea" to="." method="_on_HammerArea_body_entered"]

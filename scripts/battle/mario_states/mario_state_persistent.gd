@@ -102,7 +102,7 @@ func hurt():
 func heal(heal_for):
 	var healed = $"/root/MarioRun".heal(stats, heal_for)
 	if healed > 0:
-		$HPUp.change_text("+" + String(healed) + " HP")
+		$HPUp.change_text("+" + str(healed) + " HP")
 		$HPUp.reactivate()
 		$Hearts.activate()
 

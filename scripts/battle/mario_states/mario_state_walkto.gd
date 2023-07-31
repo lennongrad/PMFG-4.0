@@ -9,10 +9,11 @@ func _ready():
 	else:
 		hero.get_node("Sprite2D").play("Walk")
 	var distance = Vector3(hero.get_current_attack().walkto_distance, 0, 0)
-	var enemyPosition = hero.target.position - distance
-	enemyPosition.y = 0
-	if hero.get_current_attack().walkto_distance == 0:
-		enemyPosition = hero.front_position + Vector3(.6, 0, 0)
+	
+	var enemyPosition = hero.front_position + Vector3(.6, 0, 0)
+	if hero.target != null and  hero.get_current_attack().walkto_distance != 0:
+		enemyPosition = hero.target.position - distance
+		enemyPosition.y = 0
 	
 	self.interpolate_property(hero, "position", enemyPosition, .5)
 	#	hero.position, enemyPosition, .5, Tween.TRANS_LINEAR, Tween.EASE_IN)

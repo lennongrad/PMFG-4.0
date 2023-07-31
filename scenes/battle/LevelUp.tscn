@@ -1,79 +1,173 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=3 uid="uid://f7nmgoj22llb"]
 
-[ext_resource path="res://scenes/battle/LevelUpOption.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/other/fp.png" type="Texture2D" id=2]
-[ext_resource path="res://fonts/TTYDfont.otf" type="FontFile" id=3]
-[ext_resource path="res://sprites/other/bp.png" type="Texture2D" id=4]
-[ext_resource path="res://scripts/battle/LevelUp.gd" type="Script" id=5]
-[ext_resource path="res://sprites/UI/confetti.png" type="Texture2D" id=6]
+[ext_resource type="PackedScene" uid="uid://41wflhs2tl64" path="res://scenes/battle/LevelUpOption.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://b7supm8rafo00" path="res://sprites/other/fp.png" id="2"]
+[ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="3"]
+[ext_resource type="Texture2D" uid="uid://crjd435luk77c" path="res://sprites/other/bp.png" id="4"]
+[ext_resource type="Script" path="res://scripts/battle/LevelUp.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://djpos7m1f7nsd" path="res://sprites/other/hphd.png" id="5_eswur"]
+[ext_resource type="Texture2D" uid="uid://twwn2jxia5cg" path="res://sprites/UI/confetti.png" id="6"]
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id="1"]
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("3")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgoo6"]
+font_size = 100
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="CanvasItemMaterial" id="5"]
 particles_animation = true
 particles_anim_h_frames = 8
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Gradient" id=7]
-offsets = PackedFloat32Array( 0, 0.242424, 0.660606, 1 )
-colors = PackedColorArray( 1, 1, 1, 0, 1, 1, 1, 0.633027, 1, 1, 1, 1, 1, 1, 1, 0 )
+[sub_resource type="Gradient" id="Gradient_ovycx"]
+offsets = PackedFloat32Array(0, 0.199248, 0.394737, 0.609023, 0.75188, 0.87594, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0.243137, 1, 0.211765, 1, 1, 1, 0.439216, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id=8]
-gradient = SubResource( 7 )
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qi2bu"]
+gradient = SubResource("Gradient_ovycx")
 
-[sub_resource type="ParticleProcessMaterial" id=6]
-emission_shape = 2
-emission_box_extents = Vector3( 900, 900, 1 )
-flag_disable_z = true
-direction = Vector3( 0, 1, 0 )
-spread = 29.12
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 303.92
-initial_velocity_random = 0.38
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 437.6
-angle_random = 1.0
-color_ramp = SubResource( 8 )
-hue_variation = 1.0
-hue_variation_random = 1.0
-anim_speed = 1.0
-anim_speed_random = 0.43
+[sub_resource type="Gradient" id="Gradient_4vwh4"]
+offsets = PackedFloat32Array(0.845865, 1)
+colors = PackedColorArray(1, 1, 1, 0.592157, 1, 1, 1, 0)
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0jw63"]
+gradient = SubResource("Gradient_4vwh4")
 
-[sub_resource type="FontFile" id=2]
-size = 100
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
+[sub_resource type="Curve" id="Curve_go87n"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="Gradient" id=3]
-offsets = PackedFloat32Array( 0, 0.216749 )
-colors = PackedColorArray( 1, 1, 1, 0.501961, 1, 1, 1, 0 )
+[sub_resource type="CurveTexture" id="CurveTexture_isnwe"]
+curve = SubResource("Curve_go87n")
 
-[sub_resource type="GradientTexture2D" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="ParticleProcessMaterial" id="6"]
+emission_shape = 3
+emission_box_extents = Vector3(900, 900, 1)
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 130.0
+angular_velocity_max = 15.0
+color_ramp = SubResource("GradientTexture1D_0jw63")
+color_initial_ramp = SubResource("GradientTexture1D_qi2bu")
+hue_variation_curve = SubResource("CurveTexture_isnwe")
+anim_speed_max = 4.0
+
+[sub_resource type="Gradient" id="3"]
+offsets = PackedFloat32Array(0, 0.80292)
+colors = PackedColorArray(1, 1, 1, 0.501961, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="4"]
+gradient = SubResource("3")
 
 [node name="LevelUp" type="Control"]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color( 0.262745, 0.262745, 0.262745, 0.705882 )
+modulate = Color(0.262745, 0.262745, 0.262745, 0.705882)
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("1")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.14902, 0.14902, 0.14902, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = SubResource("2")
+text = "LEVEL UP!"
+label_settings = SubResource("LabelSettings_fgoo6")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Confetti" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0.396078 )
+modulate = Color(1, 1, 1, 0.396078)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 43.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Confetti"]
+texture_filter = 1
+material = SubResource("5")
+position = Vector2(1.87717, 9.66022)
+amount = 250
+process_material = SubResource("6")
+texture = ExtResource("6")
+visibility_rect = Rect2(-7500, -600, 15000, 1200)
+
+[node name="Choices" type="Control" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spotlight" type="Control" parent="Choices"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -82,101 +176,65 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Confetti"]
-material = SubResource( 5 )
-position = Vector2( 1.87717, 9.66022 )
-emitting = false
-amount = 250
-lifetime = 4.0
-visibility_rect = Rect2( -7500, -600, 15000, 1200 )
-process_material = SubResource( 6 )
-texture = ExtResource( 6 )
-
-[node name="Choices" type="Control" parent="."]
-anchor_left = 0.488
-anchor_top = 0.577
-anchor_right = 0.488
-anchor_bottom = 0.577
-offset_left = -230.0
-offset_top = -76.2
-offset_right = 231.0
-offset_bottom = 75.8
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Choices"]
-material = SubResource( 1 )
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -292.5
-offset_top = -119.0
-offset_right = 292.5
-offset_bottom = -19.0
-theme_override_fonts/font = SubResource( 2 )
-theme_override_colors/font_shadow_color = Color( 0.14902, 0.14902, 0.14902, 1 )
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-text = "LEVEL UP!"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Spotlight" type="Control" parent="Choices"]
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Polygon2d" type="Polygon2D" parent="Choices/Spotlight"]
-modulate = Color( 1, 1, 1, 0.52549 )
+modulate = Color(1, 1, 1, 0.52549)
 show_behind_parent = true
-position = Vector2( 0.00921631, -216.151 )
-rotation = 2.83251
-offset = Vector2( -92.3427, -564.746 )
-texture = SubResource( 4 )
-polygon = PackedVector2Array( -189.202, 858.001, 360.343, 380.019, 277.136, 289.384 )
+texture_filter = 1
+position = Vector2(19.5, 45.5)
+rotation = 2.28165
+scale = Vector2(1.07082, 0.911058)
+offset = Vector2(-320, -330)
+texture = SubResource("4")
+texture_scale = Vector2(0.1, 0.1)
+texture_rotation = 0.689405
+polygon = PackedVector2Array(-189.202, 858.001, 360.343, 380.019, 277.136, 289.384)
 
-[node name="HP" parent="Choices" instance=ExtResource( 1 )]
+[node name="HP" parent="Choices" instance=ExtResource("1")]
+layout_mode = 1
+anchors_preset = 4
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
 offset_top = -63.0
 offset_right = 127.0
 offset_bottom = 63.0
-pivot_offset = Vector2( 61.1441, 62.6348 )
-left_side = "55"
-right_side = "55"
+grow_vertical = 2
+pivot_offset = Vector2(61.1441, 62.6348)
+stat_name = "HP"
+icon = ExtResource("5_eswur")
+left_side = 55
+right_side = 55
 
-[node name="FP" parent="Choices" instance=ExtResource( 1 )]
+[node name="FP" parent="Choices" instance=ExtResource("1")]
+layout_mode = 1
 offset_left = -63.5
 offset_top = -63.0
 offset_right = 63.5
 offset_bottom = 63.0
-pivot_offset = Vector2( 64.3058, 63.5257 )
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64.3058, 63.5257)
 stat_name = "FP"
-icon = ExtResource( 2 )
-left_side = "55"
-right_side = "55"
+icon = ExtResource("2")
+left_side = 55
+right_side = 55
 
-[node name="BP" parent="Choices" instance=ExtResource( 1 )]
+[node name="BP" parent="Choices" instance=ExtResource("1")]
+layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -122.0
-offset_top = -61.5
+offset_top = -62.5
 offset_right = 0.0
-offset_bottom = 63.5
-pivot_offset = Vector2( 65.1402, 62.0257 )
+offset_bottom = 62.5
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(65.1402, 62.0257)
 stat_name = "BP"
-icon = ExtResource( 4 )
-left_side = "55"
-right_side = "55"
+icon = ExtResource("4")
+left_side = 55
+right_side = 55

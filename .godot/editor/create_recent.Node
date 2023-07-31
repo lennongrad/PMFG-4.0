@@ -1,5 +1,5 @@
-StaticBody3D
 MeshInstance3D
+StaticBody3D
 CollisionShape3D
 SpotLight3D
 OmniLight3D

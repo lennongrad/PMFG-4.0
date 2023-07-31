@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://6fsap7dhl5ku"]
+[gd_scene load_steps=9 format=3 uid="uid://6fsap7dhl5ku"]
 
 [ext_resource type="Texture2D" uid="uid://d3d0j4p8yulte" path="res://sprites/UI/progressover.png" id="1"]
 [ext_resource type="Script" path="res://scenes/battle/ExperienceHolder.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7538l"]
+[ext_resource type="LabelSettings" uid="uid://b3bw580f7is53" path="res://fonts/status_settings.tres" id="3_uteqr"]
+[ext_resource type="LabelSettings" uid="uid://d2xrjlgdawtoo" path="res://fonts/small_status_setting.tres" id="4_myrp1"]
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("3")])
@@ -17,6 +17,24 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("3")])
@@ -29,49 +47,33 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cyfn"]
+bg_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
 
 [node name="ExperienceHolder" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(1.609, 1.16578)
+scale = Vector2(1.6557, 1.39894)
 script = ExtResource("2")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -45.0
-offset_top = -36.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("1")
-patch_margin_left = 12
-patch_margin_top = 8
-patch_margin_right = 12
-patch_margin_bottom = 8
-
-[node name="Panel" type="Panel" parent="NinePatchRect"]
-show_behind_parent = true
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_7538l")
-
-[node name="SpriteHolder" type="Control" parent="NinePatchRect/Panel"]
-anchors_preset = 0
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
+experience_count = 40
+centered = true
 
 [node name="Text" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 1)
 anchors_preset = 0
 offset_left = -55.0
 offset_top = -49.0
@@ -80,20 +82,62 @@ offset_bottom = -11.0
 
 [node name="Count" type="Label" parent="Text"]
 layout_mode = 0
-offset_left = -16.0
-offset_top = 4.0
-offset_right = 29.0
-offset_bottom = 35.0
+offset_left = -34.1192
+offset_top = -3.8631
+offset_right = 10.8808
+offset_bottom = 30.1369
 theme_override_fonts/font = SubResource("2")
-text = "0"
+text = "50"
+label_settings = ExtResource("3_uteqr")
+horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="Text"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -98.0
-offset_top = -15.0
+offset_top = -33.5855
+offset_right = 43.0
+offset_bottom = -9.58549
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/font = SubResource("3")
 text = "STAR POINTS"
+label_settings = ExtResource("4_myrp1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -16.0
+offset_right = 83.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1")
+region_rect = Rect2(0, 0, 68, 68)
+patch_margin_left = 32
+patch_margin_top = 8
+patch_margin_right = 32
+patch_margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+show_behind_parent = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0cyfn")
+
+[node name="SpriteHolder" type="Control" parent="NinePatchRect/Panel"]
+anchors_preset = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0

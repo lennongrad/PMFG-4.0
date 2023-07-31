@@ -1,23 +1,23 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://biq8kj51yh4gp"]
 
-[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
-[ext_resource path="res://textures/items/supermushroom.png" type="Texture2D" id=2]
-[ext_resource path="res://stats/heroattack/items/_battlechoice.tres" type="Resource" id=3]
-[ext_resource path="res://sprites/items/supermushroom.png" type="Texture2D" id=4]
-[ext_resource path="res://sprites/items/supermushroom_gray.png" type="Texture2D" id=5]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bncogeae4oy4w" path="res://textures/items/supermushroom.png" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/items/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://q7men0qu8ven" path="res://sprites/items/supermushroom.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dtvuyd2dh4rla" path="res://sprites/items/supermushroom_gray.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
-choice = ExtResource( 3 )
-icon = ExtResource( 4 )
-icon_texture = ExtResource( 2 )
-icon_gray = ExtResource( 5 )
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = ExtResource("4")
+icon_texture = ExtResource("2")
+icon_gray = ExtResource("5")
 name = "Extra Mushroom"
-description = "Extra"
-steps = [ "walkto", "eat", "walkback" ]
+description = "An extra-helpful pick-me-up! Use to regain Heart Points."
+steps = ["walkto", "eat", "walkback"]
 walkto_distance = 0.0
 fp_cost = 0
-skipEnemySelection = false
+skipEnemySelection = true
 firstStrike = false
 attributes = {
 "hp": 6

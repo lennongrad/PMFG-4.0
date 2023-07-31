@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4rlgpuow6f6"]
+[gd_scene load_steps=16 format=3 uid="uid://4rlgpuow6f6"]
 
 [ext_resource type="Texture2D" uid="uid://bwsehqencn05g" path="res://sprites/UI/itemacbk.png" id="1"]
 [ext_resource type="Script" path="res://scripts/overworld/ItemGet.gd" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="5"]
 [ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://c4h0kcmmot7rt" path="res://sprites/UI/patch2.png" id="8"]
+[ext_resource type="LabelSettings" uid="uid://d2xrjlgdawtoo" path="res://fonts/small_status_setting.tres" id="8_tydju"]
 
 [sub_resource type="ParticleProcessMaterial" id="1"]
 particle_flag_disable_z = true
@@ -34,6 +35,18 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_chb17"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("5")])
@@ -67,8 +80,11 @@ cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xd6l5"]
 font_size = 50
-outline_size = 12
+outline_size = 24
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(8, 8)
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("5")])
@@ -81,19 +97,40 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
 
 [node name="ItemGet" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.838257
-offset_top = -0.793701
-offset_right = -0.838257
-offset_bottom = -0.793701
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2")
 
 [node name="Item" type="Control" parent="."]
+texture_filter = 1
 anchors_preset = 0
 anchor_left = 0.399
 anchor_top = 0.235
@@ -123,11 +160,19 @@ process_material = SubResource("1")
 texture = ExtResource("1")
 lifetime = 0.3
 speed_scale = 0.5
+local_coords = true
 
 [node name="Item" type="TextureRect" parent="Item"]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.561
+anchor_top = 0.5
+anchor_right = 0.561
+anchor_bottom = 0.5
+offset_left = -90.7911
+offset_top = -60.4025
+offset_right = 71.0469
+offset_bottom = 60.4025
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 6
@@ -165,27 +210,27 @@ scale = Vector2(1, 3.74927)
 polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 446.026, 623.706)
 
 [node name="Description" type="Control" parent="."]
-anchors_preset = 0
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -285.953
-offset_top = -173.243
-offset_right = 146.047
-offset_bottom = 21.7573
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchor_left = 0.288
+anchor_top = 0.76
+anchor_right = 0.701
+anchor_bottom = 0.953
+offset_left = -68.712
+offset_top = -36.28
+offset_right = -81.299
+offset_bottom = -62.309
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1.4, 1.4)
 
 [node name="Textbox" type="Panel" parent="Description"]
-layout_mode = 0
-anchor_left = 0.049
-anchor_top = 0.164
-anchor_right = 0.907
-anchor_bottom = 0.518
-offset_left = -18.168
-offset_top = -7.98006
-offset_right = 0.175964
-offset_bottom = -0.0101776
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("2")
 
 [node name="TopBorder" type="NinePatchRect" parent="Description/Textbox"]
@@ -223,37 +268,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
 offset_top = 12.0
-offset_right = -13.0
+offset_right = -3.60602
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
 text = "You got an epic shroom because you are le king."
+label_settings = SubResource("LabelSettings_chb17")
 autowrap_mode = 2
 max_lines_visible = 2
 
 [node name="Title" type="Control" parent="Description"]
-anchors_preset = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.2379
-offset_top = -83.172
-offset_right = 23.7622
-offset_bottom = -53.172
+layout_mode = 1
+anchor_left = 0.025
+anchor_top = -0.444
+anchor_right = 0.979
+anchor_bottom = -0.111
+offset_left = 9.53841
+offset_top = 16.2416
+offset_right = -27.0298
+offset_bottom = 14.2746
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Title3" type="NinePatchRect" parent="Description/Title"]
+[node name="TitleShadow" type="NinePatchRect" parent="Description/Title"]
 modulate = Color(0, 0, 0, 0.639216)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -189.857
-offset_top = -36.8171
-offset_right = 486.143
-offset_bottom = 43.1829
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -4.14288
+offset_right = 418.0
+offset_bottom = 44.8571
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 patch_margin_left = 40
@@ -262,15 +311,15 @@ patch_margin_right = 40
 patch_margin_bottom = 40
 
 [node name="Title" type="NinePatchRect" parent="Description/Title"]
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -39.0
-offset_right = 484.0
-offset_bottom = 41.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -7.0
+offset_right = 422.422
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 patch_margin_left = 40
@@ -295,15 +344,19 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Label" type="Label" parent="Description"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 37.9891
-offset_top = -32.007
-offset_right = -278.011
-offset_bottom = -202.007
+offset_left = 7.43493
+offset_top = -70.3642
+offset_right = -283.171
+offset_bottom = -139.364
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = SubResource("7")
 text = "You Got..."
+label_settings = ExtResource("8_tydju")
