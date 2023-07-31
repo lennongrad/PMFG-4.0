@@ -1,12 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://1axryjolfwxg"]
+[gd_scene load_steps=16 format=3 uid="uid://1axryjolfwxg"]
 
 [ext_resource type="Texture2D" uid="uid://hpt7s36k7nf3" path="res://textures/ui/miss.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://dbx14euk1oxji" path="res://textures/ui/nice.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bebly0xrvv4h7" path="res://textures/ui/good.png" id="3"]
 [ext_resource type="Script" path="res://FeedbackParticle.gd" id="4"]
 
+[sub_resource type="Gradient" id="Gradient_twgwr"]
+offsets = PackedFloat32Array(0, 0.480315, 0.866142, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mwyab"]
+gradient = SubResource("Gradient_twgwr")
+
 [sub_resource type="Curve" id="3"]
-_data = [Vector2(0, 0.0204545), 0.0, 0.0, 0, 0, Vector2(0.345745, 0.875), -0.0234122, -0.0234122, 0, 0, Vector2(0.680851, 0.956818), -0.0949496, -0.0949496, 0, 0, Vector2(1, 0.0295454), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.0204545), 0.0, 0.0, 0, 0, Vector2(0.345745, 0.875), -0.0234122, -0.0234122, 0, 0, Vector2(0.905263, 0.947368), -0.0949496, -0.0949496, 0, 0, Vector2(1, 0.0295454), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="4"]
@@ -14,14 +21,20 @@ curve = SubResource("3")
 
 [sub_resource type="ParticleProcessMaterial" id="9"]
 spread = 0.0
-gravity = Vector3(0, 0.5, 0)
+gravity = Vector3(0, 0.2, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.4
+damping_min = 0.3
+damping_max = 0.3
 scale_curve = SubResource("4")
+color_ramp = SubResource("GradientTexture1D_mwyab")
 
 [sub_resource type="StandardMaterial3D" id="10"]
 transparency = 4
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("2")
+texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -30,13 +43,14 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="11"]
 material = SubResource("10")
-size = Vector2(0.4, 0.3)
+size = Vector2(0.8, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="12"]
 transparency = 4
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1")
+texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -45,13 +59,14 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="13"]
 material = SubResource("12")
-size = Vector2(0.4, 0.3)
+size = Vector2(0.8, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="14"]
 transparency = 4
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3")
+texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -60,7 +75,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="15"]
 material = SubResource("14")
-size = Vector2(0.4, 0.3)
+size = Vector2(0.8, 0.6)
 
 [node name="FeedbackParticle" type="Node3D"]
 script = ExtResource("4")
@@ -68,25 +83,22 @@ script = ExtResource("4")
 [node name="Nice" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11225)
 emitting = false
-amount = 1
-lifetime = 0.6
-one_shot = true
+amount = 16
+lifetime = 1.2
 local_coords = true
 process_material = SubResource("9")
 draw_pass_1 = SubResource("11")
 
 [node name="Miss" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 1
-lifetime = 0.6
-one_shot = true
+amount = 16
+lifetime = 1.2
 process_material = SubResource("9")
 draw_pass_1 = SubResource("13")
 
 [node name="Good" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 1
-lifetime = 0.6
-one_shot = true
+amount = 16
+lifetime = 1.2
 process_material = SubResource("9")
 draw_pass_1 = SubResource("15")

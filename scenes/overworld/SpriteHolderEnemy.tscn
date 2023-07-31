@@ -128,8 +128,11 @@ point_count = 2
 curve = SubResource("3")
 
 [sub_resource type="ParticleProcessMaterial" id="5"]
+direction = Vector3(0, 1, 0)
 spread = 90.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, -1.5, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
 scale_curve = SubResource("4")
 
 [sub_resource type="StandardMaterial3D" id="6"]
@@ -174,7 +177,7 @@ one_shot = true
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.0267356, 0.0966932)
 emitting = false
 amount = 64
-lifetime = 0.4
+lifetime = 0.6
 visibility_aabb = AABB(-0.25, -0.25, -0.25, 0.5, 0.5, 0.5)
 process_material = SubResource("5")
 draw_pass_1 = SubResource("7")

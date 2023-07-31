@@ -318,8 +318,8 @@ texture_filter = 0
 [node name="Particles" type="GPUParticles3D" parent="EatenItem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0138479)
 emitting = false
-amount = 3
-lifetime = 2.0
+amount = 6
+lifetime = 0.2
 preprocess = 1.0
 speed_scale = 0.5
 process_material = SubResource("15")

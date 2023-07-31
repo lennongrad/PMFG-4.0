@@ -59,3 +59,12 @@ res://scenes/overworld/ItemGet.tscn
 res://scenes/overworld/OverworldItem.tscn
 res://scripts/battle/mario_states/mario_state_walkto.gd
 res://scenes/overworld/OverworldCoin.tscn
+res://scenes/overworld/QuestionBlock.tscn
+res://textures/blocks/QBlockRed.tres
+res://textures/blocks/UsedRed.tres
+res://textures/blocks/UsedBlue.tres
+res://textures/blocks/QBlockBlue.tres
+res://scripts/overworld/BorderGenerator.gd
+res://scenes/battle/FeedbackParticle.tscn
+res://stats/heroattack/items/_battlechoice.tres
+res://scenes/battle/BattleChoice.tscn

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" path="res://scenes/overworld/EnemySpawner.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://ds1tf2gdnpfne" path="res://scenes/overworld/Player.tscn" id="11"]
-[ext_resource type="PackedScene" path="res://scenes/overworld/QuestionBlock.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="13"]
 [ext_resource type="PackedScene" uid="uid://hdas3iby8cfh" path="res://scenes/overworld/Partner.tscn" id="14"]
 [ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="14_o1xby"]

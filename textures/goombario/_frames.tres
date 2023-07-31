@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://c0ruc4faa41hu" path="res://textures/goombario/swim.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://b76uupcmowtc" path="res://textures/goombario/swim2.png" id="12"]
 
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("7")
+region = Rect2(32, 0, 32, 64)
+
 [sub_resource type="AtlasTexture" id="4"]
 atlas = ExtResource("6")
 region = Rect2(0, 0, 32, 64)
@@ -37,17 +45,9 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("2")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="3"]
-atlas = ExtResource("2")
-region = Rect2(128, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="6"]
 atlas = ExtResource("7")
 region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="7"]
-atlas = ExtResource("7")
-region = Rect2(32, 0, 32, 64)
 
 [sub_resource type="AtlasTexture" id="8"]
 atlas = ExtResource("7")
@@ -69,6 +69,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"BattleRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("7")
+}],
+"loop": true,
+"name": &"Eat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -104,6 +115,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jumpsquat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"Present",
 "speed": 5.0
 }, {
 "frames": [{

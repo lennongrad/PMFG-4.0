@@ -6,6 +6,7 @@
 cull_mode = 2
 shading_mode = 0
 albedo_texture = ExtResource("1")
+texture_filter = 0
 
 [resource]
 material = SubResource("1")

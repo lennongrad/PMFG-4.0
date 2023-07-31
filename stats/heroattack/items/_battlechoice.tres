@@ -1,11 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cs46wfelbgfdc"]
 
-[ext_resource path="res://stats/heroattack/battlechoice.gd" type="Script" id=2]
-
-[sub_resource type="CompressedTexture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://8rwel38cr6rv" path="res://sprites/items/mushroom.png" id="1_67d0p"]
+[ext_resource type="Script" path="res://stats/heroattack/battlechoice.gd" id="2"]
 
 [resource]
-script = ExtResource( 2 )
+script = ExtResource("2")
 name = "Items"
-icon = SubResource( 1 )
+icon = ExtResource("1_67d0p")
 order = 5

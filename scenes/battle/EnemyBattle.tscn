@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cc6e8hf8dein5"]
+[gd_scene load_steps=42 format=3 uid="uid://cc6e8hf8dein5"]
 
 [ext_resource type="Resource" uid="uid://d2nm2n73ysnn4" path="res://stats/enemystats/enemystats_cheepcheep.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2"]
@@ -137,26 +137,30 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="11"]
 material = SubResource("10")
 
+[sub_resource type="Gradient" id="Gradient_hasmj"]
+colors = PackedColorArray(1, 1, 1, 0.431373, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_htxy8"]
+gradient = SubResource("Gradient_hasmj")
+
 [sub_resource type="Curve" id="14"]
-_data = [Vector2(0, 0.0875), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.0875), 0.0, 0.0, 0, 0, Vector2(0.989474, 0.989474), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="15"]
 curve = SubResource("14")
 
 [sub_resource type="ParticleProcessMaterial" id="20"]
-particle_flag_disable_z = true
 direction = Vector3(0, 1, 0.1)
 spread = 144.87
 flatness = 1.0
 gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 angle_min = -5.0
 angle_max = 5.0
-scale_max = 1.2
+scale_min = 2.25
+scale_max = 2.25
 scale_curve = SubResource("15")
-color = Color(1, 1, 1, 0.12549)
+color_ramp = SubResource("GradientTexture1D_htxy8")
 
 [sub_resource type="StandardMaterial3D" id="21"]
 render_priority = 1
@@ -166,6 +170,7 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("19")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
@@ -236,18 +241,17 @@ draw_pass_1 = SubResource("11")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0951866, -0.115616)
 
 [node name="HurtParticles2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0951866, -0.115616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176069, 0.00502615)
 script = ExtResource("18")
 
 [node name="Timer" type="Timer" parent="HurtParticles2"]
 wait_time = 0.05
 
 [node name="Particles" type="GPUParticles3D" parent="HurtParticles2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0826906, 0.201142, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0859575, 0.133776, 0)
 emitting = false
 amount = 16
-lifetime = 1.75
-one_shot = true
+lifetime = 1.6
 speed_scale = 3.0
 visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
 process_material = SubResource("20")

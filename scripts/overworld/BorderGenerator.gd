@@ -66,6 +66,7 @@ func updateBorders(newBorder):
 		for e in range(0, 3):
 			var mesh = BoxMesh.new()
 			var mat = StandardMaterial3D.new()
+			mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 			mat.albedo_texture = borderTexture
 			match e:
 				0: 
