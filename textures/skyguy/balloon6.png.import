@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/balloon6.png-1f0d6872a3da63045c145f4ab85d1ee4
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

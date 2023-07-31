@@ -1,9 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://cc6e8hf8dein5"]
+[gd_scene load_steps=42 format=3 uid="uid://cc6e8hf8dein5"]
 
 [ext_resource type="Resource" uid="uid://d2nm2n73ysnn4" path="res://stats/enemystats/enemystats_cheepcheep.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2"]
 [ext_resource type="Script" path="res://scripts/battle/enemy_states/enemy_state_persistent.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://cn1cvpdr81sc7" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://dlyf6e7x38igq" path="res://sprites/UI/enemy_cursor.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dwnrliqytbx0s" path="res://textures/skyguy/balloon2.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://jt1y37lpwc34" path="res://textures/redshyguy/slingshotammo.png" id="7"]
@@ -137,6 +137,13 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="11"]
 material = SubResource("10")
 
+[sub_resource type="Gradient" id="12"]
+offsets = PackedFloat32Array(0, 0.727749)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="13"]
+gradient = SubResource("12")
+
 [sub_resource type="Curve" id="14"]
 _data = [Vector2(0, 0.0875), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -157,6 +164,7 @@ angle_max = 5.0
 scale_max = 1.2
 scale_curve = SubResource("15")
 color = Color(1, 1, 1, 0.12549)
+color_ramp = SubResource("13")
 
 [sub_resource type="StandardMaterial3D" id="21"]
 render_priority = 1
@@ -203,7 +211,6 @@ script = ExtResource("13")
 [node name="Balloons" type="AnimatedSprite3D" parent="Sprite2D/Balloons"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000103414, 0.400397, -0.0269557)
 billboard = 2
-texture_filter = 0
 sprite_frames = SubResource("1")
 animation = &"float"
 frame = 1
@@ -211,7 +218,6 @@ frame = 1
 [node name="Pointer" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.429944, 0)
 visible = false
-texture_filter = 0
 sprite_frames = SubResource("6")
 autoplay = "default"
 frame_progress = 0.2979
@@ -219,7 +225,6 @@ frame_progress = 0.2979
 [node name="Exclamation" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00430261, 0.41311, 0.0609488)
 visible = false
-texture_filter = 0
 texture = ExtResource("14")
 
 [node name="Circles" parent="." instance=ExtResource("15")]
@@ -259,8 +264,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0882893, 0.0474239, 0)
 [node name="SlingshotAmmo" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125341, 0.230981, 0.0563395)
 visible = false
-collision_layer = 96
-collision_mask = 96
+collision_layer = 64
+collision_mask = 64
 
 [node name="Sprite3D" type="Sprite3D" parent="SlingshotAmmo"]
 texture = ExtResource("7")
@@ -269,7 +274,7 @@ texture = ExtResource("7")
 shape = SubResource("23")
 
 [node name="SlingshotArea" type="Area3D" parent="SlingshotAmmo"]
-collision_layer = 48
+collision_layer = 16
 collision_mask = 48
 
 [node name="CollisionShape" type="CollisionShape3D" parent="SlingshotAmmo/SlingshotArea"]
@@ -292,6 +297,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16376, 0)
 shape = SubResource("CapsuleShape3D_lokhw")
 
 [connection signal="area_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_SlingshotArea_area_entered"]
-[connection signal="body_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_slingshot_area_body_entered"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

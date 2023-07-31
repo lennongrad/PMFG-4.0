@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/diagimpact.png-013aa52aa3984bc9f29ff2081a07c1
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

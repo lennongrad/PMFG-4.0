@@ -156,6 +156,16 @@ menu={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Mario"
+3d_physics/layer_2="Enemies"
+3d_physics/layer_3="Partner"
+3d_physics/layer_4="Items"
+3d_physics/layer_5="Hero Battle"
+3d_physics/layer_6="Enemy Battle"
+3d_physics/layer_7="Projectile Battle"
+
 [rendering]
 
 lights_and_shadows/shadow_atlas/size=8192

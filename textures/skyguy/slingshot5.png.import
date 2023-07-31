@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/slingshot5.png-03b9812bf40f2c18543268f024c05b
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

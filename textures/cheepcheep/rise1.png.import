@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/rise1.png-33f31b976ff96238a92a808e3ac0dc38.ct
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

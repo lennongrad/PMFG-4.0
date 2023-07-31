@@ -57,7 +57,7 @@ func slingshot_area_body_entered(body):
 			self.persistent_state.register_damage(self.partner, 1, "NICE")
 		else:
 			self.persistent_state.register_damage(self.partner, 2, "MISS")
-	if body == self.floorMesh:
+	if body == floorMesh:
 		self.persistent_state.slingshot_ammo.visible = false
 		self.persistent_state.slingshotVelocity = Vector3.ZERO
 		self.persistent_state.slingshot_ammo.position.y = 10

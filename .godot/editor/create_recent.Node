@@ -1,7 +1,7 @@
-CollisionShape3D
 StaticBody3D
+MeshInstance3D
+CollisionShape3D
 SpotLight3D
 OmniLight3D
 Node
 RichTextLabel
-MeshInstance3D

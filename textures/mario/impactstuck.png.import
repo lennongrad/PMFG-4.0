@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/impactstuck.png-5f861eec165de6dddc7dbdb255d08
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

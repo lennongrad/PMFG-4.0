@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/walkdiag.png-c67e415072d49b6490560a9170103933
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -60,15 +60,15 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnr1d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vms2r"]
 render_priority = 0
 shader = SubResource("1")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/uv1_scale = Vector3(16, 4, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/main_color = Color(1, 1, 1, 1)
-shader_parameter/intersection_color = Color(0.72549, 0.729412, 0.780392, 1)
-shader_parameter/intersection_max_threshold = 0.3
+shader_parameter/intersection_color = Color(0.929412, 0.933333, 1, 1)
+shader_parameter/intersection_max_threshold = 0.0
 shader_parameter/displ_amount = 0.3
 shader_parameter/near = 0.15
 shader_parameter/far = 600.0
@@ -76,7 +76,7 @@ shader_parameter/texture_albedo = ExtResource("2_8scgy")
 shader_parameter/displ_tex = ExtResource("1_lj3r5")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lld4r"]
-material = SubResource("ShaderMaterial_mnr1d")
+material = SubResource("ShaderMaterial_vms2r")
 height = 12.0
 
 [sub_resource type="Gradient" id="Gradient_1ok8t"]
@@ -183,8 +183,8 @@ transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.10663, 2.1463
 mesh = SubResource("CylinderMesh_lld4r")
 
 [node name="CollisionParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -4.97333, -0.0259163)
-amount = 40
+transform = Transform3D(1, 0, 0, 0, 1.5355, 0, 0, 0, 1.39214, 0.0222473, -5.89816, -0.0259163)
+amount = 60
 speed_scale = 2.0
 visibility_aabb = AABB(-4.25, -4, -4, 8, 8, 8)
 process_material = SubResource("8")

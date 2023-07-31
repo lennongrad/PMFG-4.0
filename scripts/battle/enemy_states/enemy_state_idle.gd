@@ -8,6 +8,7 @@ func _ready():
 
 func _process(delta):
 	self.velocity = Vector3(0,0,0)
+	self.persistent_state.animated_sprite.rotation_degrees.z = 0
 	self.persistent_state.position = self.persistent_state.homePosition
 
 	if self.persistent_state.in_water() and not self.persistent_state.stats.flying:

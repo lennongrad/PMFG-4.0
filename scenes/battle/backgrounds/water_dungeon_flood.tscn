@@ -60,7 +60,9 @@ mesh = SubResource("16")
 
 [node name="BorderMesh" parent="." instance=ExtResource("4")]
 transform = Transform3D(1, 0, 0, 0, 0.993713, -0.111955, 0, 0.111955, 0.993713, 0.763169, -2.20193, -0.897615)
+collision_layer = 0
+collision_mask = 0
 size = Vector3(16, 4, 4)
 
 [node name="Waterfall" parent="." instance=ExtResource("3")]
-transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 1.43266, 2.14632, -1.55229)
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 1.43266, 2.54727, -1.63126)

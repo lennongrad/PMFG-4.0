@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm0e5asgfdnje"]
+[gd_scene load_steps=19 format=3 uid="uid://cm0e5asgfdnje"]
 
 [ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="3"]
@@ -15,8 +15,13 @@ uv1_scale = Vector3(16, 32, 1)
 [sub_resource type="QuadMesh" id="18"]
 size = Vector2(16, 16)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_masq4"]
+albedo_texture = ExtResource("8")
+uv1_scale = Vector3(16, 1, 1)
+
 [sub_resource type="QuadMesh" id="3"]
-size = Vector2(8, 0.125)
+material = SubResource("StandardMaterial3D_masq4")
+size = Vector2(8, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="5"]
 albedo_texture = ExtResource("8")
@@ -98,7 +103,7 @@ material_override = SubResource("17")
 mesh = SubResource("18")
 
 [node name="Bezel" type="MeshInstance3D" parent="MainWall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.641365, 0.00999999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0510905, 0.684446, 0.00999999)
 mesh = SubResource("3")
 
 [node name="Torch" parent="MainWall" instance=ExtResource("3")]
@@ -119,7 +124,9 @@ mesh = SubResource("24")
 
 [node name="BorderMesh" parent="." instance=ExtResource("5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702065, -2.01331, -0.917)
+collision_layer = 0
+collision_mask = 0
 size = Vector3(8, 4, 2)
 
 [node name="Waterfall" parent="." instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.1, 2.13269, -1.50139)
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 4.1, 2.13269, -1.68544)

@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/swim2.png-d4ca792e4ffea22a1b20f09e727506cc.ct
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -191,3 +191,6 @@ func _on_SlingshotArea_area_entered(area):
 	
 func _on_area_3d_body_entered(body):
 	state.area_body_entered(body)
+
+func _on_slingshot_area_body_entered(body):
+	state.slingshot_area_body_entered(body)

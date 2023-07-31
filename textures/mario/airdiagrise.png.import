@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/airdiagrise.png-f9a0da78c6f17f8e5fb1be76a69b2
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

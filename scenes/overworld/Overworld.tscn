@@ -126,6 +126,7 @@ size = Vector2(32, 0.6)
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
+debug = true
 worldBackground = SubResource("2")
 
 [node name="Player" parent="." instance=ExtResource("11")]
@@ -204,7 +205,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="MainBridge" parent="Stage" instance=ExtResource("15")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.57676e-07, -1.5, 0.0525348)
-collision_layer = 3
 size = Vector3(4, 5, 3)
 
 [node name="WaterLedge" parent="Stage" instance=ExtResource("15")]
@@ -334,6 +334,9 @@ shape = SubResource("14")
 [node name="Torch" parent="Stage/Walls/Wall10" instance=ExtResource("13")]
 transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.67767e-08, 0.609198, 3.12241e-08, 0.841353, 2.66289e-08, 6.13793, 0.0730106, 0.984193)
 
+[node name="Torch3" parent="Stage/Walls/Wall10" instance=ExtResource("13")]
+transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.67767e-08, 0.609198, 3.12241e-08, 0.841353, 2.66289e-08, 1.98441, 0.073011, -0.562199)
+
 [node name="Torch2" parent="Stage/Walls/Wall10" instance=ExtResource("13")]
 transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.67767e-08, 0.609198, 3.12241e-08, 0.841353, 2.66289e-08, 0.74936, 0.073011, 3.40859)
 
@@ -371,7 +374,7 @@ transform = Transform3D(1, 5.68434e-14, 0, -5.68434e-14, 1, -7.06098e-22, 1.6940
 shape = SubResource("14")
 
 [node name="Torch2" parent="Stage/Walls/Wall6" instance=ExtResource("13")]
-transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.67767e-08, 0.609198, 3.12241e-08, 0.841353, 2.66289e-08, 1.09111, 0.0718689, 4.51187)
+transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, -3.12241e-08, -3.67767e-08, 0.609198, 3.12241e-08, 0.841353, 2.66289e-08, 0.570444, 0.0718689, 2.58948)
 
 [node name="Wall7" type="MeshInstance3D" parent="Stage/Walls"]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 2.02319, 3.00624, -4.00141)
@@ -515,10 +518,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64497, 1.01, -1.09)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.08, 4.942, -3.208)
 
 [node name="Waterfall" parent="Stage" instance=ExtResource("8")]
-transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 2.6209, 2.14632, 2.01696)
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 2.6209, 2.84213, 2.07575)
 
 [node name="Waterfall2" parent="Stage" instance=ExtResource("8")]
-transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, -2.54491, 2.14632, 2.01696)
+transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, -2.54491, 2.84213, 2.07575)
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Control_finishedSpinning"]
 [connection signal="done" from="TitleScreen" to="." method="_on_TitleScreen_done"]

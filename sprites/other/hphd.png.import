@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/hphd.png-a220e9b578994dac4ae32027f30e3f45.cte
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

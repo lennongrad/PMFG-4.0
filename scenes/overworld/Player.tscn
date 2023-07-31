@@ -281,7 +281,6 @@ radius = 0.176023
 size = Vector3(0.316921, 0.330269, 0.135207)
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 6
 script = ExtResource("2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -291,6 +290,7 @@ cast_shadow = 0
 modulate = Color(1, 0.843137, 0.843137, 1)
 pixel_size = 0.0117
 alpha_cut = 1
+texture_filter = 0
 sprite_frames = ExtResource("1")
 animation = &"BattleFall"
 
@@ -305,6 +305,7 @@ script = ExtResource("10")
 [node name="StickDown" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.975281, 0.22097, 0, -0.22097, 0.975281, 0, 0.735926, 0)
 modulate = Color(1, 1, 1, 0)
+texture_filter = 0
 sprite_frames = SubResource("3")
 frame = 1
 
@@ -395,6 +396,7 @@ mesh = SubResource("41")
 [node name="Hammer" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.116554, 0.232203, -0.04)
 alpha_cut = 1
+texture_filter = 0
 sprite_frames = ExtResource("3")
 animation = &"Diag"
 

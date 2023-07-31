@@ -57,6 +57,9 @@ void fragment(){
 shader = SubResource("3")
 
 [sub_resource type="FontFile" id="5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -79,6 +82,9 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 [sub_resource type="StyleBoxEmpty" id="6"]
 
 [sub_resource type="FontFile" id="7"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -101,6 +107,9 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2te8c"]
 
 [sub_resource type="FontFile" id="12"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -128,6 +137,9 @@ corner_radius_top_left = 4
 anti_aliasing_size = 5.0
 
 [sub_resource type="FontFile" id="13"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -148,6 +160,9 @@ cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="14"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -227,6 +242,9 @@ scale_max = 0.2
 color_ramp = SubResource("20")
 
 [sub_resource type="FontFile" id="23"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null
@@ -257,6 +275,9 @@ cache/0/20/0/kerning_overrides/30/0 = Vector2(0, 0)
 cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="22"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("57")])
 face_index = null
 embolden = null

@@ -49,7 +49,6 @@ func _physics_process(delta):
 	self.persistent_state.move_and_slide()
 
 func area_body_entered(body):
-	print(body)
 	if body == self.mario.get_node("Area3D") and not hasCollided:
 		hasCollided = true
 		if lastDodgeInput < 10:
@@ -57,6 +56,7 @@ func area_body_entered(body):
 		else:
 			self.persistent_state.register_damage(self.mario, 2, "MISS")
 	if body == self.floorMesh:
+		print("hit floor")
 		self.persistent_state.velocity = Vector3.ZERO
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
 		self.persistent_state.get_node("Circles").emitting = self.persistent_state.in_water()

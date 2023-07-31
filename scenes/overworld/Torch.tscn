@@ -90,7 +90,7 @@ mesh = SubResource("2")
 script = ExtResource("4")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0352949, 0.47094, 0.21167)
+transform = Transform3D(1.39992, 0, 0, 0, 1.18856, 0, 0, 0, 1.6415, 0.0352949, 0.47094, 0.682592)
 light_color = Color(0.627451, 0.294118, 0.0705882, 1)
 light_energy = 2.5
 light_indirect_energy = 1.5
@@ -99,7 +99,7 @@ shadow_enabled = true
 omni_attenuation = 2.0
 
 [node name="OmniLight2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0352949, 0.47094, 0.335024)
+transform = Transform3D(1.39992, 0, 0, 0, 1.18856, 0, 0, 0, 1.6415, 0.0352949, 0.47094, 0.431573)
 light_color = Color(0.64, 0.336, 0.16, 1)
 light_energy = 2.2
 light_indirect_energy = 2.98

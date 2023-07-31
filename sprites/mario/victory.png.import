@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/victory.png-098398bbf2572439e2eba2038fc98796.
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

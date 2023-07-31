@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="18"]
 [ext_resource type="PackedScene" uid="uid://1axryjolfwxg" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
-[ext_resource type="PackedScene" path="res://scenes/battle/Hammerlight.tscn" id="36"]
+[ext_resource type="PackedScene" uid="uid://gy264ejqrfhj" path="res://scenes/battle/Hammerlight.tscn" id="36"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
 
 [sub_resource type="GDScript" id="1"]
@@ -248,7 +248,8 @@ height = 0.4
 radius = 0.249939
 
 [node name="HeroBattle" type="CharacterBody3D"]
-collision_layer = 10
+collision_layer = 32
+collision_mask = 48
 script = ExtResource("2")
 stats = ExtResource("1")
 
@@ -261,6 +262,7 @@ flip_h = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
 flip_h = true
 alpha_cut = 1
+texture_filter = 0
 sprite_frames = ExtResource("3")
 animation = &"FingerWag"
 
@@ -273,17 +275,20 @@ draw_pass_1 = SubResource("10")
 [node name="Exclamation" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00430261, 0.619125, 0)
 visible = false
+texture_filter = 0
 texture = ExtResource("39")
 
 [node name="Hammer" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11, 0.135, -0.01)
 flip_h = true
+texture_filter = 0
 sprite_frames = ExtResource("4")
 animation = &"DiagBlur"
 
 [node name="EatenItem" type="Sprite3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.0610288, 0.282208, 0.00607342)
 visible = false
+texture_filter = 0
 texture = ExtResource("7")
 
 [node name="Particles" type="GPUParticles3D" parent="EatenItem"]
@@ -316,6 +321,7 @@ visible = false
 centered = false
 offset = Vector2(-24.578, 0)
 modulate = Color(1, 1, 1, 0)
+texture_filter = 0
 texture = ExtResource("11")
 script = ExtResource("12")
 
@@ -369,7 +375,8 @@ cast_shadow = 3
 mesh = SubResource("36")
 
 [node name="Area3D" type="Area3D" parent="."]
-collision_layer = 9
+collision_layer = 16
+collision_mask = 48
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235598, 0)
@@ -383,8 +390,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428051, 0.0299648)
 
 [node name="HammerLight" parent="." instance=ExtResource("36")]
 visible = false
-layout_mode = 3
-anchors_preset = 0
 offset_left = 0.0
 offset_right = 40.0
 

@@ -1,161 +1,201 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://gy264ejqrfhj"]
 
-[ext_resource path="res://sprites/UI/hammerlight.png" type="Texture2D" id=1]
-[ext_resource path="res://sprites/UI/smalllight.png" type="Texture2D" id=2]
-[ext_resource path="res://sprites/UI/biglight.png" type="Texture2D" id=3]
-[ext_resource path="res://scripts/battle/Hammerlight.gd" type="Script" id=4]
+[ext_resource type="Texture2D" uid="uid://o8liai85g0ws" path="res://sprites/UI/hammerlight.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b2eospotfrebc" path="res://sprites/UI/smalllight.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cyh0fpbctux4u" path="res://sprites/UI/biglight.png" id="3"]
+[ext_resource type="Script" path="res://scripts/battle/Hammerlight.gd" id="4"]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 36, 0, 12, 12 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(12, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 24, 0, 12, 12 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 12, 0, 12, 12 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2")
+region = Rect2(36, 0, 12, 12)
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 12, 12 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2")
+region = Rect2(24, 0, 12, 12)
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
+[sub_resource type="SpriteFrames" id="5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "red",
+"name": &"active",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
 "loop": true,
-"name": "yellow",
+"name": &"inactive",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
 "loop": true,
-"name": "active",
+"name": &"red",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}],
 "loop": true,
-"name": "inactive",
+"name": &"yellow",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ SubResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}],
 "loop": true,
-"name": "green",
+"name": &"active",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "red",
+"name": &"green",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
 "loop": true,
-"name": "active",
+"name": &"inactive",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
 "loop": true,
-"name": "inactive",
+"name": &"red",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
 "loop": true,
-"name": "green",
+"name": &"active",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "yellow",
+"name": &"green",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("4")
+}],
 "loop": true,
-"name": "active",
+"name": &"inactive",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}],
 "loop": true,
-"name": "inactive",
+"name": &"yellow",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 20, 20 )
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 20, 20)
 
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 20, 0, 20, 20 )
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("3")
+region = Rect2(20, 0, 20, 20)
 
-[sub_resource type="SpriteFrames" id=10]
-animations = [ {
-"frames": [ SubResource( 8 ) ],
+[sub_resource type="SpriteFrames" id="10"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("8")
+}],
 "loop": true,
-"name": "active",
+"name": &"active",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("9")
+}],
 "loop": true,
-"name": "inactive",
+"name": &"inactive",
 "speed": 5.0
-} ]
+}]
 
 [node name="HammerLight" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -1000.0
 offset_right = -960.0
 offset_bottom = 40.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("4")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
 offset_left = -132.905
 offset_top = -46.1902
 offset_right = 3.09488
 offset_bottom = -10.1902
-scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
+scale = Vector2(2, 2)
+texture = ExtResource("1")
 stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="light1" type="AnimatedSprite2D" parent="Background"]
 show_behind_parent = true
-position = Vector2( 26.2352, 25.9229 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
-animation = "active"
+position = Vector2(26.2352, 25.9229)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("5")
+animation = &"active"
 
 [node name="light2" type="AnimatedSprite2D" parent="Background"]
 show_behind_parent = true
-position = Vector2( 50.1594, 25.7356 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 6 )
-animation = "active"
+position = Vector2(50.1594, 25.7356)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("6")
+animation = &"active"
 
 [node name="light3" type="AnimatedSprite2D" parent="Background"]
 show_behind_parent = true
-position = Vector2( 74.0208, 25.8606 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
-animation = "active"
+position = Vector2(74.0208, 25.8606)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("7")
+animation = &"active"
 
 [node name="bigLight" type="AnimatedSprite2D" parent="Background"]
 show_behind_parent = true
-position = Vector2( 106.003, 17.5521 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 10 )
-animation = "active"
+position = Vector2(106.003, 17.5521)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("10")
+animation = &"active"

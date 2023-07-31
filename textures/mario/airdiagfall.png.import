@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/airdiagfall.png-cc87118963eb74ff6ab8d3c22c7ba
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

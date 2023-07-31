@@ -147,18 +147,6 @@ font_size = 52
 outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="FontFile" id="11"]
-fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
 [sub_resource type="AtlasTexture" id="6"]
 atlas = ExtResource("4")
 region = Rect2(72, 0, 24, 24)
@@ -211,6 +199,18 @@ animations = [{
 "name": &"right",
 "speed": 5.0
 }]
+
+[sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -315,6 +315,14 @@ label_settings = SubResource("LabelSettings_fx70p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Cursor" type="AnimatedSprite2D" parent="StartButton"]
+position = Vector2(145.019, -7.36298)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("10")
+animation = &"down"
+autoplay = "down"
+frame_progress = 0.878524
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 anchor_left = 0.5
@@ -328,13 +336,5 @@ offset_bottom = -5.0
 theme_override_fonts/font = SubResource("11")
 text = "Version 0.1. 2023 by lennongrad.
 https://github.com/lennongrad/PMFG"
-
-[node name="Cursor" type="AnimatedSprite2D" parent="."]
-position = Vector2(505.019, 416.013)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("10")
-animation = &"down"
-autoplay = "down"
-frame_progress = 0.878524
 
 [connection signal="pressed" from="StartButton" to="." method="_on_TextureButton_pressed"]

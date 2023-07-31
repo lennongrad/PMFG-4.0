@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/airhorizontalfall.png-fda68fb7da10cde5a1ebc6f
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

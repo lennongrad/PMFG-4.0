@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/hurt1.png-0d44cdf1985166b3561c10db36cfd698.ct
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

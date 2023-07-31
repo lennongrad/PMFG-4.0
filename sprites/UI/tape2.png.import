@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/tape2.png-f7573c212f11cac8ff500834ea603644.ct
 [params]
 
 compress/mode=0
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
