@@ -272,5 +272,5 @@ flying = false
 experience = 40
 atlas = ExtResource("9")
 tattle_description = "HP: 4. Masked fellers.
-They'll jump at you if given the chance, or sling their shot."
+ They'll jump at you if given the chance, or sling their shot."
 attributes = {}

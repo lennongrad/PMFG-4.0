@@ -13,7 +13,7 @@ func _ready():
 	baseaVelocity.z = 25 - (randi() % 50)
 	baseaVelocity /= 25
 	baseaVelocity.y = 1.5
-	timer = -(randi() % 50)
+	timer = -(randi() % 50) - 1
 	var _unused = connect("coin_gain", Callable(get_node("/root/Global").get_player(), "collected_coin"))
 
 func _physics_process(delta):
@@ -29,7 +29,6 @@ func _physics_process(delta):
 	set_velocity(baseaVelocity)
 	set_up_direction(Vector3(0, 1, 0))
 	move_and_slide()
-	baseaVelocity = baseaVelocity
 
 func _process(_delta):
 	if editor:

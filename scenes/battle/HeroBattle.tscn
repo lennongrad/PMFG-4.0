@@ -376,6 +376,7 @@ draw_pass_1 = SubResource("30")
 
 [node name="Circles" parent="." instance=ExtResource("15")]
 visible = false
+local_coords = false
 
 [node name="WaterParticles" type="GPUParticles3D" parent="."]
 emitting = false

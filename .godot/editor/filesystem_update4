@@ -75,3 +75,7 @@ res://scenes/overworld/stages/stage1.tscn
 res://scripts/overworld/Stage.gd
 res://scripts/overworld/QuestionBlockInternal.gd
 res://scripts/overworld/QuestionBlockExternal.gd
+res://scripts/overworld/WorldCoin.gd
+res://scenes/overworld/CoinRow.tscn
+res://scripts/battle/mario_states/mario_state_tattle.gd
+res://scenes/battle/SlidePuzzle.tscn

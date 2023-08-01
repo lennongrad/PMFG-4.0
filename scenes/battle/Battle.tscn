@@ -97,7 +97,7 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.37975, 1.16578)
+scale = Vector2(1.26425, 1.16578)
 experience_count = 0
 centered = false
 

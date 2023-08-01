@@ -12,7 +12,7 @@ func _ready():
 	hero.get_node("Sprite2D").play("Skip")
 	
 	slide_puzzle = load("res://scenes/battle/SlidePuzzle.tscn").instantiate()
-	slide_puzzle.atlas = target.stats.atlas
+	slide_puzzle.enemy = target.stats
 	hero.add_child(slide_puzzle)
 	slide_puzzle.connect("finished_loss", Callable(self, "on_loss"))
 	slide_puzzle.connect("finished_win", Callable(self, "on_win"))

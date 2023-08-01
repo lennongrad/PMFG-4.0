@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=16 format=3 uid="uid://d3j7oj887m0al"]
 
 [ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_slingshot.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://j2kwcyeg87lx" path="res://textures/skyguy/atlassketch.png" id="1_2m4am"]
 [ext_resource type="Texture2D" uid="uid://cbeyb6fwglfil" path="res://textures/skyguy/hurt2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dhqtsilrwtqdr" path="res://textures/skyguy/idle1.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bj40qgs4qi6vx" path="res://textures/skyguy/idle2.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://l85komydqn85" path="res://textures/skyguy/hurt1.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://d2axhrc0vcvah" path="res://textures/skyguy/slingshot1.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://cwr2eeufqlbna" path="res://textures/skyguy/idle3.png" id="8"]
-[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://cyc74vfyrl3j6" path="res://textures/skyguy/slingshot2.png" id="10"]
 [ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://wc83jjcthrh7" path="res://textures/skyguy/slingshot4.png" id="12"]
@@ -87,8 +87,8 @@ firstStrikeAttack = ExtResource("1")
 height = 0.32
 flying = true
 experience = 40
-atlas = ExtResource("9")
-tattle_description = "HP: 7. Flying fellers.
+atlas = ExtResource("1_2m4am")
+tattle_description = "HP: 7. Flying fellers. 
 They are hard to avoid, and attack using slingshots."
 attributes = {
 "balloons": true,

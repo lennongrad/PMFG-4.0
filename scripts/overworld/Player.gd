@@ -88,7 +88,6 @@ func _physics_process(delta):
 		PLAYER_STATE.PIPE:
 			$"../Status".hide()
 			if not after_growing:
-				position = pipe_position
 				$AnimatedSprite3D.play("Down")
 		PLAYER_STATE.EXIT:
 			over_pipe_timer = 0

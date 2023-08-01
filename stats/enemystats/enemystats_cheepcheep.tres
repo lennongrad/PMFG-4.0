@@ -1,6 +1,7 @@
 [gd_resource type="Resource" load_steps=19 format=3 uid="uid://d2nm2n73ysnn4"]
 
 [ext_resource type="Texture2D" uid="uid://blln3up1k3ahw" path="res://textures/cheepcheep/jump2.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://3fypknnnbr4b" path="res://textures/cheepcheep/atlassketch.png" id="1_6tou3"]
 [ext_resource type="Texture2D" uid="uid://b8o06ek8xrfxo" path="res://textures/cheepcheep/rise1.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://1gmo873uxptj" path="res://textures/cheepcheep/hurt2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://841a8eytac66" path="res://textures/cheepcheep/hurt4.png" id="4"]
@@ -8,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://70xm23xw4ycp" path="res://textures/cheepcheep/hurt1.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://b7qq637c6nej1" path="res://textures/cheepcheep/run1.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://b65rhjumutoxo" path="res://textures/cheepcheep/run2.png" id="8"]
-[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://78im02pxnu5q" path="res://textures/cheepcheep/rise2.png" id="10"]
 [ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://ct1h4sr086qda" path="res://textures/cheepcheep/rest1.png" id="12"]
@@ -120,13 +120,13 @@ animations = [{
 script = ExtResource("11")
 health = 5
 frames = SubResource("1")
-name = "Shy Guy"
+name = "Cheep-Cheep"
 attacks = [ExtResource("17")]
 firstStrikeAttack = ExtResource("17")
 height = 0.32
 flying = false
 experience = 30
-atlas = ExtResource("9")
+atlas = ExtResource("1_6tou3")
 tattle_description = "HP: 5. Little fishies.
-They like to try and slam into you with their body."
+ They like to try and slam into you with their body."
 attributes = {}

@@ -50,11 +50,14 @@ func _ready():
 		_unused = $Stage/Pipes/PipeExit.connect("body_exited", Callable(player, "on_pipe_detect_exit"))
 		player.pipe_position_exit = $Stage/Pipes/PipeExit.global_transform.origin 
 	
-	if not debug:
-		if has_node("Stage/Pipe/PipeInto"):
-			partner.position = player.pipe_position
-			partner.visible = false
-		$Letterbox.toggle()
+	
+	if has_node("Stage/Pipes/PipeInto"):
+		player.position = player.pipe_position
+		if not debug:
+			if has_node("Stage/Pipes/PipeInto"):
+				partner.position = player.pipe_position
+				partner.visible = false
+			$Letterbox.toggle()
 		
 	if not debug and show_title:
 		waiting_for_menu = true
