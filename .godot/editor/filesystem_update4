@@ -68,3 +68,10 @@ res://scripts/overworld/BorderGenerator.gd
 res://scenes/battle/FeedbackParticle.tscn
 res://stats/heroattack/items/_battlechoice.tres
 res://scenes/battle/BattleChoice.tscn
+res://scripts/Global.gd
+res://scripts/overworld/EnemySpawner.gd
+res://scenes/overworld/Widescreen.tscn
+res://scenes/overworld/stages/stage1.tscn
+res://scripts/overworld/Stage.gd
+res://scripts/overworld/QuestionBlockInternal.gd
+res://scripts/overworld/QuestionBlockExternal.gd

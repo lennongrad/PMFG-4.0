@@ -14,6 +14,8 @@ func change_distance(p_distance):
 		if distance == 0:
 			$Shadow.visible = false
 
+
+
 func _ready():
-	$QuestionBlock.item_type = item_type
+	$QuestionBlock.item_type = (item_type)
 	$QuestionBlock.coin_count = coin_count

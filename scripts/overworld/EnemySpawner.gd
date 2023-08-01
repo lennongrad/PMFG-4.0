@@ -17,7 +17,7 @@ func _ready():
 		$Preview.visible = true
 
 func get_overworld():
-	return $".."
+	return get_node("/root/Overworld")
 
 func spawn_enemy():
 	if has_node("Enemy"):
@@ -25,12 +25,12 @@ func spawn_enemy():
 	var enemy = load("res://scenes/overworld/Enemy.tscn").instantiate()
 	enemy.set_name("Enemy")
 	enemy.enemy_bounds = $Bounds
-	enemy.water_level = get_overworld().water_level
+	enemy.water_level = get_overworld().get_water_level()
 	add_child(enemy)
 	
-	var _err = $Enemy.connect("encounter_triggered", Callable($"..", "_on_encounter_trigger"))
-	_err = $"..".connect("pause", Callable($Enemy, "_on_pause"))
-	_err = $"..".connect("unpause", Callable($Enemy, "_on_unpause"))
+	var _err = $Enemy.connect("encounter_triggered", Callable(get_overworld(), "_on_encounter_trigger"))
+	_err = get_overworld().connect("pause", Callable($Enemy, "_on_pause"))
+	_err = get_overworld().connect("unpause", Callable($Enemy, "_on_unpause"))
 	$Enemy.set_encounter(encounter_data)
 	$Enemy.battle_background = battle_background
 

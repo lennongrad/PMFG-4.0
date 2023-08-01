@@ -4,12 +4,11 @@ signal pause
 signal unpause
 
 @export var debug: bool
-@export var worldBackground: Environment
 
 @onready var player = $Player
 @onready var partner = $Partner
 
-var water_level = 0.586
+var show_title = true
 
 var strike_type
 var cameraRotateDirection = 0
@@ -28,34 +27,41 @@ func rotate_cam(degrees):
 	for entity in need_player_position:
 		entity.rotate_y(degrees)
 
+func update_need_player_position():
+	need_player_position = [partner]
+	for _i in $Stage/EnemySpawners.get_children():
+		need_player_position.append(_i)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("/root/Global").set_main(self)
-	need_player_position.append(partner)
-	need_player_position.append($EnemySpawner)
-	need_player_position.append($EnemySpawner2)
-	need_player_position.append($EnemySpawner3)
+	update_need_player_position()
 	var _err = self.connect("pause", Callable(player, "_on_pause"))
 	_err = self.connect("pause", Callable(partner, "_on_pause"))
 	_err = self.connect("unpause", Callable(player, "_on_unpause"))
 	_err = self.connect("unpause", Callable(partner, "_on_unpause"))
 	#add this enemy stuff to enemy spawn function
-	set_environment()
+#	set_environment()
 	
-	if has_node("Stage/PipeInto"):
-		player.pipe_position = $Stage/PipeInto.global_transform.origin + Vector3(0, .4, 0)
-	if has_node("Stage/PipeExit"):
-		var _unused = $Stage/PipeExit.connect("body_entered", Callable(player, "_on_pipe_detect_entry"))
-		_unused = $Stage/PipeExit.connect("body_exited", Callable(player, "on_pipe_detect_exit"))
-		player.pipe_position_exit = $Stage/PipeExit.global_transform.origin 
+	if has_node("Stage/Pipes/PipeInto"):
+		player.pipe_position = $Stage/Pipes/PipeInto.global_transform.origin + Vector3(0, .4, 0)
+	if has_node("Stage/Pipes/PipeExit"):
+		var _unused = $Stage/Pipes/PipeExit.connect("body_entered", Callable(player, "_on_pipe_detect_entry"))
+		_unused = $Stage/Pipes/PipeExit.connect("body_exited", Callable(player, "on_pipe_detect_exit"))
+		player.pipe_position_exit = $Stage/Pipes/PipeExit.global_transform.origin 
+	
 	if not debug:
-		if has_node("Stage/PipeInto"):
+		if has_node("Stage/Pipe/PipeInto"):
 			partner.position = player.pipe_position
 			partner.visible = false
-		waiting_for_menu = true
 		$Letterbox.toggle()
+		
+	if not debug and show_title:
+		waiting_for_menu = true
 	else:
 		$TitleScreen.disable()
+		if not debug:
+			_on_TitleScreen_done()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -85,8 +91,6 @@ func _process(_delta):
 		rotate_cam(PI / 64 * cameraRotateDirection)
 		cameraRotationsLeft -= 1
 
-var randomTimer = 0
-
 func _on_encounter_trigger(p_encountered_enemy, p_strike_type):
 	encountered_enemy = p_encountered_enemy
 	strike_type = p_strike_type
@@ -107,12 +111,15 @@ func on_reset(_data):
 	paused = false
 	emit_signal("unpause")
 	self.visible = true
-	set_environment()
+#	set_environment()
 	$Status.visible = true
 	$Spin.visible = true
 	$Spin.spin_backwards()
 	entering_battle = false
 	encountered_enemy.die()
+
+func get_water_level():
+	return $Stage/Water.global_position.y
 
 func start_exit():
 	is_exiting = true
@@ -120,12 +127,12 @@ func start_exit():
 func finish_exit():
 	$Spin.start_spinning()
 
-func set_environment():
-	if get_node_or_null("WorldEnvironment") != null:
-		$WorldEnvironment.free()
-	var world = WorldEnvironment.new()
-	world.environment = worldBackground
-	add_child(world)
+#func set_environment():
+#	if get_node_or_null("WorldEnvironment") != null:
+#		$WorldEnvironment.free()
+#	var world = WorldEnvironment.new()
+#	world.environment = worldBackground
+#	add_child(world)
 
 func collected_item(item):
 	get_node("/root/MarioRun").add_item(item)
@@ -140,13 +147,13 @@ func close_menu():
 	$Player.end_menu()
 
 func start_pipe():
-	var pipe = $Stage/PipeInto
+	var pipe = $Stage/Pipes/PipeInto
 	var _err = pipe.connect("finished_growing", Callable(player, "_on_finished_growing"))
 	_err = pipe.connect("finished_shrinking", Callable(self, "_on_finished_shrinking"))
 	pipe.start()
 
 func finished_pipe():
-	$Stage/PipeInto.end()
+	$Stage/Pipes/PipeInto.end()
 	partner.visible = true
 
 func _on_finished_shrinking():
@@ -162,22 +169,22 @@ func _on_Control_finishedSpinning():
 			encountered_enemy.encounter_data, strike_type, encountered_enemy.battle_background)
 	elif encountered_enemy != null:
 		encountered_enemy = null
-		need_player_position = [partner]
+		update_need_player_position()
 	elif is_exiting:
-		get_tree().goto_scene("res://scenes/overworld/Overworld.tscn")
+		get_node("/root/Global").new_main()
 	else:
-		if has_node("Stage/PipeInto"):
+		if has_node("Stage/Pipes/PipeInto"):
 			start_pipe()
-
-func _on_Water_body_exited(body):
-	if body.has_method("exit_water"):
-		body.exit_water($Water.global_position.y)
-
-func _on_Water_body_entered(body):
-	if body.has_method("enter_water"):
-		body.enter_water($Water.global_position.y)
 
 func _on_TitleScreen_done():
 	$Spin.spin_backwards()
 	player.start_pipe()
 	waiting_for_menu = false
+
+func _on_stage_water_enter(body):
+	if body.has_method("enter_water"):
+		body.enter_water(get_water_level())
+
+func _on_stage_water_exit(body):
+	if body.has_method("exit_water"):
+		body.exit_water(get_water_level())

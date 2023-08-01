@@ -331,7 +331,7 @@ func enter_item_state():
 
 	selected_badge = 0
 	show_items()
-	$Panel/TabContainer/Mario/ItemArea/Tree.get_children()[0].grab_focus()
+	#$Panel/TabContainer/Mario/ItemArea/Tree.get_root().get_children()[0].grab_focus()
 	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
 
 func show_items():
@@ -361,7 +361,7 @@ func enter_boots_state():
 	selected_badge = 0
 	show_boots()
 #	$Panel/TabContainer/Mario/ItemArea/Tree.get_children()[0].grab_focus()
-#	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
+	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
 
 func show_boots():
 	var tree = $Panel/TabContainer/Mario/ItemArea/Tree
@@ -405,7 +405,7 @@ func enter_hammer_state():
 	
 	print($Panel/TabContainer/Mario/ItemArea/Tree.get_children())
 #	$Panel/TabContainer/Mario/ItemArea/Tree.get_children()[0].grab_focus()
-#	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
+	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
 
 func show_hammers():
 	var tree = $Panel/TabContainer/Mario/ItemArea/Tree
@@ -449,7 +449,7 @@ func enter_badge_state():
 	selected_badge = 0
 	show_badges()
 #	$Panel/TabContainer/Mario/ItemArea/Tree.get_children()[0].grab_focus()
-#	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
+	$Panel/TabContainer/Mario/ItemArea/Tree.modulate.a = 1
 
 func chosen_badges():
 	get_node("/root/MarioRun").sort_badges()

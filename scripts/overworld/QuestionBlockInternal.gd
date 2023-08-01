@@ -10,11 +10,11 @@ var given_item = false
 @onready var blocks = [$Block1, $Block2, $Block3, $Block4]
 @onready var used_sides = blocks + [$Top, $Bottom]
 
-@export var item_type: Resource
+@export var item_type: Resource: set = set_item_type
 @export var coin_count: int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func set_item_type(_item_type):
+	item_type = _item_type
 	if (item_type != null and item_type.is_badge):
 		for block in used_sides:
 			block.mesh = load("res://textures/blocks/UsedRed.tres")
@@ -46,14 +46,14 @@ func _process(_delta):
 				given_item = true
 				var item = load("res://scenes/overworld/OverworldItem.tscn").instantiate()
 				item.item = item_type
-				item.player = $"../../../Player"
-				$"../..".add_child(item)
-				item.connect("collected", Callable($"../../..", "collected_item"))
+				item.player = $"../../../../Player"
+				$"../../..".add_child(item)
+				item.connect("collected", Callable($"../../../..", "collected_item"))
 				item.position = original_translation + Vector3(0, .33 + translation_y, 0)
 				
 				for _i in range(0, coin_count):
 					var coin = load("res://scenes/overworld/OverworldCoin.tscn").instantiate()
-					$"../..".add_child(coin)
+					$"../../..".add_child(coin)
 					coin.position = original_translation + Vector3(0, .33 + translation_y, 0)
 			if timer > 35 and timer < 50 and not given_item:
 				$Particles.emitting = true
@@ -74,9 +74,9 @@ func start_timer():
 	activated = true
 
 func _on_Area_body_entered(body):
-	if body == $"../../../Player": #and body.velocity.y > 0:
+	if body == $"../../../../Player": #and body.velocity.y > 0:
 		start_timer()
 
 func _on_Area_area_entered(area):
-	if area == $"../../../Player".get_node("HammerArea"):
+	if area == $"../../../../Player".get_node("HammerArea"):
 		start_timer()

@@ -11,6 +11,20 @@ func _ready():
 func set_main(node):
 	main_scene = node
 
+func new_main():
+	call_deferred("_deferred_new_main")
+
+func _deferred_new_main():
+	get_tree().unload_current_scene()
+	
+	var s = ResourceLoader.load("res://scenes/overworld/Overworld.tscn")
+
+	# Instance the new scene.
+	current_scene = s.instantiate()
+	current_scene.show_title = false
+	get_tree().get_root().add_child(current_scene)
+	get_tree().set_current_scene(current_scene)
+
 func reset_to_main(data):
 	call_deferred("_deferred_reset_to_main", data)
 
