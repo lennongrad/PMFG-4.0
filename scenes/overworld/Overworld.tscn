@@ -212,7 +212,7 @@ wait_time = 2.25
 one_shot = true
 
 [node name="Water" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97153, 0.586359, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97153, 0.49063, -4)
 collision_layer = 7
 collision_mask = 7
 
@@ -294,7 +294,7 @@ collision_layer = 5
 shape = SubResource("9")
 
 [node name="Underwater" type="MeshInstance3D" parent="Stage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77622, 0.00401667, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77622, -0.0917127, 4)
 mesh = SubResource("PlaneMesh_tiitp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Stage/Underwater"]
