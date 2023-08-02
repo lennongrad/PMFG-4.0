@@ -36,6 +36,7 @@ func _physics_process(delta):
 		self.persistent_state.unfocus_camera()
 	elif hasCollided:
 		if self.persistent_state.lastDodgeSuccessful:
+			self.persistent_state.animated_sprite.play("Down")
 			self.persistent_state.velocity.y -= 1.75 * delta
 			self.persistent_state.animated_sprite.rotate_z(-8 * delta)
 		else:

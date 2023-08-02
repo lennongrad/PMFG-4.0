@@ -8,12 +8,13 @@ var pause_timer = 0
 var hasFinished = false
 var jumpCounter = 0
 var jumpMax = 115
+var pause_max = 10
 
 var readyToDodge = false
 var dodged = false
 var lastDodgeInput = 0
 var jumpsquat = true
-var gravity = 6
+var gravity = 12.0
 var enemyTopHeight
 
 func _ready(): 
@@ -34,6 +35,10 @@ func _physics_process(delta):
 	
 	self.hero.velocity.y -= gravity * delta
 	
+	if(self.hero.velocity.y < 0 and not hasCollided):
+		self.hero.velocity.y -= gravity * delta
+		self.hero.position.x += self.hero.velocity.x * delta / 4
+	
 	if self.hero.velocity.y < 0 and (jumpCounter == 0 or collisionTimer > 10):
 		if not readyToDodge:
 			readyToDodge = true
@@ -50,18 +55,19 @@ func _physics_process(delta):
 	elif hasCollided and collisionTimer == 10:
 		collisionTimer += 1
 		if not hasFinished:
-			self.hero.velocity.y = 2.75
+			self.hero.velocity.y = 3.75
 			hero.get_node("Sprite2D").emitting = true
 		else:
-			self.hero.velocity.y = 2
+			self.hero.velocity.y = 1.75
 			self.hero.velocity.x = -1
 			hero.get_node("Sprite2D").emitting = false
 	
-	if hasCollided and pause_timer < 7 and collisionTimer > 10 and abs(self.hero.velocity.y) < .1:
+	if hasCollided and pause_timer < pause_max and collisionTimer > 10 and abs(self.hero.velocity.y) < .1:
 		pause_timer += 1
-		self.hero.velocity.y = .1
-		hero.get_node("Sprite2D").rotation_degrees.y = 360 * (float(pause_timer) / 7)
-	if pause_timer == 7:
+		self.hero.velocity.y = gravity * delta
+		hero.get_node("Sprite2D").rotation_degrees.y = 360 * (float(pause_timer) / pause_max)
+	
+	if pause_timer > pause_max:
 		pause_timer += 1
 		self.hero.velocity.y = -.5
 	
@@ -69,6 +75,7 @@ func _physics_process(delta):
 		hero.get_node("Sprite2D").flip_h = true
 		self.hero.velocity.y -= 2 * delta
 		hero.get_node("Sprite2D").play("BattleFall")
+		hero.get_node("Sprite2D").rotation_degrees.y = 0
 		
 	if Input.is_action_pressed("jump") and readyToDodge and not dodged:
 		dodged = true
@@ -111,8 +118,10 @@ func area_body_entered(body):
 		hasCollided = true
 
 func tween_completed():
-	self.hero.velocity.y = enemyTopHeight + gravity / 2
-	self.hero.velocity.x = 1
+	var distance = target.position.x - self.hero.position.x
+	var horizontal_velocity = distance * 1.4
+	self.hero.velocity.x = horizontal_velocity
+	self.hero.velocity.y = (gravity / 2) * distance / horizontal_velocity + enemyTopHeight / distance * horizontal_velocity;
 	jumpsquat = false
 	if hero.in_water():
 		hero.get_node("WaterParticles").play()

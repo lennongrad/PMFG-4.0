@@ -1,18 +1,18 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c8s11lmpq3rgt"]
 
-[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
-[ext_resource path="res://stats/heroattack/jump/_battlechoice.tres" type="Resource" id=3]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Resource" path="res://stats/heroattack/jump/_battlechoice.tres" id="3"]
 
-[sub_resource type="CompressedTexture2D" id=1]
+[sub_resource type="CompressedTexture2D" id="1"]
 
 [resource]
-script = ExtResource( 1 )
-choice = ExtResource( 3 )
-icon = SubResource( 1 )
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = SubResource("1")
 name = "Jump"
 description = ""
-steps = [ "walkto", "jumpattack", "walkback" ]
-walkto_distance = 0.95
+steps = ["walkto", "jumpattack", "walkback"]
+walkto_distance = 2.0
 fp_cost = 0
 skipEnemySelection = false
 firstStrike = false

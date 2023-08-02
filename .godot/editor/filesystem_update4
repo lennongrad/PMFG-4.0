@@ -26,3 +26,12 @@ res://scenes/battle/EnemyBattle.tscn
 res://scenes/overworld/Enemy.tscn
 res://scenes/overworld/EnemySpawner.tscn
 res://scenes/overworld/QuestionBlock.tscn
+res://scripts/battle/mario_states/mario_state_jumpattack.gd
+res://stats/heroattack/jump/basic.tres
+res://stats/heroattack/goombario/headbonk.tres
+res://scenes/battle/ExperienceHolder.tscn
+res://scripts/battle/enemy_states/enemy_state_jumpattack.gd
+res://stats/enemystats/enemystats_testshyguy.tres
+res://scripts/Mario_Run.gd
+res://stats/enemyattack/enemyattack_jumpattack.tres
+res://scripts/battle/enemy_states/enemy_state_down.gd

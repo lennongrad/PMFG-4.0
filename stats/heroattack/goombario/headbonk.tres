@@ -1,19 +1,19 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dmqkua3p7hfgr"]
 
-[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
-[ext_resource path="res://sprites/tactics/partner_basic.png" type="Texture2D" id=2]
-[ext_resource path="res://stats/heroattack/goombario/_battlechoice.tres" type="Resource" id=3]
-[ext_resource path="res://sprites/tactics/partner_basic_gray.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://x0gos8ma5058" path="res://sprites/tactics/partner_basic.png" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/goombario/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://6nool3j4giv5" path="res://sprites/tactics/partner_basic_gray.png" id="4"]
 
 [resource]
-script = ExtResource( 1 )
-choice = ExtResource( 3 )
-icon = ExtResource( 2 )
-icon_gray = ExtResource( 4 )
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = ExtResource("2")
+icon_gray = ExtResource("4")
 name = "Headbonk"
 description = ""
-steps = [ "walkto", "jumpattack", "walkback" ]
-walkto_distance = 0.95
+steps = ["walkto", "jumpattack", "walkback"]
+walkto_distance = 2.0
 fp_cost = 0
 skipEnemySelection = false
 firstStrike = false

@@ -237,6 +237,7 @@ func _ready():
 	enemies[load("res://stats/enemystats/enemystats_cheepcheep.tres")] = {"tattled": false}
 	enemies[load("res://stats/enemystats/enemystats_redshyguy.tres")] = {"tattled": false}
 	enemies[load("res://stats/enemystats/enemystats_skyguy.tres")] = {"tattled": false}
+	enemies[load("res://stats/enemystats/enemystats_testshyguy.tres")] = {"tattled": false}
 	
 	for member in party:
 		party[member].hp = get_max_hp(member)
