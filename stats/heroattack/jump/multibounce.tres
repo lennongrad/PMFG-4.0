@@ -1,18 +1,18 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://b635t3gf7fsun"]
 
-[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
-[ext_resource path="res://textures/badges/multibounce.png" type="Texture2D" id=2]
-[ext_resource path="res://stats/heroattack/jump/_battlechoice.tres" type="Resource" id=3]
-[ext_resource path="res://sprites/badges/multibounce_gray.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dox6o8qucuysn" path="res://textures/badges/multibounce.png" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/jump/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://boy0x377lab2c" path="res://sprites/badges/multibounce_gray.png" id="4"]
 
 [resource]
-script = ExtResource( 1 )
-choice = ExtResource( 3 )
-icon = ExtResource( 2 )
-icon_gray = ExtResource( 4 )
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = ExtResource("2")
+icon_gray = ExtResource("4")
 name = "Multibounce"
 description = ""
-steps = [ "walkto", "jumpattack", "walkback" ]
+steps = ["walkto", "jumpattack", "walkback"]
 walkto_distance = 0.95
 fp_cost = 2
 skipEnemySelection = false

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=11 format=3 uid="uid://djn7hpj5g1pku"]
 
+[ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="2_j6ug6"]
 [ext_resource type="Script" path="res://scripts/overworld/Overworld.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://dyrc8omyglwi5" path="res://scenes/overworld/stages/stage1.tscn" id="9_y7qc0"]
@@ -18,6 +19,12 @@ debug = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44885, 1.75504)
 cull_mask = 1047551
 current = true
+script = ExtResource("2_j6ug6")
+keep_y = false
+
+[node name="BasePosition" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6985, 1.75504)
+cull_mask = 1047551
 
 [node name="Player" parent="." instance=ExtResource("11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95967, 1.19317, 1.6591)

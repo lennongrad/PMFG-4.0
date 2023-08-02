@@ -114,17 +114,14 @@ func play_victory_pose():
 	change_state("victory")
 
 func focus_camera(camera):
-	#var attemptCamera = get_node_or_null("../"+self.name+"/Camera3D"+str(camera))
 	var attemptCamera = get_node_or_null("Camera"+str(camera))
 	if(attemptCamera != null):
-		attemptCamera.current = true
+		$"../Camera3D".set_camera_position(attemptCamera)
 	else:
 		print("Failed to focus on " + str(camera))
-#	$"../Camera3D".set_target_path("../"+self.name+"/Camera3D"+str(camera))
 
 func unfocus_camera():
-	get_node("../CameraPosition").current = true
-#	$"../Camera3D".set_target_path("../CameraPosition")
+	$"../Camera3D".reset_position()
 
 func get_experience_waiting():
 	return $"..".experience_waiting
@@ -143,6 +140,7 @@ func finished_level_up():
 
 func _process(_delta):
 	$HammerLight.set_position($"../Camera3D".unproject_position(get_position()) - Vector2(75, 200))
+	$SmashLight.set_position($"../Camera3D".unproject_position(get_home_position()) - Vector2(125, 200))
 
 func _physics_process(_delta):
 	move_and_slide()

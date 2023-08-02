@@ -77,9 +77,9 @@ corner_detail = 20
 [node name="ExperienceHolder" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(1.5355, 1.16578)
+scale = Vector2(1.4305, 1.16578)
 script = ExtResource("2")
-experience_count = 45
+experience_count = 5
 
 [node name="Text" type="Control" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -91,12 +91,12 @@ offset_bottom = -11.0
 
 [node name="Count" type="Label" parent="Text"]
 layout_mode = 0
-offset_left = -58.8668
+offset_left = -53.6239
 offset_top = -4.72089
-offset_right = -13.8668
+offset_right = -8.62392
 offset_bottom = 29.2791
 theme_override_fonts/font = SubResource("2")
-text = "45"
+text = "18"
 label_settings = ExtResource("3_uteqr")
 horizontal_alignment = 2
 
@@ -125,9 +125,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -35.0
-offset_bottom = 3.0
+offset_left = -88.0
+offset_top = -36.0
+offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("1")
@@ -146,9 +146,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0cyfn")
 
 [node name="SpriteHolder" type="Control" parent="NinePatchRect/Panel"]
 layout_mode = 1
-anchor_left = 0.977
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.977
+anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.0347214
 offset_right = 0.965279

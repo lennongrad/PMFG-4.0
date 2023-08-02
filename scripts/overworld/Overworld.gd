@@ -79,7 +79,7 @@ func _process(_delta):
 	
 	var activeCamera = $Player.get_camera_3d();
 	if(activeCamera):
-		activeCamera.current = true;
+		$Camera3D.set_camera_position(activeCamera)
 	#$Camera3D.target = "../Player/" + $Player.get_camera_3d()
 	
 	if cameraRotationsLeft == 0 and debug:

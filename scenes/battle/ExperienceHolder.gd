@@ -57,7 +57,11 @@ func change_experience(p_exp):
 		max_size = f_size
 	$NinePatchRect.size.x = max_size
 	$NinePatchRect.position.x = -$NinePatchRect.size.x
-	$NinePatchRect.position.y = -35
+	$NinePatchRect.position.y = -$NinePatchRect.size.y
+	if p_exp < 10:
+		$NinePatchRect.size.y = 24
+	else:
+		$NinePatchRect.size.y = 36
 	if centered:
 		$NinePatchRect.position /= 2
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://civqh7gvslnr4"]
+[gd_scene load_steps=63 format=3 uid="uid://civqh7gvslnr4"]
 
 [ext_resource type="Resource" uid="uid://cnne0bihla83e" path="res://stats/herostats/mario.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
@@ -19,8 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="18"]
 [ext_resource type="PackedScene" uid="uid://1axryjolfwxg" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
-[ext_resource type="PackedScene" uid="uid://bm4p4xqu2nr51" path="res://scenes/battle/SmashLight.tscn" id="22_02uk8"]
-[ext_resource type="Texture2D" uid="uid://gl6flrha6303" path="res://particles/smoke_bright.png" id="23_10yeu"]
 [ext_resource type="PackedScene" uid="uid://gy264ejqrfhj" path="res://scenes/battle/Hammerlight.tscn" id="36"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
 
@@ -275,68 +273,6 @@ height = 0.4
 [sub_resource type="SphereShape3D" id="37"]
 radius = 0.249939
 
-[sub_resource type="Curve" id="Curve_6t6fo"]
-max_value = 20.0
-_data = [Vector2(0, 9.90909), 0.0, 0.0, 0, 0, Vector2(0.577922, 18.7368), 0.0, 0.0, 0, 0, Vector2(0.971963, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_d2s4q"]
-width = 4096
-curve = SubResource("Curve_6t6fo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tceo5"]
-direction = Vector3(0, 1, 0)
-spread = 100.67
-gravity = Vector3(0, -1, 0)
-initial_velocity_min = 0.7
-initial_velocity_max = 0.7
-damping_min = 0.3
-damping_max = 0.3
-scale_curve = SubResource("CurveTexture_d2s4q")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2m6o"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.290196)
-albedo_texture = ExtResource("23_10yeu")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 3
-particles_anim_v_frames = 1
-particles_anim_loop = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_p1d12"]
-material = SubResource("StandardMaterial3D_g2m6o")
-size = Vector2(0.01, 0.01)
-
-[sub_resource type="Curve" id="Curve_ki522"]
-max_value = 20.0
-_data = [Vector2(0, 9.90909), 0.0, 0.0, 0, 0, Vector2(0.577922, 18.7368), 0.0, 0.0, 0, 0, Vector2(0.971963, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_y504i"]
-width = 4096
-curve = SubResource("Curve_ki522")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hcyqm"]
-gravity = Vector3(0, 0, 0)
-scale_max = 3.0
-scale_curve = SubResource("CurveTexture_y504i")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpf6k"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("23_10yeu")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 3
-particles_anim_v_frames = 1
-particles_anim_loop = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_18l17"]
-material = SubResource("StandardMaterial3D_qpf6k")
-size = Vector2(0.01, 0.01)
-
 [node name="HeroBattle" type="CharacterBody3D"]
 collision_layer = 32
 collision_mask = 48
@@ -487,33 +423,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428051, 0.0299648)
 visible = false
 offset_left = 0.0
 offset_right = 40.0
-
-[node name="SmashLight" parent="." instance=ExtResource("22_02uk8")]
-visible = false
-
-[node name="RunParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0242149, 0.0253215, -0.0838199)
-layers = 65536
-sorting_offset = -4.0
-emitting = false
-amount = 120
-lifetime = 0.7
-randomness = 0.13
-visibility_aabb = AABB(-4, -4, -1.18714, 8, 8, 2.37428)
-local_coords = true
-transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_tceo5")
-draw_pass_1 = SubResource("QuadMesh_p1d12")
-
-[node name="RunSuccessParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142991, 0.122053, 0)
-emitting = false
-amount = 6
-speed_scale = 4.0
-randomness = 0.13
-visibility_aabb = AABB(-4, -4, -1.18714, 8, 8, 2.37428)
-transform_align = 1
-process_material = SubResource("ParticleProcessMaterial_hcyqm")
-draw_pass_1 = SubResource("QuadMesh_18l17")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

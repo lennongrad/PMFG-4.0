@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ds1tf2gdnpfne"]
+[gd_scene load_steps=60 format=3 uid="uid://ds1tf2gdnpfne"]
 
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/overworld/Player.gd" id="2"]
@@ -43,16 +43,16 @@ max_value = 20.0
 _data = [Vector2(0, 9.90909), 0.0, 0.0, 0, 0, Vector2(0.577922, 18.7368), 0.0, 0.0, 0, 0, Vector2(0.971963, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="5"]
+[sub_resource type="CurveTexture" id="CurveTexture_y7w0m"]
 width = 4096
 curve = SubResource("4")
 
 [sub_resource type="ParticleProcessMaterial" id="6"]
 gravity = Vector3(0, 0, 0)
 scale_max = 3.0
-scale_curve = SubResource("5")
+scale_curve = SubResource("CurveTexture_y7w0m")
 
-[sub_resource type="StandardMaterial3D" id="7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0i6s"]
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("9")
@@ -63,7 +63,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = true
 
 [sub_resource type="QuadMesh" id="8"]
-material = SubResource("7")
+material = SubResource("StandardMaterial3D_i0i6s")
 size = Vector2(0.01, 0.01)
 
 [sub_resource type="Curve" id="9"]
@@ -109,8 +109,18 @@ scale_min = 0.2
 scale_max = 0.4
 scale_curve = SubResource("16")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5hgy"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("9")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
 [sub_resource type="QuadMesh" id="18"]
-material = SubResource("7")
+material = SubResource("StandardMaterial3D_l5hgy")
 size = Vector2(0.05, 0.05)
 
 [sub_resource type="Curve" id="19"]

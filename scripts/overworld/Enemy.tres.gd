@@ -223,7 +223,8 @@ func die():
 		coin.timer = coin.timer * 1.5 - 15
 
 func run_away():
-	blink_timer = 400
+	blink_timer = 300
+	state = ENEMY_STATE.RETURN_TO_ORIGIN
 
 func player_entered():
 	player_in_bounds = true

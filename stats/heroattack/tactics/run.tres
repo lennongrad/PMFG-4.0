@@ -1,22 +1,20 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://ly3s27a1dc3i"]
 
-[ext_resource path="res://stats/heroattack/heroattack.gd" type="Script" id=1]
-[ext_resource path="res://sprites/tactics/run.png" type="Texture2D" id=2]
-[ext_resource path="res://stats/heroattack/tactics/_battlechoice.tres" type="Resource" id=3]
-[ext_resource path="res://sprites/tactics/run_gray.png" type="Texture2D" id=4]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dkyh5v4mm5gwm" path="res://sprites/tactics/run.png" id="2"]
+[ext_resource type="Resource" path="res://stats/heroattack/tactics/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://ccyrnnb814w1q" path="res://sprites/tactics/run_gray.png" id="4"]
 
 [resource]
-script = ExtResource( 1 )
-choice = ExtResource( 3 )
-icon = ExtResource( 2 )
-icon_gray = ExtResource( 4 )
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = ExtResource("2")
+icon_gray = ExtResource("4")
 name = "Run"
 description = ""
-steps = [ "run" ]
+steps = ["run", "down", "walkback"]
 walkto_distance = 0.5
 fp_cost = 0
 skipEnemySelection = true
 firstStrike = false
-attributes = {
-
-}
+attributes = {}

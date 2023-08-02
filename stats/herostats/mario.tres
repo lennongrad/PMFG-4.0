@@ -2,7 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://cocdgwdhamcr7" path="res://sprites/mario/_frames.tres" id="1"]
 [ext_resource type="Resource" path="res://stats/heroattack/hammer/basic.tres" id="2"]
-[ext_resource type="Resource" path="res://stats/heroattack/jump/basic.tres" id="3"]
+[ext_resource type="Resource" uid="uid://c8s11lmpq3rgt" path="res://stats/heroattack/jump/basic.tres" id="3"]
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="4"]
 [ext_resource type="Script" path="res://stats/herostats/herostats.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://8gnh8s8appm3" path="res://sprites/mario/particles.png" id="5_p67y4"]

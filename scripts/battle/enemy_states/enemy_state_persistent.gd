@@ -170,15 +170,15 @@ func hurt():
 	$HurtParticles.play()
 	$HurtParticles2.play()
 
-func focus_camera():
-	var attemptCamera = get_node_or_null("Camera3D")
+func focus_camera(camera = "3D"):
+	var attemptCamera = get_node_or_null("Camera"+str(camera))
 	if(attemptCamera != null):
-		attemptCamera.current = true
+		$"../Camera3D".set_camera_position(attemptCamera)
 	else:
 		print("Failed to focus on " + str(camera))
 
 func unfocus_camera():
-	get_node("../CameraPosition").current = true
+	$"../Camera3D".reset_position()
 
 func _on_Tween_tween_all_completed():
 	state.tween_completed()

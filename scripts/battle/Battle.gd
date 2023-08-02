@@ -53,7 +53,7 @@ func _ready():
 		$Partner.is_in_water = true
 	var stage = battle_background.background.instantiate()
 	add_child(stage)
-	$CameraPosition.current = true
+	$Camera3D.current = true
 
 func _process(_delta):
 	$Status.unhide()
