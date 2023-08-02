@@ -1,59 +1,100 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://7jyhncbxvlqk"]
 
-[ext_resource path="res://scripts/overworld/EnemySpawner.gd" type="Script" id=1]
-[ext_resource path="res://stats/enemyencounter/enemyencounter_skyguy.tres" type="Resource" id=2]
-[ext_resource path="res://textures/skyguy/slingshot1.png" type="Texture2D" id=3]
-[ext_resource path="res://textures/skyguy/slingshot4.png" type="Texture2D" id=4]
-[ext_resource path="res://textures/skyguy/slingshot3.png" type="Texture2D" id=5]
-[ext_resource path="res://textures/skyguy/idle3.png" type="Texture2D" id=6]
-[ext_resource path="res://textures/skyguy/slingshot2.png" type="Texture2D" id=7]
-[ext_resource path="res://textures/skyguy/idle1.png" type="Texture2D" id=8]
-[ext_resource path="res://textures/skyguy/hurt1.png" type="Texture2D" id=9]
-[ext_resource path="res://textures/skyguy/slingshot5.png" type="Texture2D" id=10]
-[ext_resource path="res://textures/skyguy/hurt2.png" type="Texture2D" id=11]
-[ext_resource path="res://textures/skyguy/idle2.png" type="Texture2D" id=12]
+[ext_resource type="Script" path="res://scripts/overworld/EnemySpawner.gd" id="1"]
+[ext_resource type="Resource" uid="uid://4sfrldptm5bn" path="res://stats/enemyencounter/enemyencounter_skyguy.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://d2axhrc0vcvah" path="res://textures/skyguy/slingshot1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://wc83jjcthrh7" path="res://textures/skyguy/slingshot4.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://w6fl71bf835h" path="res://textures/skyguy/slingshot3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cwr2eeufqlbna" path="res://textures/skyguy/idle3.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cyc74vfyrl3j6" path="res://textures/skyguy/slingshot2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dhqtsilrwtqdr" path="res://textures/skyguy/idle1.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://l85komydqn85" path="res://textures/skyguy/hurt1.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://b5vxppjq1i24m" path="res://textures/skyguy/slingshot5.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://cbeyb6fwglfil" path="res://textures/skyguy/hurt2.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bj40qgs4qi6vx" path="res://textures/skyguy/idle2.png" id="12"]
 
-[sub_resource type="BoxShape3D" id=2]
-size = Vector3( 0, 0, 0 )
+[sub_resource type="BoxShape3D" id="2"]
+size = Vector3(0, 0, 0)
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 6 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
 "loop": true,
-"name": "Rest",
+"name": &"Hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"Rest",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 10 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
 "loop": true,
-"name": "Slingshot",
+"name": &"Slingshot",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
 "loop": true,
-"name": "Hurt",
-"speed": 10.0
-} ]
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [node name="EnemySpawner" type="Node3D"]
-script = ExtResource( 1 )
-encounter_data = ExtResource( 2 )
+script = ExtResource("1")
+encounter_data = ExtResource("2")
 
 [node name="Bounds" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475289, 0 )
-shape = SubResource( 2 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.475289, 0)
+shape = SubResource("2")
 
 [node name="Preview" type="AnimatedSprite3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32, 0 )
-frames = SubResource( 1 )
-animation = "Walk"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32, 0)
+sprite_frames = SubResource("1")
+animation = &"Walk"
 frame = 2
-playing = true
+
 [connection signal="body_entered" from="Bounds" to="." method="_on_Bounds_body_entered"]
 [connection signal="body_exited" from="Bounds" to="." method="_on_Bounds_body_exited"]

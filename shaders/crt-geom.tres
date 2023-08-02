@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cs3mffviqenvc"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "/*
 	Port of libretro's crt-geom.glsl to Godot shading language.
 	Source: https://github.com/libretro/glsl-shaders/blob/master/crt/shaders/crt-geom.glsl
@@ -383,24 +383,4 @@ void fragment() {
 
 [resource]
 resource_local_to_scene = true
-shader = SubResource( 1 )
-shader_param/CRTgamma = 2.8
-shader_param/monitorgamma = 3.0
-shader_param/d = 1.5
-shader_param/CURVATURE = 1.0
-shader_param/R = 3.7
-shader_param/cornersize = 0.03
-shader_param/cornersmooth = 1000.0
-shader_param/x_tilt = 0.05
-shader_param/y_tilt = 0.0
-shader_param/overscan_x = 100.0
-shader_param/overscan_y = 100.0
-shader_param/DOTMASK = 0.0
-shader_param/SHARPER = 3.0
-shader_param/scanline_weight = 0.35
-shader_param/lum = 0.0
-shader_param/interlace_detect = 1.0
-shader_param/OutputSize = Vector2( 1024, 896 )
-shader_param/TextureSize = Vector2( 256, 224 )
-shader_param/InputSize = Vector2( 256, 224 )
-shader_param/FrameCount = 0
+shader = SubResource("1")

@@ -68,6 +68,9 @@ func attack(f_attack, enemy):
 	if attack_animation_counter == 0:
 		progress_attack()
 
+func end_battle():
+	$"..".finish_battle()
+
 func progress_attack():
 	if get_current_attack().steps.size() > attack_animation_counter:
 		change_state(get_current_attack().steps[attack_animation_counter])

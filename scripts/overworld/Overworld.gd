@@ -30,7 +30,8 @@ func rotate_cam(degrees):
 func update_need_player_position():
 	need_player_position = [partner]
 	for _i in $Stage/EnemySpawners.get_children():
-		need_player_position.append(_i)
+		if(_i.has_method("pass_player")):
+			need_player_position.append(_i)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -110,7 +111,7 @@ func _on_encounter_trigger(p_encountered_enemy, p_strike_type):
 			$Player.play_hurt()
 	entering_battle = true
 
-func on_reset(_data):
+func on_reset(did_win):
 	paused = false
 	emit_signal("unpause")
 	self.visible = true
@@ -119,7 +120,11 @@ func on_reset(_data):
 	$Spin.visible = true
 	$Spin.spin_backwards()
 	entering_battle = false
-	encountered_enemy.die()
+	
+	if(did_win):
+		encountered_enemy.die()
+	else:
+		encountered_enemy.run_away()
 
 func get_water_level():
 	return $Stage/Water.global_position.y
@@ -172,6 +177,7 @@ func _on_Control_finishedSpinning():
 			encountered_enemy.encounter_data, strike_type, encountered_enemy.battle_background)
 	elif encountered_enemy != null:
 		encountered_enemy = null
+		$Camera3D.current = true
 		update_need_player_position()
 	elif is_exiting:
 		get_node("/root/Global").new_main()

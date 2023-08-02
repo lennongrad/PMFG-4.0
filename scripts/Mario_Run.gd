@@ -212,26 +212,31 @@ func is_tattled(stats):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dir = DirAccess.open("res://stats/herostats")
-	
-	if dir:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name != "." and file_name != ".." and file_name != "herostats.gd":
-				file_name = "res://stats/herostats/" + file_name
-				party[load(file_name)] = {"hp": 0}
-			file_name = dir.get_next()
-			
-	dir = DirAccess.open("res://stats/enemystats");
-	if dir:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name != "." and file_name != "..":
-				file_name = "res://stats/enemystats/" + file_name
-				enemies[load(file_name)] = {"tattled": false}
-			file_name = dir.get_next()
+#	var dir = DirAccess.open("res://stats/herostats")
+#
+#	if dir:
+#		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+#		var file_name = dir.get_next()
+#		while file_name != "":
+#			if file_name != "." and file_name != ".." and file_name != "herostats.gd":
+#				file_name = "res://stats/herostats/" + file_name
+#				party[load(file_name)] = {"hp": 0}
+#			file_name = dir.get_next()
+#
+#	dir = DirAccess.open("res://stats/enemystats");
+#	if dir:
+#		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+#		var file_name = dir.get_next()
+#		while file_name != "":
+#			if file_name != "." and file_name != "..":
+#				file_name = "res://stats/enemystats/" + file_name
+#				enemies[load(file_name)] = {"tattled": false}
+#			file_name = dir.get_next()
+	party[load("res://stats/herostats/goombario.tres")] = {"hp": 0}
+	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
+	enemies[load("res://stats/enemystats/enemystats_cheepcheep.tres")] = {"tattled": false}
+	enemies[load("res://stats/enemystats/enemystats_redshyguy.tres")] = {"tattled": false}
+	enemies[load("res://stats/enemystats/enemystats_skyguy.tres")] = {"tattled": false}
 	
 	for member in party:
 		party[member].hp = get_max_hp(member)

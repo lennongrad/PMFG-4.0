@@ -168,6 +168,7 @@ menu={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 lights_and_shadows/shadow_atlas/size=8192
 quality/shadows/filter_mode=2
 quality/filters/anisotropic_filter_level=1

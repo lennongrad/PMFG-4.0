@@ -55,7 +55,8 @@ func set_encounter(p_encounter):
 
 func pass_player(p_player):
 	player = p_player
-	$Enemy.player = player
+	if(get_node_or_null("Enemy") != null):
+		$Enemy.player = player
 
 func on_rotate_y(degrees):
 	if has_node("Enemy"):

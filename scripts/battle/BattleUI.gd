@@ -33,18 +33,24 @@ func fp_comparison(a, b):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var dir = DirAccess.open("res://stats/heroattack")
-	if dir:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir() and file_name != "." and file_name != "..":
-				if dir.file_exists(file_name + "/_battlechoice.tres"):
-					var choice_path = "res://stats/heroattack/" + file_name
-					battleChoices.append({"choice": load(choice_path + "/_battlechoice.tres")})
-			file_name = dir.get_next()
-	else:
-		print("Could not open files")
+#	var dir = DirAccess.open("res://stats/heroattack")
+#	if dir:
+#		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+#		var file_name = dir.get_next()
+#		while file_name != "":
+#			if dir.current_is_dir() and file_name != "." and file_name != "..":
+#				if dir.file_exists(file_name + "/_battlechoice.tres"):
+#					var choice_path = "res://stats/heroattack/" + file_name
+#					battleChoices.append({"choice": load(choice_path + "/_battlechoice.tres")})
+#			file_name = dir.get_next()
+#	else:
+#		print("Could not open files")
+	
+	battleChoices.append({"choice": load("res://stats/heroattack/goombario/_battlechoice.tres")})
+	battleChoices.append({"choice": load("res://stats/heroattack/hammer/_battlechoice.tres")})
+	battleChoices.append({"choice": load("res://stats/heroattack/items/_battlechoice.tres")})
+	battleChoices.append({"choice": load("res://stats/heroattack/jump/_battlechoice.tres")})
+	battleChoices.append({"choice": load("res://stats/heroattack/tactics/_battlechoice.tres")})
 	battleChoices.sort_custom(Callable(self, "order_comparison"))
 	
 	for choice in battleChoices:

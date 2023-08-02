@@ -83,7 +83,7 @@ script = ExtResource("4")
 [node name="Nice" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11225)
 emitting = false
-amount = 16
+amount = 32
 lifetime = 1.2
 local_coords = true
 process_material = SubResource("9")
@@ -91,14 +91,14 @@ draw_pass_1 = SubResource("11")
 
 [node name="Miss" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 16
+amount = 32
 lifetime = 1.2
 process_material = SubResource("9")
 draw_pass_1 = SubResource("13")
 
 [node name="Good" type="GPUParticles3D" parent="."]
 emitting = false
-amount = 16
+amount = 32
 lifetime = 1.2
 process_material = SubResource("9")
 draw_pass_1 = SubResource("15")

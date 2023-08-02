@@ -17,14 +17,19 @@ var paused = false
 var player
 var deathTimer = 0
 var enemy_bounds: Area3D
-var time_since_random = 0
+var time_since_random = 100
 var target = Vector3.ZERO
 var spriteRotation = 0
 var lastTarget = Vector3.ZERO
 var player_in_bounds = false
 var state
-var swoop_timer = 0
 var chase_y = 0
+var blink_timer = 0
+
+# for flying swooping
+var flying_target_first = Vector3.ZERO
+var flying_target_second = Vector3.ZERO
+var past_first = false
 
 signal encounter_triggered(encounteredEnemy, first_strike)
 
@@ -60,7 +65,6 @@ func _physics_process(delta):
 	else:
 		goalDirection = Vector2(0,0)
 	
-	swoop_timer += 1
 	var speed = 0
 	match state:
 		ENEMY_STATE.RETURN_TO_ORIGIN:
@@ -69,42 +73,22 @@ func _physics_process(delta):
 				speed = 0
 			else:
 				speed = 1
-			if encounter_data.flying:
-				velocity.y += ((original_translation.y - global_transform.origin.y) * 3 - velocity.y) * .1
-				shouldSnap = false
-#			if encounter_data.flying:
-#				velocity.y = (encounter_data.fly_level + 2 - global_transform.origin.y) * .25
-#				shouldSnap = false
 		ENEMY_STATE.CHASE_PLAYER:
 			speed = 1.5
 			if encounter_data.flying:
-				speed = 1
-				velocity.y += ((original_translation.y - 1 - global_transform.origin.y) * 3 - velocity.y) * .1
-				shouldSnap = false
-#			if encounter_data.flying:
-#				if global_transform.origin.y < original_translation.y:
-#					return_to_bounds()
-#				#if swoop_timer % 360 < 60:
-#				velocity.y = (original_translation.y - .6 - global_transform.origin.y) * .86
-##				else:
-##					velocity.y = (encounter_data.fly_level + .1 - translation.y) * .86
-##					if abs(velocity.y) < .1:
-##						velocity.y = 0
-##					chase_y = null
-#				shouldSnap = false
+				speed = 1.5
 		ENEMY_STATE.RANDOM_WALK:
 			speed = 1
 			if goalDirection.length() < .1:
 				speed = 0
-			if encounter_data.flying:
-				velocity.y += ((original_translation.y - global_transform.origin.y) * 3 - velocity.y) * .1
-				shouldSnap = false
 	if encounter_data.swimming:
 		velocity.y = 0
 		position.y = (water_level - .2 - original_translation.y)
+	if encounter_data.flying:
+		velocity.y = ((target.y) - global_position.y) * 2
 	
 	goalDirection = goalDirection.normalized() * speed
-	if not encounter_data.flying or abs(original_translation.y - global_transform.origin.y) < .1:
+	if true:#not encounter_data.flying or abs(original_translation.y - global_transform.origin.y) < .1:
 		velocity = Vector3(goalDirection.x, velocity.y, goalDirection.y)
 
 	if speed > 0:
@@ -129,7 +113,6 @@ func _physics_process(delta):
 		set_floor_stop_on_slope_enabled(false)
 		set_max_slides(4)
 		set_floor_max_angle(PI/4)
-		# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
 		move_and_slide()
 		velocity = velocity
 	else:
@@ -138,7 +121,6 @@ func _physics_process(delta):
 		set_floor_stop_on_slope_enabled(false)
 		set_max_slides(4)
 		set_floor_max_angle(PI/4)
-		# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
 		move_and_slide()
 		velocity = velocity
 	$Sprite2D.rotation_degrees.y = -spriteRotation
@@ -147,20 +129,40 @@ func _process(_delta):
 	if paused or Engine.is_editor_hint():
 		return
 	
-	if (Vector2(global_transform.origin.x, global_transform.origin.z) - 
-		Vector2(original_translation.x, original_translation.z)).length() > 2:
-			state = ENEMY_STATE.RETURN_TO_ORIGIN
+#	if (Vector2(global_transform.origin.x, global_transform.origin.z) - 
+#		Vector2(original_translation.x, original_translation.z)).length() > 2:
+#			state = ENEMY_STATE.RETURN_TO_ORIGIN
+	
+	if blink_timer > 0:
+		blink_timer -= 1
+		$Sprite2D.visible = (blink_timer % 16) > 4
+	else:
+		$Sprite2D.visible = true
 	
 	lastTarget = target
 	match state:
 		ENEMY_STATE.RETURN_TO_ORIGIN:
 			target = original_translation
-			target.y = 0
+			if not encounter_data.flying:
+				target.y = 0
 		ENEMY_STATE.CHASE_PLAYER:
-			if swoop_timer % 360 < 60:
-				target = Vector3(player.position.x, 0, player.position.z)
+			if encounter_data.flying:
+				if((global_position - flying_target_second).length() < .2):
+					state = ENEMY_STATE.RANDOM_WALK
+					time_since_random = 100
+				if((global_position - flying_target_first).length() < .2 or past_first):
+					past_first = true
+					target = flying_target_second
+				else:
+					target = flying_target_first
+#				if (global_position - flying_target_second).length() < .5:
+#					state = ENEMY_STATE.RANDOM_WALK
+#				elif (global_position - flying_target_first).length() < .5:
+#					target = flying_target_second
+#				else:
+#					target = flying_target_first
 			else:
-				target = null
+				target = player.position
 		ENEMY_STATE.RANDOM_WALK:
 			time_since_random += 1
 			if time_since_random > 100:
@@ -189,7 +191,12 @@ func chase_player():
 	if state == ENEMY_STATE.DEATH or state == ENEMY_STATE.RETURN_TO_ORIGIN:
 		return
 	state = ENEMY_STATE.CHASE_PLAYER
-	swoop_timer = 0
+	
+	# for flying swooping
+	flying_target_first = player.position
+	flying_target_second = (player.position - position) * 2
+	flying_target_second.y = original_translation.y
+	past_first = false
 
 func play_hurt():
 	$HurtParticles.play()
@@ -215,6 +222,9 @@ func die():
 		coin.position = global_transform.origin + difference * Vector3(.1, 1, .1)
 		coin.timer = coin.timer * 1.5 - 15
 
+func run_away():
+	blink_timer = 400
+
 func player_entered():
 	player_in_bounds = true
 
@@ -228,7 +238,7 @@ func _on_unpause():
 	paused = false
 
 func _on_NormalEncounter_area_entered(area):
-	if paused or player == null or state == ENEMY_STATE.DEATH:
+	if paused or player == null or state == ENEMY_STATE.DEATH or blink_timer > 0:
 		return
 	match area:
 		player.normal_area:
@@ -244,9 +254,9 @@ func _on_NormalEncounter_area_entered(area):
 			emit_signal("encounter_triggered", self, "jump")
 
 func _on_Detection_body_entered(body):
-	if body == player and player_in_bounds:
+	if body == player:
 		chase_player()
 
 func _on_Detection_body_exited(body):
 	if body == player:# and player_in_bounds:
-		return_to_bounds()
+		pass#return_to_bounds()

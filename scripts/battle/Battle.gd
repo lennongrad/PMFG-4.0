@@ -10,7 +10,8 @@ var finishedSpinning = false
 var currentAttackingEnemy = -1
 var selectedEnemy = -1
 var waitingForEnemyDeath = false
-var battleWon = false
+var battle_over = false
+var battle_won = false
 var wasFirstStrike = false
 var partnerAction = false
 var partnerFirst = false
@@ -76,7 +77,7 @@ func _process(_delta):
 			else:
 				next_enemy_turn(30)
 			waitingForEnemyDeath = false
-	if battleWon:
+	if battle_over:
 		if not $Mario.is_victory_posing and not $Spin.isPlaying:
 			finish_battle()
 	
@@ -188,9 +189,11 @@ func start_mario_turn():
 	else:
 		$Mario.play_victory_pose()
 		$Partner.play_victory_pose()
-		battleWon = true
+		battle_over = true
+		battle_won = true
 
 func finish_battle():
+	battle_over = true
 	$Status.hide_fp()
 	$Spin.start_spinning()
 
@@ -199,11 +202,11 @@ func increment_experience(amount):
 	$ExperienceHolder.experience_count = experience_waiting
 
 func _on_Spin_finishedSpinning():
-	if battleWon:
+	if battle_over:
 		if debug:
 			get_tree().quit()
 		else:
-			get_node("/root/Global").reset_to_main(3)
+			get_node("/root/Global").reset_to_main(battle_won)
 	else:
 		finishedSpinning = true
 		$Mario.first_strike_active = false
