@@ -1483,21 +1483,23 @@ texture = ExtResource("26")
 expand_mode = 1
 
 [node name="Shadow2" type="TextureRect" parent="Panel/TabContainer/Mario/Equipment"]
-modulate = Color(0, 0, 0, 0.654902)
+modulate = Color(0.105882, 0.105882, 0.105882, 0.509804)
 show_behind_parent = true
 texture_filter = 1
-layout_mode = 0
-anchor_left = 0.109
-anchor_top = 0.957
-anchor_right = 0.859
-anchor_bottom = 1.163
-offset_left = 47.826
-offset_top = -15.975
-offset_right = -38.674
-offset_bottom = -20.025
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.287
+anchor_top = 0.8
+anchor_right = 0.7
+anchor_bottom = 1.075
+offset_left = -15.082
+offset_top = -1.0721
+offset_right = 8.8
+offset_bottom = 0.0593567
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("10")
-expand_mode = 1
-stretch_mode = 7
+expand_mode = 2
 
 [node name="Control" type="Control" parent="Panel/TabContainer/Mario/Equipment"]
 texture_filter = 1

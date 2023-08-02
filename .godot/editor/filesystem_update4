@@ -56,3 +56,4 @@ res://stats/heroattack/jump/multibounce.tres
 res://stats/heroattack/hammer/firststrike.tres
 res://scenes/overworld/Player.tscn
 res://scripts/overworld/Overworld.gd
+res://scenes/overworld/OverworldMenu.tscn
