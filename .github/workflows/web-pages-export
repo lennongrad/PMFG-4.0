@@ -1,0 +1,73 @@
+name: "godot4-web-deployer"
+on: push
+
+permissions:
+  contents: write
+
+env:
+  GODOT_MAJOR_MINOR_VERSION: "4.1" # must be a string, not a number
+  GODOT_PATCH_VERSION: rc2
+
+  PROJECT_FOLDER: "." # the path to the godot project (must contain `project.godot` file) relative to the github root path
+
+  EXPORT_TEMPLATE: release # export with release || debug
+  EXPORT_PRESET_NAME: Web # name of the preset
+  EXPORT_FOLDER: build/ # just the folder where the project will be build, not really important
+  EXPORT_FILENAME: index.html # export file name
+
+  DEPLOYMENT_BRANCH: gh-pages # the name of the branch, will be automatically created if it does not exist
+
+jobs:
+  export_web:
+    runs-on: ubuntu-latest
+    name: Export Web Game
+    steps:
+    - name: "Set environmental variables"
+      # If you have a custom godot you may want to modify the urls to download your own godot and templates
+      run: |
+        echo "GODOT_VERSION=${GODOT_MAJOR_MINOR_VERSION}.${GODOT_PATCH_VERSION}" >> $GITHUB_ENV
+        echo "GODOT_EXECUTABLE_DOWNLOAD_URL=https://downloads.tuxfamily.org/godotengine/${GODOT_MAJOR_MINOR_VERSION}/${GODOT_PATCH_VERSION}/Godot_v${GODOT_MAJOR_MINOR_VERSION}-${GODOT_PATCH_VERSION}_linux.x86_64.zip" >> $GITHUB_ENV
+        echo "GODOT_TEMPLATES_DOWNLOAD_URL=https://downloads.tuxfamily.org/godotengine/${GODOT_MAJOR_MINOR_VERSION}/${GODOT_PATCH_VERSION}/Godot_v${GODOT_MAJOR_MINOR_VERSION}-${GODOT_PATCH_VERSION}_export_templates.tpz" >> $GITHUB_ENV
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Install Godot
+      run: |
+        # Download godot executable and templates
+        curl ${GODOT_EXECUTABLE_DOWNLOAD_URL} --output godot.zip
+        curl ${GODOT_TEMPLATES_DOWNLOAD_URL} --output templates.tpz
+        unzip godot.zip -d godot
+        unzip templates.tpz
+        # Create needed dirs
+        # Templates with godot 4 must be in ~/.local/share/godot/export_templates/${MAJOR.MINOR.PATCH}
+        mkdir -v -p ~/.local/share/godot/export_templates/${GODOT_VERSION}
+        
+        mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}
+        mv godot/Godot* ${GITHUB_WORKSPACE}/godot.x86_64
+        # Just cleaning
+        rm -R templates/
+        rm templates.tpz
+    
+    - name: Build Project
+      run: |
+        mkdir -v -p ${GITHUB_WORKSPACE}/${EXPORT_FOLDER}
+        cd ${PROJECT_FOLDER}
+        # Exporting the game
+        ${GITHUB_WORKSPACE}/godot.x86_64 --headless --path . --export-${EXPORT_TEMPLATE} ${EXPORT_PRESET_NAME} ${GITHUB_WORKSPACE}/${EXPORT_FOLDER}/${EXPORT_FILENAME}
+    
+    - name: Add coi-service-worker
+      run: |
+        git clone https://github.com/gzuidhof/coi-serviceworker.git
+        mv coi-serviceworker/coi-serviceworker.js ${EXPORT_FOLDER}/coi-serviceworker.js
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.EXPORT_PRESET_NAME }}
+        path: ${{ env.EXPORT_FOLDER }}
+    
+    - name: Deploy to GitHub Pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: ${{ env.DEPLOYMENT_BRANCH }}
+        folder: ${{ env.EXPORT_FOLDER }}
