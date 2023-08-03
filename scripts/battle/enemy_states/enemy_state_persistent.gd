@@ -170,12 +170,12 @@ func hurt():
 	$HurtParticles.play()
 	$HurtParticles2.play()
 
-func focus_camera(camera = "3D"):
-	var attemptCamera = get_node_or_null("Camera"+str(camera))
+func focus_camera(_camera = "3D"):
+	var attemptCamera = get_node_or_null("Camera"+str(_camera))
 	if(attemptCamera != null):
 		$"../Camera3D".set_camera_position(attemptCamera)
 	else:
-		print("Failed to focus on " + str(camera))
+		print("Failed to focus on " + str(_camera))
 
 func unfocus_camera():
 	$"../Camera3D".reset_position()

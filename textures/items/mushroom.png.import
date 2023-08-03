@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgcfwydol4ur2"
-path.bptc="res://.godot/imported/mushroom.png-98f10c5f46619a20beeb25eedc1399f9.bptc.ctex"
+path="res://.godot/imported/mushroom.png-98f10c5f46619a20beeb25eedc1399f9.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/items/mushroom.png"
-dest_files=["res://.godot/imported/mushroom.png-98f10c5f46619a20beeb25eedc1399f9.bptc.ctex"]
+dest_files=["res://.godot/imported/mushroom.png-98f10c5f46619a20beeb25eedc1399f9.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

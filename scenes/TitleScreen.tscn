@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://divf7jrq67nb0"]
+[gd_scene load_steps=23 format=3 uid="uid://divf7jrq67nb0"]
 
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="1"]
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="2"]
@@ -41,6 +41,9 @@ shader = SubResource("1")
 bg_color = Color(0.113725, 0.0941176, 0.176471, 1)
 
 [sub_resource type="FontFile" id="4"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
 face_index = null
 embolden = null
@@ -71,6 +74,9 @@ outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
 face_index = null
 embolden = null
@@ -201,6 +207,9 @@ animations = [{
 }]
 
 [sub_resource type="FontFile" id="11"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
 face_index = null
 embolden = null
@@ -211,6 +220,17 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_py4at"]
+font_size = 24
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -252,7 +272,7 @@ offset_left = -3.05176e-05
 offset_top = -0.200005
 offset_bottom = 0.199982
 texture = ExtResource("6")
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Panel/TextureRect"]
 layout_mode = 0
@@ -324,17 +344,21 @@ autoplay = "down"
 frame_progress = 0.878524
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -184.5
-offset_top = -50.0
-offset_right = 231.5
-offset_bottom = -5.0
+offset_left = -250.0
+offset_top = -57.0
+offset_right = 250.0
+offset_bottom = -1.0
 theme_override_fonts/font = SubResource("11")
 text = "Version 0.1. 2023 by lennongrad.
 https://github.com/lennongrad/PMFG"
+label_settings = SubResource("LabelSettings_py4at")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_TextureButton_pressed"]

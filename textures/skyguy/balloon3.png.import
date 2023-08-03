@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8xijoaerf2n"
-path.bptc="res://.godot/imported/balloon3.png-9f795c962c4698e52812f9c4a818a7c8.bptc.ctex"
+path="res://.godot/imported/balloon3.png-9f795c962c4698e52812f9c4a818a7c8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/skyguy/balloon3.png"
-dest_files=["res://.godot/imported/balloon3.png-9f795c962c4698e52812f9c4a818a7c8.bptc.ctex"]
+dest_files=["res://.godot/imported/balloon3.png-9f795c962c4698e52812f9c4a818a7c8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

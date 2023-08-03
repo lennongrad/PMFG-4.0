@@ -5,6 +5,8 @@ extends Node3D
 @export var battle_background: Resource
 @export var debug: bool = false
 
+@onready var original_base_position = $BasePosition.position
+
 var enemies = []
 var finishedSpinning = false
 var currentAttackingEnemy = -1
@@ -85,7 +87,8 @@ func _process(_delta):
 	if enemySetAttackTimer == 0:
 		enemySetToAttack.attack()
 	
-	pass#print(Engine.get_frames_per_second())
+	var viewport_size = (get_viewport().get_visible_rect().size.x - 1000) / 2000
+	$BasePosition.position = original_base_position + Vector3(viewport_size,0,0)
 
 func enemy_select_left():
 	enemies[selectedEnemy].isSelected = false

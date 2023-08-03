@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dptnfm20w6cj0"
-path.bptc="res://.godot/imported/wag2.png-faf0311cc70d4bebef47481e12171298.bptc.ctex"
+path="res://.godot/imported/wag2.png-faf0311cc70d4bebef47481e12171298.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/mario/wag2.png"
-dest_files=["res://.godot/imported/wag2.png-faf0311cc70d4bebef47481e12171298.bptc.ctex"]
+dest_files=["res://.godot/imported/wag2.png-faf0311cc70d4bebef47481e12171298.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

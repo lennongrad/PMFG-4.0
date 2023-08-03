@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmh68uj466gfe"
-path.bptc="res://.godot/imported/jump3.png-8faf7dee38fab33de8bbf8a5176f5190.bptc.ctex"
+path="res://.godot/imported/jump3.png-8faf7dee38fab33de8bbf8a5176f5190.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/cheepcheep/jump3.png"
-dest_files=["res://.godot/imported/jump3.png-8faf7dee38fab33de8bbf8a5176f5190.bptc.ctex"]
+dest_files=["res://.godot/imported/jump3.png-8faf7dee38fab33de8bbf8a5176f5190.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

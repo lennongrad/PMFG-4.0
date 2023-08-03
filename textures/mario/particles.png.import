@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jbkna203d3a6"
-path.bptc="res://.godot/imported/particles.png-b2a72f6e0f899cc99b9eb1bf8100c038.bptc.ctex"
+path="res://.godot/imported/particles.png-b2a72f6e0f899cc99b9eb1bf8100c038.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/mario/particles.png"
-dest_files=["res://.godot/imported/particles.png-b2a72f6e0f899cc99b9eb1bf8100c038.bptc.ctex"]
+dest_files=["res://.godot/imported/particles.png-b2a72f6e0f899cc99b9eb1bf8100c038.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

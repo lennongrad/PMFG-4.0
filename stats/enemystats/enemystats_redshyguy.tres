@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=42 format=3 uid="uid://djx0oyaubmg0v"]
 
 [ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_slingshot.tres" id="1"]
-[ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2"]
+[ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://dyahfui1h06sw" path="res://textures/redshyguy/run.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b6nbm3jeb5ve4" path="res://textures/redshyguy/getup.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://0c7mpjkxis6q" path="res://textures/redshyguy/fall.png" id="5"]

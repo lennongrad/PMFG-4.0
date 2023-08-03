@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jt1y37lpwc34"
-path.s3tc="res://.godot/imported/slingshotammo.png-5f052da2c3fecf4a3d83548c627c04a6.s3tc.ctex"
+path="res://.godot/imported/slingshotammo.png-5f052da2c3fecf4a3d83548c627c04a6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/redshyguy/slingshotammo.png"
-dest_files=["res://.godot/imported/slingshotammo.png-5f052da2c3fecf4a3d83548c627c04a6.s3tc.ctex"]
+dest_files=["res://.godot/imported/slingshotammo.png-5f052da2c3fecf4a3d83548c627c04a6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

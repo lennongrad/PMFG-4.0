@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbhn2auf6fkrn"
-path.bptc="res://.godot/imported/walkdiag.png-4ba1032379058f99abc2be3f83a4fd76.bptc.ctex"
+path="res://.godot/imported/walkdiag.png-4ba1032379058f99abc2be3f83a4fd76.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/mario/walkdiag.png"
-dest_files=["res://.godot/imported/walkdiag.png-4ba1032379058f99abc2be3f83a4fd76.bptc.ctex"]
+dest_files=["res://.godot/imported/walkdiag.png-4ba1032379058f99abc2be3f83a4fd76.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

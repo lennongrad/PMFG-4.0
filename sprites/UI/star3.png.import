@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc4au3byondaw"
-path.bptc="res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.bptc.ctex"
+path="res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/UI/star3.png"
-dest_files=["res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.bptc.ctex"]
+dest_files=["res://.godot/imported/star3.png-6128d88f090c2e23fde96d6322ac99da.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

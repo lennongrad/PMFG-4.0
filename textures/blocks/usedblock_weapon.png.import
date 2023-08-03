@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://en3hm64xipdb"
-path.bptc="res://.godot/imported/usedblock_weapon.png-728ce681af85a7b9aab184bd77e4af8f.bptc.ctex"
+path="res://.godot/imported/usedblock_weapon.png-728ce681af85a7b9aab184bd77e4af8f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/blocks/usedblock_weapon.png"
-dest_files=["res://.godot/imported/usedblock_weapon.png-728ce681af85a7b9aab184bd77e4af8f.bptc.ctex"]
+dest_files=["res://.godot/imported/usedblock_weapon.png-728ce681af85a7b9aab184bd77e4af8f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

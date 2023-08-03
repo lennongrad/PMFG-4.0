@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buxddo17lfc0s"
-path.bptc="res://.godot/imported/questionblock_badge.png-926b16218db807a1c0a5e4d52796771f.bptc.ctex"
+path="res://.godot/imported/questionblock_badge.png-926b16218db807a1c0a5e4d52796771f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/blocks/questionblock_badge.png"
-dest_files=["res://.godot/imported/questionblock_badge.png-926b16218db807a1c0a5e4d52796771f.bptc.ctex"]
+dest_files=["res://.godot/imported/questionblock_badge.png-926b16218db807a1c0a5e4d52796771f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

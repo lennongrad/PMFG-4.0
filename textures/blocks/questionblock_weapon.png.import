@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1lcqexejn07u"
-path.bptc="res://.godot/imported/questionblock_weapon.png-20bc357900fe51a48d00c5ddd55aeff5.bptc.ctex"
+path="res://.godot/imported/questionblock_weapon.png-20bc357900fe51a48d00c5ddd55aeff5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/blocks/questionblock_weapon.png"
-dest_files=["res://.godot/imported/questionblock_weapon.png-20bc357900fe51a48d00c5ddd55aeff5.bptc.ctex"]
+dest_files=["res://.godot/imported/questionblock_weapon.png-20bc357900fe51a48d00c5ddd55aeff5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
