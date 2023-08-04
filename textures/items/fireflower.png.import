@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/fireflower.png-e84be70f37d007806a3ff4f1aa1839
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

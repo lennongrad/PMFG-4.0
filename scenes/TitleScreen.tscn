@@ -55,6 +55,8 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/56/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/64/0 = Vector2(0, 0)
 cache/0/52/0/ascent = 0.0
 cache/0/52/0/descent = 0.0
 cache/0/52/0/underline_position = 0.0
@@ -62,14 +64,34 @@ cache/0/52/0/underline_thickness = 0.0
 cache/0/52/0/scale = 1.0
 cache/0/52/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/52/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/56/0 = Vector2(0, 0)
+cache/0/52/0/kerning_overrides/64/0 = Vector2(0, 0)
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+cache/0/56/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/56/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/56/0/kerning_overrides/56/0 = Vector2(0, 0)
+cache/0/56/0/kerning_overrides/64/0 = Vector2(0, 0)
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/64/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/64/0/kerning_overrides/52/0 = Vector2(0, 0)
+cache/0/64/0/kerning_overrides/56/0 = Vector2(0, 0)
+cache/0/64/0/kerning_overrides/64/0 = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l3yx0"]
-font_size = 52
+font_size = 64
 outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7pyo"]
-font_size = 52
+font_size = 64
 outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
@@ -355,8 +377,8 @@ offset_top = -57.0
 offset_right = 250.0
 offset_bottom = -1.0
 theme_override_fonts/font = SubResource("11")
-text = "Version 0.1. 2023 by lennongrad.
-https://github.com/lennongrad/PMFG"
+text = "Version 0.312 by lennongrad.
+https://github.com/lennongrad/PMFG-4.0"
 label_settings = SubResource("LabelSettings_py4at")
 horizontal_alignment = 1
 vertical_alignment = 1

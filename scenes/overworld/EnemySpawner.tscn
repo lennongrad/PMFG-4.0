@@ -92,6 +92,7 @@ shape = SubResource("2")
 
 [node name="Preview" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32, 0)
+texture_filter = 0
 sprite_frames = SubResource("1")
 animation = &"Walk"
 frame = 2

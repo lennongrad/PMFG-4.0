@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wy52ubcfk1qw"
-path.s3tc="res://.godot/imported/heart_big.png-3fcf051e265f04b94a09fccdc9edd645.s3tc.ctex"
+path="res://.godot/imported/heart_big.png-3fcf051e265f04b94a09fccdc9edd645.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://particles/heart_big.png"
-dest_files=["res://.godot/imported/heart_big.png-3fcf051e265f04b94a09fccdc9edd645.s3tc.ctex"]
+dest_files=["res://.godot/imported/heart_big.png-3fcf051e265f04b94a09fccdc9edd645.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

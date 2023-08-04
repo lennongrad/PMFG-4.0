@@ -3,22 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfy2ani88vk4k"
-path.s3tc="res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.s3tc.ctex"
+path="res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/stone/stone-wall-normal.png"
-dest_files=["res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.s3tc.ctex"]
+dest_files=["res://.godot/imported/stone-wall-normal.png-a1127b34147e710d3493a0ca4d4e1dd6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.68
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0

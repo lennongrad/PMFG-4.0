@@ -45,7 +45,7 @@ func _ready():
 #	set_environment()
 	
 	if has_node("Stage/Pipes/PipeInto"):
-		player.pipe_position = $Stage/Pipes/PipeInto.global_transform.origin + Vector3(0, .4, 0)
+		player.pipe_position = $Stage/Pipes/PipeInto.global_transform.origin + Vector3(0, .8, 0)
 	if has_node("Stage/Pipes/PipeExit"):
 		var _unused = $Stage/Pipes/PipeExit.connect("body_entered", Callable(player, "_on_pipe_detect_entry"))
 		_unused = $Stage/Pipes/PipeExit.connect("body_exited", Callable(player, "on_pipe_detect_exit"))
@@ -56,6 +56,7 @@ func _ready():
 		player.position = player.pipe_position
 		if not debug:
 			if has_node("Stage/Pipes/PipeInto"):
+				player.state = player.PLAYER_STATE.PIPE
 				partner.position = player.pipe_position
 				partner.visible = false
 			$Letterbox.toggle()
@@ -101,6 +102,7 @@ func _on_encounter_trigger(p_encountered_enemy, p_strike_type):
 	paused = true
 	emit_signal("pause")
 	$Spin.start_spinning()
+	$Player/AnimatedSprite3D.rotation_degrees.y = 0
 	match strike_type:
 		"hammer":
 			encountered_enemy.play_hurt()

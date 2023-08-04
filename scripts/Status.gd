@@ -8,10 +8,11 @@ func _ready():
 	pass # Replace with function body.
 
 func on_hide():
-	hide_timer = 100
+	hide_timer = 110
 
 func unhide():
 	hide_timer = 0
+	visible = true
 
 func show_fp():
 	fp_visible = true
@@ -37,7 +38,7 @@ func _process(_delta):
 	$StatusEXP/EXP/Value.text = "x" + str($"/root/MarioRun".get_experience())
 	
 	hide_timer += 1
-	if hide_timer > 75:
+	if hide_timer > 110:
 		position.y += (-100 - position.y) * .1
 	else:
 		position.y += (-position.y) * .1

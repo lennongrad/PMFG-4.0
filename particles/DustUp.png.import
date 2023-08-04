@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8vwhk3euf7md"
-path.s3tc="res://.godot/imported/DustUp.png-0fabe7b2ddc66a144b09293df6634128.s3tc.ctex"
+path="res://.godot/imported/DustUp.png-0fabe7b2ddc66a144b09293df6634128.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://particles/DustUp.png"
-dest_files=["res://.godot/imported/DustUp.png-0fabe7b2ddc66a144b09293df6634128.s3tc.ctex"]
+dest_files=["res://.godot/imported/DustUp.png-0fabe7b2ddc66a144b09293df6634128.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

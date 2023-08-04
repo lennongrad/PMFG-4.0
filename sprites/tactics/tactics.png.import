@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/tactics.png-549e57321f8cdfc8ad88dc74f1080a42.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

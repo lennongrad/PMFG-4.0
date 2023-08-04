@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hammer_super.png-7554bed93a8d474ac961dc99a84e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

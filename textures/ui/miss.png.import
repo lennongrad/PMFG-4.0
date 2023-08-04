@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hpt7s36k7nf3"
-path.s3tc="res://.godot/imported/miss.png-9be11603f5d1515a78d8e2ecd5257ea7.s3tc.ctex"
+path="res://.godot/imported/miss.png-9be11603f5d1515a78d8e2ecd5257ea7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/ui/miss.png"
-dest_files=["res://.godot/imported/miss.png-9be11603f5d1515a78d8e2ecd5257ea7.s3tc.ctex"]
+dest_files=["res://.godot/imported/miss.png-9be11603f5d1515a78d8e2ecd5257ea7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

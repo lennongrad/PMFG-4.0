@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slam.png-eebb5c3e7465d349772985e4dc9edda0.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

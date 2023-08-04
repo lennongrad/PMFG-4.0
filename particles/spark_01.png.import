@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/spark_01.png-5f2b0807aaa7b663d0abe438c9edc788
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

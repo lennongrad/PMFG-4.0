@@ -169,6 +169,9 @@ func next_enemy_turn(waitTime):
 	enemySetToAttack = enemies[currentAttackingEnemy]
 	enemySetAttackTimer = waitTime + 1
 
+func can_switch_partner():
+	return partnerAction == partnerFirst
+
 func switch_partner_first():
 	if partnerAction == partnerFirst:
 		partnerAction = not partnerAction

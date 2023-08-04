@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1si8p6m6jtl1"
-path.s3tc="res://.godot/imported/star_09.png-1b9d693ddd73405dc7698ccf5c8ceeef.s3tc.ctex"
+path="res://.godot/imported/star_09.png-1b9d693ddd73405dc7698ccf5c8ceeef.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://particles/star_09.png"
-dest_files=["res://.godot/imported/star_09.png-1b9d693ddd73405dc7698ccf5c8ceeef.s3tc.ctex"]
+dest_files=["res://.godot/imported/star_09.png-1b9d693ddd73405dc7698ccf5c8ceeef.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

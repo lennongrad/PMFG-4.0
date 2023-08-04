@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du1ogqjjwt3fi"
-path.s3tc="res://.godot/imported/spark_02.png-3fd91ef4bd2236627ba8eaddcbacbac6.s3tc.ctex"
+path="res://.godot/imported/spark_02.png-3fd91ef4bd2236627ba8eaddcbacbac6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://particles/spark_02.png"
-dest_files=["res://.godot/imported/spark_02.png-3fd91ef4bd2236627ba8eaddcbacbac6.s3tc.ctex"]
+dest_files=["res://.godot/imported/spark_02.png-3fd91ef4bd2236627ba8eaddcbacbac6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

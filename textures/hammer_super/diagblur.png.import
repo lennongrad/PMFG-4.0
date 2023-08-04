@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/diagblur.png-9cd5cb368c2f2f812915f25d5893fd73
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

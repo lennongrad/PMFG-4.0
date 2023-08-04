@@ -291,7 +291,7 @@ radius = 0.19193
 
 [sub_resource type="CylinderShape3D" id="45"]
 height = 0.1
-radius = 0.176023
+radius = 0.190934
 
 [sub_resource type="BoxShape3D" id="46"]
 size = Vector3(0.316921, 0.330269, 0.135207)
@@ -440,6 +440,7 @@ shape = SubResource("44")
 [node name="JumpArea" type="Area3D" parent="."]
 
 [node name="CollisionShape2" type="CollisionShape3D" parent="JumpArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0193692, 0)
 shape = SubResource("45")
 
 [node name="HammerArea" type="Area3D" parent="."]

@@ -12,15 +12,23 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(_delta):
-	scale = (((Vector2(get_viewport().get_size()) - Vector2(1000, 600)) * 1.75 + Vector2(1000, 600))
-	* Vector2(.001, .001666))
+#	scale = (((Vector2(get_viewport().get_size()) - Vector2(1000, 600)) * 1.75 + Vector2(1000, 600))
+#	* Vector2(.001, .001666))
+	scale = Vector2(1.5,1.5)
 	if centered:
 		scale *= 1.2
 		$Text.modulate.a += (1 - $Text.modulate.a) * .1
 	else:
 		$Text.modulate.a = 0
+		$NinePatchRect.self_modulate.a  = 0
+	
+	$NinePatchRect.self_modulate.a  += $Text.modulate.a 
+	$NinePatchRect/Panel.self_modulate.a = $Text.modulate.a 
+	
 	if experience_count > max_experience:
 		max_experience = experience_count
+	if experience_count == -1:
+		max_experience = 0
 	$Text/Count.text = str(max_experience)
 
 func change_centered(p_centered):
@@ -78,7 +86,7 @@ func change_experience(p_exp):
 		sprite.frames = load("res://sprites/other/expframes.tres")
 
 		sprite.play("spin")
-		sprite.scale = Vector2(.7, .7)
+		sprite.scale = Vector2(.65, .65)
 		sprite.position = Vector2(direction * (28 * i + 20), -18)
 	
 	for i in range(0, experience_count % 10):

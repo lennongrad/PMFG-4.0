@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/partner_basic.png-f5b3ab6c147770169bdc961a6c9
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

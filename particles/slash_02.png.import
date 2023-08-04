@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/slash_02.png-d9996721d442b0e735cc3fe224a08818
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/diaghold.png-45636babe72715bbd4f2c559baeec0e8
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

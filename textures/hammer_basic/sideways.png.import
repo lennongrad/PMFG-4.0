@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/sideways.png-b991088c17964977b92cf64d5e536054
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

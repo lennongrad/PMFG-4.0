@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hold.png-83a063e0ab3fd4098f5e4c8eb6ed374e.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

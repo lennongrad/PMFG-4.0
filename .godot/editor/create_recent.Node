@@ -1,5 +1,6 @@
-Control
 TextureRect
+Sprite3D
+Control
 HSplitContainer
 NinePatchRect
 Node3D

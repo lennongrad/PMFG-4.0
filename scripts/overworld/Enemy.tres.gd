@@ -25,6 +25,7 @@ var player_in_bounds = false
 var state
 var chase_y = 0
 var blink_timer = 0
+var exclamation_timer = 0
 
 # for flying swooping
 var flying_target_first = Vector3.ZERO
@@ -77,6 +78,8 @@ func _physics_process(delta):
 			speed = 1.5
 			if encounter_data.flying:
 				speed = 1.5
+			if exclamation_timer > 0:
+				speed = 0
 		ENEMY_STATE.RANDOM_WALK:
 			speed = 1
 			if goalDirection.length() < .1:
@@ -139,6 +142,9 @@ func _process(_delta):
 	else:
 		$Sprite2D.visible = true
 	
+	exclamation_timer -= 1
+	$Exclamation.visible = exclamation_timer > 0
+	
 	lastTarget = target
 	match state:
 		ENEMY_STATE.RETURN_TO_ORIGIN:
@@ -171,6 +177,7 @@ func _process(_delta):
 				time_since_random = 0
 		ENEMY_STATE.HURT:
 			$Sprite2D.play("Hurt")
+			$Sprite2D.rotation_degrees.y = 0
 		ENEMY_STATE.DEATH:
 			$Sprite2D.play("Hurt")
 			deathTimer += 2
@@ -191,6 +198,7 @@ func chase_player():
 	if state == ENEMY_STATE.DEATH or state == ENEMY_STATE.RETURN_TO_ORIGIN:
 		return
 	state = ENEMY_STATE.CHASE_PLAYER
+	exclamation_timer = 20
 	
 	# for flying swooping
 	flying_target_first = player.position
@@ -255,7 +263,7 @@ func _on_NormalEncounter_area_entered(area):
 			emit_signal("encounter_triggered", self, "jump")
 
 func _on_Detection_body_entered(body):
-	if body == player:
+	if body == player and state == ENEMY_STATE.RANDOM_WALK:
 		chase_player()
 
 func _on_Detection_body_exited(body):

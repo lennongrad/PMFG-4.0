@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://8u8vygjmn473"]
+[gd_scene load_steps=18 format=3 uid="uid://8u8vygjmn473"]
 
 [ext_resource type="PackedScene" uid="uid://cn1cvpdr81sc7" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="1"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="2"]
@@ -12,10 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://j1kesg7rn8cc" path="res://textures/skyguy/balloon6.png" id="10"]
 [ext_resource type="PackedScene" uid="uid://ddxb2t13bohu" path="res://scenes/Circles.tscn" id="11"]
 [ext_resource type="Script" path="res://scripts/overworld/Enemy.tres.gd" id="12"]
+[ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="13_x28mi"]
 
 [sub_resource type="CylinderShape3D" id="1"]
-height = 0.277727
-radius = 0.222996
+height = 0.1
+radius = 0.137833
 
 [sub_resource type="SpriteFrames" id="2"]
 animations = [{
@@ -57,9 +58,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dm2vv"]
+height = 0.119079
+radius = 0.223295
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x7px1"]
-height = 19.507
-radius = 1.33855
+height = 2.56205
+radius = 1.52175
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 2
@@ -68,7 +73,7 @@ script = ExtResource("12")
 encounter_data = ExtResource("2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0549224, 0)
 shape = SubResource("1")
 
 [node name="Sprite2D" parent="." instance=ExtResource("1")]
@@ -93,7 +98,8 @@ emitting = false
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0.16, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NormalEncounter"]
-shape = SubResource("1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.077103, 0)
+shape = SubResource("CylinderShape3D_dm2vv")
 
 [node name="Detection" type="Area3D" parent="."]
 collision_layer = 0
@@ -102,6 +108,13 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474525, 0)
 shape = SubResource("CylinderShape3D_x7px1")
+
+[node name="Exclamation" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439257, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+texture = ExtResource("13_x28mi")
 
 [connection signal="area_entered" from="NormalEncounter" to="." method="_on_NormalEncounter_area_entered"]
 [connection signal="body_entered" from="Detection" to="." method="_on_Detection_body_entered"]

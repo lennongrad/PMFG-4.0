@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ew3w1ixeo74"
-path.s3tc="res://.godot/imported/diagblur.png-2b65053783b4eb51ee54abbb6230acfd.s3tc.ctex"
+path="res://.godot/imported/diagblur.png-2b65053783b4eb51ee54abbb6230acfd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://textures/hammer_basic/diagblur.png"
-dest_files=["res://.godot/imported/diagblur.png-2b65053783b4eb51ee54abbb6230acfd.s3tc.ctex"]
+dest_files=["res://.godot/imported/diagblur.png-2b65053783b4eb51ee54abbb6230acfd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

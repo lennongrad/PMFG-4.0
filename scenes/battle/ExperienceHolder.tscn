@@ -7,6 +7,9 @@
 [ext_resource type="LabelSettings" uid="uid://d2xrjlgdawtoo" path="res://fonts/small_status_setting.tres" id="4_myrp1"]
 
 [sub_resource type="FontFile" id="2"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("3")])
 face_index = null
 embolden = null
@@ -37,6 +40,9 @@ cache/0/30/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="3"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 fallbacks = Array[Font]([ExtResource("3")])
 face_index = null
 embolden = null
@@ -77,12 +83,10 @@ corner_detail = 20
 [node name="ExperienceHolder" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(1.4305, 1.16578)
+scale = Vector2(1.8, 1.8)
 script = ExtResource("2")
-experience_count = 5
 
 [node name="Text" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_left = -55.0
 offset_top = -49.0
@@ -91,12 +95,12 @@ offset_bottom = -11.0
 
 [node name="Count" type="Label" parent="Text"]
 layout_mode = 0
-offset_left = -53.6239
+offset_left = -73.6239
 offset_top = -4.72089
-offset_right = -8.62392
+offset_right = -7.6239
 offset_bottom = 29.2791
 theme_override_fonts/font = SubResource("2")
-text = "18"
+text = "140"
 label_settings = ExtResource("3_uteqr")
 horizontal_alignment = 2
 
@@ -118,6 +122,7 @@ text = "STAR POINTS"
 label_settings = ExtResource("4_myrp1")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 988)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
@@ -125,9 +130,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -36.0
-offset_bottom = -12.0
+offset_left = -90.5
+offset_top = -18.0
+offset_right = 90.5
+offset_bottom = 6.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("1")
@@ -146,11 +152,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_0cyfn")
 
 [node name="SpriteHolder" type="Control" parent="NinePatchRect/Panel"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.0347214
 offset_right = 0.965279
+grow_horizontal = 0
 grow_vertical = 0

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/trace_01.png-4df575ff56bfa26a8ba16cbba90d414c
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

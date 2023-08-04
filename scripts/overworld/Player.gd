@@ -461,7 +461,7 @@ func start_pipe():
 func _on_finished_growing():
 	after_growing = true
 	velocity.y = 6
-	velocity.x = 1
+	velocity.x = 14
 	visible = true
 
 func finished_shrinking():

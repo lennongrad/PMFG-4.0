@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/questionblock_weapon.png-20bc357900fe51a48d00
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

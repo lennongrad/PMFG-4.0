@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/scratch_01.png-77d93a0c0f08a21fd0640207f82db5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

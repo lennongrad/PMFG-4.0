@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/twirl_03.png-f035eda9c383021e9e8fd28c67ffeed6
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

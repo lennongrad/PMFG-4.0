@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/scorch_03.png-675b23e5e30bf5aadf4f8f5eb7ef593
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

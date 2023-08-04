@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/usedblock.png-ec285de624ac984dc1fbcdb4ac24150
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

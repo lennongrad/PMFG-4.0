@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/magic_03.png-5b3dff367cb494fa0b3bd06aa70b75fb
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

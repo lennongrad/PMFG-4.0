@@ -99,7 +99,8 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.4305, 1.16578)
+scale = Vector2(1.5, 1.5)
 experience_count = 0
+centered = false
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Spin_finishedSpinning"]

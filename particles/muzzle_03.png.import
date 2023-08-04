@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/muzzle_03.png-9ecea4e8fd4465f1ee18b8cbe85bd16
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

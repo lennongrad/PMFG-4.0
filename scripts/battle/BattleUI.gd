@@ -192,6 +192,7 @@ func _process(delta):
 	$Graphic.scale = Vector2(1,1) * f_size.x / 1500
 	$ActionMenu.scale = f_size * Vector2(.0008, .0013) + Vector2(.2, .1)
 	$ActionMenu/Background.texture_offset += Vector2(1, 1) * .5
+	$CanSwitch.visible = $"..".can_switch_partner()
 	
 	recentMovement += 1
 	match state:
@@ -208,8 +209,9 @@ func _process(delta):
 					rotate_left()
 					recentMovement = 0
 				if Input.is_action_just_pressed("spin"):
-					$"..".switch_partner_first()
-					recentMovement = -20
+					if $"..".can_switch_partner():
+						$"..".switch_partner_first()
+						recentMovement = -20
 				if Input.is_action_just_pressed("jump"):
 					load_actions(currentChoices[currentSelection])
 					recentMovement = -10
@@ -271,6 +273,7 @@ func _process(delta):
 			$Projector.modulate.a -= $Projector.modulate.a * .2
 			$ActionMenu.modulate.a -= $ActionMenu.modulate.a * .2
 		UIState.STATE_HIDE:
+			$CanSwitch.visible = false
 			$Projector.modulate.a -= $Projector.modulate.a * .2
 			$Graphic.modulate.a -= $Graphic.modulate.a * .2
 			$ActionMenu.modulate.a -= $ActionMenu.modulate.a * .2

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/exp4.png-798f123705846ce319d5e9f881fafe48.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

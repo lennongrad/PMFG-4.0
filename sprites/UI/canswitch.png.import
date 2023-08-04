@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb681bnbn7umj"
-path="res://.godot/imported/4.png-0a60338bd8d3d25a9955e8baa24fc046.ctex"
+uid="uid://dto4dwitljl50"
+path="res://.godot/imported/canswitch.png-d4544895654e51967cd21a012e5738fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://font/4.png"
-dest_files=["res://.godot/imported/4.png-0a60338bd8d3d25a9955e8baa24fc046.ctex"]
+source_file="res://sprites/UI/canswitch.png"
+dest_files=["res://.godot/imported/canswitch.png-d4544895654e51967cd21a012e5738fd.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=1
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

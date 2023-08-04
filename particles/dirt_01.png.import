@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7tsvo2a3oybl"
-path.s3tc="res://.godot/imported/dirt_01.png-6198d724324b7e81e3d70a96c5f6a507.s3tc.ctex"
+path="res://.godot/imported/dirt_01.png-6198d724324b7e81e3d70a96c5f6a507.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://particles/dirt_01.png"
-dest_files=["res://.godot/imported/dirt_01.png-6198d724324b7e81e3d70a96c5f6a507.s3tc.ctex"]
+dest_files=["res://.godot/imported/dirt_01.png-6198d724324b7e81e3d70a96c5f6a507.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

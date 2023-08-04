@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/questionblock_badge.png-926b16218db807a1c0a5e
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
