@@ -54,3 +54,10 @@ res://scenes/battle/BattleTag.tscn
 res://scripts/battle/mario_states/mario_state_idle.gd
 res://scripts/overworld/Camera.gd
 res://scripts/FeedbackParticle.gd
+res://scenes/overworld/stages/stage2.tscn
+res://scripts/overworld/Overworld.gd
+res://scenes/overworld/stages/stage1.tscn
+res://scenes/overworld/Partner.tscn
+res://scenes/overworld/stages/stage2.gdshader
+res://scenes/overworld/BorderMesh.tscn
+res://scripts/overworld/BorderGenerator.gd

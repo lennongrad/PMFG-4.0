@@ -57,8 +57,18 @@ func _physics_process(delta):
 	
 	var goalDirection = Vector2(target.x, target.z) - Vector2(global_transform.origin.x, global_transform.origin.z)
 	if timeSinceRest > 300 or position.y < -1:
-		position = target
-		position.y += .1
+		var space = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(target, target - Vector3(0,1,0))
+		var collision = space.intersect_ray(query)
+		
+		if collision:
+			position = target
+			position.y += .1
+		else:
+			visible = false
+	else:
+		visible = true
+	
 	if goalDirection.length() > 0.15 or (spriteRotation != 0 and spriteRotation != 180):
 		timeSinceWalk = 0
 		if goalDirection.length() > 1.5:

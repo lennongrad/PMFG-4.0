@@ -129,7 +129,10 @@ func on_reset(did_win):
 		encountered_enemy.run_away()
 
 func get_water_level():
-	return $Stage/Water.global_position.y
+	var water = get_node_or_null("Stage/Water")
+	if water == null:
+		return 0
+	return water.global_position.y
 
 func start_exit():
 	is_exiting = true

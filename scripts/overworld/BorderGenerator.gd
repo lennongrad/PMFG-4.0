@@ -27,33 +27,44 @@ func updateSecondary(newSecondary):
 	if not has_node("SecondaryMesh"):
 		return
 	$SecondaryMesh.material_override.albedo_texture = secondaryTexture
+#	$TopMesh.material_override.albedo_texture = secondaryTexture
 
 func updateSize(newSize):
 	if not has_node("MainMesh"):
 		return
 	size = newSize
 	
+	$CollisionShape3D.shape = BoxShape3D.new()
+	$CollisionShape3D.shape.size = newSize
+	
 	$MainMesh.material_override = StandardMaterial3D.new()
 	$MainMesh.material_override.albedo_texture = mainTexture
 	$MainMesh.mesh = BoxMesh.new()
-	
-	$SecondaryMesh.material_override = StandardMaterial3D.new()
-	$SecondaryMesh.material_override.albedo_texture = secondaryTexture
-	$SecondaryMesh.mesh = BoxMesh.new()
-	
-	$CollisionShape3D.shape = BoxShape3D.new()
-	$CollisionShape3D.shape.size = newSize
 	
 	$MainMesh.mesh.size = newSize
 	$MainMesh.material_override.uv1_scale.x = size.x * 2
 	$MainMesh.material_override.uv1_scale.y = size.z * 2
 	
+	$SecondaryMesh.material_override = StandardMaterial3D.new()
+	$SecondaryMesh.material_override.albedo_texture = secondaryTexture
+	$SecondaryMesh.mesh = BoxMesh.new()
+	
 	$SecondaryMesh.mesh.size = newSize
 	$SecondaryMesh.mesh.size.x += .01
 	$SecondaryMesh.mesh.size.y -= .01
 	$SecondaryMesh.mesh.size.z += .01
-	$SecondaryMesh.material_override.uv1_scale.x = size.x * 2
-	$SecondaryMesh.material_override.uv1_scale.y = size.z * 2
+	$SecondaryMesh.material_override.uv1_scale.x = max(size.x, size.z) * 2
+	$SecondaryMesh.material_override.uv1_scale.y = size.y * 2
+	
+#	$TopMesh.material_override = StandardMaterial3D.new()
+#	$TopMesh.material_override.albedo_texture = secondaryTexture
+#	$TopMesh.mesh = BoxMesh.new()
+#
+#	$TopMesh.mesh.size = newSize
+#	$TopMesh.mesh.size.y = .1
+#	$TopMesh.position.y = newSize.y/2
+#	$TopMesh.material_override.uv1_scale.x = size.x * 2
+#	$TopMesh.material_override.uv1_scale.y = size.z * 2
 	
 	updateBorders(borderTexture)
 

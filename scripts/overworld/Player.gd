@@ -22,7 +22,11 @@ var over_pipe = false
 var original_sprite_y = .376
 var jump_timer = 0
 
-enum PLAYER_STATE {CONTROL, SPINNING, HAMMER, PIPE, EXIT, ITEM, MENU}
+# manage falling off collision
+var last_ground_position = []
+var down_timer = 0
+
+enum PLAYER_STATE {CONTROL, SPINNING, HAMMER, PIPE, EXIT, ITEM, MENU, DOWN}
 var state = PLAYER_STATE.CONTROL
 
 var spin_timer = 0
@@ -45,6 +49,7 @@ var after_growing = false
 func _ready():
 	update_hammer(get_node("/root/MarioRun").get_equipped_hammer().type)
 	original_sprite_y = $AnimatedSprite3D.position.y
+	last_ground_position.append(position)
 
 func do_wall_slide():
 	if !is_on_wall():
@@ -80,6 +85,13 @@ func _physics_process(delta):
 			position.x = pipe_position_exit.x
 			position.z = pipe_position_exit.z
 	
+	if position.y < -10:
+		position = last_ground_position.front()
+		state = PLAYER_STATE.DOWN
+		down_timer = 0
+		velocity = Vector3.ZERO
+		return
+	
 	$WallJumpParticles.emitting = false
 	$SpinDashParticles.emitting = false
 	match state:
@@ -100,6 +112,17 @@ func _physics_process(delta):
 
 	if is_on_floor():
 		jump_timer = 0
+		
+		var space = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(global_position, global_position - Vector3(0,1,0))
+		var collision = space.intersect_ray(query)
+		if collision:
+			if ((position - last_ground_position.back()).length() > .2):
+				last_ground_position.append(position)
+				if last_ground_position.size() > 5:
+					last_ground_position.pop_front()
+		
+		
 		is_wall_sliding = false
 		last_height = position.y
 		over_pipe_timer += 1
@@ -257,6 +280,12 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("menu"):
 					state = PLAYER_STATE.MENU
 					$"..".open_menu()
+			PLAYER_STATE.DOWN:
+				down_timer += 1
+				$AnimatedSprite3D.play("Down")
+				$FallParticles.emitting = down_timer < 20
+				if down_timer > 50:
+					state = PLAYER_STATE.CONTROL
 			PLAYER_STATE.HAMMER:
 				$Hammer.visible = true
 				hammer_timer += 1
