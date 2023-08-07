@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cny1wv7fvkomw"]
+
+[ext_resource type="Resource" uid="uid://bk0bg1a6row6n" path="res://stats/enemystats/enemystats_bulletbill.tres" id="1_daoky"]
+[ext_resource type="Script" path="res://stats/enemyencounter/enemyencounter.gd" id="2_20t84"]
+
+[resource]
+script = ExtResource("2_20t84")
+enemies = [ExtResource("1_daoky"), ExtResource("1_daoky"), ExtResource("1_daoky")]
+flying = false
+swimming = false
+fly_level = 0.0
+attributes = {}

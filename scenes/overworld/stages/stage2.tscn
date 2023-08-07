@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2u55pjoogue4"]
+[gd_scene load_steps=24 format=3 uid="uid://b2u55pjoogue4"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_tlrx1"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_n7yin"]
@@ -10,10 +10,12 @@
 [ext_resource type="Shader" path="res://scenes/overworld/stages/stage2.gdshader" id="13_0lxiu"]
 [ext_resource type="Resource" path="res://stats/boots/super.tres" id="13_nenmo"]
 [ext_resource type="Texture2D" uid="uid://bp6c1s1ishabq" path="res://textures/disp.png" id="14_4yqi8"]
+[ext_resource type="PackedScene" uid="uid://cxeeh68d8wbju" path="res://scenes/overworld/bridge.tscn" id="14_x4426"]
 [ext_resource type="Texture2D" uid="uid://ur74821ssoik" path="res://textures/clouds2.png" id="15_51l3e"]
 [ext_resource type="Texture2D" uid="uid://dh21jf6km2m1c" path="res://textures/clouds.png" id="15_nkyn2"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="16_r0wep"]
-[ext_resource type="Texture2D" uid="uid://t88yfifpfdu5" path="res://textures/wood/woodplank.png" id="17_u0nrc"]
+[ext_resource type="PackedScene" uid="uid://cuhn7pd7u8ihd" path="res://scenes/overworld/EnemySpawnerBill.tscn" id="17_euy6d"]
+[ext_resource type="Resource" uid="uid://cny1wv7fvkomw" path="res://stats/enemyencounter/enemyencounter_bills.tres" id="18_psyi8"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="20_ulo0e"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="21_e7n7h"]
 
@@ -64,17 +66,6 @@ size = Vector2(200, 100)
 subdivide_width = 20
 subdivide_depth = 20
 
-[sub_resource type="StandardMaterial3D" id="7"]
-albedo_texture = ExtResource("17_u0nrc")
-uv1_scale = Vector3(9.162, 1.75, 1)
-uv1_offset = Vector3(0.429, 0.206, 0)
-
-[sub_resource type="BoxMesh" id="8"]
-size = Vector3(2, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="9"]
-size = Vector3(2, 0.1, 1)
-
 [node name="Stage" type="Marker3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_tlrx1")
@@ -100,6 +91,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670864, 1.05339, 0.011405
 encounter_data = ExtResource("7_qhto5")
 size = Vector3(3.925, 3.005, 6.055)
 battle_background = ExtResource("8_qnt7l")
+
+[node name="EnemySpawnerBill" parent="EnemySpawners" instance=ExtResource("17_euy6d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8692, 1.36166, 1.12499)
+encounter_data = ExtResource("18_psyi8")
+battle_background = ExtResource("8_qnt7l")
+preload_amount = 5
+velocity_x = 1.75
+enemy_wait = 150
 
 [node name="CoinRows" type="Node3D" parent="."]
 
@@ -151,40 +150,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8784, -5.65615, -2.71448)
 size = Vector3(1.25, 15, 1)
 
 [node name="RightWalk5" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8104, -1.07728, -1.6271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8104, -1.39191, -1.6271)
 size = Vector3(1, 5, 1.5)
 
 [node name="RightWalk3" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.567, -6.5, -1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.52792, -6.5, -1)
 size = Vector3(4, 15, 2)
 
 [node name="RightWalk2" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.904, -5.07381, -1.50451)
 size = Vector3(3, 15, 3)
 
-[node name="SmallBridge" type="MeshInstance3D" parent="MainPlatforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50725, 0.907578, -0.994)
-material_override = SubResource("7")
-mesh = SubResource("8")
-skeleton = NodePath("../..")
+[node name="SmallBridge" parent="MainPlatforms" instance=ExtResource("14_x4426")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MainPlatforms/SmallBridge"]
-collision_layer = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MainPlatforms/SmallBridge/StaticBody3D"]
-shape = SubResource("9")
-
-[node name="SmallBridge2" type="MeshInstance3D" parent="MainPlatforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50955, 0.907578, -0.994)
-material_override = SubResource("7")
-mesh = SubResource("8")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MainPlatforms/SmallBridge2"]
-collision_layer = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MainPlatforms/SmallBridge2/StaticBody3D"]
-shape = SubResource("9")
+[node name="SmallBridge2" parent="MainPlatforms" instance=ExtResource("14_x4426")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.525, 0.908, -0.994)
 
 [node name="Decoration" type="Node3D" parent="."]
 

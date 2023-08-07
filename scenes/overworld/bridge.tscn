@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxeeh68d8wbju"]
+
+[ext_resource type="Texture2D" uid="uid://t88yfifpfdu5" path="res://textures/wood/woodplank.png" id="1_3egae"]
+
+[sub_resource type="StandardMaterial3D" id="7"]
+albedo_texture = ExtResource("1_3egae")
+uv1_scale = Vector3(9.162, 1.75, 1)
+uv1_offset = Vector3(0.429, 0.206, 0)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="9"]
+size = Vector3(2, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8idsv"]
+albedo_texture = ExtResource("1_3egae")
+uv1_scale = Vector3(3, 1, 1)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l7coo"]
+material = SubResource("StandardMaterial3D_8idsv")
+size = Vector2(2, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dllk2"]
+material = SubResource("StandardMaterial3D_8idsv")
+size = Vector2(2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvu62"]
+albedo_texture = ExtResource("1_3egae")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_23ohi"]
+material = SubResource("StandardMaterial3D_tvu62")
+size = Vector2(1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kcru"]
+albedo_texture = ExtResource("1_3egae")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gllyb"]
+material = SubResource("StandardMaterial3D_3kcru")
+size = Vector2(1, 0.1)
+
+[node name="SmallBridge" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50725, 0.907578, -0.994)
+material_override = SubResource("7")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("9")
+
+[node name="Down" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
+mesh = SubResource("PlaneMesh_l7coo")
+
+[node name="Face" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_dllk2")
+
+[node name="Face2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.05, 0)
+mesh = SubResource("PlaneMesh_dllk2")
+
+[node name="Up" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("PlaneMesh_l7coo")
+
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1, 0, 0)
+mesh = SubResource("PlaneMesh_23ohi")
+
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -1, 0, 0)
+mesh = SubResource("PlaneMesh_gllyb")

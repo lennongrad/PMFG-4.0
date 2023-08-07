@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://xi52n1wldn5o"]
+
+[ext_resource type="PackedScene" uid="uid://cn1cvpdr81sc7" path="res://scenes/overworld/SpriteHolderEnemy.tscn" id="1_q6v50"]
+[ext_resource type="Script" path="res://scripts/EnemyBill.gd" id="1_vkhue"]
+[ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2_bftit"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n1he4"]
+height = 0.1
+radius = 0.137833
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i4ck6"]
+height = 0.206815
+radius = 0.190339
+
+[node name="EnemyBill" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_vkhue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0549224, 0)
+shape = SubResource("CylinderShape3D_n1he4")
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_q6v50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0587366, 0)
+
+[node name="HurtParticles" parent="." instance=ExtResource("2_bftit")]
+
+[node name="NormalEncounter" type="Area3D" parent="."]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0.16, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NormalEncounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.077103, 0)
+shape = SubResource("CylinderShape3D_i4ck6")
+
+[connection signal="area_entered" from="NormalEncounter" to="." method="_on_normal_encounter_area_entered"]

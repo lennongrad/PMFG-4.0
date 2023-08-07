@@ -56,6 +56,8 @@ func do_wall_slide():
 		return false
 	if jump_timer <= 0:
 		return false
+	if position.y < -2:
+		return false
 	
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -437,6 +439,7 @@ func _physics_process(delta):
 						velocity = Vector3(0, 5.5, 0) + normal * 10
 						is_wall_sliding = false
 				else:
+					is_wall_sliding = false
 					if horizontalVelocity.x > 0:
 						spriteRotation = 180
 					else:

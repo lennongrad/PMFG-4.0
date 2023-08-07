@@ -61,3 +61,11 @@ res://scenes/overworld/Partner.tscn
 res://scenes/overworld/stages/stage2.gdshader
 res://scenes/overworld/BorderMesh.tscn
 res://scripts/overworld/BorderGenerator.gd
+res://scenes/overworld/bridge.tscn
+res://scenes/overworld/EnemyBill.tscn
+res://scenes/overworld/Enemy.tscn
+res://scripts/EnemyBill.gd
+res://scripts/battle/SpriteHolderEnemy.gd
+res://scripts/EnemySpawnerBill.gd
+res://scenes/overworld/EnemySpawnerBill.tscn
+res://stats/enemyencounter/enemyencounter_bills.tres

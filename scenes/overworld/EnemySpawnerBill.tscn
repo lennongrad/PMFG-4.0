@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuhn7pd7u8ihd"]
+
+[ext_resource type="Script" path="res://scripts/EnemySpawnerBill.gd" id="1_h2jl4"]
+
+[node name="EnemySpawnerBill" type="Node3D"]
+script = ExtResource("1_h2jl4")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-0.0919601, -0.193282, -0.001, 0.18392, 0.386563, 0.002)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
