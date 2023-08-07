@@ -1,118 +1,126 @@
-[gd_scene load_steps=24 format=3 uid="uid://cn1cvpdr81sc7"]
+[gd_scene load_steps=23 format=3 uid="uid://cn1cvpdr81sc7"]
 
 [ext_resource type="Texture2D" uid="uid://c8vwhk3euf7md" path="res://particles/DustUp.png" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/SpriteHolderEnemy.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://1gmo873uxptj" path="res://textures/cheepcheep/hurt2.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://841a8eytac66" path="res://textures/cheepcheep/hurt4.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://cffkibkefuiay" path="res://textures/cheepcheep/hurt3.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://ct1h4sr086qda" path="res://textures/cheepcheep/rest1.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://70xm23xw4ycp" path="res://textures/cheepcheep/hurt1.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://byrpxl3nwmggv" path="res://textures/cheepcheep/rest2.png" id="8"]
-[ext_resource type="Texture2D" uid="uid://bv3g1ioa2lcvq" path="res://textures/cheepcheep/rest3.png" id="9"]
-[ext_resource type="Texture2D" uid="uid://blln3up1k3ahw" path="res://textures/cheepcheep/jump2.png" id="10"]
-[ext_resource type="Texture2D" uid="uid://b7qq637c6nej1" path="res://textures/cheepcheep/run1.png" id="11"]
-[ext_resource type="Texture2D" uid="uid://b65rhjumutoxo" path="res://textures/cheepcheep/run2.png" id="12"]
-[ext_resource type="Texture2D" uid="uid://b8o06ek8xrfxo" path="res://textures/cheepcheep/rise1.png" id="13"]
-[ext_resource type="Texture2D" uid="uid://78im02pxnu5q" path="res://textures/cheepcheep/rise2.png" id="14"]
-[ext_resource type="Texture2D" uid="uid://c3uvkikuiht6s" path="res://textures/cheepcheep/jump1.png" id="15"]
-[ext_resource type="Texture2D" uid="uid://dmh68uj466gfe" path="res://textures/cheepcheep/jump3.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://m2k3a5y5rueh" path="res://textures/bulletbill/bulletbill.png" id="2_vn3bh"]
 
-[sub_resource type="SpriteFrames" id="1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_htgex"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odk5"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oasug"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruts3"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh26v"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtvi"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd2wa"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ba8c"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veu5v"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h1xn"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qwa"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckqqc"]
+atlas = ExtResource("2_vn3bh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1ebj"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("15")
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_htgex")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16")
-}],
-"loop": true,
-"name": &"Fall",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7")
+"texture": SubResource("AtlasTexture_0odk5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3")
+"texture": SubResource("AtlasTexture_oasug")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5")
+"texture": SubResource("AtlasTexture_ruts3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4")
-}],
-"loop": true,
-"name": &"Hurt",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15")
+"texture": SubResource("AtlasTexture_kh26v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10")
+"texture": SubResource("AtlasTexture_ruts3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djtvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ba8c")
 }],
 "loop": false,
-"name": &"Jump",
+"name": &"Attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_veu5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h1xn")
+}],
+"loop": true,
+"name": &"Dying",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6")
+"texture": SubResource("AtlasTexture_p1qwa")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_ckqqc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8")
+"texture": SubResource("AtlasTexture_dd2wa")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_8ba8c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9")
+"texture": SubResource("AtlasTexture_dd2wa")
 }],
 "loop": true,
 "name": &"Rest",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14")
-}],
-"loop": true,
-"name": &"Rise",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 12.0
+"speed": 5.0
 }]
 
 [sub_resource type="CylinderMesh" id="2"]
@@ -160,9 +168,11 @@ layers = 1025
 cast_shadow = 0
 alpha_cut = 1
 texture_filter = 0
-sprite_frames = SubResource("1")
-animation = &"Fall"
-frame = 1
+sprite_frames = SubResource("SpriteFrames_r1ebj")
+animation = &"Attack"
+autoplay = "Rest"
+frame = 8
+frame_progress = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatedSprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0626183, -0.152596, 0.00163472)

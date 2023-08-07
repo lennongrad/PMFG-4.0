@@ -1,9 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://bnnpynq8x6hsv"]
+[gd_resource type="SpriteFrames" load_steps=75 format=3 uid="uid://bnnpynq8x6hsv"]
 
 [ext_resource type="Texture2D" uid="uid://dtvr2svqhd6mf" path="res://textures/mario/battlefall.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bvsd85o11vcr6" path="res://textures/mario/airhorizontalrise.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bwhbi1uhbcwq8" path="res://textures/mario/hammerpreparation2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://c6oibhi2bm203" path="res://textures/mario/skip.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://q5bjmta2se4t" path="res://textures/mario/burnt.png" id="4_q5ibc"]
 [ext_resource type="Texture2D" uid="uid://k8oq67hk2hb8" path="res://textures/mario/stomp.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://eye36ujimyqc" path="res://textures/mario/spin.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://bcj1m5rpd88ta" path="res://textures/mario/holdhammer2.png" id="7"]
@@ -41,6 +42,14 @@
 [ext_resource type="Texture2D" uid="uid://fiyj1df230dg" path="res://textures/mario/down3.png" id="39"]
 [ext_resource type="Texture2D" uid="uid://ciiu4wl8x40e4" path="res://textures/mario/lookdown.png" id="40"]
 [ext_resource type="Texture2D" uid="uid://bq1jobyp1jqae" path="res://textures/mario/walljump.png" id="41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq0dn"]
+atlas = ExtResource("4_q5ibc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dta36"]
+atlas = ExtResource("4_q5ibc")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="15"]
 atlas = ExtResource("12")
@@ -186,6 +195,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"Blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq0dn")
+}],
+"loop": true,
+"name": &"BurnDodge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dta36")
+}],
+"loop": true,
+"name": &"BurnHurt",
 "speed": 5.0
 }, {
 "frames": [{

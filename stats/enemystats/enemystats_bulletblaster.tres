@@ -1,0 +1,136 @@
+[gd_resource type="Resource" load_steps=18 format=3 uid="uid://b6ejboa2m544p"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_muw4s"]
+[ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2_xxbrr"]
+[ext_resource type="Texture2D" uid="uid://m2k3a5y5rueh" path="res://textures/bulletbill/bulletbill.png" id="3_mfk7r"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="4_ggsau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htgex"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odk5"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh26v"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruts3"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oasug"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djtvi"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd2wa"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ba8c"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veu5v"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h1xn"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qwa"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckqqc"]
+atlas = ExtResource("3_mfk7r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xefnv"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_htgex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh26v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruts3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oasug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djtvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ba8c")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_veu5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h1xn")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qwa")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_ckqqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2wa")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_8ba8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2wa")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("4_ggsau")
+health = 2
+frames = SubResource("SpriteFrames_xefnv")
+name = "Bullet Bill"
+attacks = [ExtResource("2_xxbrr")]
+firstStrikeAttack = ExtResource("2_xxbrr")
+height = 0.32
+flying = false
+experience = 20
+atlas = ExtResource("1_muw4s")
+tattle_description = "HP: 2. Metallic meanies. They lack a sense of self-preservation."
+attributes = {}

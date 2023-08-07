@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5kx5pompedrb"
-path.s3tc="res://.godot/imported/circle_04.png-d9ebc03fc2b065cd1be3aaf3c1c95c17.s3tc.ctex"
+uid="uid://m2k3a5y5rueh"
+path="res://.godot/imported/bulletbill.png-7ef3e4f9615daf3648836cc57620fea1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://particles/circle_04.png"
-dest_files=["res://.godot/imported/circle_04.png-d9ebc03fc2b065cd1be3aaf3c1c95c17.s3tc.ctex"]
+source_file="res://textures/bulletbill/bulletbill.png"
+dest_files=["res://.godot/imported/bulletbill.png-7ef3e4f9615daf3648836cc57620fea1.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=1
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

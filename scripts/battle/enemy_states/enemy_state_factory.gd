@@ -6,13 +6,15 @@ func _init():
 	states = {
 		"idle": EnemyIdleState,
 		"jumpattack": EnemyJumpattackState,
+		"chargedie": EnemyChargedieState,
 		"walkto": EnemyWalktoState,
 		"walkback": EnemyWalkbackState,
+		"selfdestruct": EnemySelfDestructState,
 		"down": EnemyDownState,
+		"dying": EnemyDyingState,
 		"slingshot": EnemySlingshotState,
-		"transforming": EnemyTransformingState,
-		"dying": EnemyDyingState
-}
+		"transforming": EnemyTransformingState
+		}
 
 func get_state(state_name):
 	if states.has(state_name):

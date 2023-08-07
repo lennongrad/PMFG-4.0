@@ -10,7 +10,7 @@ func start_nice(direction):
 	else:
 		$Nice.rotation_degrees.y = 0
 	$Nice.emitting = true
-	nice_timer = 6
+	nice_timer = 3
 
 func start_miss(direction):
 	if direction == -1:
@@ -18,7 +18,7 @@ func start_miss(direction):
 	else:
 		$Miss.rotation_degrees.y = 0
 	$Miss.emitting = true
-	miss_timer = 6
+	miss_timer = 3
 
 func start_good(direction):
 	if direction == -1:
@@ -26,7 +26,7 @@ func start_good(direction):
 	else:
 		$Good.rotation_degrees.y = 0
 	$Good.emitting = true
-	good_timer = 6
+	good_timer = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

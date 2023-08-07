@@ -22,7 +22,7 @@ extends CharacterBody3D
 var health
 var setToDie = false
 
-var state 
+var state
 var battleTag
 var state_factory
 var slingshotVelocity = Vector3()
@@ -34,29 +34,30 @@ var currentlyTransforming = false
 var is_in_water
 var experience_remaining = 0
 var dodging = 0
+var defeat_self = false
 
 var randomStartTimer = Timer.new()
 
 func _ready():
-	randomize() 
+	randomize()
 	animated_sprite.set_frames(stats.frames)
 	animated_sprite.play("Rest")
-	
+
 	experience_remaining = stats.experience
-	
+
 	if stats.flying:
 		homePosition.y += .75
 	position = homePosition
-	
+
 	state_factory = EnemyStateFactory.new()
 	change_state("idle")
-	
+
 	battleTag = load("res://scenes/battle/BattleTag.tscn").instantiate()
 	battleTag.set_name("battleTag")
 	$"..".call_deferred("add_child", battleTag)
-	
+
 	health = stats.health
-	
+
 	currentAttack = randi() % stats.attacks.size()
 
 # Input code was placed here for tutorial purposes.
@@ -84,8 +85,8 @@ func get_current_attack():
 	else:
 		return stats.attacks[currentAttack]
 
-func register_damage(target, damage, effectiveness):
-	$"..".register_damage(target, damage, effectiveness)
+func register_damage(target, damage, effectiveness, showHurt = {}):
+	$"..".register_damage(target, damage, effectiveness, showHurt)
 	if effectiveness == "NICE":
 		lastDodgeSuccessful = true
 	else:
@@ -113,7 +114,7 @@ func firstStrike():
 	currentAttack = -1
 	progress_attack()
 
-func take_damage(damage, effectiveness):
+func take_damage(damage, effectiveness, attributes):
 	match effectiveness:
 		"NICE":
 			$FeedbackParticle.start_nice(1)
@@ -123,8 +124,8 @@ func take_damage(damage, effectiveness):
 			return
 		"GOOD":
 			$FeedbackParticle.start_good(1)
-	
-	hurt()
+
+	hurt(attributes)
 	var starDamageDisplay = load("res://scenes/battle/StarDamageDisplay.tscn").instantiate()
 	starDamageDisplay.set_name("battleTag")
 	starDamageDisplay.flipped = false
@@ -132,22 +133,24 @@ func take_damage(damage, effectiveness):
 	starDamageDisplay.scale = Vector3(.1,.1,1)
 	add_child(starDamageDisplay)
 	health -= damage
-	
-	if health <= 0:
-		setToDie = true
-	return setToDie
+
+	return health <= 0
 
 func death_check():
-	if setToDie:
+	if health <= 0:
 		die()
+		return true
 	elif health != stats.health and stats.attributes.has("transform_into"):
 		start_transformation()
+	return false
 
 # this whole situation sucks.
 func die():
-	currentlyDying = true
-	change_state("dying")
-	battleTag.queue_free()
+	if not currentlyDying:
+		currentlyDying = true
+		change_state("dying")
+		if battleTag != null:
+			battleTag.queue_free()
 
 func start_transformation():
 	currentlyTransforming = true
@@ -166,7 +169,7 @@ func transform_to_enemy():
 func in_water():
 	return is_in_water
 
-func hurt():
+func hurt(_attributes):
 	$HurtParticles.play()
 	$HurtParticles2.play()
 
@@ -188,7 +191,7 @@ func _on_Area_area_entered(area):
 
 func _on_SlingshotArea_area_entered(area):
 	state.slingshot_area_body_entered(area)
-	
+
 func _on_area_3d_body_entered(body):
 	state.area_body_entered(body)
 

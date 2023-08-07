@@ -34,13 +34,12 @@ debug = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 1.303, 0.9, 1.58081)
 current = true
-fov = 89.1
-near = 0.067
+fov = 92.0
 script = ExtResource("4_ngmgf")
 
 [node name="BasePosition" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.303, 0.9, 1.911)
-fov = 81.4
+transform = Transform3D(1, 0, 0, 0, 0.992546, 0.121869, 0, -0.121869, 0.992546, 1.303, 0.9, 1.58081)
+fov = 65.5
 
 [node name="Mario" parent="." instance=ExtResource("3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37699, 0.0323859, -0.431132)

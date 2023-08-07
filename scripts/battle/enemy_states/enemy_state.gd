@@ -12,7 +12,6 @@ var partner
 var camera
 var floorMesh
 var particles
-var particles2
 
 # Writing _delta instead of delta here prevents the unused variable warning.
 func _physics_process(_delta):
@@ -38,6 +37,7 @@ func setup(p_change_state, p_progress_attack, p_persistent_state, p_mario, p_par
 	self.mario = p_mario
 	self.partner = p_partner
 	self.floorMesh = p_floorMesh
+	self.particles = persistent_state.get_node("MoveParticles")
 
 func area_body_entered(_body):
 	pass

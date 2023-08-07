@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cc6e8hf8dein5"]
+[gd_scene load_steps=42 format=3 uid="uid://cc6e8hf8dein5"]
 
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://bk0bg1a6row6n" path="res://stats/enemystats/enemystats_bulletbill.tres" id="2_nxovo"]
@@ -19,9 +19,6 @@
 [ext_resource type="Texture2D" path="res://sprites/other/exp_animated.tres" id="17"]
 [ext_resource type="Script" path="res://scripts/battle/HurtParticles.gd" id="18"]
 [ext_resource type="Texture2D" uid="uid://bwsehqencn05g" path="res://sprites/UI/itemacbk.png" id="19"]
-[ext_resource type="Texture2D" uid="uid://bkasvme0l2bm3" path="res://particles/circle_05.png" id="20_03vrl"]
-[ext_resource type="Texture2D" uid="uid://cvfvtm847tucm" path="res://particles/smoke_02.png" id="20_6l71x"]
-[ext_resource type="Texture2D" uid="uid://d3gcdwhn2vafe" path="res://particles/smoke_07.png" id="21_alj8c"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -109,7 +106,7 @@ animations = [{
 }]
 
 [sub_resource type="Curve" id="7"]
-_data = [Vector2(0.031579, 0.105263), 0.0, 0.0, 0, 0, Vector2(0.684211, 0.810526), 1.07143, 1.07143, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.753409), 0.0, 0.0, 0, 0, Vector2(0.515957, 0.944318), 0.0, 0.0, 0, 0, Vector2(1, 0.298864), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="8"]
@@ -195,105 +192,16 @@ radius = 0.162876
 radius = 0.0395126
 height = 0.307789
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l0kij"]
-gravity = Vector3(0, -0.2, 0)
-initial_velocity_min = 0.3
-initial_velocity_max = 0.4
-scale_min = 0.1
-scale_max = 0.1
-scale_curve = SubResource("8")
-color = Color(1, 1, 1, 0.462745)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qs5bv"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("20_6l71x")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_1b1qy"]
-material = SubResource("StandardMaterial3D_qs5bv")
-size = Vector2(3, 3)
-
-[sub_resource type="Curve" id="Curve_hfxbh"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_hj01g"]
-curve = SubResource("Curve_hfxbh")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4tlfm"]
-particle_flag_rotate_y = true
-spread = 180.0
-gravity = Vector3(0, -0.2, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 2.4
-angular_velocity_min = 100.0
-angular_velocity_max = 300.0
-scale_min = 0.05
-scale_max = 0.15
-scale_curve = SubResource("CurveTexture_hj01g")
-color = Color(1, 1, 1, 0.462745)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khlvn"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("21_alj8c")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_y6og5"]
-material = SubResource("StandardMaterial3D_khlvn")
-size = Vector2(3, 3)
-
-[sub_resource type="Gradient" id="Gradient_ifmux"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s12yh"]
-gradient = SubResource("Gradient_ifmux")
-
-[sub_resource type="CurveTexture" id="CurveTexture_1j0vh"]
-curve = SubResource("7")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3eac"]
-gravity = Vector3(0, -0.2, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_1j0vh")
-color = Color(1, 0.580392, 0.345098, 0.576471)
-color_ramp = SubResource("GradientTexture1D_s12yh")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hlqi"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("20_03vrl")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_7me03"]
-material = SubResource("StandardMaterial3D_3hlqi")
-size = Vector2(3, 3)
-
 [node name="Enemy_Battle" type="CharacterBody3D"]
 collision_layer = 32
 collision_mask = 48
 script = ExtResource("3")
 stats = ExtResource("2_nxovo")
+guarding = null
+is_idle = null
+isSelected = null
 
 [node name="Sprite2D" parent="." instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, -0.0490286)
 
 [node name="Balloons" type="Marker3D" parent="Sprite2D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0354983, 0)
@@ -355,7 +263,7 @@ process_material = SubResource("20")
 draw_pass_1 = SubResource("22")
 
 [node name="FeedbackParticle" parent="." instance=ExtResource("16")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17877, 0.131105, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0882893, 0.0474239, 0)
 
 [node name="SlingshotAmmo" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125341, 0.230981, 0.0563395)
@@ -391,32 +299,6 @@ shape = SubResource("25")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16376, 0)
 shape = SubResource("CapsuleShape3D_lokhw")
-
-[node name="MoveParticles" type="Node3D" parent="."]
-
-[node name="BillTrail" type="GPUParticles3D" parent="MoveParticles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179285, 0.339213, -0.0918391)
-emitting = false
-amount = 256
-lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_l0kij")
-draw_pass_1 = SubResource("QuadMesh_1b1qy")
-
-[node name="ExplosionSmoke" type="GPUParticles3D" parent="MoveParticles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179285, 0.339213, -0.0918391)
-emitting = false
-amount = 128
-lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_4tlfm")
-draw_pass_1 = SubResource("QuadMesh_y6og5")
-
-[node name="ExplosionOrange" type="GPUParticles3D" parent="MoveParticles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179285, 0.339213, -0.0918391)
-emitting = false
-amount = 1
-lifetime = 0.3
-process_material = SubResource("ParticleProcessMaterial_s3eac")
-draw_pass_1 = SubResource("QuadMesh_7me03")
 
 [connection signal="area_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_SlingshotArea_area_entered"]
 [connection signal="body_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_slingshot_area_body_entered"]

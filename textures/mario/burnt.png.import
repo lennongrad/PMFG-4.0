@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5kx5pompedrb"
-path.s3tc="res://.godot/imported/circle_04.png-d9ebc03fc2b065cd1be3aaf3c1c95c17.s3tc.ctex"
+uid="uid://q5bjmta2se4t"
+path="res://.godot/imported/burnt.png-760cc27064b7f63850e6b93875e24ff8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://particles/circle_04.png"
-dest_files=["res://.godot/imported/circle_04.png-d9ebc03fc2b065cd1be3aaf3c1c95c17.s3tc.ctex"]
+source_file="res://textures/mario/burnt.png"
+dest_files=["res://.godot/imported/burnt.png-760cc27064b7f63850e6b93875e24ff8.ctex"]
 
 [params]
 
-compress/mode=2
-compress/high_quality=false
+compress/mode=1
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

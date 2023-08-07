@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ch2x06tr80k8"]
+
+[ext_resource type="Script" path="res://stats/enemyattack/enemyattack.gd" id="1_fku66"]
+
+[resource]
+script = ExtResource("1_fku66")
+steps = ["chargedie", "selfdestruct"]
+attributes = {}

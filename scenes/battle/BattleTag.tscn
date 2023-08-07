@@ -21,7 +21,7 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [node name="BattleTag" type="Control"]
-modulate = Color(1, 1, 1, 6.73999e-08)
+modulate = Color(1, 1, 1, 1.226e-06)
 layout_mode = 3
 anchor_left = -0.005
 anchor_right = 0.005

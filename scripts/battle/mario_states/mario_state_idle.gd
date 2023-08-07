@@ -8,6 +8,10 @@ func _ready():
 	hero.get_node("Sprite2D").play("Rest")
 
 func _process(_delta):
+	if hero.animation_wait > 0:
+		hero.position = hero.get_home_position() + Vector3(cos(randi()) * .05,0,0)
+		return
+	
 	if not finishedTween:
 		if hero.in_water():
 			hero.get_node("Sprite2D").play("Swim")
@@ -24,12 +28,6 @@ func _process(_delta):
 	if differenceFromHome.length() > .05:
 		interpolate_property(hero, "position", hero.get_home_position(), .5)
 		finishedTween = false
-	elif hero.get_node("DodgeParticles").isPlaying:
-		hero.get_node("Sprite2D").play("Guard")
-		hero.position = hero.get_home_position() + Vector3(cos(randi()) * .05,0,0)
-	elif hero.get_node("HurtParticles").isPlaying:
-		hero.get_node("Sprite2D").play("Hurt")
-		hero.position = hero.get_home_position() + Vector3(cos(randi()) * .05,0,0)
 	elif hero.is_idle and hero.is_selected_teammate:
 		hero.get_node("Sprite2D").play("Think")
 	else:

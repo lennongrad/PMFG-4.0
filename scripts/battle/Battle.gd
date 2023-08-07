@@ -18,6 +18,7 @@ var wasFirstStrike = false
 var partnerAction = false
 var partnerFirst = false
 var experience_waiting = 0
+var battle_wait = 0
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
@@ -67,7 +68,7 @@ func _process(_delta):
 		for enemy in enemies:
 			if not enemy.can_continue():
 				continueAttacks = false
-			elif enemy.setToDie:
+			elif enemy.death_check():
 				enemy.queue_free()
 				deadEnemies.append(enemy)
 		for enemy in deadEnemies:
@@ -79,6 +80,15 @@ func _process(_delta):
 			else:
 				next_enemy_turn(30)
 			waitingForEnemyDeath = false
+	
+	if enemies.size() == 0:
+		battle_wait += 1
+		if battle_wait == 75:
+			$Mario.play_victory_pose()
+			$Partner.play_victory_pose()
+			battle_over = true
+			battle_won = true
+	
 	if battle_over:
 		if not $Mario.is_victory_posing and not $Spin.isPlaying:
 			finish_battle()
@@ -87,8 +97,8 @@ func _process(_delta):
 	if enemySetAttackTimer == 0:
 		enemySetToAttack.attack()
 	
-	var viewport_size = (get_viewport().get_visible_rect().size.x - 1000) / 2000
-	$BasePosition.position = original_base_position + Vector3(viewport_size,0,0)
+	var viewport_size = (get_viewport().get_visible_rect().size.x - 1000) / 1000
+	$BasePosition.position = original_base_position + Vector3(viewport_size * .5,0,-viewport_size * .4)
 
 func enemy_select_left():
 	enemies[selectedEnemy].isSelected = false
@@ -114,8 +124,8 @@ func end_enemy_select():
 	enemies[selectedEnemy].isSelected = false
 	selectedEnemy = -1
 
-func register_damage(target, damage, effectiveness):
-	return target.take_damage(damage, effectiveness)
+func register_damage(target, damage, effectiveness, attributes = {}):
+	return target.take_damage(damage, effectiveness, attributes)
 
 func decrement_experience(decrease):
 	if decrease:
@@ -161,7 +171,7 @@ func finish_level_up():
 var enemySetToAttack 
 var enemySetAttackTimer = 0
 func next_enemy_turn(waitTime):
-	currentAttackingEnemy += 1
+	currentAttackingEnemy += 1			
 	if currentAttackingEnemy >= enemies.size():
 		currentAttackingEnemy = -1
 		start_mario_turn()
@@ -182,6 +192,15 @@ func switch_partner_first():
 		$BattleUI.update_choices($Mario.get_choices())
 
 func start_mario_turn():
+	var dead_enemies = []
+	for enemy in enemies:
+		enemy.is_idle = true
+		if enemy.death_check() and enemy.defeat_self:
+			dead_enemies.append(enemy)
+	for enemy in dead_enemies:
+		enemy.queue_free()
+		enemies.erase(enemy)
+	
 	if enemies.size() > 0:
 		for enemy in enemies:
 			enemy.is_idle = true
@@ -192,11 +211,6 @@ func start_mario_turn():
 		else:
 			$BattleUI.update_choices($Mario.get_choices())
 		$BattleUI.activate()
-	else:
-		$Mario.play_victory_pose()
-		$Partner.play_victory_pose()
-		battle_over = true
-		battle_won = true
 
 func finish_battle():
 	battle_over = true

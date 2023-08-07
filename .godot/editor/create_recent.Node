@@ -1,12 +1,12 @@
+MeshInstance3D
+Node3D
 TextureRect
 Sprite3D
 Control
 HSplitContainer
 NinePatchRect
-Node3D
 CollisionShape3D
 StaticBody3D
-MeshInstance3D
 SpotLight3D
 OmniLight3D
 Node

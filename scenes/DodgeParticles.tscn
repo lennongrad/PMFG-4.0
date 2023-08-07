@@ -13,12 +13,12 @@ point_count = 2
 [sub_resource type="CurveTexture" id="2"]
 curve = SubResource("1")
 
-[sub_resource type="Gradient" id="3"]
-offsets = PackedFloat32Array(0, 0.696335, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.584314, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_h648y"]
+offsets = PackedFloat32Array(0, 0.427673, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.27673, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="4"]
-gradient = SubResource("3")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dcrn4"]
+gradient = SubResource("Gradient_h648y")
 
 [sub_resource type="Curve" id="5"]
 max_value = 10.0
@@ -29,12 +29,12 @@ point_count = 2
 width = 4096
 curve = SubResource("5")
 
-[sub_resource type="ParticleProcessMaterial" id="7"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2c5k"]
 spread = 40.3
 gravity = Vector3(0, 0, 0)
 angular_velocity_curve = SubResource("2")
 scale_curve = SubResource("6")
-color_ramp = SubResource("4")
+color_ramp = SubResource("GradientTexture1D_dcrn4")
 
 [sub_resource type="StandardMaterial3D" id="8"]
 transparency = 1
@@ -91,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015712, 0.196372, 0.18604)
 emitting = false
 amount = 9
 speed_scale = 1.5
-process_material = SubResource("7")
+process_material = SubResource("ParticleProcessMaterial_f2c5k")
 draw_pass_1 = SubResource("9")
 
 [node name="Particles2" type="GPUParticles3D" parent="."]

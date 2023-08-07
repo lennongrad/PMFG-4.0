@@ -20,6 +20,7 @@ var is_idle = false
 var first_strike_active = false
 var is_in_water = false
 var level_up_waiting = false
+var animation_wait = 0
 
 func _ready():
 	$Sprite2D.frames = stats.frames_texture
@@ -81,13 +82,13 @@ func progress_attack():
 		change_state("idle")
 		$"..".hero_finished(get_current_attack().firstStrike)
 
-func take_damage(damage, effectiveness):
+func take_damage(damage, effectiveness, attributes = {}):
 	if effectiveness == "NICE":
 		$FeedbackParticle.start_nice(-1)
-		guard()
+		guard(attributes)
 	else:
 		$FeedbackParticle.start_miss(-1)
-		hurt()
+		hurt(attributes)
 	var starDamageDisplay = load("res://scenes/battle/StarDamageDisplay.tscn").instantiate()
 	starDamageDisplay.set_name("battle_tag")
 	starDamageDisplay.flipped = true
@@ -96,11 +97,23 @@ func take_damage(damage, effectiveness):
 	add_child(starDamageDisplay)
 	$"/root/MarioRun".take_damage(stats, damage)
 
-func guard():
-	$DodgeParticles.play()
+func guard(attributes):
+	var animation_shown = "Guard"
+	if attributes.has("animation"):
+		animation_shown = attributes["animation"]
+	$Sprite2D.play(animation_shown)
+	if not attributes.has("no_particles"):
+		$DodgeParticles.play()
+	animation_wait = 30
 
-func hurt():
-	$HurtParticles.play()
+func hurt(attributes):
+	var animation_shown = "Hurt"
+	if attributes.has("animation"):
+		animation_shown = attributes["animation"]
+	$Sprite2D.play(animation_shown)
+	if not attributes.has("no_particles"):
+		$HurtParticles.play()
+	animation_wait = 30
 
 func heal(heal_for):
 	var healed = $"/root/MarioRun".heal(stats, heal_for)
@@ -139,6 +152,7 @@ func finished_level_up():
 	heal($"/root/MarioRun".get_max_hp(stats))
 
 func _process(_delta):
+	animation_wait -= 1
 	$HammerLight.set_position($"../Camera3D".unproject_position(get_position()) - Vector2(75, 200))
 	$SmashLight.set_position($"../Camera3D".unproject_position(get_home_position()) - Vector2(125, 200))
 

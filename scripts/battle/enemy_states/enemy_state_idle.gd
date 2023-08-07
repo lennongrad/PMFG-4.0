@@ -2,9 +2,12 @@ extends EnemyState
 
 class_name EnemyIdleState
 var damageTimer = 0
+var hoverTimer = 0
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	self.persistent_state.animated_sprite.play("Rest")
+	hoverTimer = rng.randf_range(0, 100.0);
 
 func _process(delta):
 	self.velocity = Vector3(0,0,0)
@@ -30,7 +33,11 @@ func _process(delta):
 		self.persistent_state.get_node("Sprite2D/Balloons").unpress()
 		if self.persistent_state.attackAnimationCounter == 0:
 			self.persistent_state.animated_sprite.play("Rest")
-		self.persistent_state.animated_sprite.position = self.persistent_state.originalTranslation
+		if persistent_state.stats.attributes.has("hover"):
+			hoverTimer += 1
+			persistent_state.animated_sprite.position.y = persistent_state.originalTranslation.y + sin(hoverTimer * .04) * .04
+		else:
+			persistent_state.animated_sprite.position.y = persistent_state.originalTranslation.y
 	if not self.persistent_state.stats.attributes.has("balloons"):
 		self.persistent_state.get_node("Sprite2D/Balloons").visible = false
 	else:

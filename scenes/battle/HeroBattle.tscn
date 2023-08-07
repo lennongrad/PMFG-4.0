@@ -354,7 +354,7 @@ flip_h = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = ExtResource("3")
-animation = &"FingerWag"
+animation = &"Hurt"
 
 [node name="Particles" type="GPUParticles3D" parent="Sprite2D/AnimatedSprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, -0.05)
@@ -454,7 +454,7 @@ script = ExtResource("16")
 visible = false
 
 [node name="FeedbackParticle" parent="." instance=ExtResource("19")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.145186)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148787, 0.145186)
 
 [node name="Camera1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.99968, 0.0253046, 0, -0.0253046, 0.99968, 0.337, 0.444, 2.022)
@@ -464,7 +464,7 @@ fov = 75.5
 transform = Transform3D(1, 0, 0, 0, 0.99968, 0.0253046, 0, -0.0253046, 0.99968, -0.169524, 0.444, 1.61027)
 fov = 75.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Shadow" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.999976, -0.00698126, 0, 0.00698126, 0.999976, 0, 0, 0, 0.7, 0, 0.20871, 0)
 cast_shadow = 3
 mesh = SubResource("36")
@@ -478,7 +478,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235598, 0)
 shape = SubResource("37")
 
 [node name="DodgeParticles" parent="." instance=ExtResource("5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100163, 0.0404429, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163265, 0.244913, 0)
 
 [node name="HurtParticles" parent="." instance=ExtResource("6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428051, 0.0299648)

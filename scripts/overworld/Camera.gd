@@ -22,8 +22,8 @@ func reset_position():
 
 func _process(_delta):
 	if true:#fully_tracked:
-		position += (currently_tracking.global_position - position) * .2
-		rotation_degrees += (currently_tracking.rotation_degrees - rotation_degrees) * .2
+		position += (currently_tracking.global_position - position) * .15
+		rotation_degrees += (currently_tracking.rotation_degrees - rotation_degrees) * .15
 		cull_mask = currently_tracking.cull_mask
 		if(keep_y):
 			position.y = base_position.position.y

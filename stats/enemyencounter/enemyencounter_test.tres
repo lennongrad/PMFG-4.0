@@ -1,11 +1,11 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://5er3va3cwi1x"]
 
-[ext_resource type="Resource" uid="uid://d25u886syt27b" path="res://stats/enemystats/enemystats_testshyguy.tres" id="1_isq6q"]
+[ext_resource type="Resource" uid="uid://bk0bg1a6row6n" path="res://stats/enemystats/enemystats_bulletbill.tres" id="1_eauc1"]
 [ext_resource type="Script" path="res://stats/enemyencounter/enemyencounter.gd" id="4"]
 
 [resource]
 script = ExtResource("4")
-enemies = [ExtResource("1_isq6q")]
+enemies = [ExtResource("1_eauc1"), ExtResource("1_eauc1"), ExtResource("1_eauc1")]
 flying = false
 swimming = true
 fly_level = 0.0
