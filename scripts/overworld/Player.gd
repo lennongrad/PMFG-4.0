@@ -56,7 +56,7 @@ func do_wall_slide():
 		return false
 	if jump_timer <= 0:
 		return false
-	if position.y < -2:
+	if position.y < -5:
 		return false
 	
 	for i in range(get_slide_collision_count()):

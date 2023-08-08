@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2u55pjoogue4"]
+[gd_scene load_steps=25 format=3 uid="uid://b2u55pjoogue4"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_tlrx1"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_n7yin"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="16_r0wep"]
 [ext_resource type="PackedScene" uid="uid://cuhn7pd7u8ihd" path="res://scenes/overworld/EnemySpawnerBill.tscn" id="17_euy6d"]
 [ext_resource type="Resource" uid="uid://cny1wv7fvkomw" path="res://stats/enemyencounter/enemyencounter_bills.tres" id="18_psyi8"]
+[ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="19_ro7yq"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="20_ulo0e"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="21_e7n7h"]
 
@@ -87,9 +88,9 @@ mesh = SubResource("PlaneMesh_hivjp")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("6_8dcmp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670864, 1.05339, 0.0114056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51831, -0.522092, 3.54561)
 encounter_data = ExtResource("7_qhto5")
-size = Vector3(3.925, 3.005, 6.055)
+size = Vector3(5, 2.81, 4.08)
 battle_background = ExtResource("8_qnt7l")
 
 [node name="EnemySpawnerBill" parent="EnemySpawners" instance=ExtResource("17_euy6d")]
@@ -98,19 +99,78 @@ encounter_data = ExtResource("18_psyi8")
 battle_background = ExtResource("8_qnt7l")
 preload_amount = 5
 velocity_x = 1.75
-enemy_wait = 150
 
 [node name="CoinRows" type="Node3D" parent="."]
 
 [node name="CoinRow" parent="CoinRows" instance=ExtResource("11_7tvac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97811, 0.655979, -0.945882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70066, -0.328527, -5.46311)
+coin_count = 10
+coin_distance = Vector3(0.3, 0, 0)
+
+[node name="CoinRow4" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.58918, 1.00715, -1.06499)
+coin_count = 5
+coin_distance = Vector3(0.5, 0, 0)
+
+[node name="CoinRow5" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99762, 0.712476, -1.06499)
+coin_count = 3
+coin_distance = Vector3(0.5, -0.22, 0)
+
+[node name="CoinRow9" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27602, -0.700818, -4.21203)
+coin_count = 3
+coin_distance = Vector3(0.43, 0, 0)
+
+[node name="CoinRow10" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.42259, -0.700818, -3.71378)
+coin_count = 2
+coin_distance = Vector3(0, 0, 0.43)
+
+[node name="CoinRow11" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2569, -2.53421, -2.84336)
+coin_count = 2
+coin_distance = Vector3(0, 1, 0)
+
+[node name="CoinRow12" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.12, -3.07103, -2.84336)
+coin_count = 2
+coin_distance = Vector3(0, 1, 0)
+
+[node name="CoinRow7" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139207, 0.3288, -1.06499)
+coin_count = 3
+coin_distance = Vector3(0.5, 0.22, 0)
+
+[node name="CoinRow8" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.992149, 0.303209, -1.06499)
+coin_count = 3
+coin_distance = Vector3(0, 0.5, 0)
+
+[node name="CoinRow2" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8403, -0.481967, 0.223013)
+coin_count = 12
+coin_distance = Vector3(0.55, 0, 0)
+
+[node name="CoinRow3" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4856, 2.42864, -2.32143)
+coin_distance = Vector3(0.25, 0, 0)
+
+[node name="CoinRow6" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9731, 0.312444, -2.65285)
 coin_count = 7
-coin_distance = Vector3(0.2, 0, 0)
+coin_distance = Vector3(0, 0.4, 0)
 
 [node name="QuestionBlocks" type="Node3D" parent="."]
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("12_hs2f2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68029, 0.0813222, -5.53163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70621, 0.0813222, -5.53163)
+item_type = ExtResource("13_nenmo")
+coin_count = 3
+distance = 1.2
+
+[node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("12_hs2f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82915, -1.42385, 1.42757)
 item_type = ExtResource("13_nenmo")
 coin_count = 3
 distance = 1.2
@@ -118,19 +178,43 @@ distance = 1.2
 [node name="MainPlatforms" type="Node3D" parent="."]
 
 [node name="MainBridge" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -6.5, 0.053)
-size = Vector3(4, 15, 3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.02592, -6.5, -0.969791)
+size = Vector3(2, 15, 3)
+
+[node name="MainBridge2" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.0528, -8.2077, -2.59322)
+size = Vector3(4, 15, 6)
+
+[node name="MainBridge3" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.40639, -8.92403, 1.11301)
+size = Vector3(2, 15, 3)
+
+[node name="MainBridge4" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.7345, -2.94423, 0.163576)
+size = Vector3(1, 4, 1)
 
 [node name="WaterLedge" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.63491e-07, -0.66903, -3.44557)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.02592, -0.66903, -3.50395)
 size = Vector3(3, 2, 2)
 
+[node name="WaterLedge4" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8161, -0.629441, -1.32672)
+size = Vector3(2.5, 2, 1.5)
+
+[node name="WaterLedge5" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.52877, -1.13021, -1.26225)
+size = Vector3(2.5, 2, 1.5)
+
 [node name="WaterLedge2" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.31096, -0.83738, -5.53468)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.33688, -0.83738, -5.53468)
 size = Vector3(1, 1, 4)
 
+[node name="WaterLedge6" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.92132, -7.9317, -5.49553)
+size = Vector3(1, 15, 1)
+
 [node name="WaterLedge3" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.65007, -4.95609, -5.53468)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.67599, -4.95609, -5.53468)
 size = Vector3(2, 10, 2)
 
 [node name="RightWalk" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
@@ -138,40 +222,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -6.5, -1)
 size = Vector3(4, 15, 2)
 
 [node name="RightWalk4" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57242, 0.717902, -1.06409)
-size = Vector3(1.5, 1, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57242, -0.0943846, -1.09113)
+size = Vector3(1.5, 1.2, 1.25)
 
 [node name="RightWalk6" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57242, -0.319125, -0.927956)
-size = Vector3(5, 1, 1.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78147, -6.51789, -0.533874)
+size = Vector3(7, 12, 2.4)
+
+[node name="RightWalk10" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6159, -7.00613, -2.20472)
+size = Vector3(3, 12, 1)
 
 [node name="RightWalk7" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8784, -5.65615, -2.71448)
-size = Vector3(1.25, 15, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3889, -7.40193, -2.714)
+size = Vector3(2.195, 15, 2.29)
+
+[node name="RightWalk9" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8784, 2.32623, -2.71448)
+size = Vector3(1.25, 2, 1)
 
 [node name="RightWalk5" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8104, -1.39191, -1.6271)
-size = Vector3(1, 5, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8104, -4.39128, -1.8806)
+size = Vector3(1, 10, 3)
 
 [node name="RightWalk3" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.52792, -6.5, -1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.55385, -6.5, -1)
 size = Vector3(4, 15, 2)
+
+[node name="RightWalk8" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 11.4032, -6.97293, -2.12702)
+size = Vector3(2, 15, 2)
 
 [node name="RightWalk2" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.904, -5.07381, -1.50451)
 size = Vector3(3, 15, 3)
 
 [node name="SmallBridge" parent="MainPlatforms" instance=ExtResource("14_x4426")]
+transform = Transform3D(0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, -2.6136, 0.422486, -0.994)
+
+[node name="SmallBridge3" parent="MainPlatforms" instance=ExtResource("14_x4426")]
+transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, 0.686319, 0.428289, -0.994)
 
 [node name="SmallBridge2" parent="MainPlatforms" instance=ExtResource("14_x4426")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.525, 0.908, -0.994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55092, 0.908, -0.994)
 
 [node name="Decoration" type="Node3D" parent="."]
+
+[node name="Torch" parent="Decoration" instance=ExtResource("19_ro7yq")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -5.41678, -1.37109, 0.897518)
 
 [node name="Pipes" type="Node3D" parent="."]
 
 [node name="PipeInto" parent="Pipes" instance=ExtResource("20_ulo0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64497, 1.01, -1.09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4671, 0.562671, -2.15457)
 
 [node name="PipeExit" parent="Pipes" instance=ExtResource("21_e7n7h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.806, 2.50279, -1.03778)
