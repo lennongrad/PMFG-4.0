@@ -296,7 +296,7 @@ radius = 0.190934
 [sub_resource type="BoxShape3D" id="46"]
 size = Vector3(0.316921, 0.330269, 0.135207)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["rotate_with_camera"]]
 script = ExtResource("2")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

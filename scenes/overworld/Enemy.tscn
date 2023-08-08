@@ -66,7 +66,7 @@ radius = 0.223295
 height = 2.56205
 radius = 1.52175
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["rotate_with_camera"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("12")

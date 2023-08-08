@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2u55pjoogue4"]
+[gd_scene load_steps=26 format=3 uid="uid://b2u55pjoogue4"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_tlrx1"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_n7yin"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="6_8dcmp"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_redshyguys.tres" id="7_qhto5"]
+[ext_resource type="PackedScene" uid="uid://b6njwj7yyn6m0" path="res://scenes/overworld/overworld_camera_zone.tscn" id="7_x1dd5"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="8_qnt7l"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="11_7tvac"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12_hs2f2"]
@@ -75,32 +76,37 @@ script = ExtResource("1_tlrx1")
 environment = SubResource("Environment_e42uq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-1, -6.18173e-08, 6.18173e-08, 0, 0.707107, 0.707107, -8.74228e-08, 0.707107, -0.707107, 3.68921, 9.34361, -3.20979)
+transform = Transform3D(1, 2.84217e-14, -2.84217e-14, 0, 0.707107, 0.707107, 2.84217e-14, -0.707107, 0.707107, -3.86302, 9.34361, 3.38719)
 light_energy = 0.4
 shadow_enabled = true
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.75325, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, -8.75325, 0.177402)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_hivjp")
 
+[node name="BackCamera" parent="." instance=ExtResource("7_x1dd5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.29755, 0, -3.8307)
+bounds_size = Vector3(12.54, 5.29, 15.185)
+
 [node name="EnemySpawners" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.173813, 0, 0.177402)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("6_8dcmp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51831, -0.522092, 3.54561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46336, -0.522092, 3.14847)
 encounter_data = ExtResource("7_qhto5")
 size = Vector3(5, 2.81, 4.08)
 battle_background = ExtResource("8_qnt7l")
 
 [node name="EnemySpawnerBill" parent="EnemySpawners" instance=ExtResource("17_euy6d")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8692, 1.36166, 1.12499)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8692, 1.51026, 1.12499)
 encounter_data = ExtResource("18_psyi8")
 battle_background = ExtResource("8_qnt7l")
 preload_amount = 5
 velocity_x = 1.75
 
 [node name="CoinRows" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="CoinRow" parent="CoinRows" instance=ExtResource("11_7tvac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70066, -0.328527, -5.46311)
@@ -113,9 +119,9 @@ coin_count = 5
 coin_distance = Vector3(0.5, 0, 0)
 
 [node name="CoinRow5" parent="CoinRows" instance=ExtResource("11_7tvac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99762, 0.712476, -1.06499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.20057, 1.03156, -1.06499)
 coin_count = 3
-coin_distance = Vector3(0.5, -0.22, 0)
+coin_distance = Vector3(0.5, -0.4, 0)
 
 [node name="CoinRow9" parent="CoinRows" instance=ExtResource("11_7tvac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27602, -0.700818, -4.21203)
@@ -162,6 +168,7 @@ coin_count = 7
 coin_distance = Vector3(0, 0.4, 0)
 
 [node name="QuestionBlocks" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("12_hs2f2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70621, 0.0813222, -5.53163)
@@ -176,6 +183,7 @@ coin_count = 3
 distance = 1.2
 
 [node name="MainPlatforms" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="MainBridge" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.02592, -6.5, -0.969791)
@@ -198,12 +206,16 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.0259
 size = Vector3(3, 2, 2)
 
 [node name="WaterLedge4" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8161, -0.629441, -1.32672)
-size = Vector3(2.5, 2, 1.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.8161, -0.161944, -2.80752)
+size = Vector3(1.5, 2, 1.5)
 
 [node name="WaterLedge5" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.52877, -1.13021, -1.26225)
-size = Vector3(2.5, 2, 1.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.94885, -0.796943, -2.54698)
+size = Vector3(1, 2, 1.5)
+
+[node name="WaterLedge7" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5751, -1.23161, -2.34632)
+size = Vector3(0.5, 2, 1.5)
 
 [node name="WaterLedge2" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.33688, -0.83738, -5.53468)
@@ -218,12 +230,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.6759
 size = Vector3(2, 10, 2)
 
 [node name="RightWalk" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -6.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, -6.13713, -1)
 size = Vector3(4, 15, 2)
 
 [node name="RightWalk4" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.57242, -0.0943846, -1.09113)
-size = Vector3(1.5, 1.2, 1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.38775, 0.420916, -1.00288)
+size = Vector3(0.175, 1.835, 0.705)
 
 [node name="RightWalk6" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.78147, -6.51789, -0.533874)
@@ -258,22 +270,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.904, -5.07381, -1.50451)
 size = Vector3(3, 15, 3)
 
 [node name="SmallBridge" parent="MainPlatforms" instance=ExtResource("14_x4426")]
-transform = Transform3D(0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, -2.6136, 0.422486, -0.994)
+transform = Transform3D(0.919253, 0.642788, 0, -0.771345, 0.766044, 0, 0, 0, 1, -2.74667, 0.517891, -0.994)
 
 [node name="SmallBridge3" parent="MainPlatforms" instance=ExtResource("14_x4426")]
 transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, 0.686319, 0.428289, -0.994)
 
 [node name="SmallBridge2" parent="MainPlatforms" instance=ExtResource("14_x4426")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55092, 0.908, -0.994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.74, 5.55092, 0.908, -0.994)
+
+[node name="SmallBridge4" parent="MainPlatforms" instance=ExtResource("14_x4426")]
+transform = Transform3D(-3.27835e-08, 0, 0.74, 0, 1, 0, -0.75, 0, -3.23464e-08, -9.38496, 1.37173, -0.994001)
 
 [node name="Decoration" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="Torch" parent="Decoration" instance=ExtResource("19_ro7yq")]
-transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -5.41678, -1.37109, 0.897518)
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -4.48728, -0.190355, -0.0272644)
 
 [node name="Pipes" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="PipeInto" parent="Pipes" instance=ExtResource("20_ulo0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8361, 0.956848, -2.56708)
+
+[node name="PipeInto2" parent="Pipes" instance=ExtResource("20_ulo0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4671, 0.562671, -2.15457)
 
 [node name="PipeExit" parent="Pipes" instance=ExtResource("21_e7n7h")]

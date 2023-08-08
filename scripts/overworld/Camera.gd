@@ -6,27 +6,32 @@ extends Camera3D
 
 var currently_tracking = null
 var fully_tracked = false
+var shake_timer = 0
 
 func set_camera_position(camera):
 	currently_tracking = camera
-	#var tween = create_tween()
-	#tween.tween_property(self, "position", camera.position, .1)
-	#fully_tracked = false
-	#tween.tween_callback(tween_complete)
 
 func tween_complete():
 	fully_tracked = true
+
+func shake(time = 15):
+	shake_timer = time
 
 func reset_position():
 	set_camera_position(base_position)
 
 func _process(_delta):
-	if true:#fully_tracked:
-		position += (currently_tracking.global_position - position) * .15
-		rotation_degrees += (currently_tracking.rotation_degrees - rotation_degrees) * .15
-		cull_mask = currently_tracking.cull_mask
-		if(keep_y):
-			position.y = base_position.position.y
+	
+	position += (currently_tracking.global_position - position) * .3
+	shake_timer -= 1
+	if shake_timer > 0:
+		position.x += sin(floor(shake_timer) * 2)
+	
+	rotation_degrees += (currently_tracking.rotation_degrees - rotation_degrees) * .3
+	$"..".rotate_cam(rotation_degrees.y)
+	cull_mask = currently_tracking.cull_mask
+	if(keep_y):
+		position.y = base_position.position.y
 
 func _ready():
 	reset_position()

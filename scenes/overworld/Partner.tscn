@@ -56,7 +56,9 @@ func _physics_process(delta):
 		last_time_was_grounded = false
 	
 	var goalDirection = Vector2(target.x, target.z) - Vector2(global_transform.origin.x, global_transform.origin.z)
-	if timeSinceRest > 300 or position.y < -1:
+	
+	# reset position
+	if timeSinceRest > 300 or position.y < -5:
 		var space = get_world_3d().direct_space_state
 		var query = PhysicsRayQueryParameters3D.create(target, target - Vector3(0,1,0))
 		var collision = space.intersect_ray(query)
@@ -77,7 +79,6 @@ func _physics_process(delta):
 			goalDirection = goalDirection.normalized() * speed
 		velocity = Vector3(goalDirection.x, velocity.y, goalDirection.y)
 			
-		goalDirection = goalDirection.rotated(deg_to_rad(rotation_degrees.y))
 		if is_in_water:
 			$AnimatedSprite3D.play(\"Swim\")
 		else:
@@ -219,7 +220,7 @@ billboard_keep_scale = true
 material = SubResource("29")
 orientation = 1
 
-[node name="Partner" type="CharacterBody3D"]
+[node name="Partner" type="CharacterBody3D" groups=["rotate_with_camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322397, 0)
 collision_layer = 2147483652
 collision_mask = 4

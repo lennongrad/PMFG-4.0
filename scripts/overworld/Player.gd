@@ -21,6 +21,8 @@ var pipe_position_exit = Vector3(0,0,0)
 var over_pipe = false
 var original_sprite_y = .376
 var jump_timer = 0
+var current_camera_zone = null
+var flip_timer = 0
 
 # manage falling off collision
 var last_ground_position = []
@@ -79,6 +81,7 @@ func _physics_process(delta):
 			$"../Status".unhide()
 		return
 	var shouldSnap = true
+	flip_timer += 1
 	
 	if Input.is_action_just_pressed("ui_down"):
 		if over_pipe_timer > 15 and over_pipe:
@@ -152,9 +155,9 @@ func _physics_process(delta):
 			shouldSnap = false
 		
 		if state == PLAYER_STATE.CONTROL:
-			if Input.is_action_pressed("ui_right"):
+			if Input.is_action_pressed("ui_right") and flip_timer > 20:
 				velocity.x = 1
-			elif Input.is_action_pressed("ui_left"):
+			elif Input.is_action_pressed("ui_left") and flip_timer > 20:
 				velocity.x = -1
 			else:
 				velocity.x = 0
@@ -338,8 +341,7 @@ func _physics_process(delta):
 					$HammerArea/CollisionShape3D.disabled = false
 					$Hammer.position = Vector3(.183, .268, -.04)
 					$HammerArea.play()
-					$CameraClose.shake()
-					$CameraFar.shake()
+					get_viewport().get_camera_3d().shake()
 				elif hammer_timer < 30:
 					if hammer_timer > 12:
 						$HammerArea/CollisionShape3D.disabled = true
@@ -411,8 +413,6 @@ func _physics_process(delta):
 						$AnimatedSprite3D.play("HorizontalRise")
 				if is_wall_sliding:
 					$AnimatedSprite3D.play("Walljump")
-				horizontalVelocity = horizontalVelocity.rotated(deg_to_rad(-rotation_degrees.y))
-				velocity = Vector3(horizontalVelocity.x, velocity.y, horizontalVelocity.y)
 				
 				if do_wall_slide():
 					if velocity.y < 0:
@@ -423,11 +423,11 @@ func _physics_process(delta):
 					not_sliding_timer = 0
 					spriteRotation = 180
 					var normal = get_slide_collision(0).get_normal()
-					if abs(normal.z) < .01:
-						normal.z = 0
+					normal = Vector2(normal.x, normal.z).rotated(deg_to_rad(rotation_degrees.y))
+					if abs(normal.y) < .01:
+						normal.y = 0
 					if abs(normal.x) < .01:
 						normal.x = 0
-					normal.y = 0
 					$WallJumpParticles.emitting = true
 					if normal.x > 0.1:
 						spriteRotation = 180
@@ -436,7 +436,8 @@ func _physics_process(delta):
 						spriteRotation = 0
 						$WallJumpParticles.position.x = 0.158
 					if Input.is_action_just_pressed("jump"):
-						velocity = Vector3(0, 5.5, 0) + normal * 10
+						horizontalVelocity = normal * 10
+						velocity.y = 5.5
 						is_wall_sliding = false
 				else:
 					is_wall_sliding = false
@@ -444,6 +445,8 @@ func _physics_process(delta):
 						spriteRotation = 180
 					else:
 						spriteRotation = 0
+				horizontalVelocity = horizontalVelocity.rotated(deg_to_rad(-rotation_degrees.y))
+				velocity = Vector3(horizontalVelocity.x, velocity.y, horizontalVelocity.y)
 	if dont_snap_next_frame:
 		dont_snap_next_frame = false
 		shouldSnap = false
@@ -518,6 +521,8 @@ func bounce():
 func get_camera_3d():
 	match state:
 		PLAYER_STATE.ITEM: return $CameraClose;
+	if current_camera_zone != null:
+		return current_camera_zone
 	return $CameraFar
 
 func play_jump():
@@ -557,6 +562,16 @@ func _on_pause():
 
 func _on_unpause():
 	paused = false
+
+func _on_camera_zone_enter(camera_zone):
+	if current_camera_zone == null:
+		flip_timer = 0
+		current_camera_zone = camera_zone
+
+func _on_camera_zone_exit(camera_zone):
+	if current_camera_zone == camera_zone:
+		flip_timer = 0
+		current_camera_zone = null
 
 func _on_pipe_detect_entry(body):
 	if body == self:

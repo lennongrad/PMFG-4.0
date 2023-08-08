@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6njwj7yyn6m0"]
+
+[ext_resource type="Script" path="res://scripts/OverworldCameraZone.gd" id="1_buxyf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pet70"]
+
+[node name="OverworldCameraZone" type="Camera3D"]
+script = ExtResource("1_buxyf")
+
+[node name="Bounds" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bounds"]
+shape = SubResource("BoxShape3D_pet70")
+
+[connection signal="body_entered" from="Bounds" to="." method="_on_bounds_body_entered"]
+[connection signal="body_exited" from="Bounds" to="." method="_on_bounds_body_exited"]

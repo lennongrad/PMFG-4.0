@@ -49,6 +49,7 @@ grow_vertical = 2
 [node name="TitleScreen" parent="." instance=ExtResource("31")]
 
 [node name="Stage" parent="." instance=ExtResource("10_w1e5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Control_finishedSpinning"]
 [connection signal="done" from="TitleScreen" to="." method="_on_TitleScreen_done"]

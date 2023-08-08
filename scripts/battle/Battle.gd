@@ -20,6 +20,9 @@ var partnerFirst = false
 var experience_waiting = 0
 var battle_wait = 0
 
+func rotate_cam(_degrees):
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
 	$Spin.spin_backwards()

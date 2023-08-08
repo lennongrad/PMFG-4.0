@@ -5,7 +5,7 @@ extends StaticBody3D
 var activated = false
 var timer = 0.0
 var given_item = false
-@onready var original_translation = $"..".position
+@onready var original_translation = $"..".global_position
 @onready var faces = [$Face1, $Face2, $Face3, $Face4]
 @onready var blocks = [$Block1, $Block2, $Block3, $Block4]
 @onready var used_sides = blocks + [$Top, $Bottom]

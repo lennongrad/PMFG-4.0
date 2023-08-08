@@ -69,3 +69,10 @@ res://scripts/battle/SpriteHolderEnemy.gd
 res://scripts/EnemySpawnerBill.gd
 res://scenes/overworld/EnemySpawnerBill.tscn
 res://stats/enemyencounter/enemyencounter_bills.tres
+res://scripts/OverworldCameraZone.gd
+res://scenes/overworld/overworld_camera_zone.tscn
+res://scenes/overworld/OverworldCoin.tscn
+res://scenes/overworld/OverworldItem.tscn
+res://scripts/overworld/WorldItem.gd
+res://scenes/overworld/QuestionBlock.tscn
+res://scripts/overworld/QuestionBlockInternal.gd

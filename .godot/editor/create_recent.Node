@@ -1,3 +1,6 @@
+CollisionShape3D
+Area3D
+Camera3D
 VisibleOnScreenNotifier3D
 MeshInstance3D
 Node3D
@@ -6,7 +9,6 @@ Sprite3D
 Control
 HSplitContainer
 NinePatchRect
-CollisionShape3D
 StaticBody3D
 SpotLight3D
 OmniLight3D

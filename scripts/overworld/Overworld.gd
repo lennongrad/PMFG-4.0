@@ -23,9 +23,9 @@ var is_exiting = false
 var waiting_for_menu = false
 
 func rotate_cam(degrees):
-	player.rotate_y(degrees)
-	for entity in need_player_position:
-		entity.rotate_y(degrees)
+	var need_rotation = get_tree().get_nodes_in_group("rotate_with_camera")
+	for entity in need_rotation:
+		entity.rotation_degrees.y = degrees
 
 func update_need_player_position():
 	need_player_position = [partner]

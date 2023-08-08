@@ -12,7 +12,7 @@ top_radius = 0.15
 bottom_radius = 0.15
 height = 0.001
 
-[node name="WorldItem" type="CharacterBody3D"]
+[node name="WorldItem" type="CharacterBody3D" groups=["rotate_with_camera"]]
 collision_layer = 32
 collision_mask = 1025
 script = ExtResource("1")
