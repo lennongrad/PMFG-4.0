@@ -19,7 +19,7 @@ func play_hurt():
 	$HurtParticles.play()
 	$Sprite2D.play("Hurt")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if paused:
 		return
 	

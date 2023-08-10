@@ -10,6 +10,9 @@ func _ready():
 	$Timer.start()
 	deactivate()
 
+func set_modulate(mod):
+	$AnimatedSprite3D.modulate = mod
+
 func dodge():
 	dodge_timer = 20
 
@@ -21,12 +24,16 @@ func set_frames(frames):
 
 func set_flip_h(flip):
 	$AnimatedSprite3D.flip_h = flip
+	$Decoration.rotation_degrees.y = 180 if flip else 0
 
 func deactivate():
 	active = false
 
 func activate():
 	active = true
+
+func update_decoration(name, value):
+	get_node("Decoration/" + name).visible = value
 
 func _process(_delta):
 	if fallTimer > 0:

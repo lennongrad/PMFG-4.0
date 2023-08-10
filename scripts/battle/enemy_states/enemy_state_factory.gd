@@ -13,7 +13,8 @@ func _init():
 		"down": EnemyDownState,
 		"dying": EnemyDyingState,
 		"slingshot": EnemySlingshotState,
-		"transforming": EnemyTransformingState
+		"transforming": EnemyTransformingState,
+		"explosion": EnemyExplosionState
 		}
 
 func get_state(state_name):

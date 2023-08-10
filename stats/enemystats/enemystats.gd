@@ -1,6 +1,7 @@
 extends Resource
 @export var health: int
 @export var frames: SpriteFrames
+@export var secondary_frames: SpriteFrames
 @export var name: String
 @export var attacks: Array
 @export var firstStrikeAttack: Resource

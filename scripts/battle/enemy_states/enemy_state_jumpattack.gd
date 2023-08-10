@@ -52,6 +52,7 @@ func _physics_process(delta):
 func area_body_entered(body):
 	if body == self.mario.get_node("Area3D") and not hasCollided:
 		hasCollided = true
+		self.persistent_state.animated_sprite.rotation_degrees.z = 0
 		if lastDodgeInput < 10:
 			self.persistent_state.register_damage(self.mario, 1, "NICE")
 		else:

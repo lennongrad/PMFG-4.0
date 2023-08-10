@@ -1,11 +1,12 @@
+AnimatedSprite3D
+Sprite3D
+Node3D
 CollisionShape3D
 Area3D
 Camera3D
 VisibleOnScreenNotifier3D
 MeshInstance3D
-Node3D
 TextureRect
-Sprite3D
 Control
 HSplitContainer
 NinePatchRect

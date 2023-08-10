@@ -7,6 +7,7 @@ var downTimer = 0
 func _ready():
 	self.persistent_state.animated_sprite.play("Down")
 	self.persistent_state.position.y = 0
+	self.persistent_state.animated_sprite.rotation_degrees.z = 0
 	
 func _process(_delta):
 	if not self.persistent_state.lastDodgeSuccessful:

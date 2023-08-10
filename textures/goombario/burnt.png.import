@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4x7hyrllvbxw"
-path="res://.godot/imported/damage.png-b65600fb532d587eb20f325bd750ae2a.ctex"
+uid="uid://cl3qr53hwdbe4"
+path="res://.godot/imported/burnt.png-e7f9b246521589649a7d32b4121f7742.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/redshyguy/damage.png"
-dest_files=["res://.godot/imported/damage.png-b65600fb532d587eb20f325bd750ae2a.ctex"]
+source_file="res://textures/goombario/burnt.png"
+dest_files=["res://.godot/imported/burnt.png-e7f9b246521589649a7d32b4121f7742.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=1
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

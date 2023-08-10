@@ -5,6 +5,7 @@ class_name EnemyWalkbackState
 func _ready():
 	self.persistent_state.animated_sprite.play("Run")
 	self.persistent_state.animated_sprite.set_flip_h(true)
+	self.persistent_state.animated_sprite.rotation_degrees.z = 0
 	#var marioPosition = self.mario.global_transform.origin + Vector3(.5, 0, 0)
 	self.interpolate_property(
 		self.persistent_state, "position", self.persistent_state.homePosition, .5)

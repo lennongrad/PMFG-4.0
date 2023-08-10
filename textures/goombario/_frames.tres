@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://vl86ebo8mlug"]
+[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://vl86ebo8mlug"]
 
 [ext_resource type="Texture2D" uid="uid://cnx4le8lyirbn" path="res://textures/goombario/jumpsquat.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://cogxhbvkq3maf" path="res://textures/goombario/victory.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://qh3ll323mlt5" path="res://textures/goombario/think.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cl3qr53hwdbe4" path="res://textures/goombario/burnt.png" id="3_wlbcb"]
 [ext_resource type="Texture2D" uid="uid://dkhr8fqhyg52p" path="res://textures/goombario/rest.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://df7s84flxgkte" path="res://textures/goombario/guard.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://c5ti5akofi568" path="res://textures/goombario/hurt.png" id="6"]
@@ -12,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://dlxlsj338y8ns" path="res://textures/goombario/skip.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://c0ruc4faa41hu" path="res://textures/goombario/swim.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://b76uupcmowtc" path="res://textures/goombario/swim2.png" id="12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkyo3"]
+atlas = ExtResource("3_wlbcb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lby24"]
+atlas = ExtResource("3_wlbcb")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="5"]
 atlas = ExtResource("6")
@@ -69,6 +78,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"BattleRise",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkyo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lby24")
+}],
+"loop": true,
+"name": &"BurnHurt",
 "speed": 5.0
 }, {
 "frames": [{

@@ -76,3 +76,8 @@ res://scenes/overworld/OverworldItem.tscn
 res://scripts/overworld/WorldItem.gd
 res://scenes/overworld/QuestionBlock.tscn
 res://scripts/overworld/QuestionBlockInternal.gd
+res://stats/enemystats/enemystats_bobomb.tres
+res://stats/enemystats/enemystats.gd
+res://stats/enemyattack/enemyattack_explode.tres
+res://scripts/battle/enemy_states/enemy_state_explosion.gd
+res://scripts/battle/enemy_states/enemy_state_walkback.gd

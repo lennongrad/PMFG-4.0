@@ -239,6 +239,7 @@ func _ready():
 	enemies[load("res://stats/enemystats/enemystats_skyguy.tres")] = {"tattled": false}
 	enemies[load("res://stats/enemystats/enemystats_bulletbill.tres")] = {"tattled": false}
 	enemies[load("res://stats/enemystats/enemystats_bulletblaster.tres")] = {"tattled": false}
+	enemies[load("res://stats/enemystats/enemystats_bobomb.tres")] = {"tattled": false}
 	enemies[load("res://stats/enemystats/enemystats_testshyguy.tres")] = {"tattled": false}
 	
 	for member in party:

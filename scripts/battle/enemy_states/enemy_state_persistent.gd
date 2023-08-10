@@ -36,6 +36,9 @@ var experience_remaining = 0
 var dodging = 0
 var defeat_self = false
 
+# tracking angry modifier
+var is_angry = false
+
 var randomStartTimer = Timer.new()
 
 func _ready():
@@ -58,11 +61,14 @@ func _ready():
 
 	health = stats.health
 
-	currentAttack = randi() % stats.attacks.size()
+	set_current_attack()
 
 # Input code was placed here for tutorial purposes.
 func _process(_delta):
 	pointer.visible = isSelected
+	$Sprite2D.update_decoration("Flare", stats.attributes.has("d_flare") and is_angry)
+	$Sprite2D.update_decoration("Windup", stats.attributes.has("d_windup"))
+	
 	if battleTag != null:
 		battleTag.is_visible = is_idle
 		battleTag.max_hp = stats.health
@@ -80,10 +86,19 @@ func change_state(new_state_name):
 	add_child(state)
 
 func get_current_attack():
+	if stats.attributes.has("angry") and currentAttack != -1:
+		if is_angry:
+			currentAttack = stats.attacks.size() - 1
+		else:
+			currentAttack = currentAttack % (stats.attacks.size() - 1)
+	
 	if currentAttack == -1:
 		return stats.firstStrikeAttack
 	else:
 		return stats.attacks[currentAttack]
+
+func set_current_attack():
+	currentAttack = randi() % stats.attacks.size()
 
 func register_damage(target, damage, effectiveness, showHurt = {}):
 	$"..".register_damage(target, damage, effectiveness, showHurt)
@@ -108,7 +123,7 @@ func progress_attack():
 			$"..".start_mario_turn()
 		else:
 			$"..".next_enemy_turn(0)
-		currentAttack = (currentAttack + 1) % stats.attacks.size()
+		set_current_attack()
 
 func firstStrike():
 	currentAttack = -1
@@ -133,6 +148,11 @@ func take_damage(damage, effectiveness, attributes):
 	starDamageDisplay.scale = Vector3(.1,.1,1)
 	add_child(starDamageDisplay)
 	health -= damage
+	
+	if stats.attributes.has("angry") and not is_angry:
+		is_angry = true
+		if stats.secondary_frames != null:
+			$Sprite2D.set_frames(stats.secondary_frames)
 
 	return health <= 0
 
