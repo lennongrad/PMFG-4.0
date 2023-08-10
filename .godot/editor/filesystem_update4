@@ -43,3 +43,5 @@ res://scripts/overworld/QuestionBlockInternal.gd
 res://scripts/overworld/QuestionBlockExternal.gd
 res://scenes/overworld/top_pyramid.tscn
 res://scenes/overworld/back_tower.tscn
+res://scripts/overworld/Overworld.gd
+res://scripts/Mario_Run.gd

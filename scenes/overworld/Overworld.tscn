@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=12 format=3 uid="uid://djn7hpj5g1pku"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="2_j6ug6"]
+[ext_resource type="PackedScene" uid="uid://dyrc8omyglwi5" path="res://scenes/overworld/stages/stage1.tscn" id="3_sm82m"]
 [ext_resource type="Script" path="res://scripts/overworld/Overworld.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="10"]
@@ -13,7 +14,7 @@
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
-debug = true
+stages = [ExtResource("10_w1e5k"), ExtResource("3_sm82m")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44885, 1.75504)
@@ -43,15 +44,12 @@ offset_bottom = 0.0
 [node name="Status" parent="." instance=ExtResource("10")]
 
 [node name="Letterbox" parent="." instance=ExtResource("29")]
+visible = false
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleScreen" parent="." instance=ExtResource("31")]
-
-[node name="Stage" parent="." instance=ExtResource("10_w1e5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Control_finishedSpinning"]
 [connection signal="done" from="TitleScreen" to="." method="_on_TitleScreen_done"]
-[connection signal="water_enter" from="Stage" to="." method="_on_stage_water_enter"]
-[connection signal="water_exit" from="Stage" to="." method="_on_stage_water_exit"]

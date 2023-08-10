@@ -4,6 +4,8 @@ signal pause
 signal unpause
 
 @export var debug: bool
+@export var stages: Array
+@export var start_stage = 0
 
 @onready var player = $Player
 @onready var partner = $Partner
@@ -35,6 +37,11 @@ func update_need_player_position():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var stage = stages[(get_node("/root/MarioRun").current_stage + start_stage) % stages.size()].instantiate()
+	stage.connect("water_enter", Callable(self, "_on_stage_water_enter"))
+	stage.connect("water_exit", Callable(self, "_on_stage_water_exit"))
+	add_child(stage)
+	
 	get_node("/root/Global").set_main(self)
 	update_need_player_position()
 	var _err = self.connect("pause", Callable(player, "_on_pause"))
@@ -51,7 +58,6 @@ func _ready():
 		_unused = $Stage/Pipes/PipeExit.connect("body_exited", Callable(player, "on_pipe_detect_exit"))
 		player.pipe_position_exit = $Stage/Pipes/PipeExit.global_transform.origin 
 	
-	
 	if has_node("Stage/Pipes/PipeInto"):
 		player.position = player.pipe_position
 		if not debug:
@@ -63,6 +69,8 @@ func _ready():
 		
 	if not debug and show_title:
 		waiting_for_menu = true
+		$Letterbox.visible = true
+		$TitleScreen.visible = true
 	else:
 		$TitleScreen.disable()
 		if not debug:
@@ -185,6 +193,7 @@ func _on_Control_finishedSpinning():
 		$Camera3D.current = true
 		update_need_player_position()
 	elif is_exiting:
+		get_node("/root/MarioRun").current_stage += 1
 		get_node("/root/Global").new_main()
 	else:
 		if has_node("Stage/Pipes/PipeInto"):

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://5er3va3cwi1x" path="res://stats/enemyencounter/enemyencounter_test.tres" id="2_n42ea"]
 [ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
-[ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="3_wfpnj"]
+[ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="3_msbma"]
 [ext_resource type="PackedScene" uid="uid://cm0e5asgfdnje" path="res://scenes/battle/backgrounds/water_dungeon.tscn" id="4"]
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="4_ngmgf"]
 [ext_resource type="Script" path="res://scripts/battle/Battle.gd" id="5"]
@@ -28,7 +28,7 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 process_mode = 3
 script = ExtResource("5")
 data = ExtResource("2_n42ea")
-battle_background = ExtResource("3_wfpnj")
+battle_background = ExtResource("3_msbma")
 debug = true
 
 [node name="Camera3D" type="Camera3D" parent="."]

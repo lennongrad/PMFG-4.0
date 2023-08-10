@@ -24,6 +24,8 @@ var enemies = {}
 var fp = 0
 var coins = 0
 
+var current_stage = 0
+
 func start_battle():
 	fp = get_max_fp()
 	party[active_partner].hp = get_max_hp(active_partner)

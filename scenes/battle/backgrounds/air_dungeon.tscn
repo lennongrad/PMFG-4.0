@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://clp1kv6td6m3m"]
+[gd_scene load_steps=23 format=3 uid="uid://clp1kv6td6m3m"]
 
 [ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="1_21isf"]
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="2_bmo76"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="11_vmijb"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12_fy500"]
 [ext_resource type="Resource" path="res://stats/boots/super.tres" id="13_kvc35"]
+[ext_resource type="PackedScene" uid="uid://bfkg21ej6ncx3" path="res://scenes/overworld/back_tower.tscn" id="14_0c534"]
 
 [sub_resource type="StandardMaterial3D" id="17"]
 albedo_texture = ExtResource("2_bmo76")
@@ -95,13 +96,13 @@ collision_mask = 0
 size = Vector3(8, 12, 2)
 
 [node name="BorderMesh2" parent="." instance=ExtResource("6_5hub4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493802, -5.09454, -2.40808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67357, -5.09454, -2.40808)
 collision_layer = 0
 collision_mask = 0
 size = Vector3(3, 12, 1)
 
 [node name="BorderMesh3" parent="." instance=ExtResource("6_5hub4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55052, -5.64147, -1.94019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66373, -5.64147, -1.94019)
 collision_layer = 0
 collision_mask = 0
 size = Vector3(3, 12, 1)
@@ -120,7 +121,7 @@ shadow_enabled = true
 transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 4.51703, -0.17533, -0.994)
 
 [node name="Island" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33689, -1.4, -5.255)
+transform = Transform3D(0.845374, 0, -0.534175, 0, 1, 0, 0.534175, 0, 0.845374, 7.86767, -1.4, -7.40275)
 
 [node name="BorderMesh4" parent="Island" instance=ExtResource("6_5hub4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95663, -3.31215, -6.86675)
@@ -129,7 +130,7 @@ collision_mask = 0
 size = Vector3(2, 12, 2)
 
 [node name="QuestionBlock" parent="Island" instance=ExtResource("12_fy500")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11735, 3.34348, -5.69571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00215, 2.76599, -6.7621)
 is_decoration = true
 item_type = ExtResource("13_kvc35")
 coin_count = 3
@@ -155,3 +156,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0507119, 0.329207, -4.18178)
 coin_count = 3
 coin_distance = Vector3(0.4, 0, 0)
+
+[node name="BackTower" parent="." instance=ExtResource("14_0c534")]
+transform = Transform3D(1.87555, 1.04174, 0, -0.694493, 2.81332, 0, 0, 0, 2, 2.96153, -0.478849, -19.2004)
+
+[node name="BackTower2" parent="." instance=ExtResource("14_0c534")]
+transform = Transform3D(1.96236, -0.579261, 0, 0.356784, 2.71952, -0.765302, 0.14777, 1.12635, 1.84779, -5.25052, -0.478849, -13.2323)

@@ -71,7 +71,6 @@ subdivide_width = 20
 subdivide_depth = 20
 
 [node name="Stage" type="Marker3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_tlrx1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
