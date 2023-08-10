@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1")
-steps = ["walkto", "jumpattack", "down", "walkback"]
+steps = Array[String](["walkto", "jumpattack", "down", "walkback"])
 attributes = {}

@@ -1,0 +1,157 @@
+[gd_scene load_steps=22 format=3 uid="uid://clp1kv6td6m3m"]
+
+[ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="1_21isf"]
+[ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="2_bmo76"]
+[ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="3_ug2pb"]
+[ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="4_p1xti"]
+[ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="6_5hub4"]
+[ext_resource type="Shader" path="res://scenes/overworld/stages/stage2.gdshader" id="6_wkhk1"]
+[ext_resource type="Texture2D" uid="uid://bp6c1s1ishabq" path="res://textures/disp.png" id="7_lp5wf"]
+[ext_resource type="Texture2D" uid="uid://ur74821ssoik" path="res://textures/clouds2.png" id="8_pfwuw"]
+[ext_resource type="Texture2D" uid="uid://dh21jf6km2m1c" path="res://textures/clouds.png" id="9_5p2yv"]
+[ext_resource type="PackedScene" uid="uid://cxeeh68d8wbju" path="res://scenes/overworld/bridge.tscn" id="10_pcjli"]
+[ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="11_vmijb"]
+[ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12_fy500"]
+[ext_resource type="Resource" path="res://stats/boots/super.tres" id="13_kvc35"]
+
+[sub_resource type="StandardMaterial3D" id="17"]
+albedo_texture = ExtResource("2_bmo76")
+uv1_scale = Vector3(16, 32, 1)
+
+[sub_resource type="QuadMesh" id="18"]
+size = Vector2(16, 16)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_masq4"]
+albedo_texture = ExtResource("3_ug2pb")
+uv1_scale = Vector3(16, 1, 1)
+
+[sub_resource type="QuadMesh" id="3"]
+material = SubResource("StandardMaterial3D_masq4")
+size = Vector2(8, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="5"]
+albedo_texture = ExtResource("3_ug2pb")
+uv1_scale = Vector3(4, 1, 2)
+uv1_offset = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="6"]
+material = SubResource("5")
+size = Vector3(0.8, 0.2, 0.4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_he1hu"]
+render_priority = 0
+shader = ExtResource("6_wkhk1")
+shader_parameter/albedo = Color(0.839216, 0.968627, 1, 0.811765)
+shader_parameter/uv1_scale = Vector3(10, 10, 0)
+shader_parameter/uv1_offset = null
+shader_parameter/main_color = Color(0.517647, 0.517647, 0.858824, 1)
+shader_parameter/intersection_color = Color(0, 0, 0.541176, 1)
+shader_parameter/intersection_max_threshold = 0.5
+shader_parameter/displ_amount = 2.255
+shader_parameter/near = 0.26
+shader_parameter/far = 300.0
+shader_parameter/texture_albedo = ExtResource("9_5p2yv")
+shader_parameter/texture2_albedo = ExtResource("8_pfwuw")
+shader_parameter/displ_tex = ExtResource("7_lp5wf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6jonb"]
+material = SubResource("ShaderMaterial_he1hu")
+size = Vector2(200, 100)
+subdivide_width = 20
+subdivide_depth = 20
+
+[node name="Stage" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.306564, 0, 0.285651)
+script = ExtResource("1_21isf")
+
+[node name="MainWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.748708, -0.573717, -1.66455)
+visible = false
+material_override = SubResource("17")
+mesh = SubResource("18")
+
+[node name="Bezel" type="MeshInstance3D" parent="MainWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0510905, 0.684446, 0.00999999)
+mesh = SubResource("3")
+
+[node name="Torch" parent="MainWall" instance=ExtResource("4_p1xti")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -1.352, 2.60583, 0)
+mesh = SubResource("6")
+
+[node name="Torch2" parent="MainWall" instance=ExtResource("4_p1xti")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, 2.92, 2.29134, 0)
+mesh = SubResource("6")
+
+[node name="BorderMesh" parent="." instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702065, -6.05301, -0.917)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(8, 12, 2)
+
+[node name="BorderMesh4" parent="." instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69566, -6.05301, -0.917)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(8, 12, 2)
+
+[node name="BorderMesh2" parent="." instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493802, -5.09454, -2.40808)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(3, 12, 1)
+
+[node name="BorderMesh3" parent="." instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55052, -5.64147, -1.94019)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(3, 12, 1)
+
+[node name="Clouds" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, -2.54868, 0.177402)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_6jonb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 2.84217e-14, -2.84217e-14, 0, 0.707107, 0.707107, 2.84217e-14, -0.707107, 0.707107, -3.86302, 9.34361, 3.38719)
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="SmallBridge" parent="." instance=ExtResource("10_pcjli")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 4.51703, -0.17533, -0.994)
+
+[node name="Island" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.33689, -1.4, -5.255)
+
+[node name="BorderMesh4" parent="Island" instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95663, -3.31215, -6.86675)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(2, 12, 2)
+
+[node name="QuestionBlock" parent="Island" instance=ExtResource("12_fy500")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11735, 3.34348, -5.69571)
+is_decoration = true
+item_type = ExtResource("13_kvc35")
+coin_count = 3
+distance = 1.2
+
+[node name="BorderMesh2" parent="Island" instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324736, -5.76716, -4.40352)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(2, 12, 2)
+
+[node name="BorderMesh3" parent="Island" instance=ExtResource("6_5hub4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.910687, -4.22652, -6.40973)
+collision_layer = 0
+collision_mask = 0
+size = Vector3(2, 12, 2)
+
+[node name="Torch" parent="Island" instance=ExtResource("4_p1xti")]
+transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, 0.965577, 0.696138, -5.39321)
+skeleton = NodePath("../..")
+
+[node name="CoinRow8" parent="Island" instance=ExtResource("11_vmijb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0507119, 0.329207, -4.18178)
+coin_count = 3
+coin_distance = Vector3(0.4, 0, 0)

@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b2u55pjoogue4"]
+[gd_scene load_steps=28 format=3 uid="uid://b2u55pjoogue4"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_tlrx1"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_n7yin"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="6_8dcmp"]
-[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_redshyguys.tres" id="7_qhto5"]
 [ext_resource type="PackedScene" uid="uid://b6njwj7yyn6m0" path="res://scenes/overworld/overworld_camera_zone.tscn" id="7_x1dd5"]
-[ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="8_qnt7l"]
+[ext_resource type="Resource" uid="uid://xq5pvmo7q5jr" path="res://stats/enemyencounter/enemyencounter_bobomb.tres" id="9_0hntc"]
+[ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="10_fynia"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="11_7tvac"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12_hs2f2"]
 [ext_resource type="Shader" path="res://scenes/overworld/stages/stage2.gdshader" id="13_0lxiu"]
@@ -16,8 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://dh21jf6km2m1c" path="res://textures/clouds.png" id="15_nkyn2"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="16_r0wep"]
 [ext_resource type="PackedScene" uid="uid://cuhn7pd7u8ihd" path="res://scenes/overworld/EnemySpawnerBill.tscn" id="17_euy6d"]
+[ext_resource type="PackedScene" uid="uid://vvgk856wr7e3" path="res://scenes/overworld/top_pyramid.tscn" id="18_gbdu4"]
 [ext_resource type="Resource" uid="uid://cny1wv7fvkomw" path="res://stats/enemyencounter/enemyencounter_bills.tres" id="18_psyi8"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="19_ro7yq"]
+[ext_resource type="PackedScene" uid="uid://bfkg21ej6ncx3" path="res://scenes/overworld/back_tower.tscn" id="20_ieta0"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="20_ulo0e"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="21_e7n7h"]
 
@@ -46,7 +48,7 @@ adjustment_brightness = 8.0
 adjustment_contrast = 8.0
 adjustment_saturation = 8.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_he1hu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10jc4"]
 render_priority = 0
 shader = ExtResource("13_0lxiu")
 shader_parameter/albedo = Color(0.839216, 0.968627, 1, 0.811765)
@@ -63,7 +65,7 @@ shader_parameter/texture2_albedo = ExtResource("15_51l3e")
 shader_parameter/displ_tex = ExtResource("14_4yqi8")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hivjp"]
-material = SubResource("ShaderMaterial_he1hu")
+material = SubResource("ShaderMaterial_10jc4")
 size = Vector2(200, 100)
 subdivide_width = 20
 subdivide_depth = 20
@@ -94,14 +96,14 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.17381
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("6_8dcmp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46336, -0.522092, 3.14847)
-encounter_data = ExtResource("7_qhto5")
+encounter_data = ExtResource("9_0hntc")
 size = Vector3(5, 2.81, 4.08)
-battle_background = ExtResource("8_qnt7l")
+battle_background = ExtResource("10_fynia")
 
 [node name="EnemySpawnerBill" parent="EnemySpawners" instance=ExtResource("17_euy6d")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 13.8692, 1.51026, 1.12499)
 encounter_data = ExtResource("18_psyi8")
-battle_background = ExtResource("8_qnt7l")
+battle_background = ExtResource("10_fynia")
 preload_amount = 5
 velocity_x = 1.75
 
@@ -160,6 +162,11 @@ coin_distance = Vector3(0.55, 0, 0)
 
 [node name="CoinRow3" parent="CoinRows" instance=ExtResource("11_7tvac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4856, 2.42864, -2.32143)
+coin_distance = Vector3(0.25, 0, 0)
+
+[node name="CoinRow13" parent="CoinRows" instance=ExtResource("11_7tvac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2037, 3.23406, -1.71164)
+coin_count = 3
 coin_distance = Vector3(0.25, 0, 0)
 
 [node name="CoinRow6" parent="CoinRows" instance=ExtResource("11_7tvac")]
@@ -250,8 +257,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3889, -7.40193, -2.714)
 size = Vector3(2.195, 15, 2.29)
 
 [node name="RightWalk9" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8784, 2.32623, -2.71448)
-size = Vector3(1.25, 2, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8784, 2.80612, -2.71448)
+size = Vector3(1.25, 3, 1)
+
+[node name="RightWalk11" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3344, 1.66419, -1.89094)
+size = Vector3(2.1, 3, 0.6)
 
 [node name="RightWalk5" parent="MainPlatforms" instance=ExtResource("16_r0wep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8104, -4.39128, -1.8806)
@@ -281,19 +292,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.74, 5.55092, 0.908, -0.994)
 [node name="SmallBridge4" parent="MainPlatforms" instance=ExtResource("14_x4426")]
 transform = Transform3D(-3.27835e-08, 0, 0.74, 0, 1, 0, -0.75, 0, -3.23464e-08, -9.38496, 1.37173, -0.994001)
 
+[node name="Pyramid" parent="MainPlatforms" instance=ExtResource("18_gbdu4")]
+transform = Transform3D(1.685, 0, 0, 0, 1, 0, 0, 0, 1.395, -13.8827, 4.15115, -2.72774)
+
 [node name="Decoration" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="Torch" parent="Decoration" instance=ExtResource("19_ro7yq")]
 transform = Transform3D(0.714325, 0, 0, 0, 0.841353, 0, 0, 0, 0.609198, -4.48728, -0.190355, -0.0272644)
 
+[node name="BackTower" parent="Decoration" instance=ExtResource("20_ieta0")]
+
+[node name="BackTower5" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 3, 0, -2, 0, -8.74228e-08, -12.3913, -6.98972, 19.582)
+
+[node name="BackTower8" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(-1.54885, 0.180495, 1.26211, 1.84888e-08, 3.98981, -0.142647, -1.26533, -0.220939, -1.54491, -1.03862, -5.28191, 10.1102)
+
+[node name="BackTower6" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 3, 0, 1.74846e-07, 0, -2, -16.9612, -6.98972, 19.582)
+
+[node name="BackTower4" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(0.147815, -0.291642, -1.99031, -0.269643, 4.44634, -0.148722, 1.97622, 0.62849, 0.128577, 26.7219, -7.27611, 17.2571)
+
+[node name="BackTower3" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(-1.7282, 0, -1.00664, 0, 3.5, 0, 1.00664, 0, -1.7282, -4.6271, -8.61393, 31.5073)
+
+[node name="BackTower7" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(1.90247, 2.4343e-07, -0.616938, 0.245411, 3.21117, 0.75678, 0.566027, -1.39226, 1.74547, -27.8085, -8.61393, 31.5073)
+
+[node name="BackTower2" parent="Decoration" instance=ExtResource("20_ieta0")]
+transform = Transform3D(1.8333, -1.08773, -0.636629, 0.456685, 4.36656, -0.158588, 0.656085, -1.90186e-07, 1.88933, 18.2817, -8.10284, 20.4884)
+
+[node name="SmallBridge" parent="Decoration" instance=ExtResource("14_x4426")]
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, -14.4686, -4.78415, 19.4925)
+
 [node name="Pipes" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="PipeInto" parent="Pipes" instance=ExtResource("20_ulo0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8361, 0.956848, -2.56708)
-
-[node name="PipeInto2" parent="Pipes" instance=ExtResource("20_ulo0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4671, 0.562671, -2.15457)
 
 [node name="PipeExit" parent="Pipes" instance=ExtResource("21_e7n7h")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfkg21ej6ncx3"]
+
+[ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="1_actmk"]
+[ext_resource type="Texture2D" uid="uid://c7tbx4t426f1s" path="res://textures/stone/white_border.png" id="2_4v168"]
+[ext_resource type="Texture2D" uid="uid://dqig00hkmfjre" path="res://textures/stone/white_brick.png" id="2_m7jg4"]
+[ext_resource type="PackedScene" uid="uid://vvgk856wr7e3" path="res://scenes/overworld/top_pyramid.tscn" id="2_vutyq"]
+[ext_resource type="Texture2D" uid="uid://dfsxvi7pu8orj" path="res://textures/stone/window_cover.png" id="5_7i6yv"]
+
+[node name="BackTower" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 4.5, 0, 0, 0, 2, 5.45336, -3.3397, 24.4885)
+
+[node name="RightWalk12" parent="." instance=ExtResource("1_actmk")]
+borderTexture = ExtResource("2_4v168")
+secondaryTexture = ExtResource("2_m7jg4")
+size = Vector3(1.25, 3, 1)
+
+[node name="Pyramid2" parent="." instance=ExtResource("2_vutyq")]
+transform = Transform3D(1.685, 0, 0, 0, 1, 0, 0, 0, 1.395, 0, 1.25979, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825279, -0.509132)
+texture_filter = 0
+texture = ExtResource("5_7i6yv")

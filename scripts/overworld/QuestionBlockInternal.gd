@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 @export var translation_y: float = 0
+@export var is_decoration = false
 
 var activated = false
 var timer = 0.0
@@ -74,9 +75,13 @@ func start_timer():
 	activated = true
 
 func _on_Area_body_entered(body):
+	if is_decoration:
+		return
 	if body == $"../../../../Player": #and body.velocity.y > 0:
 		start_timer()
 
 func _on_Area_area_entered(area):
+	if is_decoration:
+		return
 	if area == $"../../../../Player".get_node("HammerArea"):
 		start_timer()

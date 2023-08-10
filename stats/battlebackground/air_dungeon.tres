@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://22ulxn0yanv3"]
+
+[ext_resource type="PackedScene" uid="uid://clp1kv6td6m3m" path="res://scenes/battle/backgrounds/air_dungeon.tscn" id="1_7mem6"]
+[ext_resource type="Script" path="res://stats/battlebackground/battlebackground.gd" id="2"]
+
+[resource]
+script = ExtResource("2")
+background = ExtResource("1_7mem6")
+in_water = false

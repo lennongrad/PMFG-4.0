@@ -48,6 +48,7 @@ material = SubResource("9")
 
 [node name="QuestionBlock" type="Node3D"]
 script = ExtResource("5")
+is_decoration = null
 
 [node name="QuestionBlock" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)

@@ -41,6 +41,7 @@ func _ready():
 func set_encounter(p_encounter_data):
 	encounter_data = p_encounter_data
 	$Sprite2D.set_frames(encounter_data.enemies[0].frames)
+	$Sprite2D.update_decoration("Windup",encounter_data.enemies[0].attributes.has("d_windup"))
 	if encounter_data.attributes.has("balloons"):
 		$Balloons.visible = true
 	else:
