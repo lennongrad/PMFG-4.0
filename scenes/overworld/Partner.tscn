@@ -17,7 +17,7 @@ var player
 
 var target = Vector3.ZERO
 var spriteRotation = 0
-var timeSinceRest = 0
+var timeSinceRest = 250
 var timeSinceWalk = 0
 var last_time_was_grounded = true
 var jump_attempts = 0

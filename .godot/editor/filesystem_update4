@@ -42,3 +42,4 @@ res://scenes/overworld/BorderMesh.tscn
 res://scenes/overworld/Partner.tscn
 res://scenes/overworld/OctagonPlatform.tscn
 res://scripts/overworld/OctagonPlatform.gd
+res://scenes/overworld/top_pyramid.tscn

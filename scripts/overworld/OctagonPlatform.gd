@@ -4,6 +4,10 @@ extends Node3D
 
 @export var size: Vector3: set = updateSize
 @export_range(0, 1, 0.05) var border_radius: float: set = updateRadius
+@export var main_texture: CompressedTexture2D: set = updateTexture
+@export var side_texture: CompressedTexture2D: set = updateSideTexture
+@export var uvScaleTop: Vector2 = Vector2(1,1): set = updateScaleTop
+@export var uvScale: Vector2 = Vector2(1,1): set = updateScale
 
 func updateSize(newSize):
 	size = newSize
@@ -11,6 +15,22 @@ func updateSize(newSize):
 
 func updateRadius(newRadius):
 	border_radius = newRadius
+	updateMesh()
+
+func updateTexture(newTexture):
+	main_texture = newTexture
+	updateMesh()
+
+func updateSideTexture(newTexture):
+	side_texture = newTexture
+	updateMesh()
+
+func updateScaleTop(newScale):
+	uvScaleTop =newScale
+	updateMesh()
+
+func updateScale(newScale):
+	uvScale =newScale
 	updateMesh()
 
 func updateMesh():
@@ -68,6 +88,26 @@ func updateMesh():
 			10,11,14,
 		]
 	)
+	mesh_data[ArrayMesh.ARRAY_NORMAL] = PackedVector3Array(
+		[
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+			Vector3(0,1,0),
+		]
+	)
 	mesh_data[ArrayMesh.ARRAY_TEX_UV] = PackedVector2Array(
 		[
 			Vector2(0,0),
@@ -92,14 +132,36 @@ func updateMesh():
 	var arr_mesh = ArrayMesh.new()
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_data)
 	$MeshInstance3D.mesh = arr_mesh
+	$MeshInstance3D.material_override = StandardMaterial3D.new()
+	$MeshInstance3D.material_override.albedo_texture = main_texture
+	$MeshInstance3D.material_override.texture_filter = 0
+	$MeshInstance3D.material_override.uv1_scale.x = size.x * uvScaleTop.x
+	$MeshInstance3D.material_override.uv1_scale.y = size.z * uvScaleTop.y
 	
 	# now make the walls
 	var side_mesh_x = PlaneMesh.new()
 	side_mesh_x.size = Vector2(size.x * (1 - border_radius), size.y)
+	side_mesh_x.material = StandardMaterial3D.new()
+	side_mesh_x.material.albedo_texture = side_texture
+	side_mesh_x.material.texture_filter = 0
+	side_mesh_x.material.uv1_scale.x = floor(size.x * uvScale.x)
+	side_mesh_x.material.uv1_scale.y = size.y * uvScale.y
+	
 	var side_mesh_z = PlaneMesh.new()
 	side_mesh_z.size = Vector2(size.z * (1 - border_radius), size.y)
+	side_mesh_z.material = StandardMaterial3D.new()
+	side_mesh_z.material.albedo_texture = side_texture
+	side_mesh_z.material.texture_filter = 0
+	side_mesh_z.material.uv1_scale.x = floor(size.x * uvScale.x)
+	side_mesh_z.material.uv1_scale.y = size.y * uvScale.y
+	
 	var diag_mesh = PlaneMesh.new()
 	diag_mesh.size = Vector2(sqrt(pow(triangle_x,2) + pow(triangle_y,2)), size.y)
+	diag_mesh.material = StandardMaterial3D.new()
+	diag_mesh.material.albedo_texture = side_texture
+	diag_mesh.material.texture_filter = 0
+	diag_mesh.material.uv1_scale.x = (size.x * uvScale.x * border_radius * .5)
+	diag_mesh.material.uv1_scale.y = (size.y * uvScale.y)
 	
 	$Walls/Left.mesh = side_mesh_z
 	$Walls/Right.mesh = side_mesh_z
@@ -123,3 +185,15 @@ func updateMesh():
 	$Walls/BottomLeft.rotation_degrees.y = 180 - angle
 	$Walls/TopRight.rotation_degrees.y = -angle
 	$Walls/BottomRight.rotation_degrees.y = 180 + angle
+
+	# finally make the collision
+	$HorizontalShape.shape = BoxShape3D.new()
+	$HorizontalShape.position = Vector3(0,-size.y*.5,0)
+	$HorizontalShape.shape.size = Vector3(size.x, size.y, half_y_close * 2)
+	$SideShape.shape = BoxShape3D.new()
+	$SideShape.position = Vector3(0,-size.y*.5,0)
+	$SideShape.shape.size = Vector3(half_x_close * 2, size.y, size.z)
+	$MiddleShape.shape = BoxShape3D.new()
+	$MiddleShape.position = Vector3(0,-size.y*.5,0)
+	$MiddleShape.shape.size = Vector3(half_x * 2 - triangle_x, size.y, half_y * 2 - triangle_y)
+	
