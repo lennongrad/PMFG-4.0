@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://btp7h1i2msuxu"]
+[gd_scene load_steps=17 format=3 uid="uid://btp7h1i2msuxu"]
 
 [ext_resource type="Script" path="res://scripts/overworld/BorderGenerator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d22u322w4x7bs" path="res://textures/stone/stone-floor.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cxln8d4yhy8wj" path="res://textures/stone/stone.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dqig00hkmfjre" path="res://textures/stone/white_brick.png" id="5_cr4e6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5sj2e"]
 size = Vector3(1, 12, 1)
@@ -16,7 +17,7 @@ uv1_scale = Vector3(2, 2, 1)
 size = Vector3(1, 12, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_770kg"]
-albedo_texture = ExtResource("4")
+albedo_texture = ExtResource("5_cr4e6")
 uv1_scale = Vector3(2, 24, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qp0qr"]
@@ -53,7 +54,6 @@ script = ExtResource("1")
 borderTexture = ExtResource("3")
 mainTexture = ExtResource("2")
 secondaryTexture = ExtResource("4")
-size = Vector3(1, 12, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5sj2e")

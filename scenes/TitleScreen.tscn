@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b74csev77yxgn" path="res://sprites/UI/menuheader.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dlyf6e7x38igq" path="res://sprites/UI/enemy_cursor.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://dpcwinv1auw4r" path="res://sprites/UI/cursor.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://bxh2fycuxeq4r" path="res://logo.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dfou0dyuo7d4c" path="res://logo.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dr52c7r70mol8" path="res://sprites/UI/icons.png" id="7"]
 
 [sub_resource type="Shader" id="1"]
@@ -45,9 +45,6 @@ subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -100,9 +97,6 @@ subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -233,9 +227,6 @@ subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("1")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -285,7 +276,9 @@ offset_bottom = -1.18921
 theme_override_styles/panel = SubResource("3")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 0
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.292
 anchor_top = 0.117
 anchor_right = 0.708

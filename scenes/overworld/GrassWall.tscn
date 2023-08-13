@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://df863juhr461i"]
+
+[ext_resource type="Script" path="res://scripts/overworld/GrassWall.gd" id="1_8rnxa"]
+[ext_resource type="Texture2D" uid="uid://focbxadmse16" path="res://textures/grass/cliff1.png" id="1_783vc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcank"]
+albedo_texture = ExtResource("1_783vc")
+uv1_scale = Vector3(8, 16, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uugt0"]
+size = Vector3(4, 0.01, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dj3f2"]
+size = Vector3(4, 0.01, 8)
+
+[node name="Wall1" type="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+collision_layer = 15
+script = ExtResource("1_8rnxa")
+main_texture = ExtResource("1_783vc")
+size = Vector2(4, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qcank")
+mesh = SubResource("BoxMesh_uugt0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dj3f2")

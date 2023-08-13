@@ -1,9 +1,9 @@
-Sprite3D
-Node3D
 MeshInstance3D
-MultiMeshInstance3D
+Node3D
 CollisionShape3D
 StaticBody3D
+Sprite3D
+MultiMeshInstance3D
 RigidBody3D
 AnimatedSprite3D
 Area3D

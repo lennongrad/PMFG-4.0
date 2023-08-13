@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=13 format=3 uid="uid://djn7hpj5g1pku"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="2_j6ug6"]
 [ext_resource type="PackedScene" uid="uid://dyrc8omyglwi5" path="res://scenes/overworld/stages/stage1.tscn" id="3_sm82m"]
 [ext_resource type="Script" path="res://scripts/overworld/Overworld.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://545dcpp0day" path="res://scenes/overworld/stages/stage3.tscn" id="4_tohov"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://b2u55pjoogue4" path="res://scenes/overworld/stages/stage2.tscn" id="10_w1e5k"]
@@ -14,7 +15,9 @@
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
-stages = [ExtResource("10_w1e5k"), ExtResource("3_sm82m")]
+debug = true
+stages = [ExtResource("10_w1e5k"), ExtResource("3_sm82m"), ExtResource("4_tohov")]
+start_stage = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44885, 1.75504)
