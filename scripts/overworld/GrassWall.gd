@@ -23,7 +23,7 @@ func updateMesh():
 		return
 
 	$CollisionShape3D.shape = BoxShape3D.new()
-	$CollisionShape3D.shape.size = Vector3(size.x, .1, size.y)
+	$CollisionShape3D.shape.size = Vector3(size.x, .3, size.y)
 
 
 	$MeshInstance3D.material_override = StandardMaterial3D.new()

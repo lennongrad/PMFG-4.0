@@ -11,7 +11,7 @@ uv1_scale = Vector3(8, 16, 1)
 size = Vector3(4, 0.01, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dj3f2"]
-size = Vector3(4, 0.01, 8)
+size = Vector3(4, 2, 8)
 
 [node name="Wall1" type="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)

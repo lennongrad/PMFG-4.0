@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://divf7jrq67nb0"]
+[gd_scene load_steps=24 format=3 uid="uid://divf7jrq67nb0"]
 
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="1"]
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpcwinv1auw4r" path="res://sprites/UI/cursor.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dfou0dyuo7d4c" path="res://logo.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dr52c7r70mol8" path="res://sprites/UI/icons.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cteuxhihl63vm" path="res://sprites/mario_thumbsup.png" id="8_vecmw"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
@@ -326,17 +327,16 @@ label_settings = SubResource("LabelSettings_n7pyo")
 
 [node name="StartButton" type="TextureButton" parent="."]
 self_modulate = Color(0.227451, 0.207843, 0.380392, 0.917647)
-layout_mode = 0
-anchor_left = 0.5
-anchor_top = 0.737
-anchor_right = 0.5
-anchor_bottom = 0.737
-offset_left = -140.0
-offset_top = -54.2
-offset_right = 138.0
-offset_bottom = 55.8
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.563
+anchor_top = 0.665
+anchor_right = 0.841
+anchor_bottom = 0.811
+offset_top = -0.200043
+offset_bottom = 0.299927
 texture_normal = ExtResource("3")
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Label3" type="Label" parent="StartButton"]
 layout_mode = 0
@@ -361,19 +361,32 @@ frame_progress = 0.878524
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.756
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 0.756
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -57.0
-offset_right = 250.0
-offset_bottom = -1.0
+offset_left = -363.0
+offset_top = -90.0
+offset_right = 194.0
+offset_bottom = -6.0
 theme_override_fonts/font = SubResource("11")
-text = "Version 0.312 by lennongrad.
-https://github.com/lennongrad/PMFG-4.0"
+text = "Version 0.312 by lennongrad. 
+Art and Music by Kam @kamdrawsthings."
 label_settings = SubResource("LabelSettings_py4at")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarioThumb" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.423
+anchor_right = 0.452
+anchor_bottom = 1.0
+offset_top = -0.25
+offset_right = -3.05176e-05
+grow_vertical = 0
+texture = ExtResource("8_vecmw")
+expand_mode = 3
+stretch_mode = 4
 
 [connection signal="pressed" from="StartButton" to="." method="_on_TextureButton_pressed"]
