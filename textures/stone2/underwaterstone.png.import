@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpevfap6t4vv1"
-path="res://.godot/imported/bobombwind.png-50e659aa77001f5080697db12a1e6032.ctex"
+uid="uid://diexkyenrd4di"
+path="res://.godot/imported/underwaterstone.png-6cdcd62da0b2d67be82a37e6ade3439a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bobombwind.png"
-dest_files=["res://.godot/imported/bobombwind.png-50e659aa77001f5080697db12a1e6032.ctex"]
+source_file="res://textures/stone2/underwaterstone.png"
+dest_files=["res://.godot/imported/underwaterstone.png-6cdcd62da0b2d67be82a37e6ade3439a.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

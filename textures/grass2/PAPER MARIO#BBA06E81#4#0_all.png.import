@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://8mj34vsq6wev"
+path="res://.godot/imported/PAPER MARIO#BBA06E81#4#0_all.png-b4cd7d1e89d4300c7f6a10bcd1d18bf5.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://textures/grass2/PAPER MARIO#BBA06E81#4#0_all.png"
+dest_files=["res://.godot/imported/PAPER MARIO#BBA06E81#4#0_all.png-b4cd7d1e89d4300c7f6a10bcd1d18bf5.ctex"]
+
+[params]
+
+compress/mode=1
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

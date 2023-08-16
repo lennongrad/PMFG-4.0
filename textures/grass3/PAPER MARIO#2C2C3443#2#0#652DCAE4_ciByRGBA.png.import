@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh1yt5rjeorau"
-path="res://.godot/imported/bombwave.png-e76442fe9c32be8352c5ff9cbafdc029.ctex"
+uid="uid://byqaxd1won4ri"
+path="res://.godot/imported/PAPER MARIO#2C2C3443#2#0#652DCAE4_ciByRGBA.png-8cde81512993e290e173bf7ee82d5d19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bombwave.png"
-dest_files=["res://.godot/imported/bombwave.png-e76442fe9c32be8352c5ff9cbafdc029.ctex"]
+source_file="res://textures/grass3/PAPER MARIO#2C2C3443#2#0#652DCAE4_ciByRGBA.png"
+dest_files=["res://.godot/imported/PAPER MARIO#2C2C3443#2#0#652DCAE4_ciByRGBA.png-8cde81512993e290e173bf7ee82d5d19.ctex"]
 
 [params]
 

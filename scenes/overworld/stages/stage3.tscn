@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://545dcpp0day"]
+[gd_scene load_steps=70 format=3 uid="uid://545dcpp0day"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_eovdm"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="2_6kbup"]
+[ext_resource type="PackedScene" uid="uid://b6njwj7yyn6m0" path="res://scenes/overworld/overworld_camera_zone.tscn" id="2_hif68"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="3_2xbet"]
 [ext_resource type="Texture2D" uid="uid://cswvhjmbg1ljg" path="res://textures/grass/grass3.png" id="4_i3t45"]
 [ext_resource type="PackedScene" uid="uid://dplhswfuydwwq" path="res://scenes/overworld/OctagonPlatform.tscn" id="5_pimdg"]
@@ -22,18 +23,29 @@
 [ext_resource type="Texture2D" uid="uid://dvwbow7b70yd7" path="res://textures/grass/bush10.png" id="18_o2puv"]
 [ext_resource type="Texture2D" uid="uid://b0dw5ka3dolg3" path="res://textures/grass/bush12.png" id="19_5tahs"]
 [ext_resource type="Texture2D" uid="uid://dggdwlx4tyeiy" path="res://textures/grass/bush1.png" id="19_5vq8x"]
+[ext_resource type="Texture2D" uid="uid://coaft3rswk3ox" path="res://textures/grass/tree1.png" id="23_wr3uo"]
+[ext_resource type="Texture2D" uid="uid://buwnh77v78mod" path="res://textures/grass/bush2.png" id="24_tqhfa"]
+[ext_resource type="PackedScene" uid="uid://yogyipjj3hl3" path="res://scenes/overworld/Fence.tscn" id="25_bn1wj"]
+[ext_resource type="PackedScene" uid="uid://djkn8bkgnhrcg" path="res://scenes/overworld/Bush.tscn" id="25_qyjo0"]
+[ext_resource type="Texture2D" uid="uid://vcpkhpb6mwtj" path="res://textures/grass/flower4.png" id="26_ki2y6"]
+[ext_resource type="Texture2D" uid="uid://bc3oqfrqks7px" path="res://textures/grass/flower3.png" id="27_pmluv"]
+[ext_resource type="Texture2D" uid="uid://cjcspbnp57674" path="res://textures/grass/flower1.png" id="28_bqop4"]
+[ext_resource type="Texture2D" uid="uid://c2vfmias70e5j" path="res://textures/grass/flower5.png" id="29_d6gr2"]
+[ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="31_d3ymj"]
+[ext_resource type="Resource" path="res://stats/boots/super.tres" id="32_um4i5"]
+[ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="33_w62pg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pedaf"]
 panorama = ExtResource("1_eovdm")
 filter = false
 
-[sub_resource type="Sky" id="Sky_3ds81"]
+[sub_resource type="Sky" id="Sky_orfuj"]
 sky_material = SubResource("PanoramaSkyMaterial_pedaf")
 
 [sub_resource type="Environment" id="Environment_wwp4i"]
 background_mode = 2
 background_color = Color(0.752941, 0.752941, 0.752941, 1)
-sky = SubResource("Sky_3ds81")
+sky = SubResource("Sky_orfuj")
 sky_custom_fov = 66.6
 sky_rotation = Vector3(0, -0.0872665, 0)
 ambient_light_source = 2
@@ -48,29 +60,61 @@ adjustment_brightness = 8.0
 adjustment_contrast = 8.0
 adjustment_saturation = 8.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7gjc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwkbt"]
 albedo_texture = ExtResource("4_i3t45")
 uv1_scale = Vector3(32, 16, 1)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_evmjd"]
-material = SubResource("StandardMaterial3D_f7gjc")
+material = SubResource("StandardMaterial3D_pwkbt")
 size = Vector2(48, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0uqgm"]
 size = Vector3(48, 0.01, 24)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_02v2j"]
+size = Vector3(5.62683, 10, 2.2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6sut8"]
 size = Vector3(2.2, 10, 2.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xqar"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb6yj"]
 albedo_texture = ExtResource("8_43vo1")
 uv1_scale = Vector3(2, 2, 1)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_82olb"]
-material = SubResource("StandardMaterial3D_5xqar")
+material = SubResource("StandardMaterial3D_kb6yj")
 size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qy78"]
+albedo_texture = ExtResource("8_43vo1")
+uv1_scale = Vector3(4, 1, 1)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1p6pn"]
+material = SubResource("StandardMaterial3D_3qy78")
+size = Vector2(8, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn5uk"]
+albedo_texture = ExtResource("8_43vo1")
+uv1_scale = Vector3(0.667, 0.66, 1)
+uv1_offset = Vector3(0.33, -0.65, 0)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rmt3"]
+material = SubResource("StandardMaterial3D_kn5uk")
+size = Vector2(1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dear1"]
+albedo_texture = ExtResource("8_43vo1")
+uv1_scale = Vector3(0.22, 0.22, 0.22)
+uv1_offset = Vector3(0.33, -0.49, 0)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x2bxu"]
+material = SubResource("StandardMaterial3D_dear1")
+size = Vector2(0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glodv"]
 transparency = 1
@@ -178,6 +222,11 @@ transform = Transform3D(0.901145, -0.306543, -0.306543, 0.433517, 0.637206, 0.63
 light_energy = 0.4
 shadow_enabled = true
 
+[node name="BackCamera" parent="." instance=ExtResource("2_hif68")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.5073, -0.711784, -0.319577)
+fov = 93.3143
+bounds_size = Vector3(8.83, 5.29, 20.57)
+
 [node name="Pipes" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
@@ -200,7 +249,7 @@ mesh = SubResource("PlaneMesh_evmjd")
 skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/Main Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10889, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.109, 0.05, -0.082)
 shape = SubResource("BoxShape3D_0uqgm")
 
 [node name="Octagon Platform" parent="Floors" instance=ExtResource("5_pimdg")]
@@ -232,18 +281,18 @@ uvScaleTop = Vector2(1, 1)
 uvScale = Vector2(1, 0.5)
 
 [node name="Octagon Platform6" parent="Floors" instance=ExtResource("5_pimdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2611, -3.24552, -0.116987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2611, -3.24552, -0.258043)
 size = Vector3(4, 4, 4)
 border_radius = 0.3
 uvScaleTop = Vector2(1, 1)
 uvScale = Vector2(1, 0.25)
 
 [node name="Octagon Platform10" parent="Floors" instance=ExtResource("5_pimdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5209, -2.07813, -0.116987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5209, -2.07813, -0.0578367)
 size = Vector3(4, 6, 4)
-border_radius = 0.3
+border_radius = 0.15
 uvScaleTop = Vector2(1, 1)
-uvScale = Vector2(1, 0.25)
+uvScale = Vector2(1, 0.14)
 
 [node name="Octagon Platform7" parent="Floors" instance=ExtResource("5_pimdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6612, -3.77802, -1.3936)
@@ -260,7 +309,7 @@ uvScaleTop = Vector2(1, 1)
 uvScale = Vector2(1, 0.5)
 
 [node name="Octagon Platform9" parent="Floors" instance=ExtResource("5_pimdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5928, -5.0791, -0.154027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5928, -5.0791, -0.233563)
 size = Vector3(4, 4, 4)
 border_radius = 0.25
 uvScaleTop = Vector2(1, 1)
@@ -320,13 +369,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6866, -3.504, 1.08847)
 collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper"]
-shape = SubResource("BoxShape3D_6sut8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07901)
+shape = SubResource("BoxShape3D_02v2j")
 
 [node name="InvisibleStopper2" type="StaticBody3D" parent="Floors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1703, -3.504, -6.7057)
 collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper2"]
+shape = SubResource("BoxShape3D_6sut8")
+
+[node name="InvisibleStopper12" type="StaticBody3D" parent="Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1703, -3.504, -5.7057)
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper12"]
 shape = SubResource("BoxShape3D_6sut8")
 
 [node name="InvisibleStopper4" type="StaticBody3D" parent="Floors"]
@@ -351,10 +408,31 @@ collision_layer = 15
 shape = SubResource("BoxShape3D_6sut8")
 
 [node name="InvisibleStopper3" type="StaticBody3D" parent="Floors"]
-transform = Transform3D(0.846398, 0, 0.532551, 0, 1, 0, -0.532551, 0, 0.846398, 23.9947, -3.504, -6.14858)
+transform = Transform3D(0.946559, 0, 0.32253, 0, 1, 0, -0.32253, 0, 0.946559, 22.455, -3.504, -2.87664)
 collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper3"]
+shape = SubResource("BoxShape3D_6sut8")
+
+[node name="InvisibleStopper9" type="StaticBody3D" parent="Floors"]
+transform = Transform3D(0.749337, 0, 0.662189, 0, 1, 0, -0.662189, 0, 0.749337, 23.9936, -3.504, -3.78934)
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper9"]
+shape = SubResource("BoxShape3D_6sut8")
+
+[node name="InvisibleStopper10" type="StaticBody3D" parent="Floors"]
+transform = Transform3D(0.749337, 0, 0.662189, 0, 1, 0, -0.662189, 0, 0.749337, 25.4152, -3.504, -5.08626)
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper10"]
+shape = SubResource("BoxShape3D_6sut8")
+
+[node name="InvisibleStopper11" type="StaticBody3D" parent="Floors"]
+transform = Transform3D(0.749337, 0, 0.662189, 0, 1, 0, -0.662189, 0, 0.749337, 25.4152, -3.504, -5.08626)
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floors/InvisibleStopper11"]
 shape = SubResource("BoxShape3D_6sut8")
 
 [node name="InvisibleStopper7" type="StaticBody3D" parent="Floors"]
@@ -372,8 +450,31 @@ collision_layer = 15
 shape = SubResource("BoxShape3D_6sut8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floors"]
-transform = Transform3D(0.997714, 0, 0.06758, 0, 1, 0, -0.06758, 0, 0.997714, 26.0559, -5.59952, -7.68473)
+transform = Transform3D(0.997714, 0, 0.06758, 0, 1, 0, -0.06758, 0, 0.997714, 26.225, -5.59952, -6.60254)
 mesh = SubResource("PlaneMesh_82olb")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Floors"]
+transform = Transform3D(0.952311, 0, 0.30513, 0, 1, 0, -0.30513, 0, 0.952311, 21.3939, -5.59952, -3.47491)
+sorting_offset = 2.0
+mesh = SubResource("PlaneMesh_82olb")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Floors"]
+transform = Transform3D(0.744218, 0, 0.667936, 0, 1, 0, -0.667936, 0, 0.744218, 24.0121, -5.57783, -5.00721)
+sorting_offset = 1.0
+mesh = SubResource("PlaneMesh_82olb")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2, -5.62, 0.86)
+sorting_offset = 1.0
+mesh = SubResource("PlaneMesh_1p6pn")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.45, -5.6, 1.133)
+mesh = SubResource("PlaneMesh_5rmt3")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4639, -5.59952, 1.65512)
+mesh = SubResource("PlaneMesh_x2bxu")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Floors"]
 transform = Transform3D(0.991768, 0, 0.128051, 0, 1, 0, -0.128051, 0, 0.991768, 0.649895, -5.59952, -4.15518)
@@ -398,8 +499,7 @@ transform = Transform3D(-1.41296, 0, -0.099476, 0, 1, 0, 0.141256, 0, -0.99504, 
 mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathRound2" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.8761, -5.61524, 0.812905)
-sorting_offset = 3.0
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.2166, -5.59191, 0.812905)
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound3" type="MeshInstance3D" parent="Paths"]
@@ -428,6 +528,7 @@ mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound10" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-0.0762839, 0, -0.997086, 0, 1, 0, 0.997086, 0, -0.0762839, 19.3068, -3.24427, -0.0343511)
+sorting_offset = 1.0
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound11" type="MeshInstance3D" parent="Paths"]
@@ -440,6 +541,7 @@ mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound14" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-1.53352, 0, 0.0438287, 0, 1, 0, -0.067277, 0, -0.999039, 38.1192, -2.06907, 0.740325)
+sorting_offset = -1.0
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound15" type="MeshInstance3D" parent="Paths"]
@@ -447,7 +549,7 @@ transform = Transform3D(1.53352, 0, -0.0438285, 0, 1, 0, 0.0672767, 0, 0.999039,
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound13" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-0.12999, 0, -0.991516, 0, 1, 0, 0.991516, 0, -0.12999, 21.5092, -5.06103, 0.925683)
+transform = Transform3D(-0.12999, 0, -0.991516, 0, 1, 0, 0.991516, 0, -0.12999, 21.5092, -5.06103, 0.897521)
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound5" type="MeshInstance3D" parent="Paths"]
@@ -455,13 +557,13 @@ transform = Transform3D(0.984288, 0, -0.176569, 0, 1, 0, 0.176569, 0, 0.984288, 
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathStep3" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-0.989513, 0, -0.144443, 0, 1, 0, 0.144443, 0, -0.989513, 8.81821, -5.60732, -0.784356)
-sorting_offset = 3.0
+transform = Transform3D(-0.989513, 0, -0.144443, 0, 1, 0, 0.144443, 0, -0.989513, 8.81821, -5.62064, -0.600095)
+sorting_offset = 5.0
 mesh = SubResource("PlaneMesh_3jqhh")
 
 [node name="PathStep10" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.047525, 0, -0.99887, 0, 1, 0, 0.99887, 0, 0.047525, 7.16873, -5.60732, 0.32515)
-sorting_offset = 3.0
+transform = Transform3D(0.047525, 0, -0.99887, 0, 1, 0, 0.99887, 0, 0.047525, 7.21398, -5.60732, 0.32515)
+sorting_offset = 8.0
 mesh = SubResource("PlaneMesh_xxrs1")
 
 [node name="PathStep4" type="MeshInstance3D" parent="Paths"]
@@ -470,23 +572,28 @@ sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_3jqhh")
 
 [node name="PathStep2" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-3.93403e-08, 0, -1, 0, 1, 0, 0.9, 0, -4.37114e-08, 7.2401, -5.6252, 0.784549)
+transform = Transform3D(-3.93403e-08, 0, -1, 0, 1, 0, 0.9, 0, -4.37114e-08, 7.2401, -5.58379, 0.784549)
+sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_l2mpm")
 
 [node name="PathStep6" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 25.0461, -5.6252, 0.383432)
+sorting_offset = 1.0
 mesh = SubResource("PlaneMesh_vklyi")
 
 [node name="PathStep8" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4237, -5.6252, -0.247424)
+sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_3ivs3")
 
 [node name="PathStep9" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-0.0698772, 0, 0.996981, 0, 1, 0, -0.897283, 0, -0.0776413, 28.3746, -5.6252, 0.588179)
+sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_pnrm6")
 
 [node name="PathStep7" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(0.784346, 0, -0.490402, 0, 1, 0, 0.441362, 0, 0.871496, 29.6133, -5.6252, -1.38355)
+sorting_offset = 2.0
 mesh = SubResource("PlaneMesh_l62sa")
 
 [node name="PathStep5" type="MeshInstance3D" parent="Paths"]
@@ -496,7 +603,7 @@ mesh = SubResource("PlaneMesh_cs6vn")
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="Retaining Wall" parent="Walls" instance=ExtResource("5_t4iei")]
-transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 14.7397, -9.53468, 2.917)
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 14.7397, -9.55921, 2.73894)
 main_texture = ExtResource("6_ya8qv")
 size = Vector2(48, 8)
 uvScale = Vector2(2, 2.5)
@@ -604,717 +711,721 @@ battle_background = ExtResource("7_as8ay")
 transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -1.13282, -5.24524, -0.927441)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
 [node name="BushC_1" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -1.22612, -5.4945, 1.2557)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_34" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, -0.796263, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_44" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 0.345125, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_45" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 1.56299, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_46" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 2.70438, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_47" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 3.91872, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_48" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 5.0601, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_49" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 6.27797, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_50" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 7.41936, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 5.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_51" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 8.57599, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 5.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_52" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 9.71737, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 5.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_53" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 10.9352, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_54" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 12.0766, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_55" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 13.1815, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_56" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 14.3229, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_57" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 15.5408, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_58" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 16.6822, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_59" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 17.789, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_60" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 18.9304, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_61" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 20.1483, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_62" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 21.2896, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_63" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 22.4395, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_64" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 23.5809, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_65" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 24.7988, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_66" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 25.9401, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_67" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 27.1258, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_68" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 28.2672, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_69" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 29.4851, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_70" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 30.6265, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_71" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 31.7876, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_72" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 32.929, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_73" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 34.1468, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_74" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 35.2882, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_75" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 35.5995, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_76" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 36.7409, -5.70759, 1.9204)
-sorting_offset = 1.0
+transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 36.238, -5.70759, 1.9204)
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
-[node name="BushC_77" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 37.9588, -5.70759, 1.9204)
-sorting_offset = 1.0
+[node name="BushC_80" type="Sprite3D" parent="WallDecoration"]
+transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 37.1678, -6.52412, 2.04745)
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
+texture = ExtResource("17_ppubh")
+
+[node name="BushC_81" type="Sprite3D" parent="WallDecoration"]
+transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 38.2715, -6.52412, 2.04745)
+sorting_offset = 2.0
+flip_v = true
+modulate = Color(0.694118, 0.639216, 0.811765, 1)
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_78" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999813, -5.67553e-10, -0.0193546, 0.00603355, 0.950168, 0.31168, 0.0183901, -0.311738, 0.94999, 39.1002, -5.70759, 1.9204)
-sorting_offset = 1.0
+sorting_offset = 2.0
 flip_v = true
 modulate = Color(0.694118, 0.639216, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_2" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -1.17634, -5.4945, 0.0152956)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_3" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.322993, 0, 0.946402, 0, 1, 0, -0.946402, 0, 0.322993, -0.98491, -5.4945, -1.2592)
-sorting_offset = 1.0
+transform = Transform3D(0.322993, 0, 0.946402, 0, 1, 0, -0.946402, 0, 0.322993, -0.946111, -5.4945, -1.23089)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_4" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.977501, 0, 0.210932, 0, 1, 0, -0.210932, 0, 0.977501, -0.104611, -5.4945, -1.94673)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_5" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.994578, 0, 0.10399, 0, 1, 0, -0.10399, 0, 0.994578, 1.08173, -5.4945, -2.16991)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_36" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999608, 0, 0.0280089, 0, 1, 0, -0.0280089, 0, 0.999608, 10.7192, -5.4945, -2.09521)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_37" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999608, 0, 0.0280089, 0, 1, 0, -0.0280089, 0, 0.999608, 11.9867, -5.50153, -2.15621)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_79" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.999608, 0, 0.0280089, 0, 1, 0, -0.0280089, 0, 0.999608, 13.2711, -5.4945, -2.18871)
-sorting_offset = 1.0
+transform = Transform3D(0.999608, 0, 0.0280089, 0, 1, 0, -0.0280089, 0, 0.999608, 13.2711, -5.5506, -2.18871)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_6" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.981033, 0, 0.193841, 0, 1, 0, -0.193841, 0, 0.981033, 2.22261, -5.4945, -2.31631)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_7" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.981033, 0, 0.193841, 0, 1, 0, -0.193841, 0, 0.981033, 3.04881, -4.58535, -3.91671)
-sorting_offset = 1.0
+transform = Transform3D(1.02518, 0, 0.193841, 0, 1, 0, -0.202563, 0, 0.981033, 3.04881, -4.63414, -3.91671)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_8" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.994895, 0, 0.100917, 0, 1, 0, -0.100917, 0, 0.994895, 4.32473, -4.61399, -4.17116)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_9" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.994895, 0, 0.100917, 0, 1, 0, -0.100917, 0, 0.994895, 5.51787, -4.61399, -4.24222)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_11" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.998405, 0, -0.0564662, 0, 1, 0, 0.0564662, 0, 0.998405, 7.02655, -4.13058, -4.45895)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_12" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.998405, 0, -0.0564662, 0, 1, 0, 0.0564662, 0, 0.998405, 8.29024, -4.13058, -4.37527)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_13" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.998405, 0, -0.0564662, 0, 1, 0, 0.0564662, 0, 0.998405, 9.52186, -4.13058, -4.29447)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_14" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.97496, 0, -0.222382, 0, 1, 0, 0.222382, 0, 0.97496, 10.6727, -4.13058, -4.09677)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_15" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.945706, 0, -0.325024, 0, 1, 0, 0.325024, 0, 0.945706, 11.8942, -4.13058, -3.75715)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_16" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.945706, 0, -0.325024, 0, 1, 0, 0.325024, 0, 0.945706, 13.1186, -4.13058, -3.43565)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_17" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.945706, 0, -0.325024, 0, 1, 0, 0.325024, 0, 0.945706, 13.9504, -4.13058, -3.1179)
-sorting_offset = 1.0
+transform = Transform3D(0.945706, 0, -0.325024, 0, 1, 0, 0.325024, 0, 0.945706, 14.3332, -4.13058, -3.03166)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_18" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.862646, 0, -0.505808, 0, 1, 0, 0.505808, 0, 0.862646, 14.3421, -3.74878, -2.82106)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_19" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.862646, 0, -0.505808, 0, 1, 0, 0.505808, 0, 0.862646, 15.0657, -3.74878, -2.38229)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_20" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.735234, 0, -0.677813, 0, 1, 0, 0.677813, 0, 0.735234, 15.423, -3.43576, -1.92433)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_21" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.735234, 0, -0.677813, 0, 1, 0, 0.677813, 0, 0.735234, 16.2449, -3.43576, -1.09059)
-sorting_offset = 1.0
+transform = Transform3D(0.735234, 0, -0.677813, 0, 1, 0, 0.677813, 0, 0.735234, 16.3444, -3.43576, -1.05584)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_22" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.942239, 0, -0.334942, 0, 1, 0, 0.334942, 0, 0.942239, 16.8671, -3.15859, -0.834395)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_23" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.942239, 0, -0.334942, 0, 1, 0, 0.334942, 0, 0.942239, 17.9353, -3.15859, -0.468733)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_24" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.998968, 0, -0.0454327, 0, 1, 0, 0.0454327, 0, 0.998968, 19.1358, -3.15859, -0.242867)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_25" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.998968, 0, -0.0454327, 0, 1, 0, 0.0454327, 0, 0.998968, 19.6318, -3.15859, -0.220148)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_26" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.917893, 0, 0.396828, 0, 1, 0, -0.396828, 0, 0.917893, 20.8264, -3.66349, -0.150562)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_27" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.767568, 0, 0.640968, 0, 1, 0, -0.640968, 0, 0.767568, 21.8376, -3.69557, -0.787875)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_29" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.381038, 0, 0.92456, 0, 1, 0, -0.92456, 0, 0.381038, 22.8972, -5.52565, -2.12386)
-sorting_offset = 1.0
+transform = Transform3D(0.952194, 0, 0.305496, 0, 1, 0, -0.305496, 0, 0.952194, 23.2759, -5.52565, -1.93573)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_30" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.381038, 0, 0.92456, 0, 1, 0, -0.92456, 0, 0.381038, 23.3422, -5.52565, -3.22665)
-sorting_offset = 1.0
+transform = Transform3D(0.705006, 0, 0.709202, 0, 1, 0, -0.709202, 0, 0.705006, 24.3648, -5.52565, -2.58637)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_31" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.381038, 0, 0.92456, 0, 1, 0, -0.92456, 0, 0.381038, 23.7612, -5.52565, -4.36622)
-sorting_offset = 1.0
+transform = Transform3D(0.783444, 0, 0.621463, 0, 1, 0, -0.621463, 0, 0.783444, 25.2991, -5.52565, -3.48139)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_32" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.904649, 0, 0.426158, 0, 1, 0, -0.426158, 0, 0.904649, 24.5183, -5.52565, -5.25282)
-sorting_offset = 1.0
+transform = Transform3D(0.815512, 0, 0.578741, 0, 1, 0, -0.578741, 0, 0.815512, 26.272, -5.52565, -4.17347)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_33" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.993694, 0, 0.112128, 0, 1, 0, -0.112128, 0, 0.993694, 25.6285, -5.52565, -5.62951)
-sorting_offset = 1.0
+transform = Transform3D(0.993694, 0, 0.112128, 0, 1, 0, -0.112128, 0, 0.993694, 27.3855, -5.52565, -4.59523)
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
-texture = ExtResource("17_ppubh")
-
-[node name="BushC_35" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.999943, 0, 0.0107161, 0, 1, 0, -0.0107161, 0, 0.999943, 26.7734, -5.52565, -5.71059)
-sorting_offset = 1.0
-pixel_size = 0.02
-texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_40" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.045921, 0, -0.998945, 0, 1, 0, 0.998945, 0, -0.045921, 38.5832, -1.94122, -1.48521)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_41" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.045921, 0, -0.998945, 0, 1, 0, 0.998945, 0, -0.045921, 38.5573, -1.94122, -0.296377)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_42" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.045921, 0, -0.998945, 0, 1, 0, 0.998945, 0, -0.045921, 38.4522, -1.94122, 0.850995)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_43" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.045921, 0, -0.998945, 0, 1, 0, 0.998945, 0, -0.045921, 38.4347, -1.94122, 1.30562)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_38" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.992465, 0, 0.122528, 0, 1, 0, -0.122528, 0, 0.992465, 37.48, -5.52565, -4.77082)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_39" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.997631, 0, 0.068799, 0, 1, 0, -0.068799, 0, 0.997631, 38.5367, -5.51174, -4.85671)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_28" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.767568, 0, 0.640968, 0, 1, 0, -0.640968, 0, 0.767568, 22.1807, -3.69557, -1.10109)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="BushC_10" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.994895, 0, 0.100917, 0, 1, 0, -0.100917, 0, 0.994895, 6.73287, -4.61399, -4.36542)
-sorting_offset = 1.0
+sorting_offset = 2.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 2
 texture = ExtResource("17_ppubh")
 
 [node name="Bush1_2" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.973873, 0, 0.227093, 0, 1, 0, -0.227093, 0, 0.973873, 1.78996, -5.24524, -3.65594)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
@@ -1322,20 +1433,22 @@ texture = ExtResource("16_r0a5m")
 transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -1.26144, -5.24524, 0.940812)
 sorting_offset = 1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("17_ffdn0")
 
 [node name="Bush3_1" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.800731, 0, 0.599024, 0, 1, 0, -0.599024, 0, 0.800731, 0.309394, -5.24524, -2.87665)
-sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("18_o2puv")
 
 [node name="Bush1_3" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.984726, 0, 0.174112, 0, 1, 0, -0.174112, 0, 0.984726, 5.72803, -4.25572, -4.32784)
-sorting_offset = -1.0
+transform = Transform3D(1.01919, 0, 0.180206, 0, 1.035, 0, -0.180206, 0, 1.01919, 5.72803, -4.25572, -4.39101)
+sorting_offset = -2.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
@@ -1343,6 +1456,7 @@ texture = ExtResource("16_r0a5m")
 transform = Transform3D(-0.999449, 0, 0.0331901, 0, 1, 0, -0.0331901, 0, -0.999449, 7.28873, -3.77175, -4.49645)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
@@ -1350,131 +1464,127 @@ texture = ExtResource("16_r0a5m")
 transform = Transform3D(-0.872539, 0, -0.488545, 0, 1, 0, 0.488545, 0, -0.872539, 20.7515, -3.32392, -0.199706)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("16_r0a5m")
 
 [node name="Bush1_9" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.0463395, 0, 0.998926, 0, 1, 0, -0.998926, 0, 0.0463395, 38.6185, -1.61496, -1.20754)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("16_r0a5m")
 
 [node name="Bush1_8" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.984862, 0, 0.173339, 0, 1, 0, -0.173339, 0, 0.984862, 25.7464, -5.29888, -7.3499)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
-texture = ExtResource("16_r0a5m")
-
-[node name="Bush1_10" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.984862, 0, 0.173339, 0, 1, 0, -0.173339, 0, 0.984862, 25.7464, -5.29888, -7.3499)
-sorting_offset = -1.0
-pixel_size = 0.015
-texture_filter = 0
-render_priority = 1
 texture = ExtResource("16_r0a5m")
 
 [node name="Bush1_5" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(-0.684802, 0, 0.72873, 0, 1, 0, -0.72873, 0, -0.684802, 15.4691, -3.10247, -1.86157)
+transform = Transform3D(-0.684802, 0, 0.72873, 0, 1, 0, -0.72873, 0, -0.684802, 15.5374, -3.10247, -1.92045)
 sorting_offset = -2.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
 [node name="Bush1_6" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.684802, 0, -0.72873, 0, 1, 0, 0.72873, 0, 0.684802, 16.0719, -3.10247, -1.22717)
+transform = Transform3D(0.684802, 0, -0.72873, 0, 1, 0, 0.72873, 0, 0.684802, 16.1268, -3.10247, -1.27752)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("16_r0a5m")
 
 [node name="Bush5_1" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.967705, 0, 0.252086, 0, 1, 0, -0.252086, 0, -0.967705, 10.68, -3.84495, -4.11692)
-sorting_offset = -1.0
 pixel_size = 0.035
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush5_6" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(-0.999121, 0, -0.0419105, 0, 1, 0, 0.0419105, 0, -0.999121, 11.1456, -5.10744, -2.13683)
-sorting_offset = -1.0
+sorting_offset = -2.0
 pixel_size = 0.035
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush3_2" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(-0.985565, 0, -0.169298, 0, 1, 0, 0.169298, 0, -0.985565, 3.56767, -4.25572, -4.07145)
+transform = Transform3D(-0.985565, 0, -0.169298, 0, 1, 0, 0.169298, 0, -0.985565, 3.58743, -4.25572, -4.13038)
 sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("18_o2puv")
 
 [node name="Bush3_3" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.960396, 0, -0.278639, 0, 1, 0, 0.278639, 0, 0.960396, 12.9843, -3.7022, -3.4359)
-sorting_offset = -1.0
+transform = Transform3D(0.94398, 0, -0.330004, 0, 1, 0, 0.330004, 0, 0.94398, 13.0839, -3.7022, -3.47013)
+sorting_offset = -2.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("18_o2puv")
 
 [node name="Bush5_2" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(-0.945581, 0, 0.325387, 0, 1.5, 0, -0.325387, 0, -0.945581, 17.3405, -2.79274, -0.663243)
+transform = Transform3D(-0.945581, 0, 0.325387, 0, 1.5, 0, -0.325387, 0, -0.945581, 17.3528, -2.79274, -0.702273)
 sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush5_3" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(-0.339969, 0, -0.940437, 0, 1.5, 0, 0.940437, 0, -0.339969, 23.1238, -5.14205, -2.6536)
+transform = Transform3D(-0.339969, 0, -0.940437, 0, 1.5, 0, 0.940437, 0, -0.339969, 23.3026, -5.14205, -2.86146)
 sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush5_4" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.972715, 0, -0.232003, 0, 1.5, 0, 0.232003, 0, 0.972715, 36.4991, -5.14205, -7.32898)
 sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush5_5" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(-0.0629473, 0, -0.998017, 0, 1.5, 0, 0.998017, 0, -0.0629473, 38.4673, -1.66426, 0.74537)
+transform = Transform3D(-0.0629473, 0, -0.998017, 0, 1.5, 0, 0.998017, 0, -0.0629473, 38.5195, -1.66426, 0.748921)
 sorting_offset = -1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("19_5vq8x")
 
 [node name="Bush3_4" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.995983, 0, -0.0895374, 0, 1, 0, 0.0895374, 0, 0.995983, 19.3792, -2.75443, -0.286537)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("18_o2puv")
 
 [node name="Bush3_5" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.316493, 0, 0.948595, 0, 1, 0, -0.948595, 0, 0.316493, 23.7584, -5.17938, -4.46848)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("18_o2puv")
 
 [node name="Bush3_7" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999161, 0, 0.0409515, 0, 1, 0, -0.0409515, 0, 0.999161, 26.5176, -5.17938, -7.50616)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("18_o2puv")
@@ -1483,21 +1593,24 @@ texture = ExtResource("18_o2puv")
 transform = Transform3D(-0.623484, 0, 0.781836, 0, 1, 0, -0.781836, 0, -0.623484, 37.973, -5.17938, -6.43932)
 sorting_offset = -1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("18_o2puv")
 
 [node name="Bush4_1" type="Sprite3D" parent="WallDecoration"]
-transform = Transform3D(0.597961, 0, 0.801525, 0, 1, 0, -0.801525, 0, 0.597961, -0.626046, -5.24484, -1.95261)
+transform = Transform3D(0.688949, 0, 0.72481, 0, 1, 0, -0.72481, 0, 0.688949, -0.639368, -5.24484, -1.95023)
 sorting_offset = 1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("19_5tahs")
 
 [node name="Bush4_2" type="Sprite3D" parent="WallDecoration"]
 transform = Transform3D(0.999264, 0, -0.0383529, 0, 1, 0, 0.0383529, 0, 0.999264, 8.9042, -3.9001, -4.44541)
-sorting_offset = 1.0
+sorting_offset = -3.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("19_5tahs")
 
@@ -1505,6 +1618,7 @@ texture = ExtResource("19_5tahs")
 transform = Transform3D(0.776641, 0, 0.629944, 0, 1, 0, -0.629944, 0, 0.776641, 22.0275, -3.28914, -1.00067)
 sorting_offset = 1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("19_5tahs")
 
@@ -1512,6 +1626,7 @@ texture = ExtResource("19_5tahs")
 transform = Transform3D(0.858128, 0, -0.513436, 0, 1, 0, 0.513436, 0, 0.858128, 14.6305, -3.4973, -2.70541)
 sorting_offset = 1.0
 pixel_size = 0.015
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("19_5tahs")
 
@@ -1519,5 +1634,411 @@ texture = ExtResource("19_5tahs")
 transform = Transform3D(0.412405, 0, 0.911001, 0, 1, 0, -0.911001, 0, 0.412405, 24.3733, -5.03738, -6.12498)
 sorting_offset = 1.0
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("19_5tahs")
+
+[node name="Flora" type="Node3D" parent="."]
+
+[node name="Tree" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.984874, 0, 0.17327, 0, 1, 0, -0.17327, 0, 0.984874, 26.0618, -4.74916, -6.42714)
+sorting_offset = 3.0
+pixel_size = 0.04
+texture_filter = 0
+render_priority = 2
+texture = ExtResource("23_wr3uo")
+
+[node name="Tree2" type="Sprite3D" parent="Flora/Tree"]
+transform = Transform3D(0.193549, 0, 0.98109, 0, 1, 0, -0.98109, 0, 0.193549, -0.0413955, 0, -0.0437799)
+sorting_offset = 3.0
+pixel_size = 0.04
+texture_filter = 0
+render_priority = 2
+texture = ExtResource("23_wr3uo")
+
+[node name="Sprite3D" type="Sprite3D" parent="Flora/Tree/Tree2"]
+transform = Transform3D(0.257171, 0, -0.985193, 0, 1, 0, 1.47779, 0, 0.171448, 0.0456648, 0.934646, 0.588427)
+modulate = Color(0.647059, 0.662745, 0.811765, 1)
+pixel_size = 0.02
+texture_filter = 0
+render_priority = 4
+texture = ExtResource("24_tqhfa")
+
+[node name="Sprite3D" type="Sprite3D" parent="Flora/Tree"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358567, 1.62894, -0.108922)
+pixel_size = 0.03
+texture_filter = 0
+render_priority = 3
+texture = ExtResource("24_tqhfa")
+
+[node name="Tree2" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.820411, 0, -0.571774, 0, 1, 0, 0.571774, 0, 0.820411, 36.5611, -4.74916, -6.63346)
+sorting_offset = 3.0
+pixel_size = 0.04
+texture_filter = 0
+render_priority = 2
+texture = ExtResource("23_wr3uo")
+
+[node name="Tree2" type="Sprite3D" parent="Flora/Tree2"]
+transform = Transform3D(0.193549, 0, 0.98109, 0, 1, 0, -0.98109, 0, 0.193549, -0.0413955, 0, -0.0437799)
+sorting_offset = 3.0
+pixel_size = 0.04
+texture_filter = 0
+render_priority = 2
+texture = ExtResource("23_wr3uo")
+
+[node name="Sprite3D" type="Sprite3D" parent="Flora/Tree2/Tree2"]
+transform = Transform3D(0.257171, 0, -0.985193, 0, 1, 0, 1.47779, 0, 0.171448, 0.0456648, 0.934646, 0.588427)
+modulate = Color(0.647059, 0.662745, 0.811765, 1)
+pixel_size = 0.02
+texture_filter = 0
+render_priority = 4
+texture = ExtResource("24_tqhfa")
+
+[node name="Sprite3D" type="Sprite3D" parent="Flora/Tree2"]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358567, 1.62894, -0.108922)
+pixel_size = 0.03
+texture_filter = 0
+render_priority = 3
+texture = ExtResource("24_tqhfa")
+
+[node name="Fence" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.852366, 0, -0.522945, 0, 1, 0, 0.522945, 0, 0.852366, 2.53709, -5.74028, -1.53435)
+
+[node name="Fence3" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.150709, 0, -0.988578, 0, 1, 0, 0.988578, 0, 0.150709, 15.6903, -5.74028, 1.26546)
+
+[node name="Fence7" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(-0.712932, 0, -0.701233, 0, 1, 0, 0.701233, 0, -0.712932, 30.3335, -5.74028, 1.34765)
+
+[node name="Fence8" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.858065, 0.513541, -2.24476e-08, 0, -4.37114e-08, -1, -0.513541, 0.858065, -3.75072e-08, 31.5485, -5.5527, 0.30598)
+
+[node name="Fence9" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(-0.999998, 0.00174543, 1.67276e-08, -1.66571e-08, 4.04132e-08, -1, -0.00174543, -0.999998, -4.03841e-08, 32.918, -5.60024, -0.155988)
+
+[node name="Fence10" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(-0.998982, 0, -0.0451014, 0, 1, 0, 0.0451014, 0, -0.998982, 34.4274, -5.74028, -0.219418)
+
+[node name="Fence11" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(-0.998982, 0, -0.0451014, 0, 1, 0, 0.0451014, 0, -0.998982, 35.895, -5.74028, -0.251277)
+
+[node name="Fence4" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.66661, 0, -0.745406, 0, 1, 0, 0.745406, 0, 0.66661, 14.9309, -5.74028, -0.00323844)
+
+[node name="Fence2" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.999514, 0, -0.0311666, 0, 1, 0, 0.0311666, 0, 0.999514, 3.99801, -5.75889, -1.15724)
+
+[node name="Fence5" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.999746, 0, -0.0225303, 0, 1, 0, 0.0225303, 0, 0.999746, 7.3915, -5.75889, 1.70407)
+
+[node name="Fence6" parent="Flora" instance=ExtResource("25_bn1wj")]
+transform = Transform3D(0.999936, 0, -0.0112746, 0, 1, 0, 0.0112746, 0, 0.999936, 8.87274, -5.75889, 1.72161)
+
+[node name="Triple" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.998339, 0, 0.0576163, 0, 1, 0, -0.0576163, 0, 0.998339, 1.56159, -5.32629, -2.72109)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("26_ki2y6")
+
+[node name="Creeper" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.999496, 0, 0.0317597, 0, 1, 0, -0.0317597, 0, 0.999496, 13.3618, -4.90958, -2.20238)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_pmluv")
+
+[node name="Creeper2" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.0357192, 0, 0.999362, 0, 1, 0, -0.999362, 0, 0.0357192, -1.31688, -4.61859, 1.22809)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_pmluv")
+
+[node name="Creeper3" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.79398, 0, 0.607944, 0, 1, 0, -0.607944, 0, 0.79398, 22.0665, -2.62637, -1.0478)
+sorting_offset = -1.0
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_pmluv")
+
+[node name="Creeper4" type="Sprite3D" parent="Flora"]
+transform = Transform3D(-0.0363821, 0, -0.999338, 0, 1, 0, 0.999338, 0, -0.0363821, 38.5571, -1.23623, -0.214882)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_pmluv")
+
+[node name="Triple2" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.519161, 0, -0.854676, 0, 1, 0, 0.854676, 0, 0.519161, 15.8733, -5.32629, 0.384531)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("26_ki2y6")
+
+[node name="Triple3" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.78509, 0, 0.619382, 0, 1, 0, -0.619382, 0, 0.78509, 24.2858, -5.32629, -3.33211)
+sorting_offset = 1.0
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("26_ki2y6")
+
+[node name="Triple5" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.78509, 0, 0.619382, 0, 1, 0, -0.619382, 0, 0.78509, 25.3466, -5.32629, -5.54061)
+sorting_offset = 1.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("26_ki2y6")
+
+[node name="Triple4" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.964925, 0, -0.262526, 0, 1, 0, 0.262526, 0, 0.964925, 35.3559, -5.32629, 0.704468)
+sorting_offset = 3.0
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("26_ki2y6")
+
+[node name="TinyFlower" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.30377, -5.53237, -0.369301)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower2" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383539, -5.53237, 1.48448)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower3" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8769, -5.53237, -1.67176)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower4" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6275, -5.53237, -0.108258)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower5" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7052, -5.53237, -0.999987)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower6" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7709, -5.53237, -6.22262)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower14" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8605, -5.53237, -4.422)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower7" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.319, -5.53237, 0.121995)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower8" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5569, -5.53237, 1.27862)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower9" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3125, -5.53237, 1.38848)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower10" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5954, -5.53237, -3.74795)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower11" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1218, -1.94806, 1.76217)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower12" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.892, -3.67355, 0.203995)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="TinyFlower13" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03805, -4.62513, -3.37752)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("28_bqop4")
+
+[node name="Mushroom" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91287, -5.42634, -1.43928)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom2" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68366, -5.42634, -1.03962)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom3" type="Sprite3D" parent="Flora"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6107, -5.42634, -1.17621)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom4" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.98585, 0, 0.167629, 0, 1, 0, -0.167629, 0, 0.98585, 23.1876, -5.42634, -0.678132)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom5" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.98585, 0, 0.167629, 0, 1, 0, -0.167629, 0, 0.98585, 36.3694, -5.42634, -3.06275)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom6" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.98585, 0, 0.167629, 0, 1, 0, -0.167629, 0, 0.98585, 26.183, -5.42634, -4.99412)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Mushroom7" type="Sprite3D" parent="Flora"]
+transform = Transform3D(0.98585, 0, 0.167629, 0, 1, 0, -0.167629, 0, 0.98585, 16.4256, -3.0468, -0.794645)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_d6gr2")
+
+[node name="Bushes" type="Node3D" parent="."]
+
+[node name="Bush" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(0.994933, 0, -0.100535, 0, 1, 0, 0.100535, 0, 0.994933, 4.68646, -5.69679, -0.588783)
+
+[node name="Bush5" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40892, -4.29336, -3.97979)
+
+[node name="Bush2" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98121, -5.69678, -0.963272)
+
+[node name="Bush3" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(0.995203, 0, 0.0978261, 0, 1, 0, -0.0978261, 0, 0.995203, 11.2016, -5.69678, -0.87259)
+
+[node name="Bush6" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(0.957163, 0, 0.28955, 0, 1, 0, -0.28955, 0, 0.957163, 27.1723, -5.69678, -2.09751)
+
+[node name="Bush7" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(0.940116, 0, -0.340855, 0, 1, 0, 0.340855, 0, 0.940116, 35.407, -5.69678, -3.59252)
+
+[node name="Bush4" parent="Bushes" instance=ExtResource("25_qyjo0")]
+transform = Transform3D(0.94626, 0, -0.323405, 0, 1, 0, 0.323405, 0, 0.94626, 13.3792, -5.69678, -0.572186)
+
+[node name="QuestionBlocks" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
+
+[node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.904, -5.67361, -0.71252)
+item_type = ExtResource("32_um4i5")
+coin_count = 3
+distance = 1.2
+
+[node name="QuestionBlock3" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6201, -2.0308, 0.0379662)
+item_type = ExtResource("32_um4i5")
+coin_count = 3
+distance = 1.1
+
+[node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31006, -4.80092, 2.7694)
+item_type = ExtResource("32_um4i5")
+coin_count = 3
+distance = 0.1
+
+[node name="CoinRows" type="Node3D" parent="."]
+
+[node name="CoinRow" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9629, -3.19772, 1.06936)
+coin_distance = Vector3(0.495, 0, 0)
+
+[node name="CoinRow9" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1167, -5.59298, 1.53392)
+coin_count = 1
+coin_distance = Vector3(0.495, 0, 0)
+
+[node name="CoinRow8" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3693, -3.74468, -0.826778)
+coin_count = 3
+coin_distance = Vector3(0, 0, 0.4)
+
+[node name="CoinRow5" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31148, -5.5473, 0.805849)
+coin_distance = Vector3(1, 0, 0)
+
+[node name="CoinRow2" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1977, -5.5586, -1.5965)
+coin_distance = Vector3(0.29, 0.115, -0.305)
+
+[node name="CoinRow3" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.9146, -4.96675, -7.09077)
+coin_count = 5
+coin_distance = Vector3(0, 0, 0.5)
+
+[node name="CoinRow6" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3662, -4.74528, -5.52761)
+coin_count = 5
+coin_distance = Vector3(0.73, 0.64, 0.5)
+
+[node name="CoinRow7" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8541, -4.74528, -4.94231)
+coin_count = 5
+coin_distance = Vector3(0.73, 0.64, 0.5)
+
+[node name="CoinRow4" parent="CoinRows" instance=ExtResource("33_w62pg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3744, -4.96675, -7.11712)
+coin_count = 5
+coin_distance = Vector3(0, 0, 0.5)

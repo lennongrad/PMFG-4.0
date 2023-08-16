@@ -18,6 +18,7 @@ uniform vec4 bot_dark_color : source_color;
 uniform float displ_amount = 0.02;
 uniform float bottom_foam_threshold = 0.48;
 uniform float speed = 4.25;
+uniform float alpha = .05;
  
 void fragment()
 {
@@ -31,7 +32,7 @@ void fragment()
 	col = mix(vec4(1,1,1,1), col, step(UV.y + displ.y, bottom_foam_threshold));
  
 	ALBEDO =  col.xyz;
-	ALPHA = .05;//.6 + noise * .3;
+	ALPHA = alpha;//.6 + noise * .3;
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vms2r"]
@@ -44,6 +45,7 @@ shader_parameter/bot_dark_color = Color(0, 0, 0.254902, 1)
 shader_parameter/displ_amount = 0.1
 shader_parameter/bottom_foam_threshold = 0.41
 shader_parameter/speed = 0.19
+shader_parameter/alpha = 0.05
 shader_parameter/noise_tex = ExtResource("2")
 shader_parameter/displ_tex = ExtResource("1_lj3r5")
 

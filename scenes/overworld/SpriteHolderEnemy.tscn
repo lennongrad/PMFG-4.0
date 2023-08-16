@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c8vwhk3euf7md" path="res://particles/DustUp.png" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/SpriteHolderEnemy.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://bih4yr6ddgi3c" path="res://textures/bobommb.png" id="2_bilur"]
-[ext_resource type="Texture2D" uid="uid://lruqjtu4ic27" path="res://textures/bobombflare.png" id="4_54agj"]
-[ext_resource type="Texture2D" uid="uid://bpevfap6t4vv1" path="res://textures/bobombwind.png" id="5_owux2"]
+[ext_resource type="Texture2D" uid="uid://bih4yr6ddgi3c" path="res://textures/bobomb/bobommb.png" id="2_bilur"]
+[ext_resource type="Texture2D" uid="uid://lruqjtu4ic27" path="res://textures/bobomb/bobombflare.png" id="4_54agj"]
+[ext_resource type="Texture2D" uid="uid://bpevfap6t4vv1" path="res://textures/bobomb/bobombwind.png" id="5_owux2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cy2ra"]
 atlas = ExtResource("2_bilur")

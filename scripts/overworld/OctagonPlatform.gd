@@ -47,6 +47,8 @@ func updateMesh():
 	var triangle_x = half_x - half_x_close
 	var triangle_y = half_y - half_y_close
 	var angle = atan(size.z / size.x) / PI * 180
+	var hypotenuse = sqrt(pow(triangle_x,2) + pow(triangle_y,2))
+	var bisector = triangle_x * triangle_y * sqrt(2) / (triangle_x + triangle_y)
 	
 	var mesh_data = []
 	mesh_data.resize(ArrayMesh.ARRAY_MAX)
@@ -156,7 +158,7 @@ func updateMesh():
 	side_mesh_z.material.uv1_scale.y = size.y * uvScale.y
 	
 	var diag_mesh = PlaneMesh.new()
-	diag_mesh.size = Vector2(sqrt(pow(triangle_x,2) + pow(triangle_y,2)), size.y)
+	diag_mesh.size = Vector2(hypotenuse, size.y)
 	diag_mesh.material = StandardMaterial3D.new()
 	diag_mesh.material.albedo_texture = side_texture
 	diag_mesh.material.texture_filter = 0
@@ -193,7 +195,37 @@ func updateMesh():
 	$SideShape.shape = BoxShape3D.new()
 	$SideShape.position = Vector3(0,-size.y*.5,0)
 	$SideShape.shape.size = Vector3(half_x_close * 2, size.y, size.z)
-	$MiddleShape.shape = BoxShape3D.new()
-	$MiddleShape.position = Vector3(0,-size.y*.5,0)
-	$MiddleShape.shape.size = Vector3(half_x * 2 - triangle_x, size.y, half_y * 2 - triangle_y)
 	
+	var perpindicular = Vector2(bisector/2,0).rotated((angle - 90)/180 * PI)
+	
+	$TopLeftShape.shape = BoxShape3D.new()
+	$TopLeftShape.position = Vector3(
+		-half_x_close - triangle_x/2 + perpindicular.x,
+		-size.y*.5,
+		-half_y_close - triangle_y/2 - perpindicular.y)
+	$TopLeftShape.shape.size = Vector3(hypotenuse, size.y, bisector)
+	$TopLeftShape.rotation_degrees.y = angle
+	
+	$TopRightShape.shape = BoxShape3D.new()
+	$TopRightShape.position = Vector3(
+		half_x_close + triangle_x/2 - perpindicular.x,
+		-size.y*.5,
+		-half_y_close - triangle_y/2 - perpindicular.y)
+	$TopRightShape.shape.size = Vector3(hypotenuse, size.y, bisector)
+	$TopRightShape.rotation_degrees.y = -angle
+
+	$BottomLeftShape.shape = BoxShape3D.new()
+	$BottomLeftShape.position = Vector3(
+		-half_x_close - triangle_x/2 + perpindicular.x,
+		-size.y*.5,
+		half_y_close + triangle_y/2 + perpindicular.y)
+	$BottomLeftShape.shape.size = Vector3(hypotenuse, size.y, bisector)
+	$BottomLeftShape.rotation_degrees.y = -angle
+
+	$BottomRightShape.shape = BoxShape3D.new()
+	$BottomRightShape.position = Vector3(
+		half_x_close + triangle_x/2 - perpindicular.x,
+		-size.y*.5,
+		half_y_close + triangle_y/2 + perpindicular.y)
+	$BottomRightShape.shape.size = Vector3(hypotenuse, size.y, bisector)
+	$BottomRightShape.rotation_degrees.y = angle

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1691862307
+::res://::1692106139
 export_presets.cfg::TextFile::-1::1691771296::0::1::::<><>::
 icon.png::CompressedTexture2D::4503725387325358857::1691770246::1691771104::1::::<><>::
 logo.png::CompressedTexture2D::7540366738103289416::1691771092::1691771152::1::::<><>::
@@ -173,7 +173,7 @@ y.png::CompressedTexture2D::8410862321847661965::1690414664::1690468569::1::::<>
 z.png::CompressedTexture2D::4936957058306554099::1690414665::1690468569::1::::<><>::
 ^.png::CompressedTexture2D::8003234505174384575::1690414664::1690468569::1::::<><>::
 _.png::CompressedTexture2D::1739702270318983076::1690414664::1690468569::1::::<><>::
-::res://scenes/::1691980585
+::res://scenes/::1692149710
 Circles.tscn::PackedScene::218159389504342018::1690508274::0::1::::<><>::uid://chrwhnjtqyfyc
 CutoutTransition.tscn::PackedScene::7073561552172802015::1690470088::0::1::::<><>::uid://dpi0q5sw734l3
 DodgeParticles.tscn::PackedScene::4911781543450661379::1691428015::0::1::::<><>::uid://cj3bwhdhiuw0q
@@ -184,9 +184,9 @@ Monitor.tscn::PackedScene::-1::1690468380::0::1::::<><>::res://addons/monitor_ov
 MoveText.tscn::PackedScene::3982457112166425726::1690508274::0::1::::<><>::uid://bc3nx4uhworxs
 Status.tscn::PackedScene::978855238556680444::1691014964::0::1::::<><>::uid://bc4au3byondaw
 Text.tscn::PackedScene::1314622418265604920::1690486820::0::1::::<><>::uid://cd41usim7lhx5
-TitleScreen.tscn::PackedScene::7764485963129098911::1691980585::0::1::::<><>::uid://cd41usim7lhx5::::res://fonts/TTYDfont.otf<>res://scripts/TitleScreen.gd<>uid://b74csev77yxgn::::res://sprites/UI/menuheader.png<>uid://dlyf6e7x38igq::::res://sprites/UI/enemy_cursor.png<>uid://dpcwinv1auw4r::::res://sprites/UI/cursor.png<>uid://dfou0dyuo7d4c::::res://logo.png<>uid://dr52c7r70mol8::::res://sprites/UI/icons.png<>uid://cteuxhihl63vm::::res://sprites/mario_thumbsup.png
-::res://scenes/battle/::1691980384
-Battle.tscn::PackedScene::7993078819260761045::1691980384::0::1::::<><>::uid://bs6uu8aofak7r::::res://scenes/battle/backgrounds/water_dungeon_flood.tscn<>uid://c71qr4iswnv5h::::res://scenes/CutoutTransition.tscn<>uid://5er3va3cwi1x::::res://stats/enemyencounter/enemyencounter_test.tres<>uid://civqh7gvslnr4::::res://scenes/battle/HeroBattle.tscn<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://cm0e5asgfdnje::::res://scenes/battle/backgrounds/water_dungeon.tscn<>res://scripts/overworld/Camera.gd<>res://scripts/battle/Battle.gd<>uid://n7fuq2es8b13::::res://scenes/Status.tscn<>uid://6fsap7dhl5ku::::res://scenes/battle/ExperienceHolder.tscn<>uid://cvtwnd0www7vq::::res://scenes/battle/BattleUI.tscn<>uid://f7nmgoj22llb::::res://scenes/battle/LevelUp.tscn<>uid://bsllwvtyjnqfo::::res://stats/herostats/goombario.tres
+TitleScreen.tscn::PackedScene::7764485963129098911::1692149710::0::1::::<><>::uid://cd41usim7lhx5::::res://fonts/TTYDfont.otf<>res://scripts/TitleScreen.gd<>uid://b74csev77yxgn::::res://sprites/UI/menuheader.png<>uid://dlyf6e7x38igq::::res://sprites/UI/enemy_cursor.png<>uid://dpcwinv1auw4r::::res://sprites/UI/cursor.png<>uid://dfou0dyuo7d4c::::res://logo.png<>uid://dr52c7r70mol8::::res://sprites/UI/icons.png<>uid://cteuxhihl63vm::::res://sprites/mario_thumbsup.png
+::res://scenes/battle/::1692151994
+Battle.tscn::PackedScene::7993078819260761045::1692151994::0::1::::<><>::uid://bs6uu8aofak7r::::res://scenes/battle/backgrounds/water_dungeon_flood.tscn<>uid://c71qr4iswnv5h::::res://scenes/CutoutTransition.tscn<>uid://5er3va3cwi1x::::res://stats/enemyencounter/enemyencounter_test.tres<>uid://civqh7gvslnr4::::res://scenes/battle/HeroBattle.tscn<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://cm0e5asgfdnje::::res://scenes/battle/backgrounds/water_dungeon.tscn<>res://scripts/overworld/Camera.gd<>res://scripts/battle/Battle.gd<>uid://n7fuq2es8b13::::res://scenes/Status.tscn<>uid://6fsap7dhl5ku::::res://scenes/battle/ExperienceHolder.tscn<>uid://cvtwnd0www7vq::::res://scenes/battle/BattleUI.tscn<>uid://f7nmgoj22llb::::res://scenes/battle/LevelUp.tscn<>uid://bsllwvtyjnqfo::::res://stats/herostats/goombario.tres
 BattleChoice.tscn::PackedScene::1305628822185594560::1690909309::0::1::::<><>::res://scripts/battle/BattleChoice.gd<>uid://dch22mfn5qpbj
 BattleTag.tscn::PackedScene::2684059965558694581::1691413642::0::1::::<><>::uid://b218d01eq7h1b
 BattleUI.tscn::PackedScene::6287389447493685738::1691428015::0::1::::<><>::uid://bhbngv4le4u2e
@@ -204,51 +204,55 @@ SmashLight.tscn::PackedScene::3289517538831207282::1691014687::0::1::::<><>::res
 StarDamageDisplay.tscn::PackedScene::6850061663658877337::1690574675::0::1::::<><>::uid://bc4au3byondaw
 ::res://scenes/battle/backgrounds/::1691867443
 air_dungeon.tscn::PackedScene::5577481965214237244::1691867443::0::1::::<><>::res://scripts/battle/Stage.gd<>uid://ccw8ceu7n11u4::::res://textures/stone/stone-wall.png<>uid://digimmg8eciv8::::res://textures/stone/stone-border.png<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>res://scenes/overworld/stages/stage2.gdshader<>uid://bp6c1s1ishabq::::res://textures/disp.png<>uid://ur74821ssoik::::res://textures/clouds2.png<>uid://dh21jf6km2m1c::::res://textures/clouds.png<>uid://cxeeh68d8wbju::::res://scenes/overworld/bridge.tscn<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://stats/boots/super.tres<>uid://bfkg21ej6ncx3::::res://scenes/overworld/back_tower.tscn
-water_dungeon.tscn::PackedScene::5667013404768204818::1691678124::0::1::::<><>::res://scripts/battle/Stage.gd<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://bxsxj2wuxccfx::::res://scenes/overworld/Waterfall.tscn<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://fbcpvb41g01y::::res://textures/watermaterial.tres<>uid://ccw8ceu7n11u4::::res://textures/stone/stone-wall.png<>uid://digimmg8eciv8::::res://textures/stone/stone-border.png
+water_dungeon.tscn::PackedScene::5667013404768204818::1691678124::0::1::::<><>::res://scripts/battle/Stage.gd<>uid://doj4y83s7f3hh
 water_dungeon_flood.tscn::PackedScene::3715067369200309257::1690839116::0::1::::<><>::res://scripts/battle/Stage.gd<>uid://doj4y83s7f3hh
-::res://scenes/overworld/::1691980585
-back_tower.tscn::PackedScene::2758422570053072426::1691695104::0::1::::<><>::uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://c7tbx4t426f1s::::res://textures/stone/white_border.png<>uid://dqig00hkmfjre::::res://textures/stone/white_brick.png<>uid://vvgk856wr7e3::::res://scenes/overworld/top_pyramid.tscn<>uid://dfsxvi7pu8orj::::res://textures/stone/window_cover.png
-BorderMesh.tscn::PackedScene::3752931202661537058::1691871552::0::1::::<><>::res://scripts/overworld/BorderGenerator.gd<>uid://d22u322w4x7bs::::res://textures/stone/stone-floor.png<>uid://digimmg8eciv8::::res://textures/stone/stone-border.png<>uid://cxln8d4yhy8wj::::res://textures/stone/stone.png<>uid://dqig00hkmfjre::::res://textures/stone/white_brick.png
+::res://scenes/overworld/::1692152448
+back_tower.tscn::PackedScene::2758422570053072426::1691695104::0::1::::<><>::uid://btp7h1i2msuxu
+BorderMesh.tscn::PackedScene::3752931202661537058::1692152448::0::1::::<><>::res://scripts/overworld/BorderGenerator.gd<>uid://d22u322w4x7bs::::res://textures/stone/stone-floor.png<>uid://digimmg8eciv8::::res://textures/stone/stone-border.png<>uid://cxln8d4yhy8wj::::res://textures/stone/stone.png
 bridge.tscn::PackedScene::6395699329989257898::1691442170::0::1::::<><>::uid://t88yfifpfdu5
-CoinRow.gd::GDScript::-1::1690468380::0::1::::<>Node3D<>::
+CoinRow.gd::GDScript::-1::1692109053::0::1::::<>Node3D<>::
 CoinRow.tscn::PackedScene::8946052915339060602::1691070858::0::1::::<><>::res://scenes/overworld/CoinRow.gd
 Enemy.tscn::PackedScene::2359561827824290712::1691867443::0::1::::<><>::uid://cn1cvpdr81sc7::::res://scenes/overworld/SpriteHolderEnemy.tscn<>res://stats/enemyencounter/enemyencounter_cheepcheep.tres<>uid://b6sxe0ovnsssg::::res://scenes/battle/HurtParticles.tscn<>res://scripts/battle/Balloons.gd<>uid://dwnrliqytbx0s::::res://textures/skyguy/balloon2.png<>uid://c5r863sb51knl::::res://textures/skyguy/balloon1.png<>uid://b8xijoaerf2n::::res://textures/skyguy/balloon3.png<>uid://n7ecmiglepdp::::res://textures/skyguy/balloon5.png<>uid://ilcc0nh7slua::::res://textures/skyguy/balloon4.png<>uid://j1kesg7rn8cc::::res://textures/skyguy/balloon6.png<>uid://ddxb2t13bohu::::res://scenes/Circles.tscn<>res://scripts/overworld/Enemy.tres.gd<>uid://brkylv5e1m6x::::res://sprites/UI/exclamation.png
 EnemyBill.tscn::PackedScene::1632728875908528838::1691508161::0::1::::<><>::uid://cn1cvpdr81sc7
 EnemySpawner.tscn::PackedScene::2266092790557474190::1691508161::0::1::::<><>::res://scripts/overworld/EnemySpawner.gd<>uid://4sfrldptm5bn
 EnemySpawnerBill.tscn::PackedScene::6191916144702821145::1691508161::0::1::::<><>::res://scripts/EnemySpawnerBill.gd
-ItemGet.tscn::PackedScene::60919126718202261::1691980385::0::1::::<><>::res://scripts/overworld/ItemGet.gd<>uid://c8sxtipybxnik::::res://sprites/star.png<>uid://bncogeae4oy4w::::res://textures/items/supermushroom.png<>uid://dv6vm6t7lqe2y::::res://sprites/UI/border2.png<>uid://cd41usim7lhx5::::res://fonts/TTYDfont.otf<>uid://dgjak5cq3fm4w::::res://sprites/UI/patch.png<>uid://c4h0kcmmot7rt::::res://sprites/UI/patch2.png<>uid://d2xrjlgdawtoo::::res://fonts/small_status_setting.tres
-Overworld.tscn::PackedScene::7819754802075845076::1691980384::0::1::::<><>::res://scripts/overworld/Camera.gd<>uid://dyrc8omyglwi5::::res://scenes/overworld/stages/stage1.tscn<>res://scripts/overworld/Overworld.gd<>uid://545dcpp0day::::res://scenes/overworld/stages/stage3.tscn<>uid://c71qr4iswnv5h::::res://scenes/CutoutTransition.tscn<>uid://n7fuq2es8b13::::res://scenes/Status.tscn<>uid://b2u55pjoogue4::::res://scenes/overworld/stages/stage2.tscn<>uid://ds1tf2gdnpfne::::res://scenes/overworld/Player.tscn<>uid://hdas3iby8cfh::::res://scenes/overworld/Partner.tscn<>uid://d1o04oyd0lpnl::::res://scenes/overworld/OverworldMenu.tscn<>uid://b2vb3qukmqe0k::::res://scenes/overworld/Widescreen.tscn<>uid://divf7jrq67nb0::::res://scenes/TitleScreen.tscn
+GrassWall.tscn::PackedScene::7580263468106717008::1692125987::0::1::::<><>::res://scripts/overworld/GrassWall.gd<>uid://focbxadmse16::::res://textures/grass/cliff1.png
+ItemGet.tscn::PackedScene::60919126718202261::1692125986::0::1::::<><>::res://scripts/overworld/ItemGet.gd<>uid://c8sxtipybxnik::::res://sprites/star.png<>uid://bncogeae4oy4w::::res://textures/items/supermushroom.png<>uid://dv6vm6t7lqe2y::::res://sprites/UI/border2.png<>uid://cd41usim7lhx5::::res://fonts/TTYDfont.otf<>uid://dgjak5cq3fm4w::::res://sprites/UI/patch.png<>uid://c4h0kcmmot7rt::::res://sprites/UI/patch2.png<>uid://d2xrjlgdawtoo::::res://fonts/small_status_setting.tres
+OctagonPlatform.tscn::PackedScene::8235261188362749740::1692127361::0::1::::<><>::res://scripts/overworld/OctagonPlatform.gd<>uid://dptyo0nitu54w::::res://textures/grass/grass4.png<>uid://bh4l21o4n46b5::::res://textures/grass/edge1.png
+Overworld.tscn::PackedScene::7819754802075845076::1692151994::0::1::::<><>::res://scripts/overworld/Camera.gd<>uid://dyrc8omyglwi5::::res://scenes/overworld/stages/stage1.tscn<>res://scripts/overworld/Overworld.gd<>uid://545dcpp0day::::res://scenes/overworld/stages/stage3.tscn<>uid://c6yg2j7jibka2::::res://scenes/overworld/stage_4.tscn<>uid://c71qr4iswnv5h::::res://scenes/CutoutTransition.tscn<>uid://n7fuq2es8b13::::res://scenes/Status.tscn<>uid://b2u55pjoogue4::::res://scenes/overworld/stages/stage2.tscn<>uid://ds1tf2gdnpfne::::res://scenes/overworld/Player.tscn<>uid://hdas3iby8cfh::::res://scenes/overworld/Partner.tscn<>uid://d1o04oyd0lpnl::::res://scenes/overworld/OverworldMenu.tscn<>uid://b2vb3qukmqe0k::::res://scenes/overworld/Widescreen.tscn<>uid://divf7jrq67nb0::::res://scenes/TitleScreen.tscn
 OverworldCoin.tscn::PackedScene::8669482703291435683::1691508161::0::1::::<><>::res://scripts/overworld/WorldCoin.gd<>uid://cwmsn67urqbsw
 OverworldItem.tscn::PackedScene::1898452648589520361::1691508161::0::1::::<><>::res://scripts/overworld/WorldItem.gd<>uid://bncogeae4oy4w
 OverworldMenu.tscn::PackedScene::9014643759639758409::1691186968::0::1::::<><>::uid://0jhhj65rnos
 overworld_camera_zone.tscn::PackedScene::4589698010942650005::1691508161::0::1::::<><>::res://scripts/OverworldCameraZone.gd
-Partner.tscn::PackedScene::497548666109740513::1691980385::0::1::::<><>::uid://vl86ebo8mlug::::res://textures/goombario/_frames.tres<>uid://bypqjr5tfblsu::::res://particles/dirt_02.png<>res://scripts/overworld/WaterParticles.gd<>uid://chrwhnjtqyfyc::::res://particles/circle_01.png
+Partner.tscn::PackedScene::497548666109740513::1692146787::0::1::::<><>::uid://vl86ebo8mlug::::res://textures/goombario/_frames.tres<>uid://bypqjr5tfblsu::::res://particles/dirt_02.png<>res://scripts/overworld/WaterParticles.gd<>uid://chrwhnjtqyfyc::::res://particles/circle_01.png
 PipeExit.tscn::PackedScene::2657508000375914970::1691356209::0::1::::<><>::res://scripts/overworld/PipeExit.gd<>uid://ckmwkfe4asvhf
 PipeInto.tscn::PackedScene::391081268206076602::1691186969::0::1::::<><>::res://scripts/overworld/Pipe.gd<>uid://ba8gnxggbnhd1
-Player.tscn::PackedScene::8477499037555082362::1691871552::0::1::::<><>::uid://bnnpynq8x6hsv::::res://textures/mario/_frames.tres<>res://scripts/overworld/Player.gd<>res://textures/hammer_basic/frames.tres<>res://scripts/overworld/WaterParticles.gd<>uid://bypqjr5tfblsu::::res://particles/dirt_02.png<>res://scripts/overworld/HammerArea.gd<>uid://c8vwhk3euf7md::::res://particles/DustUp.png<>uid://4rlgpuow6f6::::res://scenes/overworld/ItemGet.tscn<>uid://gl6flrha6303::::res://particles/smoke_bright.png<>res://scenes/overworld/ShakeCamera.gd<>uid://b6sxe0ovnsssg::::res://scenes/battle/HurtParticles.tscn<>uid://h8oo4exwoa73::::res://particles/star_06.png<>uid://chrwhnjtqyfyc::::res://particles/circle_01.png<>uid://0jhhj65rnos::::res://sprites/UI/checker4.png<>uid://bycxt4bc2o1gp::::res://textures/ui/controlstick.png
-QuestionBlock.tscn::PackedScene::8612030631046240009::1691695104::0::1::::<><>::uid://drnt5sx26pqjp::::res://textures/blocks/UsedYellow.tres<>res://scripts/overworld/QuestionBlockInternal.gd<>uid://blxgdgvni6t7l::::res://textures/blocks/QBlockYellow.tres<>uid://c8vwhk3euf7md::::res://particles/DustUp.png<>res://scripts/overworld/QuestionBlockExternal.gd
-GrassWall.tscn::PackedScene::7580263468106717008::1691980385::0::1::::<><>::res://scripts/overworld/GrassWall.gd<>uid://focbxadmse16::::res://textures/grass/cliff1.png
-OctagonPlatform.tscn::PackedScene::8235261188362749740::1691980385::0::1::::<><>::res://scripts/overworld/OctagonPlatform.gd<>uid://dptyo0nitu54w::::res://textures/grass/grass4.png<>uid://bh4l21o4n46b5::::res://textures/grass/edge1.png
+Player.tscn::PackedScene::8477499037555082362::1692151998::0::1::::<><>::uid://bnnpynq8x6hsv::::res://textures/mario/_frames.tres<>res://scripts/overworld/Player.gd<>res://textures/hammer_basic/frames.tres<>res://scripts/overworld/WaterParticles.gd<>uid://bypqjr5tfblsu::::res://particles/dirt_02.png<>res://scripts/overworld/HammerArea.gd<>uid://c8vwhk3euf7md::::res://particles/DustUp.png<>uid://4rlgpuow6f6::::res://scenes/overworld/ItemGet.tscn<>uid://gl6flrha6303::::res://particles/smoke_bright.png<>res://scenes/overworld/ShakeCamera.gd<>uid://b6sxe0ovnsssg::::res://scenes/battle/HurtParticles.tscn<>uid://h8oo4exwoa73::::res://particles/star_06.png<>uid://chrwhnjtqyfyc::::res://particles/circle_01.png<>uid://0jhhj65rnos::::res://sprites/UI/checker4.png<>uid://bycxt4bc2o1gp::::res://textures/ui/controlstick.png
+QuestionBlock.tscn::PackedScene::8612030631046240009::1691695104::0::1::::<><>::uid://drnt5sx26pqjp
+Bush.tscn::PackedScene::7812453741728692054::1692138518::0::1::::<><>::res://scripts/overworld/Bush.gd<>uid://b7ntqfd5lhewi::::res://textures/grass/bush9.png<>res://scenes/overworld/Bush.gdshader<>uid://cuwpdgcgglarn::::res://textures/ui/exclamation.png
+Bush.gdshader::Shader::-1::1692152448::0::1::::<><>::
+Fence.tscn::PackedScene::1713841140660852606::1692138518::0::1::::<><>::uid://dw6jn5fvwb6ev::::res://textures/grass/fence.png
+stage_4.tscn::PackedScene::6998653627218224619::1692152393::0::1::::<><>::uid://2eyu1tpt70bq::::res://textures/background-bright.png<>res://scripts/overworld/Stage.gd<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://fbcpvb41g01y::::res://textures/watermaterial.tres<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn<>uid://cswvhjmbg1ljg::::res://textures/grass/grass3.png<>uid://bp6c1s1ishabq::::res://textures/disp.png<>uid://ix8p5lh26q8a::::res://textures/water/water.png<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>uid://bxt0gpr3dldi2::::res://textures/grass/grass5.png<>uid://28543l7br3p::::res://textures/stone2/fence2.png<>uid://xq5pvmo7q5jr::::res://stats/enemyencounter/enemyencounter_bobomb.tres<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://cljbn3xoqmpti::::res://textures/stone2/fence1.png<>uid://df863juhr461i::::res://scenes/overworld/GrassWall.tscn<>uid://c1opuol7p8ng4::::res://textures/grass2/dirt1.png<>uid://dplhswfuydwwq::::res://scenes/overworld/OctagonPlatform.tscn<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn
 ShakeCamera.gd::GDScript::-1::1690468380::0::1::::<>Camera3D<>::
-SpriteHolderEnemy.tscn::PackedScene::5739129885245922540::1691695104::0::1::::<><>::uid://c8vwhk3euf7md::::res://particles/DustUp.png<>res://scripts/battle/SpriteHolderEnemy.gd<>uid://bih4yr6ddgi3c::::res://textures/bobommb.png<>uid://lruqjtu4ic27::::res://textures/bobombflare.png<>uid://bpevfap6t4vv1::::res://textures/bobombwind.png
-top_pyramid.tscn::PackedScene::1517701590182873196::1691980385::0::1::::<><>::uid://bfntod6fvwvye::::res://textures/stone/topgreen.png
+SpriteHolderEnemy.tscn::PackedScene::5739129885245922540::1692106109::0::1::::<><>::uid://c8vwhk3euf7md
+top_pyramid.tscn::PackedScene::1517701590182873196::1692107078::0::1::::<><>::uid://bfntod6fvwvye::::res://textures/stone/topgreen.png
 Torch.gd::GDScript::-1::1690468380::0::1::::<>MeshInstance3D<>::
 Torch.tscn::PackedScene::8162290691028147405::1690835714::0::1::::<><>::uid://digimmg8eciv8
-watercircles.gdshader::Shader::-1::1691980585::0::1::::<><>::
-Waterfall.tscn::PackedScene::4039336902975370953::1690826574::0::1::::<><>::uid://bp6c1s1ishabq
+watercircles.gdshader::Shader::-1::1692152448::0::1::::<><>::
+Waterfall.tscn::PackedScene::4039336902975370953::1692151998::0::1::::<><>::uid://bp6c1s1ishabq::::res://textures/disp.png<>uid://brmddt4y51ctb::::res://textures/waterfall.png<>uid://bypqjr5tfblsu::::res://particles/dirt_02.png<>uid://b5jeoqgfcyag3::::res://textures/blocks/brickblock.png
 Widescreen.tscn::PackedScene::4324982985718049516::1690909309::0::1::::<><>::res://scripts/Letterbox.gd
-::res://scenes/overworld/stages/::1691980585
-stage3.tscn::PackedScene::63745860591389372::1691980385::0::1::::<><>::uid://2eyu1tpt70bq::::res://textures/background-bright.png<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn<>uid://cswvhjmbg1ljg::::res://textures/grass/grass3.png<>uid://dplhswfuydwwq::::res://scenes/overworld/OctagonPlatform.tscn<>uid://df863juhr461i::::res://scenes/overworld/GrassWall.tscn<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://xq5pvmo7q5jr::::res://stats/enemyencounter/enemyencounter_bobomb.tres<>uid://bdv4q0urs1kxh::::res://textures/grass/cliff2.png<>uid://vvgk856wr7e3::::res://scenes/overworld/top_pyramid.tscn<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://bxt0gpr3dldi2::::res://textures/grass/grass5.png<>uid://bag2xhhpaq5fq::::res://textures/grass/path3.png<>uid://c3mv4u0edfvjt::::res://textures/grass/path1.png<>uid://cwhs7pmv2n0uj::::res://textures/grass/path2.png<>uid://b5atfihiy4npy::::res://textures/grass/bush6.png<>uid://bejy7yx8c32hi::::res://textures/grass/bush7.png<>uid://dhadlrtegl2n0::::res://textures/grass/bush4.png<>uid://dvwbow7b70yd7::::res://textures/grass/bush10.png<>uid://b0dw5ka3dolg3::::res://textures/grass/bush12.png<>uid://dggdwlx4tyeiy::::res://textures/grass/bush1.png
-stage1.tscn::PackedScene::8879069840358972350::1691674676::0::1::::<><>::uid://fbcpvb41g01y::::res://textures/watermaterial.tres<>res://scripts/overworld/Stage.gd<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://t88yfifpfdu5::::res://textures/wood/woodplank.png<>uid://ccw8ceu7n11u4::::res://textures/stone/stone-wall.png<>uid://dfoemqninktcg::::res://textures/stone/stone-cracked.png<>uid://cfy2ani88vk4k::::res://textures/stone/stone-wall-normal.png<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://stats/boots/super.tres<>res://stats/badges/fpup.tres<>uid://biq8kj51yh4gp::::res://stats/heroattack/items/extramushroom.tres<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn<>uid://bxsxj2wuxccfx::::res://scenes/overworld/Waterfall.tscn<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>res://stats/enemyencounter/enemyencounter_redshyguys.tres<>res://stats/battlebackground/water_dungeon.tres<>res://stats/enemyencounter/enemyencounter_cheepcheep.tres<>res://stats/battlebackground/water_dungeon_flood.tres
-stage2.gdshader::Shader::-1::1691980585::0::1::::<><>::
-stage2.tscn::PackedScene::4324682903009867397::1691980384::0::1::::<><>::res://scripts/overworld/Stage.gd<>uid://2eyu1tpt70bq::::res://textures/background-bright.png<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>uid://b6njwj7yyn6m0::::res://scenes/overworld/overworld_camera_zone.tscn<>uid://xq5pvmo7q5jr::::res://stats/enemyencounter/enemyencounter_bobomb.tres<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://scenes/overworld/stages/stage2.gdshader<>res://stats/boots/super.tres<>uid://bp6c1s1ishabq::::res://textures/disp.png<>uid://cxeeh68d8wbju::::res://scenes/overworld/bridge.tscn<>uid://ur74821ssoik::::res://textures/clouds2.png<>uid://dh21jf6km2m1c::::res://textures/clouds.png<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://cuhn7pd7u8ihd::::res://scenes/overworld/EnemySpawnerBill.tscn<>uid://vvgk856wr7e3::::res://scenes/overworld/top_pyramid.tscn<>uid://cny1wv7fvkomw::::res://stats/enemyencounter/enemyencounter_bills.tres<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://bfkg21ej6ncx3::::res://scenes/overworld/back_tower.tscn<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn
-::res://scripts/::1691694937
+::res://scenes/overworld/stages/::1692152448
+stage1.tscn::PackedScene::8879069840358972350::1692151998::0::1::::<><>::uid://fbcpvb41g01y::::res://textures/watermaterial.tres<>res://scripts/overworld/Stage.gd<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://t88yfifpfdu5::::res://textures/wood/woodplank.png<>uid://ccw8ceu7n11u4::::res://textures/stone/stone-wall.png<>uid://dfoemqninktcg::::res://textures/stone/stone-cracked.png<>uid://cfy2ani88vk4k::::res://textures/stone/stone-wall-normal.png<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://stats/boots/super.tres<>res://stats/badges/fpup.tres<>uid://biq8kj51yh4gp::::res://stats/heroattack/items/extramushroom.tres<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn<>uid://bxsxj2wuxccfx::::res://scenes/overworld/Waterfall.tscn<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>res://stats/enemyencounter/enemyencounter_redshyguys.tres<>res://stats/battlebackground/water_dungeon.tres<>res://stats/enemyencounter/enemyencounter_cheepcheep.tres<>res://stats/battlebackground/water_dungeon_flood.tres
+stage2.gdshader::Shader::-1::1692152448::0::1::::<><>::
+stage2.tscn::PackedScene::4324682903009867397::1692151995::0::1::::<><>::res://scripts/overworld/Stage.gd<>uid://2eyu1tpt70bq::::res://textures/background-bright.png<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>uid://b6njwj7yyn6m0::::res://scenes/overworld/overworld_camera_zone.tscn<>uid://xq5pvmo7q5jr::::res://stats/enemyencounter/enemyencounter_bobomb.tres<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://scenes/overworld/stages/stage2.gdshader<>res://stats/boots/super.tres<>uid://bp6c1s1ishabq::::res://textures/disp.png<>uid://cxeeh68d8wbju::::res://scenes/overworld/bridge.tscn<>uid://ur74821ssoik::::res://textures/clouds2.png<>uid://dh21jf6km2m1c::::res://textures/clouds.png<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://cuhn7pd7u8ihd::::res://scenes/overworld/EnemySpawnerBill.tscn<>uid://vvgk856wr7e3::::res://scenes/overworld/top_pyramid.tscn<>uid://cny1wv7fvkomw::::res://stats/enemyencounter/enemyencounter_bills.tres<>uid://doj4y83s7f3hh::::res://scenes/overworld/Torch.tscn<>uid://bfkg21ej6ncx3::::res://scenes/overworld/back_tower.tscn<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn
+stage3.tscn::PackedScene::63745860591389372::1692151995::0::1::::<><>::uid://2eyu1tpt70bq::::res://textures/background-bright.png<>uid://ftpb0min3mkg::::res://scenes/overworld/PipeInto.tscn<>uid://b6njwj7yyn6m0::::res://scenes/overworld/overworld_camera_zone.tscn<>uid://bd4k1endoxmow::::res://scenes/overworld/PipeExit.tscn<>uid://cswvhjmbg1ljg::::res://textures/grass/grass3.png<>uid://dplhswfuydwwq::::res://scenes/overworld/OctagonPlatform.tscn<>uid://df863juhr461i::::res://scenes/overworld/GrassWall.tscn<>uid://7jyhncbxvlqk::::res://scenes/overworld/EnemySpawner.tscn<>uid://btp7h1i2msuxu::::res://scenes/overworld/BorderMesh.tscn<>uid://xq5pvmo7q5jr::::res://stats/enemyencounter/enemyencounter_bobomb.tres<>uid://bdv4q0urs1kxh::::res://textures/grass/cliff2.png<>uid://vvgk856wr7e3::::res://scenes/overworld/top_pyramid.tscn<>uid://22ulxn0yanv3::::res://stats/battlebackground/air_dungeon.tres<>uid://bxt0gpr3dldi2::::res://textures/grass/grass5.png<>uid://bag2xhhpaq5fq::::res://textures/grass/path3.png<>uid://c3mv4u0edfvjt::::res://textures/grass/path1.png<>uid://cwhs7pmv2n0uj::::res://textures/grass/path2.png<>uid://b5atfihiy4npy::::res://textures/grass/bush6.png<>uid://bejy7yx8c32hi::::res://textures/grass/bush7.png<>uid://dhadlrtegl2n0::::res://textures/grass/bush4.png<>uid://dvwbow7b70yd7::::res://textures/grass/bush10.png<>uid://b0dw5ka3dolg3::::res://textures/grass/bush12.png<>uid://dggdwlx4tyeiy::::res://textures/grass/bush1.png<>uid://coaft3rswk3ox::::res://textures/grass/tree1.png<>uid://buwnh77v78mod::::res://textures/grass/bush2.png<>uid://yogyipjj3hl3::::res://scenes/overworld/Fence.tscn<>uid://djkn8bkgnhrcg::::res://scenes/overworld/Bush.tscn<>uid://vcpkhpb6mwtj::::res://textures/grass/flower4.png<>uid://bc3oqfrqks7px::::res://textures/grass/flower3.png<>uid://cjcspbnp57674::::res://textures/grass/flower1.png<>uid://c2vfmias70e5j::::res://textures/grass/flower5.png<>uid://duxy5erta1bpx::::res://scenes/overworld/QuestionBlock.tscn<>res://stats/boots/super.tres<>uid://d0psgji3r8243::::res://scenes/overworld/CoinRow.tscn
+::res://scripts/::1692029233
 CutoutTransition.gd::GDScript::-1::1690468379::0::1::::<>Control<>::
 EnemyBill.gd::GDScript::-1::1691530468::0::1::::<>CharacterBody3D<>::
 EnemySpawnerBill.gd::GDScript::-1::1691445403::0::1::::<>Node3D<>::
 FeedbackParticle.gd::GDScript::-1::1691415606::0::1::::<>Node3D<>::
 FPS.gd::GDScript::-1::1690469757::0::1::::<>Control<>::
-Global.gd::GDScript::-1::1690896909::0::1::::<>Node<>::
+Global.gd::GDScript::-1::1692029233::0::1::::<>Node<>::
 GlowParticles.gd::GDScript::-1::1690468379::0::1::::<>Particles<>::
 Letterbox.gd::GDScript::-1::1690468379::0::1::::<>Control<>::
 Main.gd::GDScript::-1::1690468379::0::1::::<>Node2D<>::
@@ -297,14 +301,14 @@ enemy_state_walkback.gd::GDScript::-1::1691621623::0::1::::EnemyWalkbackState<>E
 enemy_state_walkto.gd::GDScript::-1::1690491224::0::1::::EnemyWalktoState<>EnemyState<>::
 Pointer.gd::GDScript::-1::1690468380::0::1::::<>AnimatedSprite3D<>::
 Sprite.gd::GDScript::-1::1690468380::0::1::::<>Marker3D<>::
-::res://scripts/battle/mario_states/::1691416260
+::res://scripts/battle/mario_states/::1692029182
 mario_state.gd::GDScript::-1::1690489706::0::1::::State<>CharacterBody3D<>::
 mario_state_down.gd::GDScript::-1::1691012800::0::1::::DownState<>State<>::
 mario_state_eat.gd::GDScript::-1::1690839253::0::1::::EatState<>State<>::
 mario_state_factory.gd::GDScript::-1::1690468380::0::1::::HeroStateFactory<>RefCounted<>::
 mario_state_hammer.gd::GDScript::-1::1690468380::0::1::::HammerState<>State<>::
 mario_state_idle.gd::GDScript::-1::1691413407::0::1::::IdleState<>State<>::
-mario_state_jumpattack.gd::GDScript::-1::1691007099::0::1::::JumpattackState<>State<>::
+mario_state_jumpattack.gd::GDScript::-1::1692029182::0::1::::JumpattackState<>State<>::
 mario_state_persistent.gd::GDScript::-1::1691416260::0::1::::<>CharacterBody3D<>::
 mario_state_run.gd::GDScript::-1::1691016499::0::1::::RunState<>State<>::
 mario_state_skip.gd::GDScript::-1::1690468380::0::1::::SkipState<>State<>::
@@ -312,25 +316,26 @@ mario_state_tattle.gd::GDScript::-1::1690910600::0::1::::TattleState<>State<>::
 mario_state_victory.gd::GDScript::-1::1690468380::0::1::::VictoryState<>State<>::
 mario_state_walkback.gd::GDScript::-1::1690490791::0::1::::WalkbackState<>State<>::
 mario_state_walkto.gd::GDScript::-1::1690839759::0::1::::WalktoState<>State<>::
-::res://scripts/overworld/::1691977015
-BorderGenerator.gd::GDScript::-1::1691434218::0::1::::<>StaticBody3D<>::
+::res://scripts/overworld/::1692152417
+BorderGenerator.gd::GDScript::-1::1692152417::0::1::::<>StaticBody3D<>::
 Camera.gd::GDScript::-1::1691510384::0::1::::<>Camera3D<>::
 Enemy.tres.gd::GDScript::-1::1691676579::0::1::::<>CharacterBody3D<>::
 EnemySpawner.gd::GDScript::-1::1690998193::0::1::::<>Node3D<>::
+GrassWall.gd::GDScript::-1::1691977015::0::1::::<>StaticBody3D<>::
 HammerArea.gd::GDScript::-1::1690468379::0::1::::<>Area3D<>::
 ItemGet.gd::GDScript::-1::1690484975::0::1::::<>Control<>::
-Overworld.gd::GDScript::-1::1691695095::0::1::::<>Node3D<>::
+OctagonPlatform.gd::GDScript::-1::1692113906::0::1::::<>Node3D<>::
+Overworld.gd::GDScript::-1::1692143506::0::1::::<>Node3D<>::
 OverworldMenu.gd::GDScript::-1::1690902529::0::1::::<>Control<>::
 Pipe.gd::GDScript::-1::1690468379::0::1::::<>Node3D<>::
 PipeExit.gd::GDScript::-1::1690468379::0::1::::<>StaticBody3D<>::
-Player.gd::GDScript::-1::1691863323::0::1::::<>CharacterBody3D<>::
+Player.gd::GDScript::-1::1692110755::0::1::::<>CharacterBody3D<>::
 QuestionBlock.gd::GDScript::-1::1690468379::0::1::::<>StaticBody3D<>::
 QuestionBlockExternal.gd::GDScript::-1::1691677705::0::1::::<>Node3D<>::
 QuestionBlockInternal.gd::GDScript::-1::1691677663::0::1::::<>StaticBody3D<>::
-GrassWall.gd::GDScript::-1::1691977015::0::1::::<>StaticBody3D<>::
-OctagonPlatform.gd::GDScript::-1::1691951185::0::1::::<>Node3D<>::
+Bush.gd::GDScript::-1::1692110791::0::1::::<>Area3D<>::
 SmashLight.gd::GDScript::-1::1691013554::0::1::::<>Control<>::
-Stage.gd::GDScript::-1::1690901439::0::1::::<>Marker3D<>::
+Stage.gd::GDScript::-1::1692148069::0::1::::<>Marker3D<>::
 WaterParticles.gd::GDScript::-1::1690828483::0::1::::<>GPUParticles3D<>::
 WorldCoin.gd::GDScript::-1::1690909282::0::1::::<>CharacterBody3D<>::
 WorldItem.gd::GDScript::-1::1691508012::0::1::::<>CharacterBody3D<>::
@@ -348,7 +353,7 @@ Shockwave.gdshader::Shader::-1::1690468379::0::1::::<><>::
 vignette.gdshader::Shader::-1::1690468379::0::1::::<><>::
 water.gdshader::Shader::-1::1690468379::0::1::::<><>::
 whirl.gdshader::Shader::-1::1690468379::0::1::::<><>::
-::res://sprites/::1691980138
+::res://sprites/::1691980683
 mario_thumbsup.png::CompressedTexture2D::6115942700996083918::1691980681::1691980683::1::::<><>::
 star.png::CompressedTexture2D::7127662872383741654::1691864352::1691864356::1::::<><>::
 ::res://sprites/badgepips/::1691082050
@@ -542,7 +547,7 @@ badge.gd::GDScript::-1::1690470293::0::1::::<>Resource<>::
 fpup.tres::Resource::-1::1690468378::0::1::::<><>::res://sprites/badges/fpup.png<>res://stats/badges/badge.gd<>res://textures/badges/fpup.png
 multibounce.tres::Resource::-1::1690468378::0::1::::<><>::res://sprites/badges/multibounce.png<>res://stats/badges/badge.gd<>res://stats/heroattack/jump/multibounce.tres<>res://textures/badges/multibounce.png
 ::res://stats/battlebackground/::1691675371
-air_dungeon.tres::Resource::1952072190462255610::1691675371::0::1::::<><>::uid://clp1kv6td6m3m::::res://scenes/battle/backgrounds/air_dungeon.tscn<>res://stats/battlebackground/battlebackground.gd
+air_dungeon.tres::Resource::1952072190462255610::1691675371::0::1::::<><>::uid://clp1kv6td6m3m
 battlebackground.gd::GDScript::-1::1690468378::0::1::::<>Resource<>::
 water_dungeon.tres::Resource::-1::1690468378::0::1::::<><>::res://scenes/battle/backgrounds/water_dungeon.tscn<>res://stats/battlebackground/battlebackground.gd
 water_dungeon_flood.tres::Resource::-1::1690468378::0::1::::<><>::res://scenes/battle/backgrounds/water_dungeon_flood.tscn<>res://stats/battlebackground/battlebackground.gd
@@ -566,9 +571,9 @@ enemyencounter_cheepcheep.tres::Resource::-1::1690468378::0::1::::<><>::res://st
 enemyencounter_redshyguys.tres::Resource::-1::1690468378::0::1::::<><>::res://stats/enemystats/enemystats_redshyguy.tres<>res://stats/enemyencounter/enemyencounter.gd
 enemyencounter_skyguy.tres::Resource::2072969791634923607::1690992896::0::1::::<><>::uid://d3j7oj887m0al
 enemyencounter_test.tres::Resource::2115006115529670011::1691863323::0::1::::<><>::uid://bddvicigwcgb5::::res://stats/enemystats/enemystats_bobomb.tres<>res://stats/enemyencounter/enemyencounter.gd
-::res://stats/enemystats/::1691863323
+::res://stats/enemystats/::1692106109
 enemystats.gd::GDScript::-1::1691594752::0::1::::<>Resource<>::
-enemystats_bobomb.tres::Resource::2604469808775945608::1691863323::0::1::::<><>::uid://ecgmos3i3s0m::::res://textures/redshyguy/atlassketch.png<>uid://vuwgbrsligpu::::res://stats/enemyattack/enemyattack_jumpattack.tres<>uid://ce4a00g1dcwp1::::res://stats/enemyattack/enemyattack_explode.tres<>uid://bih4yr6ddgi3c::::res://textures/bobommb.png<>res://stats/enemystats/enemystats.gd
+enemystats_bobomb.tres::Resource::2604469808775945608::1692106109::0::1::::<><>::uid://ecgmos3i3s0m::::res://textures/redshyguy/atlassketch.png<>uid://vuwgbrsligpu::::res://stats/enemyattack/enemyattack_jumpattack.tres<>uid://ce4a00g1dcwp1::::res://stats/enemyattack/enemyattack_explode.tres<>uid://bih4yr6ddgi3c::::res://textures/bobomb/bobommb.png<>res://stats/enemystats/enemystats.gd
 enemystats_bulletbill.tres::Resource::3139991362720011491::1691863323::0::1::::<><>::uid://ecgmos3i3s0m::::res://textures/redshyguy/atlassketch.png<>uid://ch2x06tr80k8::::res://stats/enemyattack/enemyattack_chargedie.tres<>uid://m2k3a5y5rueh::::res://textures/bulletbill/bulletbill.png<>res://stats/enemystats/enemystats.gd
 enemystats_bulletblaster.tres::Resource::4571081322788055277::1691356557::0::1::::<><>::uid://ecgmos3i3s0m
 enemystats_cheepcheep.tres::Resource::9081975293999864475::1691863323::0::1::::<><>::uid://blln3up1k3ahw::::res://textures/cheepcheep/jump2.png<>uid://3fypknnnbr4b::::res://textures/cheepcheep/atlassketch.png<>uid://b8o06ek8xrfxo::::res://textures/cheepcheep/rise1.png<>uid://1gmo873uxptj::::res://textures/cheepcheep/hurt2.png<>uid://841a8eytac66::::res://textures/cheepcheep/hurt4.png<>uid://cffkibkefuiay::::res://textures/cheepcheep/hurt3.png<>uid://70xm23xw4ycp::::res://textures/cheepcheep/hurt1.png<>uid://b7qq637c6nej1::::res://textures/cheepcheep/run1.png<>uid://b65rhjumutoxo::::res://textures/cheepcheep/run2.png<>uid://78im02pxnu5q::::res://textures/cheepcheep/rise2.png<>res://stats/enemystats/enemystats.gd<>uid://ct1h4sr086qda::::res://textures/cheepcheep/rest1.png<>uid://byrpxl3nwmggv::::res://textures/cheepcheep/rest2.png<>uid://bv3g1ioa2lcvq::::res://textures/cheepcheep/rest3.png<>uid://c3uvkikuiht6s::::res://textures/cheepcheep/jump1.png<>uid://dmh68uj466gfe::::res://textures/cheepcheep/jump3.png<>res://stats/enemyattack/enemyattack_leapattack.tres
@@ -608,21 +613,18 @@ _battlechoice.tres::Resource::-1::1690468378::0::1::::<><>::res://sprites/tactic
 goombario.tres::Resource::3673236332303324080::1691863323::0::1::::<><>::res://stats/herostats/herostats.gd<>uid://vl86ebo8mlug::::res://textures/goombario/_frames.tres<>uid://dmqkua3p7hfgr::::res://stats/heroattack/goombario/headbonk.tres<>res://stats/heroattack/goombario/tattle.tres<>uid://c3l0hmg11l5bm::::res://textures/goombario/icon.png<>uid://c8uuw8jh3f7d3::::res://textures/goombario/particles.png
 herostats.gd::GDScript::-1::1690470306::0::1::::<>Resource<>::
 mario.tres::Resource::5712420823516660688::1691863323::0::1::::<><>::uid://cocdgwdhamcr7::::res://sprites/mario/_frames.tres<>res://stats/heroattack/hammer/basic.tres<>uid://c8s11lmpq3rgt::::res://stats/heroattack/jump/basic.tres<>uid://bnnpynq8x6hsv::::res://textures/mario/_frames.tres<>res://stats/herostats/herostats.gd<>uid://8gnh8s8appm3::::res://sprites/mario/particles.png
-::res://textures/::1691863323
+::res://textures/::1692111536
 background-bright.png::CompressedTexture2D::1904850608614202598::1691514395::1691514397::1::::<><>::
-bobombflare.png::CompressedTexture2D::808415117404395150::1691593806::1691593807::1::::<><>::
-bobombwind.png::CompressedTexture2D::3448794859704565744::1691530161::1691531021::1::::<><>::
-bobommb.png::CompressedTexture2D::2964186669846174170::1691616626::1691616628::1::::<><>::
-bombwave.png::CompressedTexture2D::7705750518438685672::1691530191::1691530216::1::::<><>::
 clouds2.png::CompressedTexture2D::1440867802557805698::1691431219::1691431220::1::::<><>::
 clouds.png::CompressedTexture2D::7707917180839369790::1691431131::1691431132::1::::<><>::
 disp.png::CompressedTexture2D::3503417899239530122::1690414665::1690468577::1::::<><>::
 metal.jpg::CompressedTexture2D::3323801323702428961::1690579420::1690579434::1::::<><>::
+PAPER MARIO#387BE571#2#0#EC075B5F_ciByRGBA.png::CompressedTexture2D::435553440570919851::1692024791::1692106070::1::::<><>::
 pipe.png::CompressedTexture2D::2822413872293121885::1691787821::1691862315::1::::<><>::
 pipebase.png::CompressedTexture2D::2454933884434783956::1690414665::1691101644::1::::<><>::
 water.tres::ParticleProcessMaterial::-1::1690468377::0::1::::<><>::
 waterfall.png::CompressedTexture2D::3604592110822928895::1690414665::1691101644::1::::<><>::
-watermaterial.tres::ShaderMaterial::353157922726123168::1691863323::0::1::::<><>::uid://ix8p5lh26q8a::::res://textures/water/water.png<>uid://bp6c1s1ishabq::::res://textures/disp.png
+watermaterial.tres::ShaderMaterial::353157922726123168::1692111536::0::1::::<><>::uid://ix8p5lh26q8a::::res://textures/water/water.png<>uid://bp6c1s1ishabq::::res://textures/disp.png
 ::res://textures/badges/::1691081986
 fpup.png::CompressedTexture2D::2921832806020820848::1690414665::1691081986::1::::<><>::
 multibounce.png::CompressedTexture2D::8191295537145181329::1690414665::1691081986::1::::<><>::
@@ -641,6 +643,11 @@ usedblock_weapon.png::CompressedTexture2D::309305541227535411::1690414665::16911
 UsedBlue.tres::QuadMesh::2591897083623934262::1691082983::0::1::::<><>::uid://en3hm64xipdb
 UsedRed.tres::QuadMesh::4469917047444857691::1690842033::0::1::::<><>::uid://clwmtbrde7ic7
 UsedYellow.tres::QuadMesh::8380517482627935881::1691863323::0::1::::<><>::uid://h07enm5d1axe::::res://textures/blocks/usedblock.png
+::res://textures/bobomb/::1692106111
+bobombflare.png::CompressedTexture2D::808415117404395150::1691593806::1692106111::1::::<><>::
+bobombwind.png::CompressedTexture2D::3448794859704565744::1691530161::1692106111::1::::<><>::
+bobommb.png::CompressedTexture2D::2964186669846174170::1691616626::1692106111::1::::<><>::
+bombwave.png::CompressedTexture2D::7705750518438685672::1691530191::1692106111::1::::<><>::
 ::res://textures/boots/::1690468565
 jump_basic.png::CompressedTexture2D::6990447418659057257::1690414665::1690468565::1::::<><>::
 jump_super.png::CompressedTexture2D::5259290978472358261::1690414665::1690468565::1::::<><>::
@@ -681,7 +688,7 @@ think.png::CompressedTexture2D::1139192484293385552::1690414665::1691175084::1::
 victory.png::CompressedTexture2D::5769280521675069973::1690414665::1691175084::1::::<><>::
 walk.png::CompressedTexture2D::4241699686005599102::1690414665::1691175084::1::::<><>::
 _frames.tres::SpriteFrames::1498733104384567754::1691863323::0::1::::<><>::uid://cnx4le8lyirbn::::res://textures/goombario/jumpsquat.png<>uid://cogxhbvkq3maf::::res://textures/goombario/victory.png<>uid://qh3ll323mlt5::::res://textures/goombario/think.png<>uid://cl3qr53hwdbe4::::res://textures/goombario/burnt.png<>uid://dkhr8fqhyg52p::::res://textures/goombario/rest.png<>uid://df7s84flxgkte::::res://textures/goombario/guard.png<>uid://c5ti5akofi568::::res://textures/goombario/hurt.png<>uid://b1oyf6jfmpckk::::res://textures/goombario/walk.png<>uid://d2a03i0hkq8ja::::res://textures/goombario/rise.png<>uid://f6kxccv3rkdd::::res://textures/goombario/fall.png<>uid://dlxlsj338y8ns::::res://textures/goombario/skip.png<>uid://c0ruc4faa41hu::::res://textures/goombario/swim.png<>uid://b76uupcmowtc::::res://textures/goombario/swim2.png
-::res://textures/grass/::1691978788
+::res://textures/grass/::1692114732
 bush1.png::CompressedTexture2D::7593003432507382280::1691967714::1691967715::1::::<><>::
 bush2.png::CompressedTexture2D::3836417419685526071::1691787827::1691862315::1::::<><>::
 bush3.png::CompressedTexture2D::3433174538316486398::1691787931::1691862315::1::::<><>::
@@ -690,7 +697,7 @@ bush5.png::CompressedTexture2D::924762255408732831::1691787850::1691862315::1:::
 bush6.png::CompressedTexture2D::4493248976063302770::1691967691::1691967692::1::::<><>::
 bush7.png::CompressedTexture2D::2687271108857199042::1691967691::1691967692::1::::<><>::
 bush8.png::CompressedTexture2D::2809655589066912061::1691854711::1691862315::1::::<><>::
-bush9.png::CompressedTexture2D::4660483055107162476::1691854713::1691862315::1::::<><>::
+bush9.png::CompressedTexture2D::4660483055107162476::1692108787::1692108789::1::::<><>::
 bush10.png::CompressedTexture2D::8678731001211386446::1691967690::1691967692::1::::<><>::
 bush11.png::CompressedTexture2D::1721027177557794777::1691854720::1691862315::1::::<><>::
 bush12.png::CompressedTexture2D::4148724782074364596::1691967689::1691967692::1::::<><>::
@@ -698,12 +705,12 @@ bush13.png::CompressedTexture2D::1979159565613027627::1691854756::1691862315::1:
 cliff1.png::CompressedTexture2D::379969934716545235::1691868563::1691868564::1::::<><>::
 cliff2.png::CompressedTexture2D::2642129857712491725::1691788351::1691862315::1::::<><>::
 edge1.png::CompressedTexture2D::2938327035953465492::1691940633::1691940634::1::::<><>::
-fence.png::CompressedTexture2D::8767983574155675489::1691847578::1691862315::1::::<><>::
-flower1.png::CompressedTexture2D::5409789481743706585::1691787816::1691862315::1::::<><>::
+fence.png::CompressedTexture2D::8767983574155675489::1692114685::1692114732::1::::<><>::
+flower1.png::CompressedTexture2D::5409789481743706585::1692114730::1692114732::1::::<><>::
 flower2.png::CompressedTexture2D::5269358594024857946::1691854944::1691862315::1::::<><>::
 flower3.png::CompressedTexture2D::2585479848303549317::1691787850::1691862315::1::::<><>::
-flower4.png::CompressedTexture2D::1479023475660222359::1691787846::1691862315::1::::<><>::
-flower5.png::CompressedTexture2D::6711617513987412637::1691787777::1691862315::1::::<><>::
+flower4.png::CompressedTexture2D::1479023475660222359::1692114692::1692114732::1::::<><>::
+flower5.png::CompressedTexture2D::6711617513987412637::1692114688::1692114732::1::::<><>::
 flower6.png::CompressedTexture2D::8697070873331511363::1691854943::1691862315::1::::<><>::
 flower7.png::CompressedTexture2D::2486373443488795234::1691787956::1691862315::1::::<><>::
 flower8.png::CompressedTexture2D::9064312807382090580::1691856139::1691862315::1::::<><>::
@@ -715,9 +722,47 @@ grass5.png::CompressedTexture2D::4041516719666136831::1691978754::1691978788::1:
 path1.png::CompressedTexture2D::6764229456444249009::1691864700::1691864746::1::::<><>::
 path2.png::CompressedTexture2D::6332597430354756685::1691864714::1691864746::1::::<><>::
 path3.png::CompressedTexture2D::2400487761441243858::1691864694::1691864746::1::::<><>::
-wood1.png::CompressedTexture2D::6702892325136816914::1691847578::1691862315::1::::<><>::
+tree1.png::CompressedTexture2D::5755824191129822867::1692023993::1692026773::1::::<><>::
+wood1.png::CompressedTexture2D::6702892325136816914::1692022885::1692022886::1::::<><>::
 wood2.png::CompressedTexture2D::5447966975564112239::1691788730::1691862315::1::::<><>::
 wood3.png::CompressedTexture2D::2379255394367764271::1691787827::1691862315::1::::<><>::
+::res://textures/grass2/::1692144016
+dirt1.png::CompressedTexture2D::6627599815096517333::1692025663::1692144016::1::::<><>::
+PAPER MARIO#6E7A0674#2#0#2B1DDD68_ciByRGBA.png::CompressedTexture2D::2616968819183148192::1692025663::1692026773::1::::<><>::
+PAPER MARIO#8ADC87C3#2#0#6EAC23C2_ciByRGBA.png::CompressedTexture2D::6758059057097624951::1692037695::1692047427::1::::<><>::
+PAPER MARIO#98CB6404#2#0#FF4E330E_ciByRGBA.png::CompressedTexture2D::2178236509852692274::1692025663::1692026773::1::::<><>::
+PAPER MARIO#5486F568#2#0#A0FB0337_ciByRGBA.png::CompressedTexture2D::6677616243901728145::1692025732::1692026773::1::::<><>::
+PAPER MARIO#69612FC7#2#0#C7FA4C99_ciByRGBA.png::CompressedTexture2D::7627365112177361874::1692025916::1692026773::1::::<><>::
+PAPER MARIO#76331B60#2#0#7C7919F5_ciByRGBA.png::CompressedTexture2D::1493814857299628776::1692025732::1692026773::1::::<><>::
+PAPER MARIO#A9A509D4#2#0#0FEE2B94_ciByRGBA.png::CompressedTexture2D::2372851528813101641::1692037695::1692047427::1::::<><>::
+PAPER MARIO#AFA8940A#4#0_all.png::CompressedTexture2D::3280139029043804630::1692025732::1692026773::1::::<><>::
+PAPER MARIO#B77F4721#2#0#29788491_ciByRGBA.png::CompressedTexture2D::7794125176884257434::1692037695::1692047427::1::::<><>::
+PAPER MARIO#BC264146#2#0#CA11D323_ciByRGBA.png::CompressedTexture2D::3273357613035822369::1692025946::1692026773::1::::<><>::
+PAPER MARIO#E63A8D20#2#0#5D60B746_ciByRGBA.png::CompressedTexture2D::7545373151900590007::1692025946::1692026773::1::::<><>::
+waterOG.png::CompressedTexture2D::4534557595212851346::1692025732::1692026883::1::::<><>::
+::res://textures/grass3/::1692107220
+flower1.png::CompressedTexture2D::6578595418695829385::1692045160::1692050607::1::::<><>::
+flower2.png::CompressedTexture2D::1514924375414923299::1692045160::1692050607::1::::<><>::
+PAPER MARIO#2C2C3443#2#0#652DCAE4_ciByRGBA.png::CompressedTexture2D::4104024247084445638::1692045286::1692050607::1::::<><>::
+PAPER MARIO#4F5EAC4D#2#0#D3080E3F_ciByRGBA.png::CompressedTexture2D::3337323804761209600::1692045285::1692050607::1::::<><>::
+PAPER MARIO#5CE6A720#2#0#4DD77BAB_ciByRGBA.png::CompressedTexture2D::2430863344345259059::1692045160::1692050607::1::::<><>::
+PAPER MARIO#6E426FB5#2#0#E481EE59_ciByRGBA.png::CompressedTexture2D::1896734593115683310::1692045160::1692050607::1::::<><>::
+PAPER MARIO#7A3B9E83#2#0#6809BA71_ciByRGBA.png::CompressedTexture2D::6956514684046015677::1692045160::1692050607::1::::<><>::
+PAPER MARIO#7E85D7BF#2#0#4DD77BAB_ciByRGBA.png::CompressedTexture2D::1603828637147842991::1692045160::1692050607::1::::<><>::
+PAPER MARIO#8F2F1913#2#0#4DD77BAB_ciByRGBA.png::CompressedTexture2D::5730822384601123433::1692045160::1692050607::1::::<><>::
+PAPER MARIO#9FC5640A#2#0#C9CAABBF_ciByRGBA.png::CompressedTexture2D::2560171006093629616::1692045160::1692050607::1::::<><>::
+PAPER MARIO#040E428B#2#0#C94A2318_ciByRGBA.png::CompressedTexture2D::3635760790663660744::1692045160::1692050607::1::::<><>::
+PAPER MARIO#71F13272#2#0#4E0C31F6_ciByRGBA.png::CompressedTexture2D::3608456363214180790::1692045285::1692050607::1::::<><>::
+PAPER MARIO#783BD62E#2#0#820838F1_ciByRGBA.png::CompressedTexture2D::8247247878005573388::1692045160::1692050607::1::::<><>::
+PAPER MARIO#98174498#2#0#2E75196C_ciByRGBA.png::CompressedTexture2D::7635556670666688484::1692045160::1692050607::1::::<><>::
+PAPER MARIO#A8394603#2#0#055AD78F_ciByRGBA.png::CompressedTexture2D::3286569722918432455::1692045285::1692050607::1::::<><>::
+PAPER MARIO#BCFD56D4#2#0#4DD77BAB_ciByRGBA.png::CompressedTexture2D::5235165035689425430::1692045160::1692050608::1::::<><>::
+PAPER MARIO#C80DFD76#2#0#01F1CDEE_ciByRGBA.png::CompressedTexture2D::2957275816668945763::1692045160::1692050608::1::::<><>::
+PAPER MARIO#D5B630C0#2#0#22CCA585_ciByRGBA.png::CompressedTexture2D::3954606546357021374::1692045160::1692050608::1::::<><>::
+PAPER MARIO#F56AD818#2#0#A4612FEC_ciByRGBA.png::CompressedTexture2D::4633182647277867219::1692045160::1692050608::1::::<><>::
+PAPER MARIO#FAA66699#2#1#A259C8A5_ciByRGBA.png::CompressedTexture2D::4210288425766232581::1692045160::1692050608::1::::<><>::
+PAPER MARIO#FD85C346#2#0#BE166984_ciByRGBA.png::CompressedTexture2D::3517313254743768527::1692045160::1692050608::1::::<><>::
+treeleaves.png::CompressedTexture2D::8217005658178332752::1692107214::1692107220::1::::<><>::
 ::res://textures/hammers/::1691101724
 hammer_basic.png::CompressedTexture2D::797173213160537640::1690414665::1691101724::1::::<><>::
 hammer_super.png::CompressedTexture2D::3697137365268211458::1690414665::1691101724::1::::<><>::
@@ -753,6 +798,9 @@ slam.png::CompressedTexture2D::5090640495722847556::1690414665::1691101709::1:::
 fireflower.png::CompressedTexture2D::1373398140976294348::1690414665::1691101704::1::::<><>::
 mushroom.png::CompressedTexture2D::7584868006692132933::1690414665::1691101704::1::::<><>::
 supermushroom.png::CompressedTexture2D::3303865369472276496::1690414665::1691101704::1::::<><>::
+::res://textures/lava/::1692054245
+lava1.png::CompressedTexture2D::3546260724618547066::1692039891::1692054245::1::::<><>::
+lava2.png::CompressedTexture2D::6143616687305283786::1692039891::1692054245::1::::<><>::
 ::res://textures/mario/::1691863323
 airdiagfall.png::CompressedTexture2D::5596723463486392029::1690414665::1691175034::1::::<><>::
 airdiagrise.png::CompressedTexture2D::5574590482936913774::1690414665::1691175034::1::::<><>::
@@ -841,9 +889,43 @@ topgreen.png::CompressedTexture2D::2765380642378388712::1691682023::1691682034::
 white_border.png::CompressedTexture2D::7058210885266324770::1691689034::1691689036::1::::<><>::
 white_brick.png::CompressedTexture2D::8299208842492502994::1691689048::1691689049::1::::<><>::
 window_cover.png::CompressedTexture2D::7548799531678286891::1691688887::1691688889::1::::<><>::
-::res://textures/ui/::1691101631
+::res://textures/stone2/::1692152605
+brick1.png::CompressedTexture2D::4833423720309905686::1692037185::1692050607::1::::<><>::
+brick2.png::CompressedTexture2D::2451785764110327740::1692039891::1692050607::1::::<><>::
+brick3.png::CompressedTexture2D::2740143606839240003::1692028357::1692050607::1::::<><>::
+brick4.png::CompressedTexture2D::868869576853791597::1692028356::1692050607::1::::<><>::
+brick5.png::CompressedTexture2D::7442771469155616965::1692039891::1692050607::1::::<><>::
+brick6.png::CompressedTexture2D::1857628739961229179::1692028357::1692050607::1::::<><>::
+brick7.png::CompressedTexture2D::3288103157577910002::1692039891::1692050607::1::::<><>::
+brick8.png::CompressedTexture2D::7066286772185139327::1692028481::1692050607::1::::<><>::
+brick9.png::CompressedTexture2D::6564138819549085511::1692039891::1692050607::1::::<><>::
+brick10.png::CompressedTexture2D::1583938216298004150::1692028481::1692050607::1::::<><>::
+brick11.png::CompressedTexture2D::777766357750601889::1692036887::1692050607::1::::<><>::
+brick12.png::CompressedTexture2D::2242576285718083318::1692028356::1692050607::1::::<><>::
+brick13.png::CompressedTexture2D::7069515184241544555::1692036887::1692050607::1::::<><>::
+brick14.png::CompressedTexture2D::6582532548113944659::1692028357::1692050607::1::::<><>::
+brickborder1.png::CompressedTexture2D::1717107560028153066::1692028481::1692050607::1::::<><>::
+brick_decoration1.png::CompressedTexture2D::6517147244868954098::1692039891::1692050607::1::::<><>::
+chain.png::CompressedTexture2D::1038660384211002947::1692028583::1692050607::1::::<><>::
+fence1.png::CompressedTexture2D::5563583486346898986::1692028481::1692050607::1::::<><>::
+fence2.png::CompressedTexture2D::57797000912344307::1692149096::1692149098::1::::<><>::
+keyhole.png::CompressedTexture2D::308965804321170347::1692028583::1692050607::1::::<><>::
+PAPER MARIO#6B4CC5D3#2#0#C6D82027_ciByRGBA.png::CompressedTexture2D::8595085994805175960::1692023552::1692106070::1::::<><>::
+PAPER MARIO#33FB75EA#2#0#0CE76D99_ciByRGBA.png::CompressedTexture2D::1234620313327433554::1692024791::1692106070::1::::<><>::
+PAPER MARIO#86664082#2#0#79ACC658_ciByRGBA.png::CompressedTexture2D::2870797267949577049::1692023552::1692106070::1::::<><>::
+PAPER MARIO#BF1406F0#2#0#7EE1EACE_ciByRGBA.png::CompressedTexture2D::6968266455516628822::1692023993::1692106070::1::::<><>::
+PAPER MARIO#C9E3ED6A#2#0#D58C1886_ciByRGBA.png::CompressedTexture2D::3353636125203201096::1692023993::1692106070::1::::<><>::
+rimbrick.png::CompressedTexture2D::4292745533772700266::1692152605::1692152606::1::::<><>::
+underwaterstone.png::CompressedTexture2D::7730445927325629866::1692028357::1692050607::1::::<><>::
+watergate.png::CompressedTexture2D::3145013996205968569::1692037016::1692050607::1::::<><>::
+::res://textures/ui/::1692106140
+BPIcon.png::CompressedTexture2D::6404344394842128270::1692025849::1692026773::1::::<><>::
 controlstick.png::CompressedTexture2D::4076513632281310563::1690414665::1691101631::1::::<><>::
+exclamation.png::CompressedTexture2D::6222950981520149703::1692023679::1692106140::1::::<><>::
+FPFlower.png::CompressedTexture2D::6652654005778622757::1692026833::1692026838::1::::<><>::
+FPIcon.png::CompressedTexture2D::1248274126076766508::1692025849::1692026773::1::::<><>::
 good.png::CompressedTexture2D::2669952531389018586::1690414665::1691101631::1::::<><>::
+HPIcon.png::CompressedTexture2D::2333734225423947571::1692025849::1692026773::1::::<><>::
 miss.png::CompressedTexture2D::523499330142603514::1690414665::1691101631::1::::<><>::
 nice.png::CompressedTexture2D::7278562254375045478::1690414665::1691101631::1::::<><>::
 ::res://textures/water/::1691101635

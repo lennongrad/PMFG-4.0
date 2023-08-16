@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://djkn8bkgnhrcg"]
+
+[ext_resource type="Script" path="res://scripts/overworld/Bush.gd" id="1_aev4j"]
+[ext_resource type="Texture2D" uid="uid://b7ntqfd5lhewi" path="res://textures/grass/bush9.png" id="2_0yjgj"]
+[ext_resource type="Shader" path="res://scenes/overworld/Bush.gdshader" id="2_3ebm7"]
+[ext_resource type="Texture2D" uid="uid://cuwpdgcgglarn" path="res://textures/ui/exclamation.png" id="4_haa7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egpjx"]
+size = Vector3(1.305, 0.99, 0.215)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j325l"]
+render_priority = 0
+shader = ExtResource("2_3ebm7")
+shader_parameter/texture_albedo = ExtResource("2_0yjgj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jbywi"]
+material = SubResource("ShaderMaterial_j325l")
+size = Vector2(1.5, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejfss"]
+transparency = 1
+albedo_texture = ExtResource("2_0yjgj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2q74u"]
+material = SubResource("StandardMaterial3D_ejfss")
+size = Vector2(1.5, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_duyep"]
+size = Vector3(1, 0.715, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a51im"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8bao"]
+material = SubResource("StandardMaterial3D_a51im")
+size = Vector3(1, 0.55, 0.135)
+
+[node name="Bush" type="Area3D"]
+script = ExtResource("1_aev4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.495, 0.156823)
+shape = SubResource("BoxShape3D_egpjx")
+
+[node name="BushShake" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37, 0)
+visible = false
+sorting_offset = 4.0
+mesh = SubResource("QuadMesh_jbywi")
+
+[node name="BushStill" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.381701, 0)
+sorting_offset = 4.0
+mesh = SubResource("QuadMesh_2q74u")
+
+[node name="Exclamation" type="Sprite3D" parent="."]
+transform = Transform3D(1.00002, 0, 0, 0, 1, 0, 0, 0, 1.00002, -0.0275397, 0.956333, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("4_haa7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.961411, 0.275117, 0, -0.275117, 0.961411, 0, 0.408428, 0)
+shape = SubResource("BoxShape3D_duyep")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30038, 0)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_b8bao")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

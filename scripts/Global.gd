@@ -71,4 +71,4 @@ func _deferred_goto_scene(path, data, firstStrike, battle_background):
 	get_tree().set_current_scene(current_scene)
 
 func get_player():
-	return get_node("/root/Overworld/Player")
+	return get_node_or_null("/root/Overworld/Player")

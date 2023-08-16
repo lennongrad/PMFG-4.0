@@ -16,6 +16,7 @@ var lastDodgeInput = 0
 var jumpsquat = true
 var gravity = 12.0
 var enemyTopHeight
+var last_successful = false
 
 func _ready(): 
 	hero.focus_camera(1);
@@ -60,6 +61,9 @@ func _physics_process(delta):
 		else:
 			self.hero.velocity.y = 1.75
 			self.hero.velocity.x = -1
+			if last_successful:
+				self.hero.velocity.y *= .75
+				self.hero.velocity.x *= 2.5
 			hero.get_node("Sprite2D").emitting = false
 	
 	if hasCollided and pause_timer < pause_max and collisionTimer > 10 and abs(self.hero.velocity.y) < .1:
@@ -98,6 +102,7 @@ func _physics_process(delta):
 func area_body_entered(body):
 	if body == target.get_node("Area3D") and not hasFinished:
 		var actionSuccessful = lastDodgeInput < 8
+		last_successful = actionSuccessful
 		if actionSuccessful:
 			jumpCounter += 1
 			if jumpCounter < jumpMax:

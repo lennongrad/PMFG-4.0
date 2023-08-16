@@ -23,6 +23,7 @@ var original_sprite_y = .376
 var jump_timer = 0
 var current_camera_zone = null
 var flip_timer = 0
+var by_bush = false
 
 # manage falling off collision
 var last_ground_position = []
@@ -149,7 +150,8 @@ func _physics_process(delta):
 			effective_jump_power *= .5
 		velocity = Vector3(0, velocity.y, 0)
 		
-		if Input.is_action_just_pressed("jump") and (state == PLAYER_STATE.CONTROL or state == PLAYER_STATE.SPINNING):
+		if Input.is_action_just_pressed("jump") and not by_bush and (
+			(state == PLAYER_STATE.CONTROL or state == PLAYER_STATE.SPINNING)):
 			jump_timer = -6
 			velocity.y += effective_jump_power
 			shouldSnap = false

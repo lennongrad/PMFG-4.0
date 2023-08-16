@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bih4yr6ddgi3c"
-path="res://.godot/imported/bobommb.png-313eedd887e45123f1cdc5b55504c3b3.ctex"
+uid="uid://c0ryn34rpiemp"
+path="res://.godot/imported/brick9.png-92dd48efd1c794c15273c87605bd9191.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bobommb.png"
-dest_files=["res://.godot/imported/bobommb.png-313eedd887e45123f1cdc5b55504c3b3.ctex"]
+source_file="res://textures/stone2/brick9.png"
+dest_files=["res://.godot/imported/brick9.png-92dd48efd1c794c15273c87605bd9191.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

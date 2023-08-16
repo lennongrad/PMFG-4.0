@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://yogyipjj3hl3"]
+
+[ext_resource type="Texture2D" uid="uid://dw6jn5fvwb6ev" path="res://textures/grass/fence.png" id="1_1dk6s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdi7a"]
+size = Vector3(1.59016, 0.92184, 0.0714431)
+
+[node name="Fence" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470517, 0)
+shape = SubResource("BoxShape3D_bdi7a")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.413909, 0)
+sorting_offset = 3.0
+pixel_size = 0.025
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_1dk6s")

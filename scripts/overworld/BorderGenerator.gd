@@ -5,7 +5,7 @@ extends StaticBody3D
 @export var borderTexture: CompressedTexture2D: set = updateBorders
 @export var mainTexture: CompressedTexture2D: set = updateMain
 @export var secondaryTexture: CompressedTexture2D: set = updateSecondary
-@export var size: Vector3: set = updateSize
+@export var size = Vector3(1,1,1): set = updateSize
 
 var counter = 0
 

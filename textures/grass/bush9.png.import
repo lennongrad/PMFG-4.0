@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bush9.png-2d2f637c3625e7b3a86621aed7b692aa.ct
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

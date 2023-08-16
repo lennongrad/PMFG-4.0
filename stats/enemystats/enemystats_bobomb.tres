@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_r12cv"]
 [ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2_8n6p6"]
 [ext_resource type="Resource" uid="uid://ce4a00g1dcwp1" path="res://stats/enemyattack/enemyattack_explode.tres" id="3_gye65"]
-[ext_resource type="Texture2D" uid="uid://bih4yr6ddgi3c" path="res://textures/bobommb.png" id="3_uc2bs"]
+[ext_resource type="Texture2D" uid="uid://bih4yr6ddgi3c" path="res://textures/bobomb/bobommb.png" id="3_uc2bs"]
 [ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="11_j4ikd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rixgf"]

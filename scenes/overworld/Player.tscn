@@ -287,7 +287,7 @@ height = 0.01
 
 [sub_resource type="CylinderShape3D" id="44"]
 height = 0.6
-radius = 0.19193
+radius = 0.136482
 
 [sub_resource type="CylinderShape3D" id="45"]
 height = 0.1
