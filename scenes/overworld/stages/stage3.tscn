@@ -500,6 +500,7 @@ mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathRound2" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.2166, -5.59191, 0.812905)
+sorting_offset = -1.0
 mesh = SubResource("PlaneMesh_4ai32")
 
 [node name="PathRound3" type="MeshInstance3D" parent="Paths"]
@@ -1982,7 +1983,7 @@ transform = Transform3D(0.94626, 0, -0.323405, 0, 1, 0, 0.323405, 0, 0.94626, 13
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.904, -5.67361, -0.71252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.904, -5.52973, -0.71252)
 item_type = ExtResource("32_um4i5")
 coin_count = 3
 distance = 1.2

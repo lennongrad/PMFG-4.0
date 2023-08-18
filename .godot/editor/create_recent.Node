@@ -1,5 +1,5 @@
-Node3D
 MeshInstance3D
+Node3D
 CollisionShape3D
 StaticBody3D
 Marker3D

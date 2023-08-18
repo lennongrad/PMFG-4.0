@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c6yg2j7jibka2"]
+[gd_scene load_steps=63 format=3 uid="uid://c6yg2j7jibka2"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_goutj"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_wfo2s"]
@@ -21,6 +21,20 @@
 [ext_resource type="Texture2D" uid="uid://mm5fjfvf4ywj" path="res://textures/stone2/brick4.png" id="19_trvs6"]
 [ext_resource type="Texture2D" uid="uid://b2fo5k44mboh3" path="res://textures/stone2/rimbrick.png" id="20_go8if"]
 [ext_resource type="Texture2D" uid="uid://dhadlrtegl2n0" path="res://textures/grass/bush4.png" id="21_5pb4g"]
+[ext_resource type="Texture2D" uid="uid://b5atfihiy4npy" path="res://textures/grass/bush6.png" id="22_1t60a"]
+[ext_resource type="Texture2D" uid="uid://bejy7yx8c32hi" path="res://textures/grass/bush7.png" id="23_nj06t"]
+[ext_resource type="Texture2D" uid="uid://dvwbow7b70yd7" path="res://textures/grass/bush10.png" id="24_sacx1"]
+[ext_resource type="Texture2D" uid="uid://b0dw5ka3dolg3" path="res://textures/grass/bush12.png" id="25_qwl2t"]
+[ext_resource type="Texture2D" uid="uid://dggdwlx4tyeiy" path="res://textures/grass/bush1.png" id="26_50otj"]
+[ext_resource type="Texture2D" uid="uid://vcpkhpb6mwtj" path="res://textures/grass/flower4.png" id="27_egiry"]
+[ext_resource type="Texture2D" uid="uid://bc3oqfrqks7px" path="res://textures/grass/flower3.png" id="28_pgohy"]
+[ext_resource type="Texture2D" uid="uid://cjcspbnp57674" path="res://textures/grass/flower1.png" id="29_dfof6"]
+[ext_resource type="Texture2D" uid="uid://c2vfmias70e5j" path="res://textures/grass/flower5.png" id="30_gb1r4"]
+[ext_resource type="Texture2D" uid="uid://bs28rp7gnebyg" path="res://textures/grass2/path1.png" id="31_eyf1o"]
+[ext_resource type="Texture2D" uid="uid://coeb136l063sd" path="res://textures/grass2/path2.png" id="32_hm4r7"]
+[ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="33_q4m6b"]
+[ext_resource type="Resource" path="res://stats/boots/super.tres" id="34_1ukyg"]
+[ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="35_yj0i8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyce"]
 panorama = ExtResource("1_goutj")
@@ -186,6 +200,37 @@ size = Vector3(12.7221, 10, 2.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh86"]
 size = Vector3(13.437, 10, 2.2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tdva"]
+transparency = 1
+albedo_texture = ExtResource("31_eyf1o")
+uv1_scale = Vector3(1, 6.92, 1)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_b0hb3"]
+material = SubResource("StandardMaterial3D_8tdva")
+size = Vector2(2, 15)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xf2m"]
+transparency = 1
+albedo_texture = ExtResource("32_hm4r7")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_8wkcu"]
+material = SubResource("StandardMaterial3D_8xf2m")
+size = Vector2(3, 3)
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxi8l"]
+transparency = 1
+albedo_texture = ExtResource("32_hm4r7")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bia4c"]
+material = SubResource("StandardMaterial3D_nxi8l")
+size = Vector2(2.5, 2.5)
+orientation = 1
+
 [node name="Stage" type="Marker3D"]
 script = ExtResource("1_wfo2s")
 
@@ -244,9 +289,6 @@ skeleton = NodePath("../../Water")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
 
 [node name="PipeInto" parent="Pipes" instance=ExtResource("2_4yod3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.236, -6.24531, -1.29604)
-
-[node name="PipeInto2" parent="Pipes" instance=ExtResource("2_4yod3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.918846, -8.02514, -1.29604)
 
 [node name="PipeExit" parent="Pipes" instance=ExtResource("3_rswbn")]
@@ -284,7 +326,7 @@ battle_background = ExtResource("7_n5y0u")
 [node name="Walls" type="Node3D" parent="."]
 
 [node name="Retaining Wall" parent="Walls" instance=ExtResource("8_55nht")]
-transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 21.6787, -10.3691, 3.38075)
+transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 21.66, -10.325, 3.49)
 main_texture = ExtResource("9_ne4nb")
 size = Vector2(48, 4)
 uvScale = Vector2(2, 0.5)
@@ -321,6 +363,14 @@ size = Vector2(2, 16)
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 42.5304, -4.14251, -0.564722)
 size = Vector2(11.365, 16)
 
+[node name="Wall18" parent="Walls" instance=ExtResource("8_55nht")]
+transform = Transform3D(-1, -8.74228e-08, 2.68657e-16, 2.11758e-22, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 44.5618, -4.14251, 3.32519)
+size = Vector2(4, 16)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("8_55nht")]
+transform = Transform3D(-1, -8.74228e-08, 2.68657e-16, 2.11758e-22, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -4.32074, -4.14251, 3.32519)
+size = Vector2(4, 16)
+
 [node name="Wall10" parent="Walls" instance=ExtResource("8_55nht")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 20.6206, -4.14251, -2.8283)
 size = Vector2(48, 16)
@@ -353,9 +403,10 @@ border_radius = 0.2
 uvScale = Vector2(1.715, 0.2)
 
 [node name="Octagon Platform6" parent="Platforms" instance=ExtResource("11_qharj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3416, -4.80078, -2.18093)
-size = Vector3(1.62, 0.705, 2.235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7602, -4.80078, -1.83249)
+size = Vector3(2.62, 0.705, 2.235)
 border_radius = 0.2
+uvScaleTop = Vector2(0.5, 0.59)
 uvScale = Vector2(1.715, 0.2)
 
 [node name="Octagon Platform4" parent="Platforms" instance=ExtResource("11_qharj")]
@@ -372,7 +423,7 @@ side_texture = ExtResource("9_ne4nb")
 uvScale = Vector2(0.83, 0.2)
 
 [node name="BorderMesh" parent="Platforms" instance=ExtResource("18_wrkel")]
-transform = Transform3D(0.543066, 0.819676, -0.182237, -0.838372, 0.51713, -0.172364, -0.0470424, 0.246388, 0.968029, 11.6528, -8.54338, 1.04958)
+transform = Transform3D(0.543066, 0.819676, -0.182237, -0.838372, 0.51713, -0.172364, -0.0470424, 0.246388, 0.968029, 11.645, -8.54338, 1.30215)
 borderTexture = ExtResource("20_go8if")
 secondaryTexture = ExtResource("19_trvs6")
 size = Vector3(1.5, 4.565, 1.5)
@@ -466,8 +517,6 @@ collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleStoppers/InvisibleStopper9"]
 shape = SubResource("BoxShape3D_rrh86")
-
-[node name="Paths" type="Node3D" parent="."]
 
 [node name="Decorations" type="Node3D" parent="."]
 
@@ -583,6 +632,70 @@ alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("21_5pb4g")
 
+[node name="BushC_26" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 23.8198, -6.46329, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_27" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 24.6685, -6.46329, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_28" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 14.1059, -5.81637, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_29" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 14.5712, -5.81637, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_30" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 16.6483, -5.27497, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_31" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 17.1136, -5.27497, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_32" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 19.1762, -4.71089, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
+[node name="BushC_33" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 20.4414, -4.71089, -2.792)
+sorting_offset = 2.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("21_5pb4g")
+
 [node name="BushC_18" type="Sprite3D" parent="Decorations"]
 transform = Transform3D(0.999991, 0, -0.00413642, 0, 1, 0, 0.00413642, 0, 0.999991, 30.1093, -8.29355, -0.310484)
 sorting_offset = 2.0
@@ -646,6 +759,302 @@ pixel_size = 0.02
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("21_5pb4g")
+
+[node name="Bush1_1" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.960963, 0, -0.276677, 0, 1, 0, 0.276677, 0, -0.960963, 1.31671, -8.00177, -1.12442)
+sorting_offset = -1.0
+pixel_size = 0.015
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("22_1t60a")
+
+[node name="Bush1_2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.960963, 0, 0.276677, 0, 1, 0, -0.276677, 0, 0.960963, 2.58, -8.00177, -1.44843)
+sorting_offset = -1.0
+pixel_size = 0.015
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("22_1t60a")
+
+[node name="Bush2_1" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.998511, 0, -0.0545494, 0, 1, 0, 0.0545494, 0, 0.998511, 5.13016, -7.9924, -2.74262)
+sorting_offset = 1.0
+pixel_size = 0.015
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("23_nj06t")
+
+[node name="Bush3_1" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19018, -7.73583, -2.74706)
+sorting_offset = -1.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("24_sacx1")
+
+[node name="Bush3_3" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1614, -7.73583, -2.65795)
+sorting_offset = -1.0
+pixel_size = 0.025
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("24_sacx1")
+
+[node name="Bush3_4" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.988905, 0, 0.148552, 0, 1, 0, -0.148552, 0, 0.988905, 28.7614, -7.73583, -1.39157)
+sorting_offset = -1.0
+pixel_size = 0.025
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("24_sacx1")
+
+[node name="Bush3_5" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.988905, 0, -0.148552, 0, 1, 0, 0.148552, 0, -0.988905, 27.89, -7.73583, -1.08617)
+sorting_offset = -1.0
+pixel_size = 0.025
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("24_sacx1")
+
+[node name="Bush3_2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.984109, 0, -0.177566, 0, 1, 0, 0.177566, 0, 0.984109, 8.0955, -7.73583, -0.981678)
+sorting_offset = -1.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("24_sacx1")
+
+[node name="Bush4_1" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999478, 0, -0.0323179, 0, 1, 0, 0.0323179, 0, 0.999478, 12.2387, -7.7466, -2.68575)
+sorting_offset = 1.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("25_qwl2t")
+
+[node name="Bush4_2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999478, 0, -0.0323179, 0, 1, 0, 0.0323179, 0, 0.999478, 25.9419, -7.7466, -2.68575)
+sorting_offset = 1.0
+pixel_size = 0.02
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("25_qwl2t")
+
+[node name="Bush5_1" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.999654, 0, 0.0263166, 0, 1, 0, -0.0263166, 0, -0.999654, 9.50585, -7.84552, -2.7391)
+sorting_offset = -2.0
+pixel_size = 0.035
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("26_50otj")
+
+[node name="Bush5_3" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.991837, 0, 0.127515, 0, 1, 0, -0.127515, 0, -0.991837, 37.3623, -7.84552, -2.72089)
+sorting_offset = -2.0
+pixel_size = 0.035
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("26_50otj")
+
+[node name="Bush5_2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.999654, 0, 0.0263166, 0, 1, 0, -0.0263166, 0, -0.999654, 29.6568, -7.84552, -2.7391)
+sorting_offset = -2.0
+pixel_size = 0.035
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("26_50otj")
+
+[node name="Bush5_4" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(-0.999654, 0, 0.0263166, 0, 1, 0, -0.0263166, 0, -0.999654, 35.2931, -7.84552, -1.35768)
+sorting_offset = -2.0
+pixel_size = 0.035
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("26_50otj")
+
+[node name="Triple" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.998339, 0, 0.0576163, 0, 1, 0, -0.0576163, 0, 0.998339, 4.82898, -8.17029, -0.941715)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_egiry")
+
+[node name="Triple2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.969732, 0, -0.244174, 0, 1, 0, 0.244174, 0, 0.969732, 11.9361, -8.17029, -1.80874)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_egiry")
+
+[node name="Triple3" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.983926, 0, -0.178579, 0, 1, 0, 0.178579, 0, 0.983926, 38.3989, -8.17029, -1.72498)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_egiry")
+
+[node name="Creeper" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.999496, 0, 0.0317597, 0, 1, 0, -0.0317597, 0, 0.999496, 13.9184, -5.12637, -2.79889)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("28_pgohy")
+
+[node name="Creeper2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.977593, 0, 0.210506, 0, 1, 0, -0.210506, 0, 0.977593, 31.936, -7.73548, -1.30104)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("28_pgohy")
+
+[node name="TinyFlower" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.849022, -8.11092, -0.591157)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49655, -8.11092, -1.96214)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower3" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15996, -8.11092, -2.01941)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower4" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3952, -8.11092, -0.966275)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower5" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9228, -8.11092, -1.60294)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower6" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.614, -8.11092, -0.895905)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower7" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9667, -8.11092, -2.28733)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="TinyFlower8" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0172, -8.18958, -0.681816)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_dfof6")
+
+[node name="Mushroom" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42199, -8.17147, -2.08947)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("30_gb1r4")
+
+[node name="Mushroom2" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2172, -8.17147, -1.24316)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("30_gb1r4")
+
+[node name="Mushroom3" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2983, -8.17147, -2.41511)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("30_gb1r4")
+
+[node name="Mushroom4" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.4803, -8.17147, -1.96874)
+sorting_offset = 2.0
+pixel_size = 0.015
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("30_gb1r4")
+
+[node name="Paths" type="Node3D" parent="."]
+
+[node name="PathStraight" type="MeshInstance3D" parent="Paths"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.4521, -8.38132, 1.18313)
+sorting_offset = -1.0
+mesh = SubResource("QuadMesh_b0hb3")
+
+[node name="PathStraight2" type="MeshInstance3D" parent="Paths"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.6547, -8.38132, 1.18313)
+sorting_offset = -1.0
+mesh = SubResource("QuadMesh_b0hb3")
+
+[node name="PathBroken" type="MeshInstance3D" parent="Paths"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.9887, -8.38454, 1.10779)
+sorting_offset = 2.0
+mesh = SubResource("QuadMesh_8wkcu")
+
+[node name="PathBroken2" type="MeshInstance3D" parent="Paths"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7972, -4.78658, -1.99599)
+mesh = SubResource("QuadMesh_bia4c")
+
+[node name="QuestionBlocks" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
+
+[node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("33_q4m6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9437, -4.79041, 2.10872)
+item_type = ExtResource("34_1ukyg")
+coin_count = 3
+distance = 1.2
+
+[node name="CoinRows" type="Node3D" parent="."]
+
+[node name="CoinRow" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8865, -8.11162, 1.25086)
+coin_count = 5
+coin_distance = Vector3(0.44, 0.305, 0.155)
+
+[node name="CoinRow2" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5293, -5.3639, -2.35263)
+coin_count = 3
+coin_distance = Vector3(0.41, 0, 0)
+
+[node name="CoinRow3" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9545, -5.8343, -2.35263)
+coin_count = 3
+coin_distance = Vector3(0.41, 0, 0)
+
+[node name="CoinRow5" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89886, -7.95111, 0.286583)
+coin_count = 3
+coin_distance = Vector3(0, 0, 0.4)
+
+[node name="CoinRow6" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5263, -7.95111, 0.226844)
+coin_count = 3
+coin_distance = Vector3(0.125, 0, 0.235)
+
+[node name="CoinRow4" parent="CoinRows" instance=ExtResource("35_yj0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2886, -6.40712, -1.80737)
+coin_count = 4
+coin_distance = Vector3(0, 0, 0.695)
 
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="." method="_on_water_body_exited"]
