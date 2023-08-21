@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://6cfuyatnwa1i"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_07lgd"]
+[ext_resource type="Texture2D" uid="uid://btkp33va2pqfi" path="res://sprites/items/honey_syrup.png" id="2_xjp4v"]
+[ext_resource type="Texture2D" uid="uid://c6pep8ddus6ev" path="res://sprites/items/honey_syrup_grey.png" id="3_w8sl7"]
+[ext_resource type="Texture2D" uid="uid://o5a818jghjc1" path="res://textures/items/honey_syrup.png" id="4_8trm0"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_ddym7"]
+
+[resource]
+script = ExtResource("5_ddym7")
+choice = ExtResource("1_07lgd")
+icon = ExtResource("2_xjp4v")
+icon_texture = ExtResource("4_8trm0")
+icon_gray = ExtResource("3_w8sl7")
+name = "Honey Syrup"
+description = "A tasty treat to bring back Mario's FP in battle or on the field."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"fp": 4
+}

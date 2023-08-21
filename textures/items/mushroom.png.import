@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/mushroom.png-98f10c5f46619a20beeb25eedc1399f9
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

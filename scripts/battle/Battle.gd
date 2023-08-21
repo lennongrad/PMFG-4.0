@@ -100,8 +100,6 @@ func _process(_delta):
 	if enemySetAttackTimer == 0:
 		enemySetToAttack.attack()
 	
-	
-	
 	var viewport_size = (get_viewport().get_visible_rect().size.x - 1000) / 1000
 	$BasePosition.position = original_base_position + Vector3(viewport_size * .5,0,-viewport_size * .4)
 
@@ -144,7 +142,7 @@ func decrement_experience(decrease):
 func activate_action(action, enemy):
 	if action.choice == load("res://stats/heroattack/items/_battlechoice.tres"):
 		$"/root/MarioRun".item_used(action)
-	$"/root/MarioRun".change_fp(-action.fp_cost)
+	$"/root/MarioRun".gain_fp(-action.fp_cost)
 	$Mario.is_idle = false
 	$Partner.is_idle = false
 	for current_enemy in enemies:

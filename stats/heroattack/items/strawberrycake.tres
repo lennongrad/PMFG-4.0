@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cae2ux7e55ul6"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_vnso5"]
+[ext_resource type="Texture2D" uid="uid://j8gowvtn2pd6" path="res://sprites/items/strawberry_cake.png" id="2_2n0xc"]
+[ext_resource type="Texture2D" uid="uid://bcnreb5k5062w" path="res://sprites/items/strawberry_cake_grey.png" id="3_bt6ad"]
+[ext_resource type="Texture2D" uid="uid://dvr0v0xqrvifu" path="res://textures/items/strawberry_cake.png" id="4_x0yxq"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_pyoue"]
+
+[resource]
+script = ExtResource("5_pyoue")
+choice = ExtResource("1_vnso5")
+icon = ExtResource("2_2n0xc")
+icon_texture = ExtResource("4_x0yxq")
+icon_gray = ExtResource("3_bt6ad")
+name = "Strawberry Cake"
+description = "A delicious combination of ingredients that refills Mario's FP and HP alike."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"fp": 6,
+"hp": 6
+}

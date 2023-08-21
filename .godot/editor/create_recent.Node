@@ -1,5 +1,7 @@
-MeshInstance3D
+GPUParticles3D
+AnimatedSprite3D
 Node3D
+MeshInstance3D
 CollisionShape3D
 StaticBody3D
 Marker3D
@@ -8,7 +10,6 @@ Area3D
 TextureRect
 MultiMeshInstance3D
 RigidBody3D
-AnimatedSprite3D
 Camera3D
 VisibleOnScreenNotifier3D
 Control

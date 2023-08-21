@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=75 format=3 uid="uid://bnnpynq8x6hsv"]
+[gd_resource type="SpriteFrames" load_steps=79 format=3 uid="uid://bnnpynq8x6hsv"]
 
 [ext_resource type="Texture2D" uid="uid://dtvr2svqhd6mf" path="res://textures/mario/battlefall.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bvsd85o11vcr6" path="res://textures/mario/airhorizontalrise.png" id="2"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://0gkcwa27fjj0" path="res://textures/mario/diagimpactstuck.png" id="30"]
 [ext_resource type="Texture2D" uid="uid://copr75pbs3efy" path="res://textures/mario/swim2.png" id="31"]
 [ext_resource type="Texture2D" uid="uid://cl2yqwcj6qpb6" path="res://textures/mario/swim1.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://7vwr6mfqfnm6" path="res://textures/mario/plant.png" id="32_jn5o5"]
 [ext_resource type="Texture2D" uid="uid://dptnfm20w6cj0" path="res://textures/mario/wag2.png" id="33"]
 [ext_resource type="Texture2D" uid="uid://l5jwt4ciw8r0" path="res://textures/mario/wag1.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://dkun27471ba21" path="res://textures/mario/wag3.png" id="35"]
@@ -129,6 +130,18 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="22"]
 atlas = ExtResource("16")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v16pv"]
+atlas = ExtResource("32_jn5o5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nej2"]
+atlas = ExtResource("32_jn5o5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0ynp"]
+atlas = ExtResource("32_jn5o5")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="26"]
@@ -468,6 +481,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_v16pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nej2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0ynp")
+}],
+"loop": true,
+"name": &"Plant",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("22")
 }],
 "loop": true,
@@ -475,12 +502,27 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 30.0,
 "texture": SubResource("26")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}, {
+"duration": 2.0,
+"texture": SubResource("6")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
 }],
 "loop": true,
 "name": &"Rest",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,

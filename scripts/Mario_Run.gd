@@ -1,12 +1,18 @@
 extends Node
 
 var items = [
-	load("res://stats/heroattack/items/supermushroom.tres")
+	load("res://stats/heroattack/items/mushroom.tres"),
+	load("res://stats/heroattack/items/fireflower.tres"),
+	load("res://stats/heroattack/items/maplesyrup.tres"),
+	load("res://stats/heroattack/items/strawberrycake.tres"),
+	load("res://stats/heroattack/items/cookiecombo.tres"),
 ]
 
 var badges = []
 
-var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
+#var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
+var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", 
+	"badges": [load("res://stats/badges/multibounce.tres")]}]
 var equipped_boots = boots[0]
 
 var hammers = [{"type": load("res://stats/hammers/basic.tres"), "name": "Normal Hammer", "badges": []}]
@@ -27,8 +33,7 @@ var coins = 0
 var current_stage = 0
 
 func start_battle():
-	fp = get_max_fp()
-	party[active_partner].hp = get_max_hp(active_partner)
+	pass
 
 func add_bonus(bonus):
 	level_bonuses.append(bonus)
@@ -106,8 +111,10 @@ func get_max_fp():
 func get_fp():
 	return fp
 
-func change_fp(change):
-	fp += change
+func gain_fp(change):
+	var gained = min(fp + change, get_max_fp()) - fp
+	fp += gained
+	return gained
 
 func get_choices(stats):
 	var dynamic_attacks = [load("res://stats/heroattack/tactics/run.tres"), 
@@ -172,11 +179,12 @@ func get_badges():
 func get_items():
 	return items
 
-func add_item(item):
+func add_item(item, auto_equip = false):
 	if item.is_badge:
-		badges.append({"badge": item, "active": false})
+		badges.append({"badge": item, "active": auto_equip})
 	elif item.is_weapon:
-		var new_weapon = {"type": item, "name": item.name, "badges": [load("res://stats/badges/multibounce.tres")]}
+		var new_weapon = {"type": item, "name": item.name, 
+			"badges": [load("res://stats/badges/multibounce.tres")]}
 		if item.is_boots:
 			boots.append(new_weapon)
 		else:
@@ -207,44 +215,22 @@ func get_hammer_list():
 	return hammers
 
 func tattle_enemy(stats):
+	if not enemies.has(stats):
+		enemies[stats] = {"tattled": false}
 	enemies[stats].tattled = true
 
 func is_tattled(stats):
+	if not enemies.has(stats):
+		enemies[stats] = {"tattled": false}
 	return enemies[stats].tattled
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	var dir = DirAccess.open("res://stats/herostats")
-#
-#	if dir:
-#		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-#		var file_name = dir.get_next()
-#		while file_name != "":
-#			if file_name != "." and file_name != ".." and file_name != "herostats.gd":
-#				file_name = "res://stats/herostats/" + file_name
-#				party[load(file_name)] = {"hp": 0}
-#			file_name = dir.get_next()
-#
-#	dir = DirAccess.open("res://stats/enemystats");
-#	if dir:
-#		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
-#		var file_name = dir.get_next()
-#		while file_name != "":
-#			if file_name != "." and file_name != "..":
-#				file_name = "res://stats/enemystats/" + file_name
-#				enemies[load(file_name)] = {"tattled": false}
-#			file_name = dir.get_next()
 	party[load("res://stats/herostats/goombario.tres")] = {"hp": 0}
 	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
-	enemies[load("res://stats/enemystats/enemystats_cheepcheep.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_redshyguy.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_skyguy.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_bulletbill.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_bulletblaster.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_bobomb.tres")] = {"tattled": false}
-	enemies[load("res://stats/enemystats/enemystats_testshyguy.tres")] = {"tattled": false}
 	
 	for member in party:
-		party[member].hp = get_max_hp(member)
+		party[member].hp = get_max_hp(member) - 5
+	fp = get_max_fp() - 3
 	
 	active_partner = load("res://stats/herostats/goombario.tres")

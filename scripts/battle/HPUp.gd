@@ -20,6 +20,7 @@ func reactivate():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$Label.set_position($"../../Camera3D".unproject_position(get_global_transform().origin) - Vector2(40, 60))
+	$Particles.emitting = visible
 	if visible:
 		$Label.modulate.a += (.8 - $Label.modulate.a) * .025
 	else:

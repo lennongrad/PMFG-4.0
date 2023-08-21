@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cip4ftfx0guwx"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_i7l3u"]
+[ext_resource type="Texture2D" uid="uid://fbpnb7qboheh" path="res://sprites/items/ultra_shroom.png" id="2_rdocb"]
+[ext_resource type="Texture2D" uid="uid://bmnjeasi163mb" path="res://sprites/items/ultra_shroom_grey.png" id="3_wm67n"]
+[ext_resource type="Texture2D" uid="uid://citkbtr0r157e" path="res://textures/items/ultra_shroom.png" id="4_lcses"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_h6njl"]
+
+[resource]
+script = ExtResource("5_h6njl")
+choice = ExtResource("1_i7l3u")
+icon = ExtResource("2_rdocb")
+icon_texture = ExtResource("4_lcses")
+icon_gray = ExtResource("3_wm67n")
+name = "Ultra Mushroom"
+description = "A ultra-powerful restorative item to bring back your HP!"
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"hp": 15
+}

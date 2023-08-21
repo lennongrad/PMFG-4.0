@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://civqh7gvslnr4"]
+[gd_scene load_steps=98 format=3 uid="uid://civqh7gvslnr4"]
 
 [ext_resource type="Resource" uid="uid://cnne0bihla83e" path="res://stats/herostats/mario.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
@@ -10,17 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://bsbrhnv6o565q" path="res://particles/star_05.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://wy52ubcfk1qw" path="res://particles/heart_big.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://wdpq0avorko8" path="res://sprites/UI/note.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://ixc8130twb6d" path="res://sprites/other/bigflower.png" id="11_mmtcn"]
 [ext_resource type="Script" path="res://scripts/battle/HPUp.gd" id="12"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="13"]
 [ext_resource type="Script" path="res://scripts/battle/Hearts.gd" id="14"]
-[ext_resource type="LabelSettings" uid="uid://b3bw580f7is53" path="res://fonts/status_settings.tres" id="14_jvhrl"]
 [ext_resource type="PackedScene" uid="uid://ddxb2t13bohu" path="res://scenes/Circles.tscn" id="15"]
+[ext_resource type="Texture2D" uid="uid://bwsehqencn05g" path="res://sprites/UI/itemacbk.png" id="15_awbwo"]
 [ext_resource type="Script" path="res://scripts/overworld/WaterParticles.gd" id="16"]
 [ext_resource type="Texture2D" uid="uid://jbkna203d3a6" path="res://textures/mario/particles.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bypqjr5tfblsu" path="res://particles/dirt_02.png" id="18"]
 [ext_resource type="PackedScene" uid="uid://1axryjolfwxg" path="res://scenes/battle/FeedbackParticle.tscn" id="19"]
 [ext_resource type="PackedScene" uid="uid://bm4p4xqu2nr51" path="res://scenes/battle/SmashLight.tscn" id="22_02uk8"]
 [ext_resource type="Texture2D" uid="uid://gl6flrha6303" path="res://particles/smoke_bright.png" id="23_10yeu"]
+[ext_resource type="Texture2D" uid="uid://dte7nxbixaua4" path="res://textures/fireflower.png" id="24_76jp5"]
+[ext_resource type="Texture2D" uid="uid://cql8qbhh8e8w2" path="res://textures/fireflower_ball.png" id="25_gisnw"]
 [ext_resource type="PackedScene" uid="uid://gy264ejqrfhj" path="res://scenes/battle/Hammerlight.tscn" id="36"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
 
@@ -91,15 +94,6 @@ albedo_texture = ExtResource("17")
 material = SubResource("9")
 size = Vector2(0.6, 0.6)
 
-[sub_resource type="Curve" id="Curve_mvfna"]
-min_value = -360.0
-max_value = 360.0
-_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_y3uuc"]
-curve = SubResource("Curve_mvfna")
-
 [sub_resource type="Gradient" id="Gradient_8np3i"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
@@ -114,8 +108,12 @@ point_count = 2
 curve = SubResource("13")
 
 [sub_resource type="ParticleProcessMaterial" id="15"]
+particle_flag_rotate_y = true
 gravity = Vector3(0, 0, 0)
-angle_curve = SubResource("CurveTexture_y3uuc")
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+angle_min = -180.0
+angle_max = 180.0
 scale_min = 0.5
 scale_max = 0.5
 scale_curve = SubResource("14")
@@ -134,6 +132,27 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="17"]
 material = SubResource("16")
+
+[sub_resource type="Curve" id="Curve_mvfna"]
+min_value = -10.0
+max_value = 10.0
+_data = [Vector2(0.0136986, 10), 0.0, 0.0, 0, 0, Vector2(1, -10), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y3uuc"]
+curve = SubResource("Curve_mvfna")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1lqba"]
+particle_flag_rotate_y = true
+gravity = Vector3(0, 0, 0)
+angle_min = -20.0
+angle_max = 20.0
+angle_curve = SubResource("CurveTexture_y3uuc")
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("14")
+color = Color(1, 1, 1, 0.317647)
+color_ramp = SubResource("GradientTexture1D_g0src")
 
 [sub_resource type="StandardMaterial3D" id="18"]
 transparency = 1
@@ -189,14 +208,26 @@ particles_anim_loop = false
 material = SubResource("25")
 size = Vector2(0.4, 0.4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgxn0"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_mmtcn")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_fc0hw"]
+material = SubResource("StandardMaterial3D_mgxn0")
+size = Vector2(0.4, 0.4)
+
 [sub_resource type="FontFile" id="27"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("13")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -204,6 +235,7 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/30/0/ascent = 0.0
 cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0
@@ -211,6 +243,20 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ac3gt"]
+font_size = 20
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="20"]
 offsets = PackedFloat32Array(0.0209424, 0.544503, 1)
@@ -238,6 +284,26 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="30"]
 material = SubResource("29")
+size = Vector2(0.5, 0.4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrx75"]
+font_size = 20
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kiu2"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.560784, 0.239216, 1)
+albedo_texture = ExtResource("15_awbwo")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_2ij3p"]
+material = SubResource("StandardMaterial3D_1kiu2")
 size = Vector2(0.5, 0.4)
 
 [sub_resource type="Curve" id="31"]
@@ -337,6 +403,108 @@ particles_anim_loop = true
 material = SubResource("StandardMaterial3D_qpf6k")
 size = Vector2(0.01, 0.01)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8t8y"]
+atlas = ExtResource("24_76jp5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuq51"]
+atlas = ExtResource("24_76jp5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08ko2"]
+atlas = ExtResource("24_76jp5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvmah"]
+atlas = ExtResource("24_76jp5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y30r7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8t8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuq51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08ko2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvmah")
+}],
+"loop": true,
+"name": &"Spout",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvmah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08ko2")
+}],
+"loop": true,
+"name": &"Spouting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8t8y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_g7kxv"]
+offsets = PackedFloat32Array(0, 0.791304, 1)
+colors = PackedColorArray(1, 0.216667, 0, 1, 1, 0.673043, 0.582609, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kbyk6"]
+gradient = SubResource("Gradient_g7kxv")
+
+[sub_resource type="Curve" id="Curve_dhiv6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.164384, 1), 0.0, 0.0, 0, 0, Vector2(0.719178, 0.652632), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ooi3"]
+curve = SubResource("Curve_dhiv6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3pq3x"]
+direction = Vector3(1.265, 1.92, 0)
+spread = 21.53
+flatness = 1.0
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+damping_min = 0.3
+damping_max = 0.3
+scale_min = 0.2
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_8ooi3")
+color = Color(1, 1, 1, 0.411765)
+color_initial_ramp = SubResource("GradientTexture1D_kbyk6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww1fn"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("25_gisnw")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_vu0vv"]
+material = SubResource("StandardMaterial3D_ww1fn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_5b8l2"]
+radius = 0.11
+height = 0.29
+
 [node name="HeroBattle" type="CharacterBody3D"]
 collision_layer = 32
 collision_mask = 48
@@ -382,10 +550,9 @@ texture_filter = 0
 [node name="Particles" type="GPUParticles3D" parent="EatenItem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0138479)
 emitting = false
-amount = 6
-lifetime = 0.2
+amount = 12
+lifetime = 0.8
 preprocess = 1.0
-speed_scale = 0.5
 process_material = SubResource("15")
 draw_pass_1 = SubResource("17")
 
@@ -393,7 +560,7 @@ draw_pass_1 = SubResource("17")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00384602)
 emitting = false
 amount = 12
-process_material = SubResource("15")
+process_material = SubResource("ParticleProcessMaterial_1lqba")
 draw_pass_1 = SubResource("19")
 
 [node name="Hearts" type="GPUParticles3D" parent="."]
@@ -406,8 +573,18 @@ process_material = SubResource("24")
 draw_pass_1 = SubResource("26")
 script = ExtResource("14")
 
+[node name="Flowers" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0.442621, 0)
+emitting = false
+amount = 12
+one_shot = true
+visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
+process_material = SubResource("24")
+draw_pass_1 = SubResource("QuadMesh_fc0hw")
+script = ExtResource("14")
+
 [node name="HPUp" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0282601, 0.458318, 0.0524678)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.292876, 0.452636, 0.0524678)
 visible = false
 centered = false
 offset = Vector2(-24.578, 0)
@@ -419,24 +596,56 @@ script = ExtResource("12")
 [node name="Label" type="Label" parent="HPUp"]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
-offset_left = -50.0
+offset_left = -64.0
 offset_top = -16.0
-offset_right = 56.0
+offset_right = 42.0
 offset_bottom = 17.0
 theme_override_fonts/font = SubResource("27")
-text = "+4 HP"
-label_settings = ExtResource("14_jvhrl")
+text = "+4HP"
+label_settings = SubResource("LabelSettings_ac3gt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hearts2" type="GPUParticles3D" parent="HPUp"]
+[node name="Particles" type="GPUParticles3D" parent="HPUp"]
 transform = Transform3D(-0.138361, 4.93389e-08, -0.990382, 0.990382, -3.7243e-08, -0.138361, -4.37114e-08, -1, -4.37114e-08, 0.0633511, 0.207668, -0.0659817)
 emitting = false
 amount = 4
-one_shot = true
 visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
+local_coords = true
 process_material = SubResource("28")
 draw_pass_1 = SubResource("30")
+
+[node name="FPUp" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17563, 0.490756, 0.0524678)
+visible = false
+centered = false
+offset = Vector2(-24.578, 0)
+modulate = Color(1, 1, 1, 0)
+texture_filter = 0
+texture = ExtResource("11")
+script = ExtResource("12")
+
+[node name="Label" type="Label" parent="FPUp"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+offset_left = -35.0
+offset_top = -16.0
+offset_right = 71.0
+offset_bottom = 17.0
+theme_override_fonts/font = SubResource("27")
+text = "+4 HP"
+label_settings = SubResource("LabelSettings_qrx75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Particles" type="GPUParticles3D" parent="FPUp"]
+transform = Transform3D(-0.138361, 4.93389e-08, -0.990382, 0.990382, -3.7243e-08, -0.138361, -4.37114e-08, -1, -4.37114e-08, 0.0633511, 0.207668, -0.0659817)
+emitting = false
+amount = 4
+visibility_aabb = AABB(-4, -3.21186, -4, 8, 6.42372, 8)
+local_coords = true
+process_material = SubResource("28")
+draw_pass_1 = SubResource("QuadMesh_2ij3p")
 
 [node name="Circles" parent="." instance=ExtResource("15")]
 visible = false
@@ -515,5 +724,25 @@ visibility_aabb = AABB(-4, -4, -1.18714, 8, 8, 2.37428)
 transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_hcyqm")
 draw_pass_1 = SubResource("QuadMesh_18l17")
+
+[node name="MoveEffects" type="Node3D" parent="."]
+
+[node name="FireFlower" type="AnimatedSprite3D" parent="MoveEffects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.609393, 0.152045, 0)
+visible = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_y30r7")
+
+[node name="Particles" type="GPUParticles3D" parent="MoveEffects/FireFlower"]
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_3pq3x")
+draw_pass_1 = SubResource("QuadMesh_vu0vv")
+
+[node name="Shadow2" type="MeshInstance3D" parent="MoveEffects/FireFlower"]
+transform = Transform3D(0.999976, -0.00698126, 0, 0.00698126, 0.999976, 0, 0, 0, 0.7, -0.0327485, 0.00589731, 0)
+cast_shadow = 3
+mesh = SubResource("SphereMesh_5b8l2")
+skeleton = NodePath("../../..")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

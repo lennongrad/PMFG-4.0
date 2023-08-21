@@ -125,7 +125,6 @@ func on_reset(did_win):
 	paused = false
 	emit_signal("unpause")
 	self.visible = true
-#	set_environment()
 	$Status.visible = true
 	$Spin.visible = true
 	$Spin.spin_backwards()

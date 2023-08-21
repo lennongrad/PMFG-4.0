@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://kwyoo2ims0lk"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_owtnp"]
+[ext_resource type="Texture2D" uid="uid://8rwel38cr6rv" path="res://sprites/items/mushroom.png" id="2_yn52b"]
+[ext_resource type="Texture2D" uid="uid://5qgsqnj0ecls" path="res://sprites/items/mushroom_gray.png" id="3_nbb2l"]
+[ext_resource type="Texture2D" uid="uid://dgcfwydol4ur2" path="res://textures/items/mushroom.png" id="4_odq64"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_pmp26"]
+
+[resource]
+script = ExtResource("5_pmp26")
+choice = ExtResource("1_owtnp")
+icon = ExtResource("2_yn52b")
+icon_texture = ExtResource("4_odq64")
+icon_gray = ExtResource("3_nbb2l")
+name = "Mushroom"
+description = "A restorative shroom. Use it to regain 4 Heart Points."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"hp": 4
+}

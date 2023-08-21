@@ -1,24 +1,24 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://kwyoo2ims0lk"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://biq8kj51yh4gp"]
 
 [ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dgcfwydol4ur2" path="res://textures/items/mushroom.png" id="2"]
-[ext_resource type="Resource" path="res://stats/heroattack/items/_battlechoice.tres" id="3"]
-[ext_resource type="Texture2D" uid="uid://8rwel38cr6rv" path="res://sprites/items/mushroom.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://5qgsqnj0ecls" path="res://sprites/items/mushroom_gray.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dwvxpj0rdimyp" path="res://sprites/items/super_shroom.png" id="2_fccr8"]
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://b4at0kqa0bep5" path="res://sprites/items/super_shroom_grey.png" id="3_tje0j"]
+[ext_resource type="Texture2D" uid="uid://bw60uow44vqx2" path="res://textures/items/super_shroom.png" id="4_mjewf"]
 
 [resource]
 script = ExtResource("1")
 choice = ExtResource("3")
-icon = ExtResource("4")
-icon_texture = ExtResource("2")
-icon_gray = ExtResource("5")
+icon = ExtResource("2_fccr8")
+icon_texture = ExtResource("4_mjewf")
+icon_gray = ExtResource("3_tje0j")
 name = "Super Mushroom"
-description = "A restorative shroom. Use it to regain 4 Heart Points."
+description = "An extra helpful pick-me-up! Use to regain 6 Heart Points."
 steps = ["walkto", "eat", "walkback"]
 walkto_distance = 0.0
 fp_cost = 0
 skipEnemySelection = true
 firstStrike = false
 attributes = {
-"hp": 4
+"hp": 8
 }

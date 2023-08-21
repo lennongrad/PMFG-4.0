@@ -26,6 +26,8 @@ func _process(_delta):
 	elif eatTimer == 150:
 		if hero.get_current_attack().attributes.has("hp"):
 			hero.heal(hero.get_current_attack().attributes["hp"])
+		if hero.get_current_attack().attributes.has("fp"):
+			hero.gain_fp(hero.get_current_attack().attributes["fp"])
 	elif eatTimer < 245:
 		hero.get_node("Sprite2D").play("Swallow")
 		hero.get_node("EatenItem").modulate.a -= hero.get_node("EatenItem").modulate.a * .1

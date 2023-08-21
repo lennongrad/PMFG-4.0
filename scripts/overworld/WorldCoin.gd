@@ -14,7 +14,8 @@ func _ready():
 	baseaVelocity /= 25
 	baseaVelocity.y = 1.5
 	timer = -(randi() % 50) - 1
-	var _unused = connect("coin_gain", Callable(get_node("/root/Global").get_player(), "collected_coin"))
+	if(get_node("/root/Global").get_player() != null):
+		var _unused = connect("coin_gain", Callable(get_node("/root/Global").get_player(), "collected_coin"))
 
 func _physics_process(delta):
 	if timer < 0:

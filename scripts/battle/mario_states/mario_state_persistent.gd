@@ -115,6 +115,13 @@ func hurt(attributes):
 		$HurtParticles.play()
 	animation_wait = 30
 
+func gain_fp(gain_for):
+	var gained = $"/root/MarioRun".gain_fp(gain_for)
+	if gained > 0:
+		$FPUp.change_text("+" + str(gained) + " FP")
+		$FPUp.reactivate()
+		$Flowers.activate()
+
 func heal(heal_for):
 	var healed = $"/root/MarioRun".heal(stats, heal_for)
 	if healed > 0:

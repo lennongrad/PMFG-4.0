@@ -389,6 +389,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("36")
+}, {
+"duration": 1.0,
+"texture": SubResource("40")
+}, {
+"duration": 1.0,
+"texture": SubResource("41")
+}, {
+"duration": 1.0,
+"texture": SubResource("42")
 }],
 "loop": true,
 "name": &"Rest",

@@ -14,6 +14,8 @@ func _ready():
 	if hero.target != null and  hero.get_current_attack().walkto_distance != 0:
 		enemyPosition = hero.target.position - distance
 		enemyPosition.y = 0
+	else:
+		enemyPosition = distance
 	
 	self.interpolate_property(hero, "position", enemyPosition, .5)
 	#	hero.position, enemyPosition, .5, Tween.TRANS_LINEAR, Tween.EASE_IN)

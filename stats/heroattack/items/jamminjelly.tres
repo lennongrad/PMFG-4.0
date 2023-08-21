@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dgtj3jfgdxam2"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_s0ukx"]
+[ext_resource type="Texture2D" uid="uid://b0abtm0jq6nso" path="res://sprites/items/jammin_jelly.png" id="2_2fsjd"]
+[ext_resource type="Texture2D" uid="uid://cg7ks0j3old7d" path="res://sprites/items/jammin_jelly_grey.png" id="3_v11l2"]
+[ext_resource type="Texture2D" uid="uid://cvoyybyecy6hk" path="res://textures/items/jammin_jelly.png" id="4_26v1u"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_14vtr"]
+
+[resource]
+script = ExtResource("5_14vtr")
+choice = ExtResource("1_s0ukx")
+icon = ExtResource("2_2fsjd")
+icon_texture = ExtResource("4_26v1u")
+icon_gray = ExtResource("3_v11l2")
+name = "Jammin' Jelly"
+description = "The ultimate refreshment that can bring back Mario's FP from very low."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"fp": 12
+}

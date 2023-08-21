@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtvuyd2dh4rla"
-path="res://.godot/imported/supermushroom_gray.png-219584559ff46c22f48f0b727a6303db.ctex"
+uid="uid://dw5ucphpalwc5"
+path="res://.godot/imported/maple_syrup_grey.png-7f49ea986007577d95aada7096472cd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/supermushroom_gray.png"
-dest_files=["res://.godot/imported/supermushroom_gray.png-219584559ff46c22f48f0b727a6303db.ctex"]
+source_file="res://sprites/items/maple_syrup_grey.png"
+dest_files=["res://.godot/imported/maple_syrup_grey.png-7f49ea986007577d95aada7096472cd4.ctex"]
 
 [params]
 
-compress/mode=1
-compress/high_quality=false
+compress/mode=0
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

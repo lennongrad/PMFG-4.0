@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://wwbrnnq5ximt"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_wroni"]
+[ext_resource type="Texture2D" uid="uid://sppq61wpmgol" path="res://sprites/items/cookie_combo.png" id="2_8boi2"]
+[ext_resource type="Texture2D" uid="uid://f0ws0nsh7sfs" path="res://sprites/items/cookie_combo_grey.png" id="3_75kxk"]
+[ext_resource type="Texture2D" uid="uid://yrqsw2rvx0rp" path="res://textures/items/cookie_combo.png" id="4_xmfiv"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_jdgpy"]
+
+[resource]
+script = ExtResource("5_jdgpy")
+choice = ExtResource("1_wroni")
+icon = ExtResource("2_8boi2")
+icon_texture = ExtResource("4_xmfiv")
+icon_gray = ExtResource("3_75kxk")
+name = "Cookie Combo"
+description = "A delightful combo of cookie goodness that refills both HP and FP."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"fp": 4,
+"hp": 4
+}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dvtjreh6gu0yv"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_6p2i0"]
+[ext_resource type="Texture2D" uid="uid://chowyi5pgprt" path="res://sprites/items/fireflower.png" id="2_e2k0r"]
+[ext_resource type="Texture2D" uid="uid://ch88b0nj13f2x" path="res://sprites/items/fireflower_gray.png" id="3_jvv1u"]
+[ext_resource type="Texture2D" uid="uid://ttjwwy827ryi" path="res://textures/items/fireflower.png" id="4_elvpu"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_6ntk2"]
+
+[resource]
+script = ExtResource("5_6ntk2")
+choice = ExtResource("1_6p2i0")
+icon = ExtResource("2_e2k0r")
+icon_texture = ExtResource("4_elvpu")
+icon_gray = ExtResource("3_jvv1u")
+name = "Fire Flower"
+description = "A devastating offensive item that leverages the power of flames."
+steps = ["walkto", "fireflower", "walkback"]
+walkto_distance = 0.35
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {}

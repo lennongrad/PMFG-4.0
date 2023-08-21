@@ -14,7 +14,8 @@ func _init():
 		"run": RunState,
 		"tattle": TattleState,
 		"victory": VictoryState,
-		"eat": EatState
+		"eat": EatState,
+		"fireflower": FireflowerState
 }
 
 func get_state(state_name):

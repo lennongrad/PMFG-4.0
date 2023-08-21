@@ -24,9 +24,6 @@ scale_max = 0.15
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("2")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -44,9 +41,6 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="5"]
 fallbacks = Array[Font]([ExtResource("2")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -56,9 +50,6 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("2")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -116,7 +107,7 @@ texture_filter = 1
 layout_mode = 0
 offset_left = -13.0
 offset_top = -26.0
-offset_right = 282.0
+offset_right = 637.0
 offset_bottom = 41.0
 pivot_offset = Vector2(11.0771, 25.849)
 texture = ExtResource("5")
@@ -178,13 +169,117 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
 text = "MARIO"
 
+[node name="HP2" type="Control" parent="Status"]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 190.0
+offset_top = 34.7586
+offset_right = 230.0
+offset_bottom = 74.7586
+tooltip_text = "rrrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="Status/HP2"]
+texture_filter = 1
+position = Vector2(24.6519, 19.8425)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Status/HP2/Sprite2D"]
+modulate = Color(1, 0.333333, 0.333333, 0.4)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, -3)
+amount = 4
+process_material = SubResource("3")
+texture = ExtResource("1")
+local_coords = true
+
+[node name="Label2" type="Label" parent="Status/HP2"]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.2172
+offset_top = -0.137763
+offset_right = 112.217
+offset_bottom = -0.137764
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("4")
+text = "20/20"
+label_settings = ExtResource("6_qywsl")
+
+[node name="Label3" type="Label" parent="Status/HP2"]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.7537
+offset_top = 30.3331
+offset_right = 95.7538
+offset_bottom = 30.3331
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("6")
+text = "GOOMBARIO"
+
+[node name="FP" type="Control" parent="Status"]
+texture_filter = 1
+anchors_preset = 0
+offset_left = 363.0
+offset_top = 35.0
+offset_right = 403.0
+offset_bottom = 75.0
+tooltip_text = "rrrr"
+
+[node name="Sprite2D" type="Sprite2D" parent="Status/FP"]
+texture_filter = 1
+position = Vector2(18.6519, 13.8425)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Status/FP/Sprite2D"]
+modulate = Color(0.556863, 1, 0.333333, 0.411765)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, -3)
+amount = 4
+process_material = SubResource("3")
+texture = ExtResource("1")
+local_coords = true
+
+[node name="Label2" type="Label" parent="Status/FP"]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 47.2172
+offset_top = -0.137763
+offset_right = 112.217
+offset_bottom = -0.137764
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("4")
+text = "20/20"
+label_settings = ExtResource("6_qywsl")
+
+[node name="Label3" type="Label" parent="Status/FP"]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 28.0
+offset_right = 24.0
+offset_bottom = 13.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("5")
+text = "FP"
+
 [node name="SP" type="Control" parent="Status"]
 texture_filter = 1
 anchors_preset = 0
-offset_left = 186.58
-offset_top = 30.9587
-offset_right = 226.58
-offset_bottom = 70.9587
+offset_left = 532.0
+offset_top = 32.0
+offset_right = 572.0
+offset_bottom = 72.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Status/SP"]
 texture_filter = 1
@@ -228,127 +323,6 @@ offset_bottom = 30.8628
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
 text = "SP"
-
-[node name="StatusFP" type="NinePatchRect" parent="."]
-self_modulate = Color(0.611765, 0.360784, 0.117647, 0.470588)
-texture_filter = 1
-layout_mode = 0
-anchor_left = 0.222
-anchor_right = 0.222
-offset_left = 71.0
-offset_top = -25.0
-offset_right = 419.0
-offset_bottom = 42.0
-pivot_offset = Vector2(97.2139, 23.3081)
-texture = ExtResource("5")
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
-
-[node name="FP" type="Control" parent="StatusFP"]
-texture_filter = 1
-anchors_preset = 0
-offset_left = 189.729
-offset_top = 34.1974
-offset_right = 229.729
-offset_bottom = 74.1974
-tooltip_text = "rrrr"
-
-[node name="Sprite2D" type="Sprite2D" parent="StatusFP/FP"]
-texture_filter = 1
-position = Vector2(18.6519, 13.8425)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("9")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="StatusFP/FP/Sprite2D"]
-modulate = Color(0.556863, 1, 0.333333, 0.411765)
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(0, -3)
-amount = 4
-process_material = SubResource("3")
-texture = ExtResource("1")
-local_coords = true
-
-[node name="Label2" type="Label" parent="StatusFP/FP"]
-texture_filter = 1
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 47.2172
-offset_top = -0.137763
-offset_right = 112.217
-offset_bottom = -0.137764
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("4")
-text = "20/20"
-label_settings = ExtResource("6_qywsl")
-
-[node name="Label3" type="Label" parent="StatusFP/FP"]
-texture_filter = 1
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = 28.0
-offset_right = 24.0
-offset_bottom = 13.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("5")
-text = "FP"
-
-[node name="HP2" type="Control" parent="StatusFP"]
-texture_filter = 1
-anchors_preset = 0
-offset_left = 17.9363
-offset_top = 33.7586
-offset_right = 57.9363
-offset_bottom = 73.7586
-tooltip_text = "rrrr"
-
-[node name="Sprite2D" type="Sprite2D" parent="StatusFP/HP2"]
-texture_filter = 1
-position = Vector2(24.6519, 19.8425)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("4")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="StatusFP/HP2/Sprite2D"]
-modulate = Color(1, 0.333333, 0.333333, 0.4)
-show_behind_parent = true
-texture_filter = 1
-position = Vector2(0, -3)
-amount = 4
-process_material = SubResource("3")
-texture = ExtResource("1")
-local_coords = true
-
-[node name="Label2" type="Label" parent="StatusFP/HP2"]
-texture_filter = 1
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 47.2172
-offset_top = -0.137763
-offset_right = 112.217
-offset_bottom = -0.137764
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("4")
-text = "20/20"
-label_settings = ExtResource("6_qywsl")
-
-[node name="Label3" type="Label" parent="StatusFP/HP2"]
-texture_filter = 1
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 30.7537
-offset_top = 30.3331
-offset_right = 95.7538
-offset_bottom = 30.3331
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("6")
-text = "GOOMBARIO"
 
 [node name="StatusEXP" type="NinePatchRect" parent="."]
 self_modulate = Color(0.611765, 0.360784, 0.117647, 0.470588)

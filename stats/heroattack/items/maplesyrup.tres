@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dk7d44ch6r1em"]
+
+[ext_resource type="Resource" uid="uid://cs46wfelbgfdc" path="res://stats/heroattack/items/_battlechoice.tres" id="1_ky8em"]
+[ext_resource type="Texture2D" uid="uid://beicqs87etkve" path="res://sprites/items/maple_syrup.png" id="2_j5rk6"]
+[ext_resource type="Texture2D" uid="uid://dw5ucphpalwc5" path="res://sprites/items/maple_syrup_grey.png" id="3_jry3x"]
+[ext_resource type="Texture2D" uid="uid://lg5tmfynbmxc" path="res://textures/items/maple_syrup.png" id="4_t2slx"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="5_xve5e"]
+
+[resource]
+script = ExtResource("5_xve5e")
+choice = ExtResource("1_ky8em")
+icon = ExtResource("2_j5rk6")
+icon_texture = ExtResource("4_t2slx")
+icon_gray = ExtResource("3_jry3x")
+name = "Maple Syrup"
+description = "A delicious combination of ingredients that refills Mario's FP and HP alike."
+steps = ["walkto", "eat", "walkback"]
+walkto_distance = 0.0
+fp_cost = 0
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"fp": 8
+}

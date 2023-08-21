@@ -121,13 +121,13 @@ func load_actions(_action):
 		if currentActions[e].action.fp_cost != 0:
 			no_label = false
 			var fp_count = Label.new()
-			fp_count.text = String(currentActions[e].action.fp_cost) + " FP"
+			fp_count.text = str(currentActions[e].action.fp_cost) + " FP"
 			fp_count.set("theme_override_fonts/font", font)
 			fp_count.set("theme_override_colors/font_color", Color(1, 1, 1, 1))
 			fp_count.set("theme_override_colors/font_shadow_color", Color(.6, .5, .1, 1))
 			fp_count.set("theme_override_constants/shadow-offset-x", 2)
 			fp_count.set("theme_override_constants/shadow-offset-y", 2)
-			fp_count.align = HORIZONTAL_ALIGNMENT_RIGHT
+			#fp_count.align = HORIZONTAL_ALIGNMENT_RIGHT
 			fp_count.offset_left = max_width * 16 - 30
 			fp_count.offset_top = y_position(e) - 12
 			$ActionMenu/FPLabels.add_child(fp_count)
