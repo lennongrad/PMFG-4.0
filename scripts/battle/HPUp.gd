@@ -1,7 +1,6 @@
 extends Sprite3D
 
 var timer = 0
-var opacity = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,26 +11,21 @@ func change_text(text):
 
 func reactivate():
 	timer = 0
-	visible = true
-	opacity = .75
 	position.y = .4
-	scale = Vector3(.8, .8, .8)
+	visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	$Label.set_position($"../../Camera3D".unproject_position(get_global_transform().origin) - Vector2(40, 60))
-	$Particles.emitting = visible
-	if visible:
-		$Label.modulate.a += (.8 - $Label.modulate.a) * .025
-	else:
-		$Label.modulate.a -= $Label.modulate.a * .15
 	
 	timer += 1
 	if timer < 35:
-		scale.x += (1.1 - scale.x) * .05
-		scale.y = scale.x
-		position.y += (.5 - position.y) * .05
-	elif timer < 60:
-		opacity -= opacity * .025
+		$Particles.emitting = true
+		position.y += (.75 - position.y) * .05
+		$Label.modulate.a += (1 - $Label.modulate.a) * .1
+	elif timer < 50:
+		$Particles.emitting = false
+		$Label.modulate.a -= $Label.modulate.a * .1
 	else:
 		visible = false
+		$Label.modulate.a = 0

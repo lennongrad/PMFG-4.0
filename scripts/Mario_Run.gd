@@ -1,18 +1,16 @@
 extends Node
 
+var rng = RandomNumberGenerator.new()
+
 var items = [
-	load("res://stats/heroattack/items/mushroom.tres"),
-	load("res://stats/heroattack/items/fireflower.tres"),
-	load("res://stats/heroattack/items/maplesyrup.tres"),
-	load("res://stats/heroattack/items/strawberrycake.tres"),
-	load("res://stats/heroattack/items/cookiecombo.tres"),
 ]
 
 var badges = []
+#var badges = [{"badge": load("res://stats/badges/riskavoider.tres"), "active": true}]
 
-#var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
-var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", 
-	"badges": [load("res://stats/badges/multibounce.tres")]}]
+var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
+#var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", 
+#	"badges": [load("res://stats/badges/multibounce.tres")]}]
 var equipped_boots = boots[0]
 
 var hammers = [{"type": load("res://stats/hammers/basic.tres"), "name": "Normal Hammer", "badges": []}]
@@ -55,15 +53,25 @@ func get_coins():
 	return coins
 
 func change_coins(amount):
+	var coin_chance = get_badge_value("coin_up")
+	if amount > 0:
+		for c in amount:
+			var chance = coin_chance
+			while(rng.randf_range(0.0, 1.0) < chance):
+				coins += 1
+				chance -= 1.0
 	coins += amount
 
 func get_max_hp(stats):
 	var max_hp = stats.max_hp
 	
 	if stats.name == "Mario":
+		max_hp += get_badge_value("hp_up")
 		for bonus in level_bonuses:
 			if bonus == "hp":
 				max_hp += 3
+	else:
+		max_hp += get_badge_value("hp_up_partner")
 	
 	return max_hp
 
@@ -94,13 +102,17 @@ func get_max_bp():
 	
 	return max_bp
 
-func get_max_fp():
-	var max_fp = 3
-	
+func get_badge_value(attribute):
+	var modifier = 0
 	var effective_badges = get_effective_badges()
 	for badge in effective_badges:
-		if badge.attributes.has("fp_up"):
-			max_fp += badge.attributes["fp_up"] * effective_badges[badge]
+		if badge.attributes.has(attribute):
+			modifier += badge.attributes[attribute] * effective_badges[badge]
+	return modifier
+
+func get_max_fp():
+	var max_fp = 3
+	max_fp += get_badge_value("fp_up")
 	
 	for bonus in level_bonuses:
 		if bonus == "fp":
@@ -183,8 +195,7 @@ func add_item(item, auto_equip = false):
 	if item.is_badge:
 		badges.append({"badge": item, "active": auto_equip})
 	elif item.is_weapon:
-		var new_weapon = {"type": item, "name": item.name, 
-			"badges": [load("res://stats/badges/multibounce.tres")]}
+		var new_weapon = {"type": item, "name": item.name, "badges": []}
 		if item.is_boots:
 			boots.append(new_weapon)
 		else:
@@ -230,7 +241,7 @@ func _ready():
 	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
 	
 	for member in party:
-		party[member].hp = get_max_hp(member) - 5
-	fp = get_max_fp() - 3
+		party[member].hp = get_max_hp(member)
+	fp = get_max_fp()
 	
 	active_partner = load("res://stats/herostats/goombario.tres")

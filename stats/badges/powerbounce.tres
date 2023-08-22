@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bl8nfm5mr15d3"]
+
+[ext_resource type="Resource" uid="uid://bq5jtorcxbhpi" path="res://stats/heroattack/jump/powerbounce.tres" id="1_nvvms"]
+[ext_resource type="Texture2D" uid="uid://dqw2e52r2gr6r" path="res://sprites/badges/powerbounce.png" id="2_vviri"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="4_6x3ki"]
+
+[resource]
+script = ExtResource("4_6x3ki")
+icon = ExtResource("2_vviri")
+icon_texture = ExtResource("2_vviri")
+bp = 2
+name = "Power Bounce"
+description = "Add a new jump attack that never stops going, as long as you never fail a command."
+attack = ExtResource("1_nvvms")
+attributes = {}

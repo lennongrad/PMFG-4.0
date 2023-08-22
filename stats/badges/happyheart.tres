@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://du83b12lve4h6"]
+
+[ext_resource type="Texture2D" uid="uid://bw5683uqasflc" path="res://sprites/badges/happyheart.png" id="1_muhko"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_clfou"]
+
+[resource]
+script = ExtResource("2_clfou")
+icon = ExtResource("1_muhko")
+icon_texture = ExtResource("1_muhko")
+bp = 3
+name = "Happy Heart"
+description = "Restore 1 HP at the start of every turn."
+attributes = {
+"happy_hp": 1
+}

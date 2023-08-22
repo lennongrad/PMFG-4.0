@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ral2xm2gs3dc"]
+
+[ext_resource type="Texture2D" uid="uid://b51yovijx8bd8" path="res://sprites/badges/chillout.png" id="1_d0xuw"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_bpym4"]
+
+[resource]
+script = ExtResource("2_bpym4")
+icon = ExtResource("1_d0xuw")
+icon_texture = ExtResource("1_d0xuw")
+bp = 2
+name = "Chill Out"
+description = "Mario and company can no longer be surprised by an enemy's first strike attack."
+attributes = {
+"chillout": 1
+}

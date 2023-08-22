@@ -113,7 +113,12 @@ func area_body_entered(body):
 				lastDodgeInput = 0
 			else:
 				hasFinished = true
-			if hero.register_damage(target, $"/root/MarioRun".get_equipped_boots().type.attack, "NICE"):
+			
+			var damage = $"/root/MarioRun".get_equipped_boots().type.attack
+			if jumpCounter > 4:
+				damage = max(damage - jumpCounter + 4, 1)
+			
+			if hero.register_damage(target, damage, "NICE"):
 				hasFinished = true
 		else:
 			hasFinished = true

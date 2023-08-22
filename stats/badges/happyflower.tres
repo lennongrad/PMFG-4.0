@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cr1u3twwt0kyw"]
+
+[ext_resource type="Texture2D" uid="uid://2moc21v80f4h" path="res://sprites/badges/happyflower.png" id="1_6bdmt"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_ytw6g"]
+
+[resource]
+script = ExtResource("2_ytw6g")
+icon = ExtResource("1_6bdmt")
+icon_texture = ExtResource("1_6bdmt")
+bp = 3
+name = "Happy Flower"
+description = "Restore 1 FP at the start of every turn."
+attributes = {
+"happy_fp": 1
+}

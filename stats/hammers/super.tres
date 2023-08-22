@@ -1,20 +1,18 @@
-[gd_resource type="Resource" load_steps=6 format=2]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://d5wgj3nvuqgs"]
 
-[ext_resource path="res://stats/hammers/hammer.gd" type="Script" id=1]
-[ext_resource path="res://sprites/hammers/hammer_super.png" type="Texture2D" id=2]
-[ext_resource path="res://textures/hammer_super/frames.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://sprites/hammer_super/frames.tres" type="SpriteFrames" id=4]
-[ext_resource path="res://textures/hammers/hammer_super.png" type="Texture2D" id=5]
+[ext_resource type="Script" path="res://stats/hammers/hammer.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://crwqd7vgtld07" path="res://sprites/hammers/hammer_super.png" id="2"]
+[ext_resource type="SpriteFrames" path="res://textures/hammer_super/frames.tres" id="3"]
+[ext_resource type="SpriteFrames" path="res://sprites/hammer_super/frames.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://bsw6ku7tq0s5w" path="res://textures/hammers/hammer_super.png" id="5"]
 
 [resource]
-script = ExtResource( 1 )
-icon = ExtResource( 2 )
-icon_texture = ExtResource( 5 )
+script = ExtResource("1")
+icon = ExtResource("2")
+icon_texture = ExtResource("5")
 name = "Super Hammer"
 description = "A marginally more interesting iron hammer."
-frames = ExtResource( 3 )
-frames_sprites = ExtResource( 4 )
+frames = ExtResource("3")
+frames_sprites = ExtResource("4")
 attack = 2
-attributes = {
-
-}
+attributes = {}

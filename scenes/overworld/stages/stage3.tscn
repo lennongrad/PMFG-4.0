@@ -1,6 +1,7 @@
-[gd_scene load_steps=70 format=3 uid="uid://545dcpp0day"]
+[gd_scene load_steps=71 format=3 uid="uid://545dcpp0day"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_eovdm"]
+[ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_qhk7u"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="2_6kbup"]
 [ext_resource type="PackedScene" uid="uid://b6njwj7yyn6m0" path="res://scenes/overworld/overworld_camera_zone.tscn" id="2_hif68"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="3_2xbet"]
@@ -207,7 +208,8 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_647e0")
 size = Vector2(2, 10)
 
-[node name="Stage" type="Node3D"]
+[node name="Stage" type="Marker3D"]
+script = ExtResource("1_qhk7u")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wwp4i")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://gvasx4ijwlob"]
+
+[ext_resource type="Texture2D" uid="uid://dse7rejhoyemm" path="res://sprites/badges/riskavoider.png" id="1_u225p"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_of6wc"]
+
+[resource]
+script = ExtResource("2_of6wc")
+icon = ExtResource("1_u225p")
+icon_texture = ExtResource("1_u225p")
+bp = 2
+name = "Risk Avoider"
+description = "Take 1 less damage from enemies but do 1 less damage to them in return."
+attributes = {
+"attack": -1,
+"defense": 1
+}

@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://crfpocjmjmhim"]
 
-[ext_resource path="res://sprites/badges/fpup.png" type="Texture2D" id=1]
-[ext_resource path="res://stats/badges/badge.gd" type="Script" id=2]
-[ext_resource path="res://textures/badges/fpup.png" type="Texture2D" id=3]
+[ext_resource type="Texture2D" uid="uid://1daf107so2ci" path="res://sprites/badges/fpup.png" id="1"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bhvmfokid2n25" path="res://textures/badges/fpup.png" id="3"]
 
 [resource]
-script = ExtResource( 2 )
-icon = ExtResource( 1 )
-icon_texture = ExtResource( 3 )
-bp = 1
+script = ExtResource("2")
+icon = ExtResource("1")
+icon_texture = ExtResource("3")
+bp = 2
 name = "FP Up"
 description = "Increases your max FP by 2."
 attributes = {

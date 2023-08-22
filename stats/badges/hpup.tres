@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bdiblw3fmusve"]
+
+[ext_resource type="Texture2D" uid="uid://c47o8q7e17av6" path="res://sprites/badges/hpup.png" id="1_ckcpt"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="3_docgc"]
+
+[resource]
+script = ExtResource("3_docgc")
+icon = ExtResource("1_ckcpt")
+icon_texture = ExtResource("1_ckcpt")
+bp = 2
+name = "HP Up"
+description = "Increases your max HP by 2."
+attributes = {
+"hp_up": 2
+}

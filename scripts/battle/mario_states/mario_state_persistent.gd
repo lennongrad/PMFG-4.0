@@ -60,8 +60,15 @@ func in_water():
 func get_current_attack():
 	return current_chosen_attack
 
-func register_damage(targets, damage, effectiveness):
-	return $"..".register_damage(targets, damage, effectiveness)
+func register_damage(targets, damage, effectiveness):	
+	var done_damage = damage + $"/root/MarioRun".get_badge_value("attack")
+	
+	var damage_dealt = $"..".register_damage(targets, done_damage, effectiveness)
+	
+	gain_fp($"/root/MarioRun".get_badge_value("fp_drain"))
+	heal($"/root/MarioRun".get_badge_value("hp_drain"))
+	
+	return damage_dealt
 
 func attack(f_attack, enemy):
 	current_chosen_attack = f_attack
@@ -83,6 +90,8 @@ func progress_attack():
 		$"..".hero_finished(get_current_attack().firstStrike)
 
 func take_damage(damage, effectiveness, attributes = {}):
+	var done_damage = damage - $"/root/MarioRun".get_badge_value("defense")
+	
 	if effectiveness == "NICE":
 		$FeedbackParticle.start_nice(-1)
 		guard(attributes)
@@ -92,10 +101,12 @@ func take_damage(damage, effectiveness, attributes = {}):
 	var starDamageDisplay = load("res://scenes/battle/StarDamageDisplay.tscn").instantiate()
 	starDamageDisplay.set_name("battle_tag")
 	starDamageDisplay.flipped = true
-	starDamageDisplay.damage = damage
+	starDamageDisplay.damage = done_damage
 	starDamageDisplay.scale = Vector3(-.1,.1,1)
 	add_child(starDamageDisplay)
-	$"/root/MarioRun".take_damage(stats, damage)
+	
+	var dealt_damage = $"/root/MarioRun".take_damage(stats, done_damage)
+	return dealt_damage
 
 func guard(attributes):
 	var animation_shown = "Guard"

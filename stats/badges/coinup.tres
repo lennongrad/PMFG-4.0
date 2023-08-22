@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://w6onqj2nxtiv"]
+
+[ext_resource type="Texture2D" uid="uid://bc52at06cayyb" path="res://sprites/badges/coinup.png" id="1_5g4ms"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_dxyeh"]
+
+[resource]
+script = ExtResource("2_dxyeh")
+icon = ExtResource("1_5g4ms")
+icon_texture = ExtResource("1_5g4ms")
+bp = 2
+name = "Coin Up"
+description = "An increased 25% chance to get a free extra coin upon collecting another coin."
+attributes = {
+"coin_up": 0.25
+}

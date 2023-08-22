@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bg8kfe66trekx"]
+
+[ext_resource type="Texture2D" uid="uid://nroe27uo63xn" path="res://sprites/badges/hp_drain.png" id="1_cokse"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_8yjp6"]
+
+[resource]
+script = ExtResource("2_8yjp6")
+icon = ExtResource("1_cokse")
+icon_texture = ExtResource("1_cokse")
+bp = 4
+name = "HP Drain"
+description = "Drain 1 HP from your enemy whenever you deal damage."
+attributes = {
+"hp_drain": 1
+}

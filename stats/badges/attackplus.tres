@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d3aubgbqbpn5j"]
+
+[ext_resource type="Texture2D" uid="uid://i7a4kelwessi" path="res://sprites/badges/attackplus.png" id="1_7cqi7"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_firh7"]
+
+[resource]
+script = ExtResource("2_firh7")
+icon = ExtResource("1_7cqi7")
+icon_texture = ExtResource("1_7cqi7")
+bp = 6
+name = "Attack+"
+description = "Deal 1 more damage on each attack against enemies."
+attributes = {
+"attack": 1
+}

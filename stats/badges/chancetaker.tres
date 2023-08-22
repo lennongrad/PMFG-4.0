@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://culppit0fscdr"]
+
+[ext_resource type="Texture2D" uid="uid://cpg4kvlk1g4n1" path="res://sprites/badges/chancetaker.png" id="1_ylfvf"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_saxr7"]
+
+[resource]
+script = ExtResource("2_saxr7")
+icon = ExtResource("1_ylfvf")
+icon_texture = ExtResource("1_ylfvf")
+bp = 2
+name = "Chance Taker"
+description = "Do 1 more damage to enemies but take 1 more damage from them in return."
+attributes = {
+"attack": 1,
+"defense": -1
+}

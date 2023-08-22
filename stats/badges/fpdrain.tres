@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://s1ghcwfcg0hr"]
+
+[ext_resource type="Texture2D" uid="uid://6ij0jlweq7xf" path="res://sprites/badges/fp_drain.png" id="1_thfyx"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="3_dluch"]
+
+[resource]
+script = ExtResource("3_dluch")
+icon = ExtResource("1_thfyx")
+icon_texture = ExtResource("1_thfyx")
+bp = 4
+name = "FP Drain"
+description = "Drain 1 FP from your enemy whenever you deal damage."
+attributes = {
+"fp_drain": 1
+}

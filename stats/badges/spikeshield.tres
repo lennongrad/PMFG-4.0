@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://duu5n138ttsiw"]
+
+[ext_resource type="Texture2D" uid="uid://p58u6oxxj3eb" path="res://sprites/badges/spikeshield.png" id="1_56847"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_mahi2"]
+
+[resource]
+script = ExtResource("2_mahi2")
+icon = ExtResource("1_56847")
+icon_texture = ExtResource("1_56847")
+bp = 2
+name = "Spike Shield"
+description = "Allows Mario and company to safely jump on spiky enemies."
+attributes = {
+"spiky_shield": 1
+}

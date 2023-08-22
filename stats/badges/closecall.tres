@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://chhy3sxttrc1"]
+
+[ext_resource type="Texture2D" uid="uid://d1mi5otpfwval" path="res://sprites/badges/closecall.png" id="1_rhx3q"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_l1q4r"]
+
+[resource]
+script = ExtResource("2_l1q4r")
+icon = ExtResource("1_rhx3q")
+icon_texture = ExtResource("1_rhx3q")
+bp = 2
+name = "Close Call"
+description = "Gain a 50% chance to dodge enemy attacks if they would defeat you."
+attributes = {
+"danger_lucky": 0.5
+}

@@ -32,8 +32,8 @@ func deactivate():
 func activate():
 	active = true
 
-func update_decoration(name, value):
-	get_node("Decoration/" + name).visible = value
+func update_decoration(p_name, value):
+	get_node("Decoration/" + p_name).visible = value
 
 func _process(_delta):
 	if fallTimer > 0:

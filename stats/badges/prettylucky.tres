@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cek0qq48rrmii"]
+
+[ext_resource type="Texture2D" uid="uid://b3l4ucxhbkcf5" path="res://sprites/badges/prettylucky.png" id="1_gyou4"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_g32nl"]
+
+[resource]
+script = ExtResource("2_g32nl")
+icon = ExtResource("1_gyou4")
+icon_texture = ExtResource("1_gyou4")
+bp = 4
+name = "Pretty Lucky"
+description = "Gain a 25% chance to dodge enemy attacks."
+attributes = {
+"lucky": 0.25
+}

@@ -73,10 +73,10 @@ func _physics_process(delta):
 	if paused:
 		if state == PLAYER_STATE.HAMMER:
 			if is_diag:
-				$Hammer.play("DiagBlur")
+				$Hammer.play("Diag")
 				$AnimatedSprite3D.play("DiagImpact")
 			else:
-				$Hammer.play("SidewaysBlur")
+				$Hammer.play("Sideways")
 				$AnimatedSprite3D.play("Impact1")
 		if state == PLAYER_STATE.MENU:
 			$"../Status".unhide()
