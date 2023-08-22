@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c88bihgf2hbve"]
+
+[ext_resource type="Resource" path="res://stats/heroattack/jump/_battlechoice.tres" id="1_sfkqw"]
+[ext_resource type="Texture2D" uid="uid://cq38gu7s3mb2q" path="res://sprites/badges/superstomp.png" id="2_dik85"]
+[ext_resource type="Texture2D" uid="uid://dw378sijabnus" path="res://sprites/badges/superstomp_grey.png" id="3_c6635"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="4_ysl0b"]
+
+[resource]
+script = ExtResource("4_ysl0b")
+choice = ExtResource("1_sfkqw")
+icon = ExtResource("2_dik85")
+icon_texture = ExtResource("2_dik85")
+icon_gray = ExtResource("3_c6635")
+name = "Super Stomp"
+description = "A devastating stomp attack."
+steps = ["walkto", "jumpattack", "walkback"]
+walkto_distance = 0.9
+fp_cost = 4
+skipEnemySelection = false
+firstStrike = false
+attributes = {
+"attack": 2,
+"max_jump": 2
+}

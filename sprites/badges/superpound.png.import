@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvmtrt6agy0j"
-path="res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"
+uid="uid://5d413jy0eobf"
+path="res://.godot/imported/superpound.png-e03d06b9896216e20ee8e2527cf9131c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/powerbounce_grey.png"
-dest_files=["res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"]
+source_file="res://sprites/badges/superpound.png"
+dest_files=["res://.godot/imported/superpound.png-e03d06b9896216e20ee8e2527cf9131c.ctex"]
 
 [params]
 

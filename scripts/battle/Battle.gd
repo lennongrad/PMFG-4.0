@@ -143,7 +143,7 @@ func decrement_experience(decrease):
 func activate_action(action, enemy):
 	if action.choice == load("res://stats/heroattack/items/_battlechoice.tres"):
 		$"/root/MarioRun".item_used(action)
-	$"/root/MarioRun".gain_fp(-action.fp_cost)
+	$"/root/MarioRun".gain_fp(-$"/root/MarioRun".get_fp_cost(action))
 	$Mario.is_idle = false
 	$Partner.is_idle = false
 	for current_enemy in enemies:

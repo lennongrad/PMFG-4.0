@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvmtrt6agy0j"
-path="res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"
+uid="uid://cq38gu7s3mb2q"
+path="res://.godot/imported/superstomp.png-71aa8eecea7109f34082c89ff770ab17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/powerbounce_grey.png"
-dest_files=["res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"]
+source_file="res://sprites/badges/superstomp.png"
+dest_files=["res://.godot/imported/superstomp.png-71aa8eecea7109f34082c89ff770ab17.ctex"]
 
 [params]
 

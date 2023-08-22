@@ -29,7 +29,7 @@ func order_comparison(a, b):
 	return a["choice"].order < b["choice"].order
 
 func fp_comparison(a, b):
-	return a.action.fp_cost < b.action.fp_cost
+	return get_fp_cost(a.action) < get_fp_cost(b.action)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -82,6 +82,9 @@ func update_choices(attacks):
 	currentSelection = 1
 	currentRotation = -rotationDifference
 
+func get_fp_cost(action):
+	return $"/root/MarioRun".get_fp_cost(action)
+
 func load_actions(_action):
 	state = UIState.STATE_MENU
 	actionTable.clear()
@@ -89,7 +92,7 @@ func load_actions(_action):
 	currentActions = []
 	for action in currentChoices[currentSelection]["actions"]:
 		var is_possible = true
-		if action.fp_cost > $"/root/MarioRun".get_fp():
+		if get_fp_cost(action) > $"/root/MarioRun".get_fp():
 			is_possible = false
 		currentActions.append({"action": action, "possible": is_possible})
 	
@@ -122,10 +125,10 @@ func load_actions(_action):
 	
 	var no_label = true
 	for e in currentActions.size():
-		if currentActions[e].action.fp_cost != 0:
+		if get_fp_cost(currentActions[e].action) != 0:
 			no_label = false
 			var fp_count = Label.new()
-			fp_count.text = str(currentActions[e].action.fp_cost) + " FP"
+			fp_count.text = str(get_fp_cost(currentActions[e].action)) + " FP"
 			fp_count.set("theme_override_fonts/font", font)
 			fp_count.set("theme_override_colors/font_color", Color(1, 1, 1, 1))
 			fp_count.set("theme_override_colors/font_shadow_color", Color(.6, .5, .1, 1))

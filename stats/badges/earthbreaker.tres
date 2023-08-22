@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cublqxi7j6mpg"]
+
+[ext_resource type="Resource" uid="uid://dm5gl102ddith" path="res://stats/heroattack/hammer/earthbreaker.tres" id="1_nq0x5"]
+[ext_resource type="Texture2D" uid="uid://c73e3akiwwy6l" path="res://sprites/badges/earthbreaker.png" id="2_sb188"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="3_bwdie"]
+
+[resource]
+script = ExtResource("3_bwdie")
+icon = ExtResource("2_sb188")
+icon_texture = ExtResource("2_sb188")
+bp = 3
+name = "Earthbreaker"
+description = "Adds a new devastating hammer attack that damages all enemies a great amount."
+attack = ExtResource("1_nq0x5")
+attributes = {}

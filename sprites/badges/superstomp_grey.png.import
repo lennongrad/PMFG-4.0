@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boy0x377lab2c"
-path="res://.godot/imported/multibounce_gray.png-6411388f58aac28c4827cee57bf5416a.ctex"
+uid="uid://dw378sijabnus"
+path="res://.godot/imported/superstomp_grey.png-26ccfc77a09805959c3280085e3e7409.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/multibounce_gray.png"
-dest_files=["res://.godot/imported/multibounce_gray.png-6411388f58aac28c4827cee57bf5416a.ctex"]
+source_file="res://sprites/badges/superstomp_grey.png"
+dest_files=["res://.godot/imported/superstomp_grey.png-26ccfc77a09805959c3280085e3e7409.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=1
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

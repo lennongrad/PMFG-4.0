@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvmtrt6agy0j"
-path="res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"
+uid="uid://cnub0g68b1t2g"
+path="res://.godot/imported/earthbreaker_grey.png-0d55a48605bafb0905335fad18e4b4e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/powerbounce_grey.png"
-dest_files=["res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"]
+source_file="res://sprites/badges/earthbreaker_grey.png"
+dest_files=["res://.godot/imported/earthbreaker_grey.png-0d55a48605bafb0905335fad18e4b4e2.ctex"]
 
 [params]
 

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://blqiy071cflis"]
+
+[ext_resource type="Texture2D" uid="uid://bbn1jnq6bwdqo" path="res://sprites/badges/flowersaver.png" id="1_b2ys5"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_rtvin"]
+
+[resource]
+script = ExtResource("2_rtvin")
+icon = ExtResource("1_b2ys5")
+icon_texture = ExtResource("1_b2ys5")
+bp = 4
+name = "Flower Saver"
+description = "All abilities cost 1 FP less than usual,  but not below 1 FP."
+attributes = {
+"fp_reduce": 1
+}

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://skfe12j5p5if"]
+
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://1yvu4peas3uu" path="res://sprites/badges/quakesmash.png" id="2_f33yo"]
+[ext_resource type="Resource" path="res://stats/heroattack/hammer/_battlechoice.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://5th860nh3481" path="res://sprites/badges/quakesmash_grey.png" id="3_da2m7"]
+
+[resource]
+script = ExtResource("1")
+choice = ExtResource("3")
+icon = ExtResource("2_f33yo")
+icon_texture = ExtResource("2_f33yo")
+icon_gray = ExtResource("3_da2m7")
+name = "Quake Smash"
+description = ""
+steps = ["walkto", "hammer", "walkback"]
+walkto_distance = 0.5
+fp_cost = 2
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"hit_all": 1
+}

@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" path="res://stats/heroattack/jump/_battlechoice.tres" id="1_fb215"]
 [ext_resource type="Texture2D" uid="uid://dqw2e52r2gr6r" path="res://sprites/badges/powerbounce.png" id="2_xucqo"]
-[ext_resource type="Texture2D" uid="uid://ba8una64y12eo" path="res://sprites/badges/powerbounce_grey.png" id="3_tgb1i"]
+[ext_resource type="Texture2D" uid="uid://hvmtrt6agy0j" path="res://sprites/badges/powerbounce_grey.png" id="3_tgb1i"]
 [ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="4_palht"]
 
 [resource]

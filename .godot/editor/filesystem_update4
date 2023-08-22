@@ -92,3 +92,17 @@ res://stats/badges/hammerman.tres
 res://scenes/battle/BattleUI.tscn
 res://scenes/battle/FeedbackParticle.tscn
 res://scripts/FeedbackParticle.gd
+res://stats/badges/dodgeplus.tres
+res://stats/badges/strikeplus.tres
+res://stats/badges/flowersaver.tres
+res://stats/heroattack/jump/multibounce.tres
+res://stats/heroattack/jump/superstomp.tres
+res://stats/badges/superstomp.tres
+res://stats/heroattack/hammer/firststrike.tres
+res://stats/heroattack/hammer/quakesmash.tres
+res://stats/heroattack/hammer/superpound.tres
+res://stats/heroattack/hammer/earthbreaker.tres
+res://scripts/battle/mario_states/mario_state_hammer.gd
+res://stats/badges/quakesmash.tres
+res://stats/badges/superpound.tres
+res://stats/badges/earthbreaker.tres

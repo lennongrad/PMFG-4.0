@@ -67,6 +67,10 @@ func get_hp():
 
 func register_damage(targets, damage, effectiveness):	
 	var done_damage = damage + $"/root/MarioRun".get_badge_value("attack")
+	if effectiveness == "NICE":
+		done_damage += $"/root/MarioRun".get_badge_value("success_attack")
+	else:
+		done_damage += $"/root/MarioRun".get_badge_value("fail_attack")
 	
 	var damage_dealt = $"..".register_damage(targets, done_damage, effectiveness)
 	
@@ -109,6 +113,8 @@ func take_damage(damage, effectiveness, attributes = {}):
 	if effectiveness == "NICE":
 		$FeedbackParticle.start_nice(-1)
 		guard(attributes)
+		if $"/root/MarioRun".get_badge_value("dodge_defense") > 0:
+			done_damage -=  $"/root/MarioRun".get_badge_value("dodge_defense")
 	elif effectiveness == "LUCKY":
 		$FeedbackParticle.start_lucky(-1)
 		guard(attributes)
@@ -188,6 +194,7 @@ func check_for_level_ups():
 func finished_level_up():
 	level_up_waiting = false
 	heal($"/root/MarioRun".get_max_hp(stats))
+	gain_fp($"/root/MarioRun".get_max_fp())
 
 func _process(_delta):
 	animation_wait -= 1

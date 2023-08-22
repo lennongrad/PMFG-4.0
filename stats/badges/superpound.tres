@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dbwydw1801tgf"]
+
+[ext_resource type="Resource" uid="uid://c32vbwl6oaku2" path="res://stats/heroattack/hammer/superpound.tres" id="1_y6fxf"]
+[ext_resource type="Texture2D" uid="uid://5d413jy0eobf" path="res://sprites/badges/superpound.png" id="2_3o4nt"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="3_rlaot"]
+
+[resource]
+script = ExtResource("3_rlaot")
+icon = ExtResource("2_3o4nt")
+icon_texture = ExtResource("2_3o4nt")
+bp = 2
+name = "Super Pound"
+description = "Adds a new hammer attack that deals extra damage."
+attack = ExtResource("1_y6fxf")
+attributes = {}

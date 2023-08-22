@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cyup0gkttfoem"]
+
+[ext_resource type="Resource" uid="uid://c88bihgf2hbve" path="res://stats/heroattack/jump/superstomp.tres" id="1_6qrgl"]
+[ext_resource type="Texture2D" uid="uid://cq38gu7s3mb2q" path="res://sprites/badges/superstomp.png" id="2_oym1j"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="4_q7wth"]
+
+[resource]
+script = ExtResource("4_q7wth")
+icon = ExtResource("2_oym1j")
+icon_texture = ExtResource("2_oym1j")
+bp = 2
+name = "Super Stomp"
+description = "Adds a new, super powerful jump attack."
+attack = ExtResource("1_6qrgl")
+attributes = {}

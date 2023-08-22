@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnk0deved4rks"
-path="res://.godot/imported/hpup-grey.png-3d59ce35ff6dec346d303462fb5f5739.ctex"
+uid="uid://cjwy670b5qn8n"
+path="res://.godot/imported/superpound_grey.png-ff80413b3319758d83d1979059b57f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/hpup-grey.png"
-dest_files=["res://.godot/imported/hpup-grey.png-3d59ce35ff6dec346d303462fb5f5739.ctex"]
+source_file="res://sprites/badges/superpound_grey.png"
+dest_files=["res://.godot/imported/superpound_grey.png-ff80413b3319758d83d1979059b57f4d.ctex"]
 
 [params]
 

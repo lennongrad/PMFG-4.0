@@ -115,6 +115,8 @@ func area_body_entered(body):
 				hasFinished = true
 			
 			var damage = $"/root/MarioRun".get_equipped_boots().type.attack
+			if hero.get_current_attack().attributes.has("attack"):
+				damage += hero.get_current_attack().attributes["attack"]
 			if jumpCounter > 4:
 				damage = max(damage - jumpCounter + 4, 1)
 			

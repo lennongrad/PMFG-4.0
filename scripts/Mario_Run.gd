@@ -7,7 +7,7 @@ var items = [
 
 #var badges = []
 var badges = [
-	#{"badge": load("res://stats/badges/closecall.tres"), "active": true},
+	#{"badge": load("res://stats/badges/quakesmash.tres"), "active": true},
 ]
 
 var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
@@ -53,6 +53,12 @@ func get_experience():
 
 func get_coins():
 	return coins
+
+func get_fp_cost(action):
+	if action.fp_cost == 0:
+		return 0
+	
+	return max(1, action.fp_cost - get_badge_value("fp_reduce"))
 
 func change_coins(amount):
 	var coin_chance = get_badge_value("coin_up")
@@ -123,7 +129,7 @@ func get_badge_value(attribute, multiplicative=false):
 	return modifier
 
 func get_max_fp():
-	var max_fp = 3
+	var max_fp = 5
 	max_fp += get_badge_value("fp_up")
 	
 	for bonus in level_bonuses:

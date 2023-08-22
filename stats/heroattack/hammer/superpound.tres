@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c32vbwl6oaku2"]
+
+[ext_resource type="Resource" path="res://stats/heroattack/hammer/_battlechoice.tres" id="1_7jv4u"]
+[ext_resource type="Texture2D" uid="uid://5d413jy0eobf" path="res://sprites/badges/superpound.png" id="2_m8wrl"]
+[ext_resource type="Texture2D" uid="uid://cjwy670b5qn8n" path="res://sprites/badges/superpound_grey.png" id="3_ycwo1"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="4_kehso"]
+
+[resource]
+script = ExtResource("4_kehso")
+choice = ExtResource("1_7jv4u")
+icon = ExtResource("2_m8wrl")
+icon_texture = ExtResource("2_m8wrl")
+icon_gray = ExtResource("3_ycwo1")
+name = "Super Pound"
+description = ""
+steps = ["walkto", "hammer", "walkback"]
+walkto_distance = 0.45
+fp_cost = 1
+skipEnemySelection = false
+firstStrike = false
+attributes = {
+"attack": 1
+}

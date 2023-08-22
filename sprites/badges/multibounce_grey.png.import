@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hvmtrt6agy0j"
-path="res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"
+uid="uid://c7fqf2k67xt4d"
+path="res://.godot/imported/multibounce_grey.png-47a2e206b6d917d82f286c184757ea5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/powerbounce_grey.png"
-dest_files=["res://.godot/imported/powerbounce_grey.png-f0a047046f5666d4326a6ce34f56533f.ctex"]
+source_file="res://sprites/badges/multibounce_grey.png"
+dest_files=["res://.godot/imported/multibounce_grey.png-47a2e206b6d917d82f286c184757ea5b.ctex"]
 
 [params]
 

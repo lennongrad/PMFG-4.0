@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://byypeyf71ag5u"]
+
+[ext_resource type="Texture2D" uid="uid://dreg5pi0txioo" path="res://sprites/badges/dodgeplus.png" id="1_ktsqc"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_6x5xs"]
+
+[resource]
+script = ExtResource("2_6x5xs")
+icon = ExtResource("1_ktsqc")
+icon_texture = ExtResource("1_ktsqc")
+bp = 4
+name = "Dodge+"
+description = "Take 1 less damage from enemy attacks when successfully dodging."
+attributes = {
+"dodge_defense": 1
+}

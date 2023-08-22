@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b1dml01ir44ar"]
+
+[ext_resource type="Texture2D" uid="uid://c7axatyvoxrmu" path="res://sprites/badges/strikeplus.png" id="1_fnh40"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_3oh3y"]
+
+[resource]
+script = ExtResource("2_3oh3y")
+icon = ExtResource("1_fnh40")
+icon_texture = ExtResource("1_fnh40")
+bp = 4
+name = "Strike+"
+description = "Deal 1 more damage with successful action commands, but 1 less upon failure."
+attributes = {
+"fail_attack": -1,
+"success_attack": 1
+}

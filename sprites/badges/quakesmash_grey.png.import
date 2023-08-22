@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs8gn8h5pl2hb"
-path="res://.godot/imported/coinup_grey.png-33a29706e3f75345af9295738011a065.ctex"
+uid="uid://5th860nh3481"
+path="res://.godot/imported/quakesmash_grey.png-349ed81d510edcf5dec28c5b49907e4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/coinup_grey.png"
-dest_files=["res://.godot/imported/coinup_grey.png-33a29706e3f75345af9295738011a065.ctex"]
+source_file="res://sprites/badges/quakesmash_grey.png"
+dest_files=["res://.godot/imported/quakesmash_grey.png-349ed81d510edcf5dec28c5b49907e4b.ctex"]
 
 [params]
 

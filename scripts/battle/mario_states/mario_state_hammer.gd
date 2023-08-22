@@ -64,15 +64,24 @@ func _physics_process(_delta):
 		elif animationCountdown == 13:
 			hero.unfocus_camera()
 			var damage = $"/root/MarioRun".get_equipped_hammer().type.attack
-			if target.stats.flying:
-				damage = 0
-				hero.register_damage(target, damage, "MISS")
-			elif holdDownCounter > 120:
-				damage *= 2
-				hero.register_damage(target, damage, "NICE")
+			if hero.get_current_attack().attributes.has("attack"):
+				damage += hero.get_current_attack().attributes["attack"]
+			
+			var effectiveness = "GOOD"
+			if holdDownCounter > 120:
+				effectiveness = "NICE"
+				damage += 1
+			
+			if hero.get_current_attack().attributes.has("hit_all"):
+				get_viewport().get_camera_3d().shake()
+				for enemy in hero.get_enemies():
+					if not enemy.stats.flying:
+						hero.register_damage(enemy, damage, effectiveness)
 			else:
-				hero.register_damage(target, damage, "GOOD")
-			#hero.stage.restart_shockwave(target.global_transform.origin)
+				if target.stats.flying:
+					hero.register_damage(target, 0, "MISS")
+				else:
+					hero.register_damage(target, damage, effectiveness)
 		elif animationCountdown < 51:
 			hero.get_node("Hammer").play("Slam")
 			hero.get_node("Sprite2D").play("Impact2")

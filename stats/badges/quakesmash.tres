@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b64yhv6v1a358"]
+
+[ext_resource type="Resource" uid="uid://skfe12j5p5if" path="res://stats/heroattack/hammer/quakesmash.tres" id="1_c5a5l"]
+[ext_resource type="Texture2D" uid="uid://1yvu4peas3uu" path="res://sprites/badges/quakesmash.png" id="2_5grx1"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="4_p2e8n"]
+
+[resource]
+script = ExtResource("4_p2e8n")
+icon = ExtResource("2_5grx1")
+icon_texture = ExtResource("2_5grx1")
+bp = 2
+name = "Quake Smash"
+description = "Adds a new hammer attack that damages all ground enemies."
+attack = ExtResource("1_c5a5l")
+attributes = {}

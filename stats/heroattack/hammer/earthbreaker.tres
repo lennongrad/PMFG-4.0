@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dm5gl102ddith"]
+
+[ext_resource type="Resource" path="res://stats/heroattack/hammer/_battlechoice.tres" id="1_3q5f0"]
+[ext_resource type="Texture2D" uid="uid://c73e3akiwwy6l" path="res://sprites/badges/earthbreaker.png" id="2_uev8o"]
+[ext_resource type="Texture2D" uid="uid://cnub0g68b1t2g" path="res://sprites/badges/earthbreaker_grey.png" id="3_nr0os"]
+[ext_resource type="Script" path="res://stats/heroattack/heroattack.gd" id="4_aampo"]
+
+[resource]
+script = ExtResource("4_aampo")
+choice = ExtResource("1_3q5f0")
+icon = ExtResource("2_uev8o")
+icon_texture = ExtResource("2_uev8o")
+icon_gray = ExtResource("3_nr0os")
+name = "Earthbreaker"
+description = ""
+steps = ["walkto", "hammer", "walkback"]
+walkto_distance = 0.5
+fp_cost = 3
+skipEnemySelection = true
+firstStrike = false
+attributes = {
+"attack": 2,
+"hit_all": 1
+}
