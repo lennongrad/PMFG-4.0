@@ -7,6 +7,7 @@ extends Node3D
 
 @onready var original_base_position = $BasePosition.position
 
+var current_turn = 0
 var enemies = []
 var finishedSpinning = false
 var currentAttackingEnemy = -1
@@ -78,7 +79,7 @@ func _process(_delta):
 			enemies.erase(enemy)
 		if continueAttacks:
 			if wasFirstStrike or (partnerAction and not partnerFirst) or (not partnerAction and partnerFirst):
-				start_mario_turn()
+				start_mario_turn(false)
 				wasFirstStrike = false
 			else:
 				next_enemy_turn(30)
@@ -177,7 +178,7 @@ func next_enemy_turn(waitTime):
 	currentAttackingEnemy += 1			
 	if currentAttackingEnemy >= enemies.size():
 		currentAttackingEnemy = -1
-		start_mario_turn()
+		start_mario_turn(true)
 		return
 	enemySetToAttack = enemies[currentAttackingEnemy]
 	enemySetAttackTimer = waitTime + 1
@@ -194,7 +195,7 @@ func switch_partner_first():
 	else:
 		$BattleUI.update_choices($Mario.get_choices())
 
-func start_mario_turn():
+func start_mario_turn(is_first = true):
 	var dead_enemies = []
 	for enemy in enemies:
 		enemy.is_idle = true
@@ -205,6 +206,14 @@ func start_mario_turn():
 		enemies.erase(enemy)
 	
 	if enemies.size() > 0:
+		if is_first:
+			current_turn += 1
+			if current_turn != 1:
+				if $"/root/MarioRun".get_badge_value("happy_hp") > 0:
+					$Mario.heal($"/root/MarioRun".get_badge_value("happy_hp"))
+				if $"/root/MarioRun".get_badge_value("happy_fp") > 0:
+					$Mario.gain_fp($"/root/MarioRun".get_badge_value("happy_fp"))
+		
 		for enemy in enemies:
 			enemy.is_idle = true
 		$Mario.is_idle = true
@@ -235,7 +244,7 @@ func _on_Spin_finishedSpinning():
 		$Mario.first_strike_active = false
 		match firstStrike:
 			"":
-				start_mario_turn()
+				start_mario_turn(true)
 			"jump":
 				$Mario.attack(load("res://stats/heroattack/jump/firststrike.tres"), enemies[0])
 			"hammer":

@@ -13,7 +13,8 @@ var pip_icons_filled = [
 	preload("res://sprites/badgepips/2f.png"),
 	preload("res://sprites/badgepips/3f.png"),
 	preload("res://sprites/badgepips/4f.png"),
-	preload("res://sprites/badgepips/5f.png")
+	preload("res://sprites/badgepips/5f.png"),
+	preload("res://sprites/badgepips/6f.png")
 ]
 
 var pip_icons_empty = [
@@ -22,7 +23,8 @@ var pip_icons_empty = [
 	preload("res://sprites/badgepips/2e.png"),
 	preload("res://sprites/badgepips/3e.png"),
 	preload("res://sprites/badgepips/4e.png"),
-	preload("res://sprites/badgepips/5e.png")
+	preload("res://sprites/badgepips/5e.png"),
+	preload("res://sprites/badgepips/6e.png")
 ]
 
 enum MenuState { ITEMS, BADGE, BOOTS, HAMMER, NONE }
@@ -174,7 +176,8 @@ func _process(_delta):
 			$Cursor.flip_h = false
 			var tree = $Panel/TabContainer/Mario/ItemArea/Tree
 			var item = tree.get_root().get_children()[selected_badge]
-			var new_position = (tree.get_item_area_rect(item).position
+			tree.scroll_to_item(item)
+			var new_position = (tree.get_item_area_rect(item).position - tree.get_scroll()
 			 + tree.get_global_transform().origin + Vector2(4 + cos(float(global_timer) / 4) * 2, 16))
 			$Cursor.position += (new_position - $Cursor.position) * .25
 			$Panel/Text.on_set_text(get_node("/root/MarioRun").get_items()[selected_badge].description)
@@ -294,8 +297,10 @@ func _process(_delta):
 			$Cursor.play("right")
 			var tree = $Panel/TabContainer/Mario/ItemArea/Tree
 			var item = tree.get_root().get_children()[selected_badge]
+			tree.scroll_to_item(item)
 			var new_position = (tree.get_item_area_rect(item).position
-			 + tree.get_global_transform().origin + Vector2(4 + cos(float(global_timer) / 4) * 2, 16))
+			 + tree.get_global_transform().origin - tree.get_scroll()
+			 + Vector2(4 + cos(float(global_timer) / 4) * 2, 16))
 			$Cursor.position += (new_position - $Cursor.position) * .25
 			if get_node("/root/MarioRun").get_badges().size() > selected_badge:
 				$Panel/Text.on_set_text(get_node("/root/MarioRun").get_badges()[selected_badge].badge.description)

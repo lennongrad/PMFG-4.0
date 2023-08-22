@@ -44,6 +44,7 @@ var last_height = 0
 var rest_timer = 0
 var after_growing = false
 
+@onready var behind_area = $AnimatedSprite3D/BehindArea
 @onready var normal_area = $NormalArea
 @onready var hammer_area = $HammerArea
 @onready var jump_area = $JumpArea

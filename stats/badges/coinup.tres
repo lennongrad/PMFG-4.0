@@ -7,7 +7,7 @@
 script = ExtResource("2_dxyeh")
 icon = ExtResource("1_5g4ms")
 icon_texture = ExtResource("1_5g4ms")
-bp = 2
+bp = 1
 name = "Coin Up"
 description = "An increased 25% chance to get a free extra coin upon collecting another coin."
 attributes = {

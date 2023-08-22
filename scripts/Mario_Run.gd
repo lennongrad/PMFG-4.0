@@ -5,8 +5,10 @@ var rng = RandomNumberGenerator.new()
 var items = [
 ]
 
-var badges = []
-#var badges = [{"badge": load("res://stats/badges/riskavoider.tres"), "active": true}]
+#var badges = []
+var badges = [
+	#{"badge": load("res://stats/badges/closecall.tres"), "active": true},
+]
 
 var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]
 #var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", 
@@ -88,6 +90,7 @@ func get_partner_max_hp():
 
 func take_damage(stats, damage):
 	party[stats].hp -= damage
+	return damage
 
 func heal(stats, health):
 	var healed = min(party[stats].hp + health, get_max_hp(stats)) - party[stats].hp
@@ -102,7 +105,16 @@ func get_max_bp():
 	
 	return max_bp
 
-func get_badge_value(attribute):
+func get_badge_value(attribute, multiplicative=false):
+	if multiplicative:
+		var modifier = 1
+		var effective_badges = get_effective_badges()
+		for badge in effective_badges:
+			if badge.attributes.has(attribute):
+				for i in effective_badges[badge]:
+					modifier *= (1 - badge.attributes[attribute])
+		return modifier
+
 	var modifier = 0
 	var effective_badges = get_effective_badges()
 	for badge in effective_badges:
@@ -241,7 +253,7 @@ func _ready():
 	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
 	
 	for member in party:
-		party[member].hp = get_max_hp(member)
-	fp = get_max_fp()
+		party[member].hp = get_max_hp(member) 
+	fp = get_max_fp() 
 	
 	active_partner = load("res://stats/herostats/goombario.tres")

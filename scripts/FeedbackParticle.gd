@@ -3,6 +3,7 @@ extends Node3D
 var nice_timer = 0
 var miss_timer = 0
 var good_timer = 0 
+var lucky_timer = 0
 
 func start_nice(direction):
 	if direction == -1:
@@ -28,9 +29,13 @@ func start_good(direction):
 	$Good.emitting = true
 	good_timer = 3
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func start_lucky(direction):
+	if direction == -1:
+		$Lucky.rotation_degrees.y = 180
+	else:
+		$Lucky.rotation_degrees.y = 0
+	$Lucky.emitting = true
+	lucky_timer = 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -43,3 +48,6 @@ func _process(_delta):
 	good_timer -= 1
 	if good_timer == 0:
 		$Good.emitting = false
+	lucky_timer -= 1
+	if lucky_timer == 0:
+		$Lucky.emitting = false

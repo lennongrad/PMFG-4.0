@@ -1,12 +1,12 @@
+CollisionShape3D
+Area3D
 Marker3D
 GPUParticles3D
 AnimatedSprite3D
 Node3D
 MeshInstance3D
-CollisionShape3D
 StaticBody3D
 Sprite3D
-Area3D
 TextureRect
 MultiMeshInstance3D
 RigidBody3D

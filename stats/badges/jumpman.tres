@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cnqvps6u8x5vt"]
+
+[ext_resource type="Texture2D" uid="uid://b7v2yvfnxguh7" path="res://sprites/badges/jumpman.png" id="1_dusm1"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_sidao"]
+
+[resource]
+script = ExtResource("2_sidao")
+icon = ExtResource("1_dusm1")
+icon_texture = ExtResource("1_dusm1")
+bp = 3
+name = "Jumpman"
+description = "Deal 1 more damage with attacks, but become unable to use hammer attacks."
+attributes = {
+"attack": 1,
+"no_hammer": 1
+}

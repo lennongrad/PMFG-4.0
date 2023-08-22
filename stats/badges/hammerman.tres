@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://kwifdmo4vgxj"]
+
+[ext_resource type="Texture2D" uid="uid://7xuxmbn14olk" path="res://sprites/badges/hammerman.png" id="1_h2hse"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_rb48n"]
+
+[resource]
+script = ExtResource("2_rb48n")
+icon = ExtResource("1_h2hse")
+icon_texture = ExtResource("1_h2hse")
+bp = 3
+name = "Hammerman"
+description = "Deal 1 more damage with attacks, but become unable to use jump attacks."
+attributes = {
+"attack": 1,
+"no_jump": 1
+}

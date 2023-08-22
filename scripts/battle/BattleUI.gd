@@ -73,6 +73,10 @@ func update_choices(attacks):
 			if action.choice == choice.choice:
 				choice.actions.append(action)
 		choice["active"] = choice.actions.size() > 0
+		if choice["choice"]["name"] == "Jump" and $"/root/MarioRun".get_badge_value("no_jump") > 0:
+			choice["active"] = false
+		if choice["choice"]["name"] == "Hammer" and $"/root/MarioRun".get_badge_value("no_hammer") > 0:
+			choice["active"] = false
 		if choice["active"]:
 			currentChoices.append(choice)
 	currentSelection = 1

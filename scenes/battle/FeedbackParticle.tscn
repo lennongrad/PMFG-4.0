@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://1axryjolfwxg"]
+[gd_scene load_steps=19 format=3 uid="uid://1axryjolfwxg"]
 
 [ext_resource type="Texture2D" uid="uid://hpt7s36k7nf3" path="res://textures/ui/miss.png" id="1"]
 [ext_resource type="Script" path="res://scripts/FeedbackParticle.gd" id="1_eh68v"]
 [ext_resource type="Texture2D" uid="uid://dbx14euk1oxji" path="res://textures/ui/nice.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bebly0xrvv4h7" path="res://textures/ui/good.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c8scwht052nyk" path="res://sprites/UI/lucky.png" id="5_yd76h"]
 
 [sub_resource type="Gradient" id="Gradient_twgwr"]
 offsets = PackedFloat32Array(0, 0.480315, 0.866142, 1)
@@ -77,6 +78,22 @@ particles_anim_loop = false
 material = SubResource("14")
 size = Vector2(0.8, 0.6)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iiquj"]
+transparency = 4
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_yd76h")
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_c5p7t"]
+material = SubResource("StandardMaterial3D_iiquj")
+size = Vector2(0.8, 0.6)
+
 [node name="FeedbackParticle" type="Node3D"]
 script = ExtResource("1_eh68v")
 
@@ -104,3 +121,11 @@ amount = 32
 lifetime = 1.2
 process_material = SubResource("9")
 draw_pass_1 = SubResource("15")
+
+[node name="Lucky" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0724843, 0, 0.0888162)
+emitting = false
+amount = 32
+lifetime = 1.2
+process_material = SubResource("9")
+draw_pass_1 = SubResource("QuadMesh_c5p7t")

@@ -81,3 +81,14 @@ res://scenes/overworld/stages/test_stage.tscn
 res://scenes/overworld/QuestionBlock.tscn
 res://scripts/overworld/QuestionBlockInternal.gd
 res://scenes/overworld/OverworldItem.tscn
+res://scripts/overworld/OverworldMenu.gd
+res://scenes/overworld/OverworldMenu.tscn
+res://scripts/overworld/Enemy.tres.gd
+res://scenes/overworld/Enemy.tscn
+res://scenes/overworld/EnemyBill.tscn
+res://scripts/EnemyBill.gd
+res://stats/badges/jumpman.tres
+res://stats/badges/hammerman.tres
+res://scenes/battle/BattleUI.tscn
+res://scenes/battle/FeedbackParticle.tscn
+res://scripts/FeedbackParticle.gd

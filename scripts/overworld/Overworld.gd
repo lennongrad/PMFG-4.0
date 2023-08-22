@@ -107,6 +107,9 @@ func _process(_delta):
 func _on_encounter_trigger(p_encountered_enemy, p_strike_type):
 	encountered_enemy = p_encountered_enemy
 	strike_type = p_strike_type
+	if get_node("/root/MarioRun").get_badge_value("chillout") and strike_type == "enemy":
+		strike_type = "normal"
+	
 	paused = true
 	emit_signal("pause")
 	$Spin.start_spinning()

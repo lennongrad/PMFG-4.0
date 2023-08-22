@@ -67,13 +67,10 @@ func _on_normal_encounter_area_entered(area):
 	if paused or player == null or dead or blink_timer > 0:
 		return
 	match area:
+		player.behind_area:
+			emit_signal("encounter_triggered", self, "enemy")
 		player.normal_area:
-			var difference = velocity.normalized() - player.velocity.normalized()
-			difference.y = 0
-			if difference.length() > .5:
-				emit_signal("encounter_triggered", self, "")
-			else:
-				emit_signal("encounter_triggered", self, "enemy")
+			emit_signal("encounter_triggered", self, "")
 		player.hammer_area:
 			emit_signal("encounter_triggered", self, "hammer")
 		player.jump_area:

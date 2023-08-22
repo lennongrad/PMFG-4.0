@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var rng = RandomNumberGenerator.new()
+
 @export var stats: Resource
 @export var is_partner: bool
 
@@ -60,6 +62,9 @@ func in_water():
 func get_current_attack():
 	return current_chosen_attack
 
+func get_hp():
+	return  $"/root/MarioRun".get_hp(stats)
+
 func register_damage(targets, damage, effectiveness):	
 	var done_damage = damage + $"/root/MarioRun".get_badge_value("attack")
 	
@@ -92,20 +97,35 @@ func progress_attack():
 func take_damage(damage, effectiveness, attributes = {}):
 	var done_damage = damage - $"/root/MarioRun".get_badge_value("defense")
 	
+	var chance_hit = 1.0
+	if $"/root/MarioRun".get_badge_value("lucky") > 0:
+		chance_hit *= ($"/root/MarioRun".get_badge_value("lucky",true))
+	if $"/root/MarioRun".get_badge_value("danger_lucky") > 0 and done_damage >= get_hp():
+		chance_hit *= ($"/root/MarioRun".get_badge_value("danger_lucky",true))
+	if rng.randf_range(0.0, 1.0) > chance_hit:
+		done_damage = 0
+		effectiveness = "LUCKY"
+	
 	if effectiveness == "NICE":
 		$FeedbackParticle.start_nice(-1)
 		guard(attributes)
-	else:
+	elif effectiveness == "LUCKY":
+		$FeedbackParticle.start_lucky(-1)
+		guard(attributes)
+	elif effectiveness == "MISS":
 		$FeedbackParticle.start_miss(-1)
 		hurt(attributes)
-	var starDamageDisplay = load("res://scenes/battle/StarDamageDisplay.tscn").instantiate()
-	starDamageDisplay.set_name("battle_tag")
-	starDamageDisplay.flipped = true
-	starDamageDisplay.damage = done_damage
-	starDamageDisplay.scale = Vector3(-.1,.1,1)
-	add_child(starDamageDisplay)
 	
 	var dealt_damage = $"/root/MarioRun".take_damage(stats, done_damage)
+	
+	if effectiveness != "LUCKY":
+		var starDamageDisplay = load("res://scenes/battle/StarDamageDisplay.tscn").instantiate()
+		starDamageDisplay.set_name("battle_tag")
+		starDamageDisplay.flipped = true
+		starDamageDisplay.damage = dealt_damage
+		starDamageDisplay.scale = Vector3(-.1,.1,1)
+		add_child(starDamageDisplay)
+	
 	return dealt_damage
 
 func guard(attributes):
