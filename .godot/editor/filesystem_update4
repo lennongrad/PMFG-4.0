@@ -74,3 +74,10 @@ res://stats/badges/chillout.tres
 res://scenes/overworld/stage_4.tscn
 res://scripts/battle/SpriteHolderEnemy.gd
 res://scenes/overworld/Partner.tscn
+res://scenes/overworld/Player.tscn
+res://scenes/overworld/ItemGet.tscn
+res://scenes/overworld/stages/stage4.tscn
+res://scenes/overworld/stages/test_stage.tscn
+res://scenes/overworld/QuestionBlock.tscn
+res://scripts/overworld/QuestionBlockInternal.gd
+res://scenes/overworld/OverworldItem.tscn

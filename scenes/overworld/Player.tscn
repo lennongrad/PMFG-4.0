@@ -308,7 +308,7 @@ pixel_size = 0.0117
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = ExtResource("1")
-animation = &"Swim"
+animation = &"Plant"
 
 [node name="CameraClose" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.991218, 0.132239, 0, -0.132239, 0.991218, 0.0242862, 0.507654, 1.42752)

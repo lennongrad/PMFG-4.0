@@ -134,16 +134,10 @@ texture_filter = 0
 [sub_resource type="PlaneMesh" id="PlaneMesh_4ai32"]
 material = SubResource("StandardMaterial3D_ys1cd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tai0"]
-transparency = 1
-albedo_texture = ExtResource("10_100eb")
-texture_filter = 0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_3jqhh"]
-material = SubResource("StandardMaterial3D_3tai0")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtc6l"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.546
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("10_100eb")
 uv1_scale = Vector3(0.5, 1, 1)
 texture_filter = 0
@@ -152,8 +146,20 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_mtc6l")
 size = Vector2(1, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tai0"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("10_100eb")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3jqhh"]
+material = SubResource("StandardMaterial3D_3tai0")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en23y"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("10_100eb")
 uv1_scale = Vector3(1, 6, 1)
 texture_filter = 0
@@ -501,7 +507,7 @@ transform = Transform3D(-1.41296, 0, -0.099476, 0, 1, 0, 0.141256, 0, -0.99504, 
 mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathRound2" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.2166, -5.59191, 0.812905)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.1934, -5.62177, 0.812905)
 sorting_offset = -1.0
 mesh = SubResource("PlaneMesh_4ai32")
 
@@ -559,15 +565,13 @@ mesh = SubResource("PlaneMesh_4ai32")
 transform = Transform3D(0.984288, 0, -0.176569, 0, 1, 0, 0.176569, 0, 0.984288, 6.62609, -4.67259, -3.60129)
 mesh = SubResource("PlaneMesh_4ai32")
 
-[node name="PathStep3" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-0.989513, 0, -0.144443, 0, 1, 0, 0.144443, 0, -0.989513, 8.81821, -5.62064, -0.600095)
-sorting_offset = 5.0
-mesh = SubResource("PlaneMesh_3jqhh")
-
 [node name="PathStep10" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.047525, 0, -0.99887, 0, 1, 0, 0.99887, 0, 0.047525, 7.21398, -5.60732, 0.32515)
-sorting_offset = 8.0
+transform = Transform3D(0.047525, 0, -0.99887, 0, 1, 0, 0.99887, 0, 0.047525, 7.32436, -5.59703, 0.177276)
 mesh = SubResource("PlaneMesh_xxrs1")
+
+[node name="PathStep3" type="MeshInstance3D" parent="Paths"]
+transform = Transform3D(-0.989513, 0, -0.144443, 0, 1, 0, 0.144443, 0, -0.989513, 8.81821, -5.60029, -0.600095)
+mesh = SubResource("PlaneMesh_3jqhh")
 
 [node name="PathStep4" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-0.355401, 0, -0.934714, 0, 1, 0, 0.934714, 0, -0.355401, 7.26608, -5.1722, -2.16445)
@@ -575,8 +579,8 @@ sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_3jqhh")
 
 [node name="PathStep2" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-3.93403e-08, 0, -1, 0, 1, 0, 0.9, 0, -4.37114e-08, 7.2401, -5.58379, 0.784549)
-sorting_offset = 3.0
+transform = Transform3D(-3.93403e-08, 0, -1, 0, 1, 0, 0.9, 0, -4.37114e-08, 7.2401, -5.61853, 0.784549)
+sorting_offset = -3.0
 mesh = SubResource("PlaneMesh_l2mpm")
 
 [node name="PathStep6" type="MeshInstance3D" parent="Paths"]

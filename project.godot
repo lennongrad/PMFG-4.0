@@ -14,6 +14,7 @@ config/name="Untitled Paper Mario Fangame"
 run/main_scene="res://scenes/overworld/Overworld.tscn"
 run/disable_stderr=true
 config/features=PackedStringArray("4.1")
+run/low_processor_mode=true
 boot_splash/bg_color=Color(0, 0.027451, 0.129412, 1)
 boot_splash/image="res://logo.png"
 boot_splash/fullsize=false

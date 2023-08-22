@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/overworld/ItemGet.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c8sxtipybxnik" path="res://sprites/star.png" id="2_1sddo"]
-[ext_resource type="Texture2D" uid="uid://bncogeae4oy4w" path="res://textures/items/supermushroom.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dwvxpj0rdimyp" path="res://sprites/items/super_shroom.png" id="3_wf40h"]
 [ext_resource type="Texture2D" uid="uid://dv6vm6t7lqe2y" path="res://sprites/UI/border2.png" id="4"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="5"]
 [ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="6"]
@@ -164,7 +164,7 @@ offset_left = -90.7911
 offset_top = -60.4025
 offset_right = 71.0469
 offset_bottom = 60.4025
-texture = ExtResource("3")
+texture = ExtResource("3_wf40h")
 expand_mode = 1
 stretch_mode = 6
 

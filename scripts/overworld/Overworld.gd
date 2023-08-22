@@ -4,8 +4,7 @@ signal pause
 signal unpause
 
 @export var debug: bool
-#@export var stages: Array
-var stages = []
+@export var stages: Array
 @export var start_stage = 0
 
 @onready var player = $Player
@@ -38,12 +37,11 @@ func update_need_player_position():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var stage = stages[(get_node("/root/MarioRun").current_stage + start_stage) % stages.size()].instantiate()
-	#var stage = load("res://scenes/overworld/stage_4.tscn").instantiate()
-	#stage.connect("water_enter", Callable(self, "_on_stage_water_enter"))
-	#stage.connect("water_exit", Callable(self, "_on_stage_water_exit"))
-	#add_child(stage)
-	return
+	var stage = stages[(get_node("/root/MarioRun").current_stage + start_stage) % stages.size()].instantiate()
+	#var stage = load("res://scenes/overworld/stages/test_stage.tscn").instantiate()
+	stage.connect("water_enter", Callable(self, "_on_stage_water_enter"))
+	stage.connect("water_exit", Callable(self, "_on_stage_water_exit"))
+	add_child(stage)
 	get_node("/root/Global").set_main(self)
 	update_need_player_position()
 	var _err = self.connect("pause", Callable(player, "_on_pause"))

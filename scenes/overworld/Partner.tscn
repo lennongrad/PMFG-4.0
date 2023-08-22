@@ -130,15 +130,17 @@ func _process(_delta):
 	if paused:
 		return
 	lastTarget = target
-	target = player.position
-	var last_v = Vector2(player.last_significant_velocity.x, player.last_significant_velocity.z)
-	if last_v.length() == 0:
-		last_v = Vector2(1,1)
-	last_v = Vector3(last_v.x, 0, last_v.y)
-	target -= last_v.normalized() * .5
-	target = target
-	if((lastTarget - target).length() > .1):
-		timeSinceRest = 0
+	
+	if player != null:
+		target = player.position
+		var last_v = Vector2(player.last_significant_velocity.x, player.last_significant_velocity.z)
+		if last_v.length() == 0:
+			last_v = Vector2(1,1)
+		last_v = Vector3(last_v.x, 0, last_v.y)
+		target -= last_v.normalized() * .5
+		target = target
+		if((lastTarget - target).length() > .1):
+			timeSinceRest = 0
 
 func pass_player(p_player):
 	player = p_player
