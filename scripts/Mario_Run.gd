@@ -32,6 +32,92 @@ var coins = 0
 
 var current_stage = 0
 
+# 9
+var possible_items = [
+	# attacks
+	{"probability": 1, "item": load("res://stats/heroattack/items/fireflower.tres")},
+	# hp
+	{"probability": 1, "item": load("res://stats/heroattack/items/mushroom.tres")},
+	{"probability": 1, "item": load("res://stats/heroattack/items/supermushroom.tres")},
+	{"probability": 1, "item": load("res://stats/heroattack/items/ultramushroom.tres")},
+	# fp
+	{"probability": 1, "item": load("res://stats/heroattack/items/honeysyrup.tres")},
+	{"probability": 1, "item": load("res://stats/heroattack/items/maplesyrup.tres")},
+	{"probability": 1, "item": load("res://stats/heroattack/items/jamminjelly.tres")},	
+	# hp/fp
+	{"probability": 1, "item": load("res://stats/heroattack/items/cookiecombo.tres")},
+	{"probability": 1, "item": load("res://stats/heroattack/items/strawberrycake.tres")},
+]
+
+var possible_weapons = [
+	{"probability": 1, "item": load("res://stats/boots/super.tres")},
+	{"probability": 1, "item": load("res://stats/boots/ultra.tres")},
+	{"probability": 1, "item": load("res://stats/hammers/super.tres")},
+	{"probability": 1, "item": load("res://stats/hammers/ultra.tres")},
+]
+
+# 26 badges
+var possible_badges = [
+	# jump
+	{"probability": 1, "item": load("res://stats/badges/multibounce.tres")},
+	{"probability": 1, "item": load("res://stats/badges/powerbounce.tres")},
+	{"probability": 1, "item": load("res://stats/badges/superstomp.tres")},
+	{"probability": 1, "item": load("res://stats/badges/spikeshield.tres")},
+	{"probability": 1, "item": load("res://stats/badges/jumpman.tres")},
+	# hammer
+	{"probability": 1, "item": load("res://stats/badges/superpound.tres")},
+	{"probability": 1, "item": load("res://stats/badges/quakesmash.tres")},
+	{"probability": 1, "item": load("res://stats/badges/earthbreaker.tres")},
+	{"probability": 1, "item": load("res://stats/badges/hammerman.tres")},
+	# field effects
+	{"probability": 1, "item": load("res://stats/badges/coinup.tres")},
+	{"probability": 1, "item": load("res://stats/badges/chillout.tres")},
+	# damage effects
+	{"probability": 1, "item": load("res://stats/badges/strikeplus.tres")},
+	{"probability": 1, "item": load("res://stats/badges/dodgeplus.tres")},
+	{"probability": 1, "item": load("res://stats/badges/attackplus.tres")},
+	{"probability": 1, "item": load("res://stats/badges/defendplus.tres")},
+	{"probability": 1, "item": load("res://stats/badges/chancetaker.tres")},
+	{"probability": 1, "item": load("res://stats/badges/riskavoider.tres")},
+	{"probability": 1, "item": load("res://stats/badges/prettylucky.tres")},
+	{"probability": 1, "item": load("res://stats/badges/closecall.tres")},
+	# hp/fp
+	{"probability": 1, "item": load("res://stats/badges/hpup.tres")},
+	{"probability": 1, "item": load("res://stats/badges/fpup.tres")},
+	{"probability": 1, "item": load("res://stats/badges/hpdrain.tres")},
+	{"probability": 1, "item": load("res://stats/badges/fpdrain.tres")},
+	{"probability": 1, "item": load("res://stats/badges/happyheart.tres")},
+	{"probability": 1, "item": load("res://stats/badges/happyflower.tres")},
+	{"probability": 1, "item": load("res://stats/badges/flowersaver.tres")},
+]
+
+func get_random_item(items = 1.0, weapons = 1.0, badges = 1.0):
+	var combined_list = []
+	var probability_total = 0
+	if items != 0:
+		for item in possible_items:
+			combined_list.append(item)
+			probability_total += item["probability"] * items
+	if weapons != 0:
+		for item in possible_weapons:
+			combined_list.append(item)
+			probability_total += item["probability"] * weapons
+	if badges != 0: 
+		for item in possible_badges:
+			combined_list.append(item)
+			probability_total += item["probability"] * badges
+	
+	var chance = rng.randf_range(0.0, probability_total)
+	for item in combined_list:
+		if item["item"].is_badge:
+			chance -= item["probability"] * badges 
+		elif item["item"].is_weapon:
+			chance -= item["probability"] * weapons
+		else:
+			chance -= item["probability"] * items
+		if chance <= 0:
+			return item["item"]
+
 func start_battle():
 	pass
 

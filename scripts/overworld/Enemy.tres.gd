@@ -224,10 +224,19 @@ func die():
 	$Balloons.pop()
 	position += (xyz(xz(global_transform.origin) - xz(player.global_transform.origin)) * (1.5 + float(randi() % 4) / 4)
 		+ Vector3(1 - float(randi() % 4) / 2, 0, 1 - float(randi() % 4) / 2) * .15)
+	
+	var item = load("res://scenes/overworld/OverworldItem.tscn").instantiate()
+	item.item = $"/root/MarioRun".get_random_item(1, .25, .5)
+	item.player = player
+	$"../..".add_child(item)
+	item.connect("collected", Callable($"../../../..", "collected_item"))
+	var difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
+	item.position = global_transform.origin + difference * Vector3(.1, 1, .1)
+	
 	for _i in range(0, 5 + randi() % 5):
 		var coin = load("res://scenes/overworld/OverworldCoin.tscn").instantiate()
 		$"../..".add_child(coin)
-		var difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
+		difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
 		coin.position = global_transform.origin + difference * Vector3(.1, 1, .1)
 		coin.timer = coin.timer * 1.5 - 15
 

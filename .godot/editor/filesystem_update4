@@ -106,3 +106,5 @@ res://scripts/battle/mario_states/mario_state_hammer.gd
 res://stats/badges/quakesmash.tres
 res://stats/badges/superpound.tres
 res://stats/badges/earthbreaker.tres
+res://scripts/overworld/QuestionBlockExternal.gd
+res://scenes/overworld/stages/stage1.tscn

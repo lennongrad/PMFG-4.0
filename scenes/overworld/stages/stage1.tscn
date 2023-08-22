@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dyrc8omyglwi5"]
+[gd_scene load_steps=43 format=3 uid="uid://dyrc8omyglwi5"]
 
 [ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="1_8i2mv"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_x8ca7"]
@@ -9,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cfy2ani88vk4k" path="res://textures/stone/stone-wall-normal.png" id="6_vlk5s"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="7_wuoh2"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="8_ird3d"]
-[ext_resource type="Resource" path="res://stats/boots/super.tres" id="9_j4wvr"]
-[ext_resource type="Resource" path="res://stats/badges/fpup.tres" id="10_qp7gj"]
-[ext_resource type="Resource" uid="uid://biq8kj51yh4gp" path="res://stats/heroattack/items/extramushroom.tres" id="11_ee2km"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="12_3icoq"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="15_lwvfu"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="16_ojxoo"]
@@ -155,20 +152,19 @@ material = SubResource("StandardMaterial3D_rmera")
 size = Vector2(10, 10)
 
 [node name="Stage" type="Marker3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_x8ca7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-1, -6.18173e-08, 6.18173e-08, 0, 0.707107, 0.707107, -8.74228e-08, 0.707107, -0.707107, 3.68921, 9.34361, -3.20979)
+transform = Transform3D(1, 2.51215e-14, -2.51215e-14, 0, 0.707107, 0.707107, 3.55271e-14, -0.707107, 0.707107, -2.94107, 9.34361, 2.55983)
 light_color = Color(0.788235, 0.627451, 0.592157, 1)
 light_energy = 0.05
 shadow_enabled = true
 
 [node name="Water" type="Area3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.97153, 0.352842, 4)
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 2.71967, 0.352842, -4.64996)
 collision_layer = 7
 collision_mask = 7
 
@@ -181,7 +177,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2184, -2.12421, 0)
 shape = SubResource("6")
 
 [node name="Foreground" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.023, -2.07219, -4.04)
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -1.27486, -2.07219, 3.39004)
 layers = 3
 mesh = SubResource("18")
 skeleton = NodePath("../Walls")
@@ -207,6 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72158, 4.76837e-07, 0)
 shape = SubResource("BoxShape3D_g0smk")
 
 [node name="Walls" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="Wall" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.5, 3, 0)
@@ -315,7 +312,7 @@ collision_layer = 15
 shape = SubResource("14")
 
 [node name="EnemySpawners" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 0.748136, 0, -0.649958)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670864, 1.05339, 0.0114056)
@@ -335,6 +332,7 @@ size = Vector3(13.835, 3.575, 7.48)
 battle_background = ExtResource("22_8xucm")
 
 [node name="CoinRows" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="CoinRow" parent="CoinRows" instance=ExtResource("12_3icoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97811, 0.655979, -0.945882)
@@ -365,26 +363,25 @@ coin_count = 5
 coin_distance = Vector3(0.3, 0.1, 0)
 
 [node name="QuestionBlocks" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("8_ird3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0573, 3.95539, -1.37503)
-item_type = ExtResource("9_j4wvr")
 coin_count = 3
 distance = 1.2
 
 [node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("8_ird3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157305, 1.07031, 1.228)
-item_type = ExtResource("10_qp7gj")
 coin_count = 3
 distance = 0.0
 
 [node name="QuestionBlock3" parent="QuestionBlocks" instance=ExtResource("8_ird3d")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.855, 1.01017, -0.363)
-item_type = ExtResource("11_ee2km")
 coin_count = 10
 distance = 1.2
 
 [node name="MainPlatforms" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="MainBridge" parent="MainPlatforms" instance=ExtResource("2_ujr22")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.57676e-07, -1.5, 0.0525348)
@@ -467,6 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329155, 0)
 shape = SubResource("11")
 
 [node name="Decoration" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="Waterfall" parent="Decoration" instance=ExtResource("17_n750c")]
 transform = Transform3D(1, 0, 0, 0, 0.437235, 0, 0, 0, 0.718319, 2.6209, 2.84213, 2.07575)
@@ -529,6 +527,7 @@ transform = Transform3D(-0.714325, 3.67767e-08, -2.66289e-08, 3.12241e-08, 0.841
 skeleton = NodePath("../../Walls/Wall5")
 
 [node name="Pipes" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.748136, 0, -0.649958)
 
 [node name="PipeInto" parent="Pipes" instance=ExtResource("15_lwvfu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64497, 1.01, -1.09)

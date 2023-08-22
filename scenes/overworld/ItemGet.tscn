@@ -259,15 +259,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
 offset_top = 12.0
-offset_right = -3.60602
+offset_right = -4.0
+offset_bottom = -2.68597
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
-text = "You got an epic shroom because you are le king."
+text = "The ultimate refreshment that can get Mario's FP back from the brink"
 label_settings = SubResource("LabelSettings_chb17")
 autowrap_mode = 2
-max_lines_visible = 2
 
 [node name="Title" type="Control" parent="Description"]
 layout_mode = 1

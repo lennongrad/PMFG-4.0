@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bycxt4bc2o1gp" path="res://textures/ui/controlstick.png" id="15"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a3m0e"]
-height = 0.651627
+height = 0.511256
 radius = 0.10968
 
 [sub_resource type="AtlasTexture" id="1"]
@@ -317,7 +317,7 @@ animation = &"Plant"
 [node name="BehindArea" type="Area3D" parent="AnimatedSprite3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/BehindArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188128, -0.113109, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.188247, -0.0518781, 0.00487965)
 shape = SubResource("CylinderShape3D_a3m0e")
 
 [node name="CameraClose" type="Camera3D" parent="."]

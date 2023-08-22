@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://545dcpp0day"]
+[gd_scene load_steps=70 format=3 uid="uid://545dcpp0day"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_eovdm"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_qhk7u"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://cjcspbnp57674" path="res://textures/grass/flower1.png" id="28_bqop4"]
 [ext_resource type="Texture2D" uid="uid://c2vfmias70e5j" path="res://textures/grass/flower5.png" id="29_d6gr2"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="31_d3ymj"]
-[ext_resource type="Resource" path="res://stats/boots/super.tres" id="32_um4i5"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="33_w62pg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pedaf"]
@@ -1990,19 +1989,16 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.904, -5.52973, -0.71252)
-item_type = ExtResource("32_um4i5")
 coin_count = 3
 distance = 1.2
 
 [node name="QuestionBlock3" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6201, -2.0308, 0.0379662)
-item_type = ExtResource("32_um4i5")
 coin_count = 3
 distance = 1.1
 
 [node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31006, -4.80092, 2.7694)
-item_type = ExtResource("32_um4i5")
 coin_count = 3
 distance = 0.1
 
