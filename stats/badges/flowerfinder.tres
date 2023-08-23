@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bgxelxhwem8vi"]
+
+[ext_resource type="Texture2D" uid="uid://1daf107so2ci" path="res://sprites/badges/fpup.png" id="1_w5l8b"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_sde0i"]
+
+[resource]
+script = ExtResource("2_sde0i")
+icon = ExtResource("1_w5l8b")
+icon_texture = ExtResource("1_w5l8b")
+bp = 2
+name = "FP Up"
+description = "Increases your max FP by 2."
+attributes = {
+"fp_up": 2
+}

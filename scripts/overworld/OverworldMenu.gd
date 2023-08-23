@@ -180,9 +180,22 @@ func _process(_delta):
 			var new_position = (tree.get_item_area_rect(item).position - tree.get_scroll()
 			 + tree.get_global_transform().origin + Vector2(4 + cos(float(global_timer) / 4) * 2, 16))
 			$Cursor.position += (new_position - $Cursor.position) * .25
-			$Panel/Text.on_set_text(get_node("/root/MarioRun").get_items()[selected_badge].description)
 			
-			if Input.is_action_just_pressed("back"):
+			var current_item = get_node("/root/MarioRun").get_items()[selected_badge]
+			$Panel/Text.on_set_text(current_item.description)
+			
+			var was_used = false
+			if Input.is_action_just_pressed("jump"):
+				if current_item.attributes.has("hp") and not get_node("/root/MarioRun").all_max_hp():
+					get_node("/root/MarioRun").heal_all(current_item.attributes["hp"])
+					was_used = true
+				if current_item.attributes.has("fp") and (
+					get_node("/root/MarioRun").fp != get_node("/root/MarioRun").get_max_fp()):
+					get_node("/root/MarioRun").gain_fp(current_item.attributes["fp"])
+					was_used = true
+				if was_used:
+					get_node("/root/MarioRun").item_used(current_item)
+			if Input.is_action_just_pressed("back") or was_used:
 				$Panel/TabContainer/Mario/Equipment/Bag.grab_focus()
 				tree.clear()
 				menu_state = MenuState.NONE
@@ -193,8 +206,6 @@ func _process(_delta):
 					selected_badge = get_node("/root/MarioRun").get_items().size() - 1
 			if Input.is_action_just_pressed("ui_down"):
 				selected_badge = (selected_badge + 1) % get_node("/root/MarioRun").get_items().size()
-			if Input.is_action_just_pressed("jump"):
-				pass
 		MenuState.BOOTS:
 			$Cursor.play("right")
 			$Cursor.flip_h = false

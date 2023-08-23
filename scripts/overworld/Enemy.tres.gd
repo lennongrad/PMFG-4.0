@@ -224,18 +224,32 @@ func die():
 	$Balloons.pop()
 	position += (xyz(xz(global_transform.origin) - xz(player.global_transform.origin)) * (1.5 + float(randi() % 4) / 4)
 		+ Vector3(1 - float(randi() % 4) / 2, 0, 1 - float(randi() % 4) / 2) * .15)
+	var difference = 0
 	
-	var item = load("res://scenes/overworld/OverworldItem.tscn").instantiate()
-	item.item = $"/root/MarioRun".get_random_item(1, .25, .5)
-	item.player = player
-	$"../..".add_child(item)
-	item.connect("collected", Callable($"../../../..", "collected_item"))
-	var difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
-	item.position = global_transform.origin + difference * Vector3(.1, 1, .1)
+	var chance_spawn = 2 + $"/root/MarioRun".get_badge_value("extra_items")
+	if(randi() % chance_spawn != 0):
+		var item = load("res://scenes/overworld/OverworldItem.tscn").instantiate()
+		item.item = $"/root/MarioRun".get_random_item(1, .1, .15)
+		item.player = player
+		$"../..".add_child(item)
+		item.connect("collected", Callable($"../../../..", "collected_item"))
+		difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
+		item.position = global_transform.origin + difference * Vector3(.1, 1, .1)
 	
-	for _i in range(0, 5 + randi() % 5):
+	var to_spawn = []
+	for _i in range(4 + randi() % 4):
+		to_spawn.append("coin")
+	var hearts_spawn = (2 + randi() % 3) * (1 + $"/root/MarioRun".get_badge_value("extra_hearts"))
+	for _i in range(hearts_spawn):
+		to_spawn.append("heart")
+	var flowers_spawn = (2 + randi() % 3) * (1 + $"/root/MarioRun".get_badge_value("extra_flowers"))
+	for _i in range(flowers_spawn):
+		to_spawn.append("flower")
+	
+	for type in to_spawn:
 		var coin = load("res://scenes/overworld/OverworldCoin.tscn").instantiate()
 		$"../..".add_child(coin)
+		coin.set_type(type)
 		difference =  Vector3(1 - float(randi() % 8) / 4, 0, 1 - float(randi() % 8) / 4) 
 		coin.position = global_transform.origin + difference * Vector3(.1, 1, .1)
 		coin.timer = coin.timer * 1.5 - 15

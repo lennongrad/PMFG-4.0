@@ -2,10 +2,28 @@ extends CharacterBody3D
 
 @export var editor: bool
 
-signal coin_gain()
+var rng = RandomNumberGenerator.new()
+
+signal coin_gain(c_type)
 
 var baseaVelocity = Vector3(0,0,0)
 var timer
+var type = "coin"
+
+func set_type(new_type):
+	type = new_type
+	$CoinSprite.visible = type == "coin"
+	$FlowerSprite.visible = type == "flower"
+	$HeartSprite.visible = type == "heart"
+
+func random_type():
+	var chance = rng.randi_range(0,3)
+	if chance == 0:
+		set_type("coin")
+	elif chance == 1:
+		set_type("flower")
+	else:
+		set_type("heart")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,5 +62,5 @@ func _process(_delta):
 
 func _on_Area_body_entered(body):
 	if body == get_node("/root/Global").get_player() and (timer > 0 or editor):
-		emit_signal("coin_gain")
+		emit_signal("coin_gain", type)
 		queue_free()

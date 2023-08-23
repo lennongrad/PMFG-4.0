@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bcom5yxurycae"]
+
+[ext_resource type="Texture2D" uid="uid://bhrnvw4ya4dh2" path="res://sprites/badges/itemfinder.png" id="1_oisl5"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_r3oyi"]
+
+[resource]
+script = ExtResource("2_r3oyi")
+icon = ExtResource("1_oisl5")
+icon_texture = ExtResource("1_oisl5")
+bp = 2
+name = "Item Finder"
+description = "Increases the chance to find items after defeating an enemy."
+attributes = {
+"extra_items": 1
+}

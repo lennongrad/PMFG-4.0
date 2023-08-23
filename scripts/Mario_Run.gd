@@ -3,6 +3,10 @@ extends Node
 var rng = RandomNumberGenerator.new()
 
 var items = [
+#	load("res://stats/heroattack/items/mushroom.tres"),
+#	load("res://stats/heroattack/items/maplesyrup.tres"),
+#	load("res://stats/heroattack/items/cookiecombo.tres"),
+#	load("res://stats/heroattack/items/fireflower.tres"),
 ]
 
 #var badges = []
@@ -70,7 +74,10 @@ var possible_badges = [
 	{"probability": 1, "item": load("res://stats/badges/earthbreaker.tres")},
 	{"probability": 1, "item": load("res://stats/badges/hammerman.tres")},
 	# field effects
-	{"probability": 1, "item": load("res://stats/badges/coinup.tres")},
+	{"probability": 1, "item": load("res://stats/badges/coinfinder.tres")},
+	{"probability": 1, "item": load("res://stats/badges/heartfinder.tres")},
+	{"probability": 1, "item": load("res://stats/badges/flowerfinder.tres")},
+	{"probability": 1, "item": load("res://stats/badges/itemfinder.tres")},
 	{"probability": 1, "item": load("res://stats/badges/chillout.tres")},
 	# damage effects
 	{"probability": 1, "item": load("res://stats/badges/strikeplus.tres")},
@@ -156,6 +163,13 @@ func change_coins(amount):
 				chance -= 1.0
 	coins += amount
 
+func all_max_hp():
+	var at_max = true
+	for member in party:
+		if party[member].hp < get_max_hp(member):
+			at_max = false
+	return at_max
+
 func get_max_hp(stats):
 	var max_hp = stats.max_hp
 	
@@ -183,6 +197,10 @@ func get_partner_max_hp():
 func take_damage(stats, damage):
 	party[stats].hp -= damage
 	return damage
+
+func heal_all(health):
+	for member in party:
+		heal(member, health)
 
 func heal(stats, health):
 	var healed = min(party[stats].hp + health, get_max_hp(stats)) - party[stats].hp
@@ -345,7 +363,7 @@ func _ready():
 	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
 	
 	for member in party:
-		party[member].hp = get_max_hp(member) 
-	fp = get_max_fp() 
+		party[member].hp = get_max_hp(member) - 3
+	fp = get_max_fp() - 3
 	
 	active_partner = load("res://stats/herostats/goombario.tres")

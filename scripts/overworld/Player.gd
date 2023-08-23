@@ -552,10 +552,18 @@ func exit_water(y_position):
 		$WaterParticles.global_position.z));
 	$WaterParticles.play()
 
-func collected_coin():
-	get_node("/root/MarioRun").change_coins(1)
+func collected_coin(type="coin"):
 	$"../Status".unhide()
-	$CoinParticles.play()
+	match type:
+		"coin":
+			get_node("/root/MarioRun").change_coins(1)
+			$CoinParticles.play()
+		"heart":
+			get_node("/root/MarioRun").heal_all(1)
+			$CoinParticles.play()
+		"flower":
+			get_node("/root/MarioRun").gain_fp(1)
+			$CoinParticles.play()
 
 func end_menu():
 	state = PLAYER_STATE.CONTROL

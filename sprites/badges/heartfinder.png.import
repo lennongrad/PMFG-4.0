@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc52at06cayyb"
-path="res://.godot/imported/coinup.png-85bffb8d242898df7c44276fb2bcee8c.ctex"
+uid="uid://bat88kpa7in2h"
+path="res://.godot/imported/heartfinder.png-f8f23bc46cecb3d92825a76f3859e4b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/badges/coinup.png"
-dest_files=["res://.godot/imported/coinup.png-85bffb8d242898df7c44276fb2bcee8c.ctex"]
+source_file="res://sprites/badges/heartfinder.png"
+dest_files=["res://.godot/imported/heartfinder.png-f8f23bc46cecb3d92825a76f3859e4b5.ctex"]
 
 [params]
 

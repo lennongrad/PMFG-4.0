@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7g1gw32ym61o"]
+
+[ext_resource type="Texture2D" uid="uid://bat88kpa7in2h" path="res://sprites/badges/heartfinder.png" id="1_8tf1w"]
+[ext_resource type="Script" path="res://stats/badges/badge.gd" id="2_rwsdl"]
+
+[resource]
+script = ExtResource("2_rwsdl")
+icon = ExtResource("1_8tf1w")
+icon_texture = ExtResource("1_8tf1w")
+bp = 1
+name = "Heart Finder"
+description = "Increases the chance to find hearts after defeating an enemy."
+attributes = {
+"extra_flowers": 1
+}
