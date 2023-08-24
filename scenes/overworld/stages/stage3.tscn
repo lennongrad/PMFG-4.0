@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://545dcpp0day"]
+[gd_scene load_steps=74 format=3 uid="uid://545dcpp0day"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_eovdm"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_qhk7u"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://df863juhr461i" path="res://scenes/overworld/GrassWall.tscn" id="5_t4iei"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="5_u8jns"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="6_f6ygb"]
-[ext_resource type="Resource" uid="uid://xq5pvmo7q5jr" path="res://stats/enemyencounter/enemyencounter_bobomb.tres" id="6_jm23t"]
 [ext_resource type="Texture2D" uid="uid://bdv4q0urs1kxh" path="res://textures/grass/cliff2.png" id="6_ya8qv"]
 [ext_resource type="PackedScene" uid="uid://vvgk856wr7e3" path="res://scenes/overworld/top_pyramid.tscn" id="7_1fus4"]
 [ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="7_as8ay"]
@@ -19,11 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://c3mv4u0edfvjt" path="res://textures/grass/path1.png" id="9_qj011"]
 [ext_resource type="Texture2D" uid="uid://cwhs7pmv2n0uj" path="res://textures/grass/path2.png" id="10_100eb"]
 [ext_resource type="Texture2D" uid="uid://b5atfihiy4npy" path="res://textures/grass/bush6.png" id="16_r0a5m"]
+[ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="17_casox"]
 [ext_resource type="Texture2D" uid="uid://bejy7yx8c32hi" path="res://textures/grass/bush7.png" id="17_ffdn0"]
 [ext_resource type="Texture2D" uid="uid://dhadlrtegl2n0" path="res://textures/grass/bush4.png" id="17_ppubh"]
 [ext_resource type="Texture2D" uid="uid://dvwbow7b70yd7" path="res://textures/grass/bush10.png" id="18_o2puv"]
 [ext_resource type="Texture2D" uid="uid://b0dw5ka3dolg3" path="res://textures/grass/bush12.png" id="19_5tahs"]
 [ext_resource type="Texture2D" uid="uid://dggdwlx4tyeiy" path="res://textures/grass/bush1.png" id="19_5vq8x"]
+[ext_resource type="Resource" uid="uid://72ugc5m4mq8n" path="res://stats/enemyencounter/enemyencounter_hypergoomba.tres" id="19_gve47"]
 [ext_resource type="Texture2D" uid="uid://coaft3rswk3ox" path="res://textures/grass/tree1.png" id="23_wr3uo"]
 [ext_resource type="Texture2D" uid="uid://buwnh77v78mod" path="res://textures/grass/bush2.png" id="24_tqhfa"]
 [ext_resource type="PackedScene" uid="uid://yogyipjj3hl3" path="res://scenes/overworld/Fence.tscn" id="25_bn1wj"]
@@ -117,7 +118,9 @@ material = SubResource("StandardMaterial3D_dear1")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glodv"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("8_84nif")
 texture_filter = 0
 
@@ -177,15 +180,17 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_ty2jj")
 size = Vector2(2, 6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8u4h0"]
-transparency = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwqxx"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("10_100eb")
 uv1_scale = Vector3(0.5, 1, 1)
 uv1_offset = Vector3(0, -0.225, 0)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3ivs3"]
-material = SubResource("StandardMaterial3D_8u4h0")
+material = SubResource("StandardMaterial3D_kwqxx")
 size = Vector2(1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcdup"]
@@ -204,14 +209,29 @@ material = SubResource("StandardMaterial3D_ty2jj")
 size = Vector2(2, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_647e0"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("10_100eb")
 uv1_scale = Vector3(1, 5, 1)
 texture_filter = 0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_cs6vn"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_1r18a"]
 material = SubResource("StandardMaterial3D_647e0")
 size = Vector2(2, 10)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5yvfd"]
+load_path = "res://.godot/imported/fence1.png-9dd3ab8e4ce69a166c4f105647aa972d.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn6b3"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_5yvfd")
+uv1_scale = Vector3(6, 1, 1)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xc4me"]
+material = SubResource("StandardMaterial3D_fn6b3")
+size = Vector2(1.7, 0.5)
 
 [node name="Stage" type="Marker3D"]
 script = ExtResource("1_qhk7u")
@@ -233,6 +253,12 @@ shadow_enabled = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.5073, -0.711784, -0.319577)
 fov = 93.3143
 bounds_size = Vector3(8.83, 5.29, 20.57)
+
+[node name="BackCamera2" parent="." instance=ExtResource("2_hif68")]
+transform = Transform3D(-2.17779e-07, -0.0842866, 0.996442, -1.84214e-08, 0.996442, 0.0842866, -1, 0, -2.18557e-07, 30.8298, -3.96177, -6.75235)
+fov = 96.7318
+bounds_size = Vector3(8.83, 5.29, 4.285)
+bounds_offset = Vector3(0.415, 0, -2.79)
 
 [node name="Pipes" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
@@ -502,7 +528,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.708
 mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathOut3" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-1.41296, 0, -0.099476, 0, 1, 0, 0.141256, 0, -0.99504, 31.368, -5.6252, -4.45276)
+transform = Transform3D(-1.41296, 0, -0.099476, 0, 1, 0, 0.141256, 0, -0.99504, 31.368, -5.61244, -4.45276)
+sorting_offset = -1.0
+sorting_use_aabb_center = false
 mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathRound2" type="MeshInstance3D" parent="Paths"]
@@ -584,12 +612,11 @@ mesh = SubResource("PlaneMesh_l2mpm")
 
 [node name="PathStep6" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 25.0461, -5.6252, 0.383432)
-sorting_offset = 1.0
 mesh = SubResource("PlaneMesh_vklyi")
 
 [node name="PathStep8" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4237, -5.6252, -0.247424)
-sorting_offset = 3.0
+transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4237, -5.6038, -0.247424)
+sorting_use_aabb_center = false
 mesh = SubResource("PlaneMesh_3ivs3")
 
 [node name="PathStep9" type="MeshInstance3D" parent="Paths"]
@@ -598,13 +625,13 @@ sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_pnrm6")
 
 [node name="PathStep7" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.784346, 0, -0.490402, 0, 1, 0, 0.441362, 0, 0.871496, 29.6133, -5.6252, -1.38355)
-sorting_offset = 2.0
+transform = Transform3D(0.784346, 0, -0.490402, 0, 1, 0, 0.441362, 0, 0.871496, 29.6133, -5.60455, -1.38355)
+sorting_offset = -1.0
 mesh = SubResource("PlaneMesh_l62sa")
 
 [node name="PathStep5" type="MeshInstance3D" parent="Paths"]
 transform = Transform3D(-3.93403e-08, 0, -1, 0, 1, 0, 0.9, 0, -4.37114e-08, 13.329, -4.21884, -3.31756)
-mesh = SubResource("PlaneMesh_cs6vn")
+mesh = SubResource("PlaneMesh_1r18a")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -702,13 +729,47 @@ size = Vector2(2.5, 16)
 transform = Transform3D(0.442101, -0.896965, 3.92076e-08, -3.65354e-15, -4.37114e-08, -1, 0.896965, 0.442101, -1.93248e-08, 38.4958, 1.4886, -6.30932)
 size = Vector2(2.5, 16)
 
+[node name="FenceTop" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 27.3492, -4.96886, -6.77893)
+mesh = SubResource("QuadMesh_xc4me")
+skeleton = NodePath("../../Water")
+
+[node name="FenceTop2" type="MeshInstance3D" parent="Walls/FenceTop"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("QuadMesh_xc4me")
+skeleton = NodePath("../../Water")
+
 [node name="EnemySpawners" type="Node3D" parent="."]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.173813, 0, 0.177402)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46336, -0.522092, -25.7615)
-encounter_data = ExtResource("6_jm23t")
-size = Vector3(5, 2.81, 4.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0414, -5.62254, -0.310846)
+encounter_data = ExtResource("17_casox")
+size = Vector3(8.66, 1.91, 5.89)
+battle_background = ExtResource("7_as8ay")
+
+[node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3598, -5.62254, -2.69364)
+encounter_data = ExtResource("17_casox")
+size = Vector3(8.66, 1.91, 7.065)
+battle_background = ExtResource("7_as8ay")
+
+[node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3334, -5.58023, -0.160708)
+encounter_data = ExtResource("17_casox")
+size = Vector3(8.66, 1.91, 7.065)
+battle_background = ExtResource("7_as8ay")
+
+[node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7367, -5.18294, -6.94766)
+encounter_data = ExtResource("19_gve47")
+size = Vector3(1.92, 1.91, 2.305)
+battle_background = ExtResource("7_as8ay")
+
+[node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14641, -4.22036, -3.33489)
+encounter_data = ExtResource("17_casox")
+size = Vector3(8.66, 1.91, 3.765)
 battle_background = ExtResource("7_as8ay")
 
 [node name="WallDecoration" type="Node3D" parent="."]
@@ -1647,32 +1708,34 @@ texture = ExtResource("19_5tahs")
 [node name="Flora" type="Node3D" parent="."]
 
 [node name="Tree" type="Sprite3D" parent="Flora"]
-transform = Transform3D(0.984874, 0, 0.17327, 0, 1, 0, -0.17327, 0, 0.984874, 26.0618, -4.74916, -6.42714)
-sorting_offset = 3.0
+transform = Transform3D(0.984874, 0, 0.17327, 0, 1, 0, -0.17327, 0, 0.984874, 26.0618, -4.95176, -6.42714)
 pixel_size = 0.04
 texture_filter = 0
 render_priority = 2
 texture = ExtResource("23_wr3uo")
 
-[node name="Tree2" type="Sprite3D" parent="Flora/Tree"]
-transform = Transform3D(0.193549, 0, 0.98109, 0, 1, 0, -0.98109, 0, 0.193549, -0.0413955, 0, -0.0437799)
-sorting_offset = 3.0
-pixel_size = 0.04
-texture_filter = 0
-render_priority = 2
-texture = ExtResource("23_wr3uo")
-
-[node name="Sprite3D" type="Sprite3D" parent="Flora/Tree/Tree2"]
-transform = Transform3D(0.257171, 0, -0.985193, 0, 1, 0, 1.47779, 0, 0.171448, 0.0456648, 0.934646, 0.588427)
+[node name="Sprite3D2" type="Sprite3D" parent="Flora/Tree"]
+transform = Transform3D(1.49962, 0, -0.0224772, 0, 1, 0, 0.0337169, 0, 0.999747, 0.544743, 0.934646, 0.0253081)
 modulate = Color(0.647059, 0.662745, 0.811765, 1)
 pixel_size = 0.02
+alpha_cut = 1
 texture_filter = 0
 render_priority = 4
 texture = ExtResource("24_tqhfa")
 
+[node name="Tree2" type="Sprite3D" parent="Flora/Tree"]
+transform = Transform3D(0.193549, 0, 0.98109, 0, 1, 0, -0.98109, 0, 0.193549, -0.0413955, 0, -0.0437799)
+visible = false
+sorting_offset = 3.0
+pixel_size = 0.04
+texture_filter = 0
+render_priority = 2
+texture = ExtResource("23_wr3uo")
+
 [node name="Sprite3D" type="Sprite3D" parent="Flora/Tree"]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, -0.0358567, 1.62894, -0.108922)
 pixel_size = 0.03
+alpha_cut = 1
 texture_filter = 0
 render_priority = 3
 texture = ExtResource("24_tqhfa")

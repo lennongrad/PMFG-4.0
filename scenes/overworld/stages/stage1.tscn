@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="4_kbbrr"]
 [ext_resource type="Texture2D" uid="uid://dfoemqninktcg" path="res://textures/stone/stone-cracked.png" id="5_j1vx3"]
 [ext_resource type="Texture2D" uid="uid://cfy2ani88vk4k" path="res://textures/stone/stone-wall-normal.png" id="6_vlk5s"]
+[ext_resource type="Resource" uid="uid://c4art2y5gg3o5" path="res://stats/enemyencounter/enemyencounter_gloomba.tres" id="7_r0efm"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="7_wuoh2"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="8_ird3d"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="12_3icoq"]
@@ -14,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="16_ojxoo"]
 [ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="17_n750c"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="18_bjuso"]
-[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_redshyguys.tres" id="19_fomr1"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="20_u4vfg"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="21_mxwhq"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="22_8xucm"]
@@ -315,9 +315,15 @@ shape = SubResource("14")
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 0.748136, 0, -0.649958)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670864, 1.05339, 0.0114056)
-encounter_data = ExtResource("19_fomr1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0670864, 1.05586, 0.0114056)
+encounter_data = ExtResource("7_r0efm")
 size = Vector3(3.925, 3.005, 6.055)
+battle_background = ExtResource("20_u4vfg")
+
+[node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32558, 1.18334, 0.988844)
+encounter_data = ExtResource("7_r0efm")
+size = Vector3(5.755, 3.005, 3.01)
 battle_background = ExtResource("20_u4vfg")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
@@ -326,9 +332,15 @@ size = Vector3(6.97, 3.76, 9.245)
 battle_background = ExtResource("20_u4vfg")
 
 [node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5162, 0.283109, 2.67249)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51462, 0.283109, 2.62931)
 encounter_data = ExtResource("21_mxwhq")
 size = Vector3(13.835, 3.575, 7.48)
+battle_background = ExtResource("22_8xucm")
+
+[node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5986, 0.283109, 3.56592)
+encounter_data = ExtResource("21_mxwhq")
+size = Vector3(8.965, 3.575, 4.6)
 battle_background = ExtResource("22_8xucm")
 
 [node name="CoinRows" type="Node3D" parent="."]

@@ -1,0 +1,207 @@
+[gd_resource type="Resource" load_steps=19 format=3 uid="uid://bxrl812vqry2p"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_me211"]
+[ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2_hy37e"]
+[ext_resource type="Texture2D" uid="uid://cj4iaw05kqt0x" path="res://textures/goomba/hypergoomba.png" id="5_ls0j3"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="6_gwjvg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pfr4"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ctw"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18qob"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j123v"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igqiv"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3k3i"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m7h7"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olcyn"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6majk"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gtml"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_201qn"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g3ht"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmmyn"]
+atlas = ExtResource("5_ls0j3")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mlny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pfr4")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ctw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pfr4")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18qob")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ctw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j123v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igqiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3k3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m7h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olcyn")
+}],
+"loop": true,
+"name": &"GetUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ctw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pfr4")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_6majk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3k3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m7h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3k3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m7h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olcyn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2gtml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olcyn")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_201qn")
+}],
+"loop": true,
+"name": &"Rise",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g3ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6majk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmmyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6majk")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g3ht")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6majk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmmyn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6majk")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("6_gwjvg")
+health = 9
+frames = SubResource("SpriteFrames_6mlny")
+name = "Hyper Goomba"
+attacks = [ExtResource("2_hy37e")]
+firstStrikeAttack = ExtResource("2_hy37e")
+height = 0.32
+flying = false
+experience = 80
+atlas = ExtResource("1_me211")
+tattle_description = "HP: 9. Super tough minions of Bowser. They can charge up their attack power at will."
+attributes = {}

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/spikedgaloomba.png-71e9d84a591cec4ed11b3a27dd
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

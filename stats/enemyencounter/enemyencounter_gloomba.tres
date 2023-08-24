@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c4art2y5gg3o5"]
+
+[ext_resource type="Resource" uid="uid://br2xwp4m4y6tv" path="res://stats/enemystats/enemystats_gloomba.tres" id="1_1ur6o"]
+[ext_resource type="Script" path="res://stats/enemyencounter/enemyencounter.gd" id="2_o4u03"]
+
+[resource]
+script = ExtResource("2_o4u03")
+enemies = [ExtResource("1_1ur6o"), ExtResource("1_1ur6o")]
+flying = false
+swimming = false
+fly_level = 0.0
+attributes = {}

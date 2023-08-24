@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/goomba.png-7ff781d5b9747a963039cb9a28a22844.c
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

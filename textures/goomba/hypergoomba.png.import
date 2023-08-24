@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/hypergoomba.png-f351b3c481264c23f69e337c4c007
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

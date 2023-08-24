@@ -44,12 +44,10 @@ shape = SubResource("BoxShape3D_egpjx")
 [node name="BushShake" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37, 0)
 visible = false
-sorting_offset = 4.0
 mesh = SubResource("QuadMesh_jbywi")
 
 [node name="BushStill" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.381701, 0)
-sorting_offset = 4.0
 mesh = SubResource("QuadMesh_2q74u")
 
 [node name="Exclamation" type="Sprite3D" parent="."]

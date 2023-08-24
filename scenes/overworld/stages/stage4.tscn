@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c6yg2j7jibka2"]
+[gd_scene load_steps=64 format=3 uid="uid://c6yg2j7jibka2"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_8bdrb"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_a7rkf"]
@@ -12,9 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cswvhjmbg1ljg" path="res://textures/grass/grass3.png" id="10_m2ohw"]
 [ext_resource type="Texture2D" uid="uid://bxt0gpr3dldi2" path="res://textures/grass/grass5.png" id="11_81j06"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="12_msb1k"]
-[ext_resource type="Resource" uid="uid://xq5pvmo7q5jr" path="res://stats/enemyencounter/enemyencounter_bobomb.tres" id="13_rs1px"]
+[ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="13_15uv6"]
 [ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="14_l8f8w"]
 [ext_resource type="PackedScene" uid="uid://df863juhr461i" path="res://scenes/overworld/GrassWall.tscn" id="15_a2ytt"]
+[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="15_car55"]
 [ext_resource type="Texture2D" uid="uid://c1opuol7p8ng4" path="res://textures/grass2/dirt1.png" id="16_0owib"]
 [ext_resource type="PackedScene" uid="uid://dplhswfuydwwq" path="res://scenes/overworld/OctagonPlatform.tscn" id="17_67nct"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="18_6jfkx"]
@@ -34,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://coeb136l063sd" path="res://textures/grass2/path2.png" id="32_uigng"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="33_jcsbs"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="35_r80r3"]
+[ext_resource type="PackedScene" uid="uid://djkn8bkgnhrcg" path="res://scenes/overworld/Bush.tscn" id="36_d3m4c"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyce"]
 panorama = ExtResource("2_a7rkf")
@@ -162,14 +164,14 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_ir556")
 size = Vector2(8.5, 4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3m35"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iir3r"]
 transparency = 1
 albedo_texture = ExtResource("7_x4grc")
 uv1_scale = Vector3(24, 1, 1)
 texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_u8g0b"]
-material = SubResource("StandardMaterial3D_m3m35")
+material = SubResource("StandardMaterial3D_iir3r")
 size = Vector2(8.5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u13kj"]
@@ -200,7 +202,9 @@ size = Vector3(12.7221, 10, 2.2)
 size = Vector3(13.437, 10, 2.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tdva"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("31_6gppo")
 uv1_scale = Vector3(1, 6.92, 1)
 texture_filter = 0
@@ -211,7 +215,9 @@ size = Vector2(2, 15)
 orientation = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xf2m"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("32_uigng")
 texture_filter = 0
 
@@ -317,9 +323,39 @@ mesh = SubResource("PlaneMesh_w325q")
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.173813, 0, 0.177402)
 
 [node name="EnemySpawner" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46336, -0.522092, -25.7615)
-encounter_data = ExtResource("13_rs1px")
-size = Vector3(5, 2.81, 4.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65536, -8.37654, 0.832675)
+encounter_data = ExtResource("13_15uv6")
+size = Vector3(9.215, 2.81, 5.485)
+battle_background = ExtResource("14_l8f8w")
+
+[node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18439, -8.37654, 1.60284)
+encounter_data = ExtResource("13_15uv6")
+size = Vector3(9.215, 2.81, 5.485)
+battle_background = ExtResource("14_l8f8w")
+
+[node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0403, -8.37654, 0.68785)
+encounter_data = ExtResource("13_15uv6")
+size = Vector3(9.215, 2.81, 5.485)
+battle_background = ExtResource("14_l8f8w")
+
+[node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1807, -6.89342, -0.703012)
+encounter_data = ExtResource("15_car55")
+size = Vector3(8.025, 2.81, 5.485)
+battle_background = ExtResource("14_l8f8w")
+
+[node name="EnemySpawner6" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.739, -6.89342, 1.8016)
+encounter_data = ExtResource("15_car55")
+size = Vector3(8.025, 2.81, 5.485)
+battle_background = ExtResource("14_l8f8w")
+
+[node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3863, -8.37654, 1.29073)
+encounter_data = ExtResource("13_15uv6")
+size = Vector3(9.215, 2.81, 5.485)
 battle_background = ExtResource("14_l8f8w")
 
 [node name="Walls" type="Node3D" parent="."]
@@ -877,6 +913,12 @@ pixel_size = 0.02
 texture_filter = 0
 texture = ExtResource("27_h3uv0")
 
+[node name="Triple4" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(0.998339, 0, 0.0576163, 0, 1, 0, -0.0576163, 0, 0.998339, 0.237967, -8.17029, 2.79753)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("27_h3uv0")
+
 [node name="Triple2" type="Sprite3D" parent="Decorations"]
 transform = Transform3D(0.969732, 0, -0.244174, 0, 1, 0, 0.244174, 0, 0.969732, 11.9361, -8.17029, -1.80874)
 pixel_size = 0.02
@@ -922,6 +964,13 @@ alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("29_58mkx")
 
+[node name="TinyFlower10" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40543, -8.11092, 2.79882)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_58mkx")
+
 [node name="TinyFlower4" type="Sprite3D" parent="Decorations"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3952, -8.11092, -0.966275)
 billboard = 2
@@ -938,6 +987,13 @@ texture = ExtResource("29_58mkx")
 
 [node name="TinyFlower6" type="Sprite3D" parent="Decorations"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.614, -8.11092, -0.895905)
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("29_58mkx")
+
+[node name="TinyFlower9" type="Sprite3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0017, -8.11092, 2.97589)
 billboard = 2
 alpha_cut = 1
 texture_filter = 0
@@ -1053,6 +1109,23 @@ coin_distance = Vector3(0.125, 0, 0.235)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2886, -6.40712, -1.80737)
 coin_count = 4
 coin_distance = Vector3(0, 0, 0.695)
+
+[node name="Bushes" type="Node3D" parent="."]
+
+[node name="Bush" parent="Bushes" instance=ExtResource("36_d3m4c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3927, -8.56074, 2.41117)
+
+[node name="Bush3" parent="Bushes" instance=ExtResource("36_d3m4c")]
+transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501, 24.2284, -6.66811, -2.38739)
+
+[node name="Bush4" parent="Bushes" instance=ExtResource("36_d3m4c")]
+transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501, 28.6365, -8.57032, -0.116707)
+
+[node name="Bush6" parent="Bushes" instance=ExtResource("36_d3m4c")]
+transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501, 5.28302, -8.57032, -0.116707)
+
+[node name="Bush5" parent="Bushes" instance=ExtResource("36_d3m4c")]
+transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501, 35.7741, -8.57032, -0.00419116)
 
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="." method="_on_water_body_exited"]

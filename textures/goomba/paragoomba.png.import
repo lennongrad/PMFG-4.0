@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/paragoomba.png-a41c7a406736d1e3057e501c63ff99
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
