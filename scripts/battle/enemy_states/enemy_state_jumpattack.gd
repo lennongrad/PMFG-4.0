@@ -1,5 +1,5 @@
 extends EnemyState
-
+ 
 class_name EnemyJumpattackState
 
 var hasCollided = false
@@ -12,11 +12,17 @@ var lastDodgeInput = 0
 func _ready(): 
 	self.persistent_state.position.z += .1
 	self.persistent_state.velocity.y += 2.5
-	self.persistent_state.velocity.x -= .4
 	self.persistent_state.animated_sprite.play("Rise")
 	self.persistent_state.get_node("Circles").emitting = false
 
 func _physics_process(delta):
+	var rotationDegrees = rad_to_deg(atan2(persistent_state.velocity.y, persistent_state.velocity.x))
+	rotationDegrees -= 90
+	animated_sprite.rotation_degrees.z = rotationDegrees
+	
+	if not hasCollided:
+		self.persistent_state.velocity.x = -.4
+	
 	self.persistent_state.velocity.y -= 4.25 * delta
 	if(self.persistent_state.velocity.y < 0):
 		self.persistent_state.animated_sprite.play("Fall")
@@ -50,13 +56,13 @@ func _physics_process(delta):
 	self.persistent_state.move_and_slide()
 
 func area_body_entered(body):
-	if body == self.mario.get_node("Area3D") and not hasCollided:
+	if body == persistent_state.current_target.get_node("Area3D") and not hasCollided:
 		hasCollided = true
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
 		if lastDodgeInput < 10:
-			self.persistent_state.register_damage(self.mario, 1, "NICE")
+			self.persistent_state.register_damage(persistent_state.current_target, 1, "NICE")
 		else:
-			self.persistent_state.register_damage(self.mario, 2, "MISS")
+			self.persistent_state.register_damage(persistent_state.current_target, 2, "MISS")
 	if body == self.floorMesh:
 		self.persistent_state.velocity = Vector3.ZERO
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0

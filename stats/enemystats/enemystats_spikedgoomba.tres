@@ -1,0 +1,210 @@
+[gd_resource type="Resource" load_steps=19 format=3 uid="uid://dylpruidfhhv7"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_melid"]
+[ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2_nlchw"]
+[ext_resource type="Texture2D" uid="uid://d13dlu3towlf3" path="res://textures/goomba/goomba.png" id="3_8t0al"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="4_3er8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ao6"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk262"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dajf"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf1v5"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8qu6"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hh4"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo5gs"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo8op"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iv0j"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2rrh"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6c5b"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il4vt"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us43h"]
+atlas = ExtResource("3_8t0al")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qflil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ao6")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ao6")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dajf")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf1v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8qu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo8op")
+}],
+"loop": true,
+"name": &"GetUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ao6")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_0iv0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo8op")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v2rrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo8op")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6c5b")
+}],
+"loop": true,
+"name": &"Rise",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il4vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iv0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us43h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iv0j")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il4vt")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0iv0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us43h")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0iv0j")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("4_3er8d")
+health = 4
+frames = SubResource("SpriteFrames_qflil")
+name = "Spiked Goomba"
+attacks = [ExtResource("2_nlchw")]
+firstStrikeAttack = ExtResource("2_nlchw")
+height = 0.32
+flying = false
+spiky = true
+experience = 30
+atlas = ExtResource("1_melid")
+tattle_description = "HP: 4. Clever credits who have fashioned a spiky needle to their head to deter jumping plumbers."
+attributes = {
+"d_spikehelmet": true
+}

@@ -1,11 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl453tpdxha5r"]
+[gd_scene load_steps=14 format=3 uid="uid://dl453tpdxha5r"]
 
-[ext_resource type="PackedScene" uid="uid://bs6uu8aofak7r" path="res://scenes/battle/backgrounds/water_dungeon_flood.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://5er3va3cwi1x" path="res://stats/enemyencounter/enemyencounter_test.tres" id="2_n42ea"]
 [ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
-[ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="3_msbma"]
-[ext_resource type="PackedScene" uid="uid://cm0e5asgfdnje" path="res://scenes/battle/backgrounds/water_dungeon.tscn" id="4"]
+[ext_resource type="Resource" uid="uid://cy00lrowo5hqb" path="res://stats/battlebackground/forest_dungeon.tres" id="3_x270i"]
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="4_ngmgf"]
 [ext_resource type="Script" path="res://scripts/battle/Battle.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="8"]
@@ -28,7 +26,7 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 process_mode = 3
 script = ExtResource("5")
 data = ExtResource("2_n42ea")
-battle_background = ExtResource("3_msbma")
+battle_background = ExtResource("3_x270i")
 debug = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -56,7 +54,6 @@ environment = SubResource("1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.807733, 0.554241, 0.200961, 0, -0.340872, 0.94011, 0.589549, 0.759357, 0.275334, 0, 3.63076, 0)
-visible = false
 light_color = Color(0.494118, 0.494118, 0.494118, 1)
 light_energy = 0.25
 light_indirect_energy = 1.4
@@ -68,12 +65,6 @@ collision_mask = 112
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("2")
-
-[node name="Stage" parent="." instance=ExtResource("4")]
-visible = false
-
-[node name="Stage2" parent="." instance=ExtResource("1")]
-visible = false
 
 [node name="BattleUI" parent="." instance=ExtResource("10")]
 

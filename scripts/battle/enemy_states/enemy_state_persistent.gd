@@ -35,6 +35,7 @@ var is_in_water
 var experience_remaining = 0
 var dodging = 0
 var defeat_self = false
+var current_target
 
 # tracking angry modifier
 var is_angry = false
@@ -68,6 +69,8 @@ func _process(_delta):
 	pointer.visible = isSelected
 	$Sprite2D.update_decoration("Flare", stats.attributes.has("d_flare") and is_angry)
 	$Sprite2D.update_decoration("Windup", stats.attributes.has("d_windup"))
+	$Sprite2D.update_decoration("Wings", stats.attributes.has("d_wings"))
+	$Sprite2D.update_decoration("Helmet", stats.attributes.has("d_spikehelmet"))
 	
 	if battleTag != null:
 		battleTag.is_visible = is_idle
@@ -107,8 +110,9 @@ func register_damage(target, damage, effectiveness, showHurt = {}):
 	else:
 		lastDodgeSuccessful = false
 
-func attack():
+func attack(target):
 	if attackAnimationCounter == 0:
+		current_target = target
 		progress_attack()
 
 func progress_attack():

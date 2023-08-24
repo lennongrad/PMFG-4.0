@@ -4,6 +4,7 @@ extends Node3D
 @export var firstStrike: String = ""
 @export var battle_background: Resource
 @export var debug: bool = false
+@export var auto_skip: bool = false
 
 @onready var original_base_position = $BasePosition.position
 
@@ -99,7 +100,10 @@ func _process(_delta):
 	
 	enemySetAttackTimer -= 1
 	if enemySetAttackTimer == 0:
-		enemySetToAttack.attack()
+		var target = $Mario
+		if randi() % 2 == 0:
+			target = $Partner
+		enemySetToAttack.attack(target)
 	
 	var viewport_size = (get_viewport().get_visible_rect().size.x - 1000) / 1000
 	$BasePosition.position = original_base_position + Vector3(viewport_size * .5,0,-viewport_size * .4)
@@ -175,7 +179,7 @@ func finish_level_up():
 var enemySetToAttack 
 var enemySetAttackTimer = 0
 func next_enemy_turn(waitTime):
-	currentAttackingEnemy += 1			
+	currentAttackingEnemy += 1
 	if currentAttackingEnemy >= enemies.size():
 		currentAttackingEnemy = -1
 		start_mario_turn(true)
@@ -196,6 +200,10 @@ func switch_partner_first():
 		$BattleUI.update_choices($Mario.get_choices())
 
 func start_mario_turn(is_first = true):
+	if auto_skip:
+		next_enemy_turn(0)
+		return
+	
 	var dead_enemies = []
 	for enemy in enemies:
 		enemy.is_idle = true
@@ -248,6 +256,6 @@ func _on_Spin_finishedSpinning():
 			"jump":
 				$Mario.attack(load("res://stats/heroattack/jump/firststrike.tres"), enemies[0])
 			"hammer":
-				$Mario.attack(load("res://stats/heroattack/hammer/firststrike.tres"), enemies[0])
+				$Mario.attack(load("res://stats/heroattack/hammer/firststrike.tres"), null)
 			"enemy":
 				enemies[0].firstStrike()

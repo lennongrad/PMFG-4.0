@@ -17,7 +17,8 @@ func dodge():
 	dodge_timer = 20
 
 func play(value):
-	$AnimatedSprite3D.play(value)
+	if $AnimatedSprite3D.sprite_frames.has_animation(value):
+		$AnimatedSprite3D.play(value)
 
 func set_frames(frames):
 	$AnimatedSprite3D.frames = frames

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://clp1kv6td6m3m"]
+[gd_scene load_steps=22 format=3 uid="uid://clp1kv6td6m3m"]
 
 [ext_resource type="Script" path="res://scripts/battle/Stage.gd" id="1_21isf"]
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="2_bmo76"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cxeeh68d8wbju" path="res://scenes/overworld/bridge.tscn" id="10_pcjli"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="11_vmijb"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="12_fy500"]
-[ext_resource type="Resource" path="res://stats/boots/super.tres" id="13_kvc35"]
 [ext_resource type="PackedScene" uid="uid://bfkg21ej6ncx3" path="res://scenes/overworld/back_tower.tscn" id="14_0c534"]
 
 [sub_resource type="StandardMaterial3D" id="17"]
@@ -132,7 +131,6 @@ size = Vector3(2, 12, 2)
 [node name="QuestionBlock" parent="Island" instance=ExtResource("12_fy500")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00215, 2.76599, -6.7621)
 is_decoration = true
-item_type = ExtResource("13_kvc35")
 coin_count = 3
 distance = 1.2
 

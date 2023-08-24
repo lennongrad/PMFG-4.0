@@ -11,7 +11,7 @@ var items = [
 
 #var badges = []
 var badges = [
-	#{"badge": load("res://stats/badges/quakesmash.tres"), "active": true},
+	{"badge": load("res://stats/badges/spikeshield.tres"), "active": true},
 ]
 
 var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]

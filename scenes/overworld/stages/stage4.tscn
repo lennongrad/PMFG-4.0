@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bxt0gpr3dldi2" path="res://textures/grass/grass5.png" id="11_81j06"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="12_msb1k"]
 [ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="13_15uv6"]
-[ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="14_l8f8w"]
+[ext_resource type="Resource" uid="uid://cy00lrowo5hqb" path="res://stats/battlebackground/forest_dungeon.tres" id="14_5jch0"]
 [ext_resource type="PackedScene" uid="uid://df863juhr461i" path="res://scenes/overworld/GrassWall.tscn" id="15_a2ytt"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="15_car55"]
 [ext_resource type="Texture2D" uid="uid://c1opuol7p8ng4" path="res://textures/grass2/dirt1.png" id="16_0owib"]
@@ -174,25 +174,25 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_iir3r")
 size = Vector2(8.5, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u13kj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwh0q"]
 albedo_texture = ExtResource("10_m2ohw")
 uv1_scale = Vector3(32, 4, 1)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lngom"]
-material = SubResource("StandardMaterial3D_u13kj")
+material = SubResource("StandardMaterial3D_wwh0q")
 size = Vector2(48, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2ars"]
 size = Vector3(48, 0.01, 6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw32q"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2pt5"]
 albedo_texture = ExtResource("11_81j06")
 uv1_scale = Vector3(24, 2, 1)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w325q"]
-material = SubResource("StandardMaterial3D_tw32q")
+material = SubResource("StandardMaterial3D_u2pt5")
 size = Vector2(48, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irt5h"]
@@ -201,7 +201,7 @@ size = Vector3(12.7221, 10, 2.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rrh86"]
 size = Vector3(13.437, 10, 2.2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8tdva"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1waru"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -210,7 +210,7 @@ uv1_scale = Vector3(1, 6.92, 1)
 texture_filter = 0
 
 [sub_resource type="QuadMesh" id="QuadMesh_b0hb3"]
-material = SubResource("StandardMaterial3D_8tdva")
+material = SubResource("StandardMaterial3D_1waru")
 size = Vector2(2, 15)
 orientation = 1
 
@@ -326,37 +326,37 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.17381
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.65536, -8.37654, 0.832675)
 encounter_data = ExtResource("13_15uv6")
 size = Vector3(9.215, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18439, -8.37654, 1.60284)
 encounter_data = ExtResource("13_15uv6")
 size = Vector3(9.215, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0403, -8.37654, 0.68785)
 encounter_data = ExtResource("13_15uv6")
 size = Vector3(9.215, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1807, -6.89342, -0.703012)
 encounter_data = ExtResource("15_car55")
 size = Vector3(8.025, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner6" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.739, -6.89342, 1.8016)
 encounter_data = ExtResource("15_car55")
 size = Vector3(8.025, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3863, -8.37654, 1.29073)
 encounter_data = ExtResource("13_15uv6")
 size = Vector3(9.215, 2.81, 5.485)
-battle_background = ExtResource("14_l8f8w")
+battle_background = ExtResource("14_5jch0")
 
 [node name="Walls" type="Node3D" parent="."]
 

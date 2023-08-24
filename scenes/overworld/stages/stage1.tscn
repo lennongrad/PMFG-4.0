@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dyrc8omyglwi5"]
+[gd_scene load_steps=45 format=3 uid="uid://dyrc8omyglwi5"]
 
 [ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="1_8i2mv"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_x8ca7"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://c4art2y5gg3o5" path="res://stats/enemyencounter/enemyencounter_gloomba.tres" id="7_r0efm"]
 [ext_resource type="PackedScene" uid="uid://doj4y83s7f3hh" path="res://scenes/overworld/Torch.tscn" id="7_wuoh2"]
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="8_ird3d"]
+[ext_resource type="Resource" uid="uid://chmw5u6fu5gci" path="res://stats/enemyencounter/enemyencounter_spikedgloomba.tres" id="9_337rc"]
+[ext_resource type="Resource" uid="uid://5dcf42ueqmq2" path="res://stats/enemyencounter/enemyencounter_paragloomba.tres" id="9_whuj2"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="12_3icoq"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="15_lwvfu"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="16_ojxoo"]
@@ -322,12 +324,13 @@ battle_background = ExtResource("20_u4vfg")
 
 [node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.32558, 1.18334, 0.988844)
-encounter_data = ExtResource("7_r0efm")
+encounter_data = ExtResource("9_337rc")
 size = Vector3(5.755, 3.005, 3.01)
 battle_background = ExtResource("20_u4vfg")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0616, 5.26995, 2.47384)
+encounter_data = ExtResource("9_whuj2")
 size = Vector3(6.97, 3.76, 9.245)
 battle_background = ExtResource("20_u4vfg")
 

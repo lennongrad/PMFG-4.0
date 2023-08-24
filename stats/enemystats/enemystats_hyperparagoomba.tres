@@ -1,0 +1,118 @@
+[gd_resource type="Resource" load_steps=14 format=3 uid="uid://uxbbbyvlfy10"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_61aug"]
+[ext_resource type="Resource" uid="uid://do5h4idxcudlh" path="res://stats/enemyattack/enemyattack_swoop.tres" id="2_beoah"]
+[ext_resource type="Resource" uid="uid://br2xwp4m4y6tv" path="res://stats/enemystats/enemystats_gloomba.tres" id="3_o6hht"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="5_tvyuw"]
+[ext_resource type="Texture2D" uid="uid://dydey0ertae0i" path="res://textures/goomba/hyper_paragoomba.png" id="6_7sp25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saj1x"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfhpd"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxayx"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqwi8"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s20dn"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7ft"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p47r"]
+atlas = ExtResource("6_7sp25")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60a88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saj1x")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saj1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfhpd")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxayx")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saj1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfhpd")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_hqwi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s20dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p47r")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s20dn")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("5_tvyuw")
+health = 12
+frames = SubResource("SpriteFrames_60a88")
+name = "Paragloomba"
+attacks = [ExtResource("2_beoah")]
+firstStrikeAttack = ExtResource("2_beoah")
+height = 0.32
+flying = true
+experience = 100
+atlas = ExtResource("1_61aug")
+tattle_description = "HP: 12. Exceptionally strong, capable of charging attacks and avoiding punishment from the ground."
+attributes = {
+"d_wings": true,
+"transform_into": ExtResource("3_o6hht")
+}

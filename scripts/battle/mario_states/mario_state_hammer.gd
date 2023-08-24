@@ -72,7 +72,7 @@ func _physics_process(_delta):
 				effectiveness = "NICE"
 				damage += 1
 			
-			if hero.get_current_attack().attributes.has("hit_all"):
+			if hero.get_current_attack().attributes.has("hit_all") or target == null:
 				get_viewport().get_camera_3d().shake()
 				for enemy in hero.get_enemies():
 					if not enemy.stats.flying:

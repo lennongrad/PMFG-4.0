@@ -29,6 +29,7 @@ func _physics_process(_delta):
 		elif transformTimer < 200:
 			self.persistent_state.animated_sprite.play("Hurt")
 		else:
+			self.animated_sprite.get_node("Decoration/Wings").play("SlowFlap")
 			self.persistent_state.velocity.y -= .1
 
 func tween_completed():

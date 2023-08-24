@@ -7,6 +7,7 @@ extends Resource
 @export var firstStrikeAttack: Resource
 @export var height: float
 @export var flying: bool
+@export var spiky: bool
 @export var experience: int 
 @export var atlas: CompressedTexture2D
 @export var tattle_description: String

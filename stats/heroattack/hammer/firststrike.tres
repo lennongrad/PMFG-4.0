@@ -13,6 +13,8 @@ description = ""
 steps = ["walkto", "hammer", "walkback"]
 walkto_distance = 0.5
 fp_cost = 0
-skipEnemySelection = false
+skipEnemySelection = true
 firstStrike = true
-attributes = {}
+attributes = {
+"hit_all": 1
+}

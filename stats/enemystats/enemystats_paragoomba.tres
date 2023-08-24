@@ -1,0 +1,123 @@
+[gd_resource type="Resource" load_steps=16 format=3 uid="uid://ce0kwiprbmttd"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_5wgio"]
+[ext_resource type="Resource" uid="uid://do5h4idxcudlh" path="res://stats/enemyattack/enemyattack_swoop.tres" id="2_on5b5"]
+[ext_resource type="Texture2D" uid="uid://db6kxp8xyarsm" path="res://textures/goomba/paragoomba.png" id="3_4bihs"]
+[ext_resource type="Texture2D" uid="uid://d13dlu3towlf3" path="res://textures/goomba/goomba.png" id="3_84req"]
+[ext_resource type="Resource" uid="uid://bsaubh20hbp43" path="res://stats/enemystats/enemystats_goomba.tres" id="3_qgbxq"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="4_7tdqe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhvt2"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk262"]
+atlas = ExtResource("3_84req")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ao6"]
+atlas = ExtResource("3_84req")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbdlj"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mci2e"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmbxt"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci14u"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n7yi"]
+atlas = ExtResource("3_4bihs")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56qf2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhvt2")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ao6")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbdlj")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ao6")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_mci2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmbxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci14u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n7yi")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mci2e")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("4_7tdqe")
+health = 4
+frames = SubResource("SpriteFrames_56qf2")
+name = "Paragoomba"
+attacks = [ExtResource("2_on5b5")]
+firstStrikeAttack = ExtResource("2_on5b5")
+height = 0.32
+flying = true
+experience = 30
+atlas = ExtResource("1_5wgio")
+tattle_description = "HP: 4. A winged warrior of the Bowser army who will deftly dodge your groundborne hammer attacks."
+attributes = {
+"d_wings": true,
+"transform_into": ExtResource("3_qgbxq")
+}

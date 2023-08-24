@@ -389,7 +389,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.174724, 0)
 shape = SubResource("25")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16376, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 9.735, 0, 0.16376, 0)
 shape = SubResource("CapsuleShape3D_lokhw")
 
 [node name="MoveParticles" type="Node3D" parent="."]

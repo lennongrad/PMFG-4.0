@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="6_f6ygb"]
 [ext_resource type="Texture2D" uid="uid://bdv4q0urs1kxh" path="res://textures/grass/cliff2.png" id="6_ya8qv"]
 [ext_resource type="PackedScene" uid="uid://vvgk856wr7e3" path="res://scenes/overworld/top_pyramid.tscn" id="7_1fus4"]
-[ext_resource type="Resource" uid="uid://22ulxn0yanv3" path="res://stats/battlebackground/air_dungeon.tres" id="7_as8ay"]
 [ext_resource type="Texture2D" uid="uid://bxt0gpr3dldi2" path="res://textures/grass/grass5.png" id="8_43vo1"]
 [ext_resource type="Texture2D" uid="uid://bag2xhhpaq5fq" path="res://textures/grass/path3.png" id="8_84nif"]
 [ext_resource type="Texture2D" uid="uid://c3mv4u0edfvjt" path="res://textures/grass/path1.png" id="9_qj011"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bejy7yx8c32hi" path="res://textures/grass/bush7.png" id="17_ffdn0"]
 [ext_resource type="Texture2D" uid="uid://dhadlrtegl2n0" path="res://textures/grass/bush4.png" id="17_ppubh"]
 [ext_resource type="Texture2D" uid="uid://dvwbow7b70yd7" path="res://textures/grass/bush10.png" id="18_o2puv"]
+[ext_resource type="Resource" uid="uid://cy00lrowo5hqb" path="res://stats/battlebackground/forest_dungeon.tres" id="18_u0o7n"]
 [ext_resource type="Texture2D" uid="uid://b0dw5ka3dolg3" path="res://textures/grass/bush12.png" id="19_5tahs"]
 [ext_resource type="Texture2D" uid="uid://dggdwlx4tyeiy" path="res://textures/grass/bush1.png" id="19_5vq8x"]
 [ext_resource type="Resource" uid="uid://72ugc5m4mq8n" path="res://stats/enemyencounter/enemyencounter_hypergoomba.tres" id="19_gve47"]
@@ -746,31 +746,31 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.17381
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0414, -5.62254, -0.310846)
 encounter_data = ExtResource("17_casox")
 size = Vector3(8.66, 1.91, 5.89)
-battle_background = ExtResource("7_as8ay")
+battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3598, -5.62254, -2.69364)
 encounter_data = ExtResource("17_casox")
 size = Vector3(8.66, 1.91, 7.065)
-battle_background = ExtResource("7_as8ay")
+battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3334, -5.58023, -0.160708)
 encounter_data = ExtResource("17_casox")
 size = Vector3(8.66, 1.91, 7.065)
-battle_background = ExtResource("7_as8ay")
+battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7367, -5.18294, -6.94766)
 encounter_data = ExtResource("19_gve47")
 size = Vector3(1.92, 1.91, 2.305)
-battle_background = ExtResource("7_as8ay")
+battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14641, -4.22036, -3.33489)
 encounter_data = ExtResource("17_casox")
 size = Vector3(8.66, 1.91, 3.765)
-battle_background = ExtResource("7_as8ay")
+battle_background = ExtResource("18_u0o7n")
 
 [node name="WallDecoration" type="Node3D" parent="."]
 

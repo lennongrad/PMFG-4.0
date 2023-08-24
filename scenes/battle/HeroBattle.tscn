@@ -338,8 +338,9 @@ material = SubResource("34")
 radius = 0.15
 height = 0.4
 
-[sub_resource type="SphereShape3D" id="37"]
-radius = 0.249939
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fin0r"]
+radius = 0.0978366
+height = 0.432237
 
 [sub_resource type="Curve" id="Curve_6t6fo"]
 max_value = 20.0
@@ -683,7 +684,7 @@ collision_mask = 48
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235598, 0)
-shape = SubResource("37")
+shape = SubResource("CapsuleShape3D_fin0r")
 
 [node name="DodgeParticles" parent="." instance=ExtResource("5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163265, 0.244913, 0)

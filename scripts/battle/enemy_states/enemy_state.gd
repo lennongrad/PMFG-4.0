@@ -33,6 +33,7 @@ func setup(p_change_state, p_progress_attack, p_persistent_state, p_mario, p_par
 	self.change_state = p_change_state
 	self.progress_attack = p_progress_attack
 	self.persistent_state = p_persistent_state
+	self.animated_sprite = self.persistent_state.animated_sprite
 	self.l_velocity = 0
 	self.mario = p_mario
 	self.partner = p_partner

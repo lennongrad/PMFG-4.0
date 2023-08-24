@@ -24,7 +24,7 @@ func shoot():
 	self.persistent_state.animated_sprite.play("Rest")
 	self.persistent_state.slingshot_ammo.position = self.persistent_state.slingshotHomePosition
 	self.persistent_state.slingshot_ammo.visible = true
-	self.persistent_state.slingshotVelocity = (self.partner.position - self.persistent_state.position) * 2
+	self.persistent_state.slingshotVelocity = (persistent_state.current_target.position - self.persistent_state.position) * 2
 	shootTimer.call_deferred("free")
 
 func _physics_process(delta):
@@ -50,12 +50,12 @@ func _physics_process(delta):
 	self.persistent_state.slingshot_ammo.move_and_slide()
 
 func slingshot_area_body_entered(body):
-	if body == self.partner.get_node("Area3D") and not hasCollided:
+	if body == persistent_state.current_target.get_node("Area3D") and not hasCollided:
 		hasCollided = true
 		if lastDodgeInput < 10:
-			self.persistent_state.register_damage(self.partner, 1, "NICE")
+			self.persistent_state.register_damage(persistent_state.current_target, 1, "NICE")
 		else:
-			self.persistent_state.register_damage(self.partner, 2, "MISS")
+			self.persistent_state.register_damage(persistent_state.current_target, 2, "MISS")
 	if body == floorMesh:
 		self.persistent_state.slingshot_ammo.visible = false
 		self.persistent_state.slingshotVelocity = Vector3.ZERO

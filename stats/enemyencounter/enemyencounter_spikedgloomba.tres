@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://chmw5u6fu5gci"]
+
+[ext_resource type="Resource" uid="uid://br2xwp4m4y6tv" path="res://stats/enemystats/enemystats_gloomba.tres" id="1_55gxh"]
+[ext_resource type="Resource" uid="uid://cra51so7kpi60" path="res://stats/enemystats/enemystats_spikedgloomba.tres" id="1_a2m46"]
+[ext_resource type="Script" path="res://stats/enemyencounter/enemyencounter.gd" id="2_j8gs1"]
+
+[resource]
+script = ExtResource("2_j8gs1")
+enemies = [ExtResource("1_a2m46"), ExtResource("1_55gxh")]
+flying = false
+swimming = false
+fly_level = 0.0
+attributes = {}

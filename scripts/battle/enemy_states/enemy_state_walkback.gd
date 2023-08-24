@@ -9,7 +9,10 @@ func _ready():
 	#var marioPosition = self.mario.global_transform.origin + Vector3(.5, 0, 0)
 	self.interpolate_property(
 		self.persistent_state, "position", self.persistent_state.homePosition, .5)
-	
+
+func _process(_delta):
+	self.persistent_state.velocity = Vector3(0,0,0)
+
 func tween_completed():
 	self.persistent_state.animated_sprite.set_flip_h(false)
 	self.persistent_state.progress_attack()

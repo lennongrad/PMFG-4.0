@@ -17,6 +17,7 @@ var jumpsquat = true
 var gravity = 12.0
 var enemyTopHeight
 var last_successful = false
+var hurt_self = false
 
 func _ready(): 
 	hero.focus_camera(1);
@@ -78,7 +79,12 @@ func _physics_process(delta):
 	if hasFinished:
 		hero.get_node("Sprite2D").flip_h = true
 		self.hero.velocity.y -= 2 * delta
-		hero.get_node("Sprite2D").play("BattleFall")
+		hero.get_node("Sprite2D").rotation_degrees.z = 0
+		
+		if hurt_self:
+			hero.get_node("Sprite2D").play("Hurt")
+		else:
+			hero.get_node("Sprite2D").play("BattleFall")
 		hero.get_node("Sprite2D").rotation_degrees.y = 0
 		
 	if Input.is_action_pressed("jump") and readyToDodge and not dodged:
@@ -86,7 +92,7 @@ func _physics_process(delta):
 		lastDodgeInput = 0
 	lastDodgeInput += 1
 	
-	if hero.is_partner:
+	if hero.is_partner and not hurt_self:
 		hero.get_node("Sprite2D").play("Rise")
 		var rotationDegrees = rad_to_deg(atan2(self.hero.velocity.y, self.hero.velocity.x))
 		rotationDegrees -= 90
@@ -103,28 +109,35 @@ func area_body_entered(body):
 	if body == target.get_node("Area3D") and not hasFinished:
 		var actionSuccessful = lastDodgeInput < 8
 		last_successful = actionSuccessful
-		if actionSuccessful:
-			jumpCounter += 1
-			if jumpCounter < jumpMax:
-				self.hero.velocity.y = 1.6
-				self.hero.velocity.x = 0
-				readyToDodge = false
-				dodged = false
-				lastDodgeInput = 0
-			else:
-				hasFinished = true
-			
+		
+		if target.stats.spiky and not $"/root/MarioRun".get_badge_value("spiky_shield") >= 1:
+			hero.take_damage(1, "MISS")
+			hurt_self = true
+			hasFinished = true
+		else:
 			var damage = $"/root/MarioRun".get_equipped_boots().type.attack
 			if hero.get_current_attack().attributes.has("attack"):
 				damage += hero.get_current_attack().attributes["attack"]
 			if jumpCounter > 4:
 				damage = max(damage - jumpCounter + 4, 1)
-			
-			if hero.register_damage(target, damage, "NICE"):
+				
+			if actionSuccessful:
+				jumpCounter += 1
+				if jumpCounter < jumpMax:
+					self.hero.velocity.y = 1.6
+					self.hero.velocity.x = 0
+					readyToDodge = false
+					dodged = false
+					lastDodgeInput = 0
+				else:
+					hasFinished = true
+				
+				if hero.register_damage(target, damage, "NICE"):
+					hasFinished = true
+			else:
 				hasFinished = true
-		else:
-			hasFinished = true
-			hero.register_damage(target, $"/root/MarioRun".get_equipped_boots().type.attack, "GOOD")
+				hero.register_damage(target, damage, "GOOD")
+		
 		collisionTimer = 0
 		pause_timer = 0
 		hasCollided = true

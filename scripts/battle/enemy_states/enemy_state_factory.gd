@@ -6,6 +6,7 @@ func _init():
 	states = {
 		"idle": EnemyIdleState,
 		"jumpattack": EnemyJumpattackState,
+		"swoop": EnemySwoopState,
 		"chargedie": EnemyChargedieState,
 		"walkto": EnemyWalktoState,
 		"walkback": EnemyWalkbackState,
