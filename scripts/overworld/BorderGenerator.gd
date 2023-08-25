@@ -6,6 +6,8 @@ extends StaticBody3D
 @export var mainTexture: CompressedTexture2D: set = updateMain
 @export var secondaryTexture: CompressedTexture2D: set = updateSecondary
 @export var size = Vector3(1,1,1): set = updateSize
+@export var size_moderation_main = Vector2(1,1): set = updateModerationMain
+@export var size_moderation_secondary = Vector2(1,1): set = updateModerationSecondary
 
 var counter = 0
 
@@ -30,42 +32,49 @@ func updateSecondary(newSecondary):
 #	$TopMesh.material_override.albedo_texture = secondaryTexture
 
 func updateSize(newSize):
+	size = newSize
+	changeSize()
+
+func updateModerationSecondary(newModeration):
+	size_moderation_secondary = newModeration
+	if newModeration == null:
+		size_moderation_secondary = Vector2(1,1)
+	changeSize()
+
+func updateModerationMain(newModeration):
+	size_moderation_main = newModeration
+	if newModeration == null:
+		size_moderation_main = Vector2(1,1)
+	
+	changeSize()
+
+func changeSize():
 	if not has_node("MainMesh"):
 		return
-	size = newSize
 	
 	$CollisionShape3D.shape = BoxShape3D.new()
-	$CollisionShape3D.shape.size = newSize
+	$CollisionShape3D.shape.size = size
 	
 	$MainMesh.material_override = StandardMaterial3D.new()
 	$MainMesh.material_override.albedo_texture = mainTexture
 	$MainMesh.mesh = BoxMesh.new()
 	
-	$MainMesh.mesh.size = newSize
-	$MainMesh.material_override.uv1_scale.x = size.x * 2
-	$MainMesh.material_override.uv1_scale.y = size.z * 2
+	$MainMesh.mesh.size = size
+	$MainMesh.material_override.uv1_scale.x = size.x * 2  * size_moderation_main.x
+	$MainMesh.material_override.uv1_scale.y = size.z * 2 * size_moderation_main.y
 	
 	$SecondaryMesh.material_override = StandardMaterial3D.new()
 	$SecondaryMesh.material_override.albedo_texture = secondaryTexture
 	$SecondaryMesh.mesh = BoxMesh.new()
 	
-	$SecondaryMesh.mesh.size = newSize
+	$SecondaryMesh.mesh.size = size
 	$SecondaryMesh.mesh.size.x += .01
 	$SecondaryMesh.mesh.size.y -= .01
 	$SecondaryMesh.mesh.size.z += .01
-	$SecondaryMesh.material_override.uv1_scale.x = max(size.x, size.z) * 2
-	$SecondaryMesh.material_override.uv1_scale.y = size.y * 2
+	$SecondaryMesh.material_override.uv1_scale.x = (max(size.x, size.z) * 2) * size_moderation_secondary.x
+	$SecondaryMesh.material_override.uv1_scale.y = (size.y * 2) * size_moderation_secondary.y
 	
-#	$TopMesh.material_override = StandardMaterial3D.new()
-#	$TopMesh.material_override.albedo_texture = secondaryTexture
-#	$TopMesh.mesh = BoxMesh.new()
-#
-#	$TopMesh.mesh.size = newSize
-#	$TopMesh.mesh.size.y = .1
-#	$TopMesh.position.y = newSize.y/2
-#	$TopMesh.material_override.uv1_scale.x = size.x * 2
-#	$TopMesh.material_override.uv1_scale.y = size.z * 2
-	
+
 	updateBorders(borderTexture)
 
 func updateBorders(newBorder):
@@ -77,6 +86,7 @@ func updateBorders(newBorder):
 		for e in range(0, 3):
 			var mesh = BoxMesh.new()
 			var mat = StandardMaterial3D.new()
+			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
 			mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 			mat.albedo_texture = borderTexture
 			match e:

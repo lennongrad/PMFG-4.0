@@ -254,7 +254,7 @@ func _on_Spin_finishedSpinning():
 			"":
 				start_mario_turn(true)
 			"jump":
-				$Mario.attack(load("res://stats/heroattack/jump/firststrike.tres"), enemies[0])
+				$Mario.attack(load("res://stats/heroattack/jump/firststrike.tres"), enemies[enemies.size() - 1])
 			"hammer":
 				$Mario.attack(load("res://stats/heroattack/hammer/firststrike.tres"), null)
 			"enemy":

@@ -80,3 +80,14 @@ res://stats/badges/spikeshield.tres
 res://scenes/battle/backgrounds/forest_dungeon.tscn
 res://stats/battlebackground/forest_dungeon.tres
 res://scenes/battle/backgrounds/water_dungeon_flood.tscn
+res://scripts/battle/enemy_states/enemy_state_ink.gd
+res://stats/enemystats/enemystats_blooper.tres
+res://stats/enemyattack/enemyattack_ink.tres
+res://stats/enemyencounter/enemyencounter_blooper.tres
+res://stats/enemyencounter/enemyencounter_paragoomba.tres
+res://scenes/overworld/stages/stage2.tscn
+res://scripts/overworld/BorderGenerator.gd
+res://scenes/battle/backgrounds/forest_dungeon_flood.tscn
+res://stats/battlebackground/forest_dungeon_flood.tres
+res://scenes/overworld/back_tower.tscn
+res://scenes/overworld/OverworldMenu.tscn

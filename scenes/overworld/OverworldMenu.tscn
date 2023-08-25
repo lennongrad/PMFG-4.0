@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://d1o04oyd0lpnl"]
+[gd_scene load_steps=62 format=3 uid="uid://d1o04oyd0lpnl"]
 
 [ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="2"]
@@ -97,6 +97,11 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_em16g"]
+font_size = 26
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2te8c"]
 
@@ -964,7 +969,7 @@ offset_top = -15.0
 offset_right = 130.5
 offset_bottom = 4.0
 theme_override_fonts/font = SubResource("7")
-label_settings = ExtResource("8_d8q0o")
+label_settings = SubResource("LabelSettings_em16g")
 
 [node name="Background" type="NinePatchRect" parent="Panel/TabContainer/Mario/ItemHeader"]
 texture_filter = 1

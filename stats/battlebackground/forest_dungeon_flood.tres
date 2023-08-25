@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://hdmbj62k0r50"]
+
+[ext_resource type="PackedScene" uid="uid://cexen6lmdprr4" path="res://scenes/battle/backgrounds/forest_dungeon_flood.tscn" id="1_6ipru"]
+[ext_resource type="Script" path="res://stats/battlebackground/battlebackground.gd" id="2_3xuf0"]
+
+[resource]
+script = ExtResource("2_3xuf0")
+background = ExtResource("1_6ipru")
+in_water = true

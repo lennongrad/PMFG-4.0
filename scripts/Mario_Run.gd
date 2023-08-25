@@ -11,7 +11,41 @@ var items = [
 
 #var badges = []
 var badges = [
-	{"badge": load("res://stats/badges/spikeshield.tres"), "active": true},
+	#{"badge": load("res://stats/badges/spikeshield.tres"), "active": true},
+#		# jump
+#	{"active": false, "badge": load("res://stats/badges/multibounce.tres")},
+#	{"active": false, "badge": load("res://stats/badges/powerbounce.tres")},
+#	{"active": false, "badge": load("res://stats/badges/superstomp.tres")},
+#	{"active": false, "badge": load("res://stats/badges/spikeshield.tres")},
+#	{"active": false, "badge": load("res://stats/badges/jumpman.tres")},
+#	# hammer
+#	{"active": false, "badge": load("res://stats/badges/superpound.tres")},
+#	{"active": false, "badge": load("res://stats/badges/quakesmash.tres")},
+#	{"active": false, "badge": load("res://stats/badges/earthbreaker.tres")},
+#	{"active": false, "badge": load("res://stats/badges/hammerman.tres")},
+#	# field effects
+#	{"active": false, "badge": load("res://stats/badges/coinfinder.tres")},
+#	{"active": false, "badge": load("res://stats/badges/heartfinder.tres")},
+#	{"active": false, "badge": load("res://stats/badges/flowerfinder.tres")},
+#	{"active": false, "badge": load("res://stats/badges/itemfinder.tres")},
+#	{"active": false, "badge": load("res://stats/badges/chillout.tres")},
+#	# damage effects
+#	{"active": false, "badge": load("res://stats/badges/strikeplus.tres")},
+#	{"active": false, "badge": load("res://stats/badges/dodgeplus.tres")},
+#	{"active": false, "badge": load("res://stats/badges/attackplus.tres")},
+#	{"active": false, "badge": load("res://stats/badges/defendplus.tres")},
+#	{"active": false, "badge": load("res://stats/badges/chancetaker.tres")},
+#	{"active": false, "badge": load("res://stats/badges/riskavoider.tres")},
+#	{"active": false, "badge": load("res://stats/badges/prettylucky.tres")},
+#	{"active": false, "badge": load("res://stats/badges/closecall.tres")},
+#	# hp/fp
+#	{"active": false, "badge": load("res://stats/badges/hpup.tres")},
+#	{"active": false, "badge": load("res://stats/badges/fpup.tres")},
+#	{"active": false, "badge": load("res://stats/badges/hpdrain.tres")},
+#	{"active": false, "badge": load("res://stats/badges/fpdrain.tres")},
+#	{"active": false, "badge": load("res://stats/badges/happyheart.tres")},
+#	{"active": false, "badge": load("res://stats/badges/happyflower.tres")},
+#	{"active": false, "badge": load("res://stats/badges/flowersaver.tres")},
 ]
 
 var boots = [{"type": load("res://stats/boots/basic.tres"), "name": "Normal Boots", "badges": []}]

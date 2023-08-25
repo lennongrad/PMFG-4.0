@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bol7w10rbg3se"]
+
+[ext_resource type="Resource" uid="uid://bfd27w26ayh0h" path="res://stats/enemystats/enemystats_blooper.tres" id="1_coxh5"]
+[ext_resource type="Script" path="res://stats/enemyencounter/enemyencounter.gd" id="2_vf1cs"]
+
+[resource]
+script = ExtResource("2_vf1cs")
+enemies = [ExtResource("1_coxh5"), ExtResource("1_coxh5")]
+flying = false
+swimming = true
+fly_level = 0.0
+attributes = {}

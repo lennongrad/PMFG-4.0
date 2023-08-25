@@ -7,6 +7,7 @@ func _init():
 		"idle": EnemyIdleState,
 		"jumpattack": EnemyJumpattackState,
 		"swoop": EnemySwoopState,
+		"ink": EnemyInkState,
 		"chargedie": EnemyChargedieState,
 		"walkto": EnemyWalktoState,
 		"walkback": EnemyWalkbackState,

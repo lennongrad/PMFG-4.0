@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://85df7p0gq5bk"]
+
+[ext_resource type="Script" path="res://stats/enemyattack/enemyattack.gd" id="1_j66ch"]
+
+[resource]
+script = ExtResource("1_j66ch")
+steps = Array[String](["ink"])
+attributes = {}
+walkto_distance = 0.0

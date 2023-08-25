@@ -86,6 +86,7 @@ attacks = [ExtResource("1")]
 firstStrikeAttack = ExtResource("1")
 height = 0.32
 flying = true
+spiky = false
 experience = 40
 atlas = ExtResource("1_2m4am")
 tattle_description = "HP: 7. Flying fellers. 

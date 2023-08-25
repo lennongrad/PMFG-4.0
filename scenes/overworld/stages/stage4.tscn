@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c6yg2j7jibka2"]
+[gd_scene load_steps=67 format=3 uid="uid://c6yg2j7jibka2"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_8bdrb"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_a7rkf"]
@@ -14,10 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="12_msb1k"]
 [ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="13_15uv6"]
 [ext_resource type="Resource" uid="uid://cy00lrowo5hqb" path="res://stats/battlebackground/forest_dungeon.tres" id="14_5jch0"]
+[ext_resource type="Resource" uid="uid://xunb8tusi4id" path="res://stats/enemyencounter/enemyencounter_spikedgoomba.tres" id="15_2novs"]
 [ext_resource type="PackedScene" uid="uid://df863juhr461i" path="res://scenes/overworld/GrassWall.tscn" id="15_a2ytt"]
 [ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="15_car55"]
 [ext_resource type="Texture2D" uid="uid://c1opuol7p8ng4" path="res://textures/grass2/dirt1.png" id="16_0owib"]
+[ext_resource type="Resource" uid="uid://hdmbj62k0r50" path="res://stats/battlebackground/forest_dungeon_flood.tres" id="17_26gjx"]
 [ext_resource type="PackedScene" uid="uid://dplhswfuydwwq" path="res://scenes/overworld/OctagonPlatform.tscn" id="17_67nct"]
+[ext_resource type="Resource" uid="uid://clpdq7rdxlehd" path="res://stats/enemyencounter/enemyencounter_paragoomba.tres" id="17_ayp1v"]
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="18_6jfkx"]
 [ext_resource type="Texture2D" uid="uid://b2fo5k44mboh3" path="res://textures/stone2/rimbrick.png" id="19_8tjvq"]
 [ext_resource type="Texture2D" uid="uid://mm5fjfvf4ywj" path="res://textures/stone2/brick4.png" id="20_xyevj"]
@@ -288,7 +291,6 @@ skeleton = NodePath("../../Water")
 [node name="FenceTop" type="MeshInstance3D" parent="Underwater"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.146111, 0.0159998, -4.542)
 mesh = SubResource("QuadMesh_u8g0b")
-skeleton = NodePath("../../Water")
 
 [node name="Pipes" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, 0, 0.177402)
@@ -330,7 +332,7 @@ battle_background = ExtResource("14_5jch0")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.18439, -8.37654, 1.60284)
-encounter_data = ExtResource("13_15uv6")
+encounter_data = ExtResource("15_2novs")
 size = Vector3(9.215, 2.81, 5.485)
 battle_background = ExtResource("14_5jch0")
 
@@ -344,17 +346,17 @@ battle_background = ExtResource("14_5jch0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1807, -6.89342, -0.703012)
 encounter_data = ExtResource("15_car55")
 size = Vector3(8.025, 2.81, 5.485)
-battle_background = ExtResource("14_5jch0")
+battle_background = ExtResource("17_26gjx")
 
 [node name="EnemySpawner6" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.739, -6.89342, 1.8016)
 encounter_data = ExtResource("15_car55")
 size = Vector3(8.025, 2.81, 5.485)
-battle_background = ExtResource("14_5jch0")
+battle_background = ExtResource("17_26gjx")
 
 [node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("12_msb1k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3863, -8.37654, 1.29073)
-encounter_data = ExtResource("13_15uv6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1858, -8.37654, 1.29073)
+encounter_data = ExtResource("17_ayp1v")
 size = Vector3(9.215, 2.81, 5.485)
 battle_background = ExtResource("14_5jch0")
 

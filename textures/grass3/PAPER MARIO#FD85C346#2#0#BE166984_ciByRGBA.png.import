@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/PAPER MARIO#FD85C346#2#0#BE166984_ciByRGBA.pn
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

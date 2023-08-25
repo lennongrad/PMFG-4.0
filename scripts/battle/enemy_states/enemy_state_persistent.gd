@@ -131,7 +131,7 @@ func progress_attack():
 
 func firstStrike():
 	currentAttack = -1
-	progress_attack()
+	attack(mario)
 
 func take_damage(damage, effectiveness, attributes):
 	match effectiveness:

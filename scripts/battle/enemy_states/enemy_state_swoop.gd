@@ -16,7 +16,7 @@ func _ready():
 	self.persistent_state.velocity = Vector3(-2.75, -2.7, 0)
 
 func _physics_process(delta):
-	if persistent_state.position.y > startY and hasCollided:
+	if persistent_state.position.y > startY:
 		self.persistent_state.progress_attack()
 	
 	if hasCollided:

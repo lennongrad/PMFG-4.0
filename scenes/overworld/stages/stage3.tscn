@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://545dcpp0day"]
+[gd_scene load_steps=76 format=3 uid="uid://545dcpp0day"]
 
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="1_eovdm"]
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_qhk7u"]
@@ -24,7 +24,9 @@
 [ext_resource type="Resource" uid="uid://cy00lrowo5hqb" path="res://stats/battlebackground/forest_dungeon.tres" id="18_u0o7n"]
 [ext_resource type="Texture2D" uid="uid://b0dw5ka3dolg3" path="res://textures/grass/bush12.png" id="19_5tahs"]
 [ext_resource type="Texture2D" uid="uid://dggdwlx4tyeiy" path="res://textures/grass/bush1.png" id="19_5vq8x"]
+[ext_resource type="Resource" uid="uid://clpdq7rdxlehd" path="res://stats/enemyencounter/enemyencounter_paragoomba.tres" id="19_fc6e7"]
 [ext_resource type="Resource" uid="uid://72ugc5m4mq8n" path="res://stats/enemyencounter/enemyencounter_hypergoomba.tres" id="19_gve47"]
+[ext_resource type="Resource" uid="uid://xunb8tusi4id" path="res://stats/enemyencounter/enemyencounter_spikedgoomba.tres" id="21_wtn8m"]
 [ext_resource type="Texture2D" uid="uid://coaft3rswk3ox" path="res://textures/grass/tree1.png" id="23_wr3uo"]
 [ext_resource type="Texture2D" uid="uid://buwnh77v78mod" path="res://textures/grass/bush2.png" id="24_tqhfa"]
 [ext_resource type="PackedScene" uid="uid://yogyipjj3hl3" path="res://scenes/overworld/Fence.tscn" id="25_bn1wj"]
@@ -252,7 +254,13 @@ shadow_enabled = true
 [node name="BackCamera" parent="." instance=ExtResource("2_hif68")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.5073, -0.711784, -0.319577)
 fov = 93.3143
-bounds_size = Vector3(8.83, 5.29, 20.57)
+bounds_size = Vector3(9.415, 6.02, 20.57)
+
+[node name="BackCamera3" parent="." instance=ExtResource("2_hif68")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.6788, -5.04018, -2.38499)
+fov = 93.3143
+bounds_size = Vector3(5.225, 4.06, 6.67)
+bounds_offset = Vector3(0, 0, -4.075)
 
 [node name="BackCamera2" parent="." instance=ExtResource("2_hif68")]
 transform = Transform3D(-2.17779e-07, -0.0842866, 0.996442, -1.84214e-08, 0.996442, 0.0842866, -1, 0, -2.18557e-07, 30.8298, -3.96177, -6.75235)
@@ -358,14 +366,20 @@ uvScale = Vector2(1, 1)
 [node name="BorderMesh" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.432175, 0.655016, -0.619821, -0.791555, 0.604835, 0.0872605, 0.432047, 0.452911, 0.779876, 36.774, -4.26563, -3.94226)
 size = Vector3(1.5, 6, 1.5)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh2" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -2.69898, -5.19339)
 size = Vector3(1.5, 6, 1.5)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh9" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -1.93543, -5.19339)
 size = Vector3(1, 6, 1)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="Pyramid" parent="Floors/BorderMesh9" instance=ExtResource("7_1fus4")]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 2.81757, 0)
@@ -373,22 +387,32 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 2.81757, 0)
 [node name="BorderMesh4" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -0.549656, -8.13552)
 size = Vector3(1, 1, 6)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh6" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2706, 1.76887, -10.6285)
 size = Vector3(8, 14, 6)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh5" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.718592, -0.183013, -0.670919, 0.00439056, 0.965926, -0.258782, 0.695419, 0.183013, 0.69491, 25.9374, -5.81641, -2.35703)
 size = Vector3(1, 1, 3)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh7" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.718592, -0.183013, -0.670919, 0.00439056, 0.965926, -0.258782, 0.695419, 0.183013, 0.69491, 25.9374, -5.81641, -2.35703)
 size = Vector3(1, 1, 3)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="BorderMesh8" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(-0.174764, 0.434435, -0.883586, -0.788152, 0.476149, 0.389998, 0.590147, 0.764557, 0.259187, 33.2815, -6.0269, 0.581745)
 size = Vector3(1, 3, 1)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="Pyramid" parent="Floors/BorderMesh8" instance=ExtResource("7_1fus4")]
 transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, 2.98023e-08, 1, 9.53674e-07, 1.44915, 0)
@@ -396,6 +420,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, 2.98023e-08, 1, 9.53674e-
 [node name="BorderMesh3" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2706, -5.71062, -7.01267)
 size = Vector3(8, 1, 5)
+size_moderation_main = null
+size_moderation_secondary = null
 
 [node name="InvisibleStopper" type="StaticBody3D" parent="Floors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6866, -3.504, 1.08847)
@@ -732,12 +758,10 @@ size = Vector2(2.5, 16)
 [node name="FenceTop" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 27.3492, -4.96886, -6.77893)
 mesh = SubResource("QuadMesh_xc4me")
-skeleton = NodePath("../../Water")
 
 [node name="FenceTop2" type="MeshInstance3D" parent="Walls/FenceTop"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("QuadMesh_xc4me")
-skeleton = NodePath("../../Water")
 
 [node name="EnemySpawners" type="Node3D" parent="."]
 transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.173813, 0, 0.177402)
@@ -749,14 +773,20 @@ size = Vector3(8.66, 1.91, 5.89)
 battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3598, -5.62254, -2.69364)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7308, -5.62254, -3.40547)
 encounter_data = ExtResource("17_casox")
+size = Vector3(8.66, 1.91, 7.065)
+battle_background = ExtResource("18_u0o7n")
+
+[node name="EnemySpawner6" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0455, -5.62254, -2.48052)
+encounter_data = ExtResource("21_wtn8m")
 size = Vector3(8.66, 1.91, 7.065)
 battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner4" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3334, -5.58023, -0.160708)
-encounter_data = ExtResource("17_casox")
+encounter_data = ExtResource("19_fc6e7")
 size = Vector3(8.66, 1.91, 7.065)
 battle_background = ExtResource("18_u0o7n")
 
@@ -767,8 +797,8 @@ size = Vector3(1.92, 1.91, 2.305)
 battle_background = ExtResource("18_u0o7n")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("5_u8jns")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14641, -4.22036, -3.33489)
-encounter_data = ExtResource("17_casox")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14641, -4.22036, -3.56868)
+encounter_data = ExtResource("21_wtn8m")
 size = Vector3(8.66, 1.91, 3.765)
 battle_background = ExtResource("18_u0o7n")
 
@@ -2059,6 +2089,11 @@ distance = 1.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6201, -2.0308, 0.0379662)
 coin_count = 3
 distance = 1.1
+
+[node name="QuestionBlock4" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9916, -5.51669, 2.82528)
+coin_count = 3
+distance = 0.0
 
 [node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("31_d3ymj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31006, -4.80092, 2.7694)

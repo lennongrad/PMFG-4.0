@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="8_ird3d"]
 [ext_resource type="Resource" uid="uid://chmw5u6fu5gci" path="res://stats/enemyencounter/enemyencounter_spikedgloomba.tres" id="9_337rc"]
 [ext_resource type="Resource" uid="uid://5dcf42ueqmq2" path="res://stats/enemyencounter/enemyencounter_paragloomba.tres" id="9_whuj2"]
+[ext_resource type="Resource" uid="uid://bol7w10rbg3se" path="res://stats/enemyencounter/enemyencounter_blooper.tres" id="11_kcj76"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="12_3icoq"]
 [ext_resource type="PackedScene" uid="uid://ftpb0min3mkg" path="res://scenes/overworld/PipeInto.tscn" id="15_lwvfu"]
 [ext_resource type="PackedScene" uid="uid://bd4k1endoxmow" path="res://scenes/overworld/PipeExit.tscn" id="16_ojxoo"]
 [ext_resource type="PackedScene" uid="uid://bxsxj2wuxccfx" path="res://scenes/overworld/Waterfall.tscn" id="17_n750c"]
 [ext_resource type="PackedScene" uid="uid://7jyhncbxvlqk" path="res://scenes/overworld/EnemySpawner.tscn" id="18_bjuso"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="20_u4vfg"]
-[ext_resource type="Resource" path="res://stats/enemyencounter/enemyencounter_cheepcheep.tres" id="21_mxwhq"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="22_8xucm"]
 
 [sub_resource type="Sky" id="1"]
@@ -336,13 +336,13 @@ battle_background = ExtResource("20_u4vfg")
 
 [node name="EnemySpawner3" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51462, 0.283109, 2.62931)
-encounter_data = ExtResource("21_mxwhq")
+encounter_data = ExtResource("11_kcj76")
 size = Vector3(13.835, 3.575, 7.48)
 battle_background = ExtResource("22_8xucm")
 
 [node name="EnemySpawner5" parent="EnemySpawners" instance=ExtResource("18_bjuso")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5986, 0.283109, 3.56592)
-encounter_data = ExtResource("21_mxwhq")
+encounter_data = ExtResource("11_kcj76")
 size = Vector3(8.965, 3.575, 4.6)
 battle_background = ExtResource("22_8xucm")
 

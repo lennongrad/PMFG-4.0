@@ -1,0 +1,141 @@
+[gd_resource type="Resource" load_steps=17 format=3 uid="uid://bfd27w26ayh0h"]
+
+[ext_resource type="Texture2D" uid="uid://ecgmos3i3s0m" path="res://textures/redshyguy/atlassketch.png" id="1_1fghf"]
+[ext_resource type="Resource" uid="uid://85df7p0gq5bk" path="res://stats/enemyattack/enemyattack_ink.tres" id="2_j6bm3"]
+[ext_resource type="Resource" uid="uid://vuwgbrsligpu" path="res://stats/enemyattack/enemyattack_jumpattack.tres" id="2_ptvp1"]
+[ext_resource type="Texture2D" uid="uid://byguljbhsuq6v" path="res://textures/blooper.png" id="3_2hbxr"]
+[ext_resource type="Script" path="res://stats/enemystats/enemystats.gd" id="4_ptlpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrern"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mmdt"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euwbh"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmvge"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjkby"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7fye"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfr0n"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptxp4"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo8hg"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxfgl"]
+atlas = ExtResource("3_2hbxr")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wewsf"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nrern")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mmdt")
+}],
+"loop": true,
+"name": &"Dying",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euwbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmvge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mmdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjkby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mmdt")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_c7fye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfr0n")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfr0n")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xjkby")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_nrern")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptxp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo8hg")
+}],
+"loop": false,
+"name": &"Squirt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_hfr0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxfgl")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ptxp4")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("4_ptlpu")
+health = 6
+frames = SubResource("SpriteFrames_wewsf")
+name = "Blooper"
+attacks = [ExtResource("2_j6bm3")]
+firstStrikeAttack = ExtResource("2_ptvp1")
+height = 0.32
+flying = false
+spiky = false
+experience = 30
+atlas = ExtResource("1_1fghf")
+tattle_description = "HP: 6. These sticky soldiers put up a slippery fight; be prepared to get inked like printer paper."
+attributes = {}
