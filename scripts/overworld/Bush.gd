@@ -16,6 +16,7 @@ func update_wiggle(wiggle):
 func _process(delta):
 	$Exclamation.rotate(Vector3.UP, delta * 4)
 	if Input.is_action_just_pressed("jump") and $Exclamation.visible:
+		$SFX.play("Rustle", false)
 		wiggle_timer = 31
 		if not has_been_shook:
 			has_been_shook = true
@@ -23,7 +24,7 @@ func _process(delta):
 			for _i in range(0, coin_count):
 				var coin = load("res://scenes/overworld/OverworldCoin.tscn").instantiate()
 				$"../../..".add_child(coin)
-				coin.position = position + Vector3(0, .5, -.2)
+				coin.position = position + Vector3(0, .5, .2)
 	
 	wiggle_timer -= 1
 	update_wiggle(wiggle_timer > 0)

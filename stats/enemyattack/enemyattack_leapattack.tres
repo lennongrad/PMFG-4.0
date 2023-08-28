@@ -8,3 +8,4 @@ steps = Array[String](["walkto", "jumpattack", "walkback"])
 attributes = {
 "go_past": true
 }
+walkto_distance = 0.0

@@ -25,6 +25,7 @@ func _ready():
 	self.interpolate_property(hero, "position", hero.get_home_position() + Vector3(.3,0,0), 2.5)
 
 func _process(_delta):
+	sfx.play("Footsteps", false)
 	if first_go:
 		particles_count += 1
 		if Input.is_action_just_pressed("jump"):

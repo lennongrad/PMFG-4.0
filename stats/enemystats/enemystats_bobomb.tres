@@ -333,6 +333,7 @@ attacks = [ExtResource("2_8n6p6"), ExtResource("3_gye65")]
 firstStrikeAttack = ExtResource("2_8n6p6")
 height = 0.32
 flying = false
+spiky = false
 experience = 40
 atlas = ExtResource("1_r12cv")
 tattle_description = "HP: 5. Bombastic fellers. Don't get on their angry side! They have a firery temperment."

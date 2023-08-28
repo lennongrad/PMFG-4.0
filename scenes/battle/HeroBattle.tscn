@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://civqh7gvslnr4"]
+[gd_scene load_steps=99 format=3 uid="uid://civqh7gvslnr4"]
 
 [ext_resource type="Resource" uid="uid://cnne0bihla83e" path="res://stats/herostats/mario.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/battle/mario_states/mario_state_persistent.gd" id="2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://gl6flrha6303" path="res://particles/smoke_bright.png" id="23_10yeu"]
 [ext_resource type="Texture2D" uid="uid://dte7nxbixaua4" path="res://textures/fireflower.png" id="24_76jp5"]
 [ext_resource type="Texture2D" uid="uid://cql8qbhh8e8w2" path="res://textures/fireflower_ball.png" id="25_gisnw"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="27_p5r8u"]
 [ext_resource type="PackedScene" uid="uid://gy264ejqrfhj" path="res://scenes/battle/Hammerlight.tscn" id="36"]
 [ext_resource type="Texture2D" uid="uid://brkylv5e1m6x" path="res://sprites/UI/exclamation.png" id="39"]
 
@@ -744,5 +745,7 @@ transform = Transform3D(0.999976, -0.00698126, 0, 0.00698126, 0.999976, 0, 0, 0,
 cast_shadow = 3
 mesh = SubResource("SphereMesh_5b8l2")
 skeleton = NodePath("../../..")
+
+[node name="SFX" parent="." instance=ExtResource("27_p5r8u")]
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_Area_area_entered"]

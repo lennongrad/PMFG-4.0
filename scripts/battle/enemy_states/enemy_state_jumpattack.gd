@@ -12,6 +12,7 @@ var lastDodgeInput = 0
 func _ready(): 
 	self.persistent_state.position.z += .1
 	self.persistent_state.velocity.y += 2.5
+	sfx.play("Jump")
 	self.persistent_state.animated_sprite.play("Rise")
 	self.persistent_state.get_node("Circles").emitting = false
 
@@ -59,6 +60,7 @@ func area_body_entered(body):
 	if body == persistent_state.current_target.get_node("Area3D") and not hasCollided:
 		hasCollided = true
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
+		sfx.play("EnemyHit")
 		if lastDodgeInput < 10:
 			self.persistent_state.register_damage(persistent_state.current_target, 1, "NICE")
 		else:
@@ -66,5 +68,9 @@ func area_body_entered(body):
 	if body == self.floorMesh:
 		self.persistent_state.velocity = Vector3.ZERO
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
-		self.persistent_state.get_node("Circles").emitting = self.persistent_state.in_water()
+		if persistent_state.in_water():
+			sfx.play("Splash")
+			self.persistent_state.get_node("Circles").emitting = true
+		else:
+			sfx.play("Land")
 		self.persistent_state.progress_attack()

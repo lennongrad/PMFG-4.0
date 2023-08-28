@@ -16,9 +16,11 @@ func _process(_delta):
 		if hero.in_water():
 			hero.get_node("Sprite2D").play("Swim")
 		else:
+			sfx.play("Footsteps", false)
 			hero.get_node("Sprite2D").play("Walk")
 		return
 	
+	sfx.stop("Footsteps")
 	if hero.in_water():
 		hero.get_node("Circles").visible = true
 	else:

@@ -14,6 +14,9 @@ var item_type
 
 @export var coin_count: int
 
+func get_player():
+	return $"../../../../Player"
+
 func _ready():
 	item_type = $"/root/MarioRun".get_random_item(1, .25, .5)
 	if (item_type != null and item_type.is_badge):
@@ -47,7 +50,7 @@ func _process(_delta):
 				given_item = true
 				var item = load("res://scenes/overworld/OverworldItem.tscn").instantiate()
 				item.item = item_type
-				item.player = $"../../../../Player"
+				item.player = get_player()
 				$"../../..".add_child(item)
 				item.connect("collected", Callable($"../../../..", "collected_item"))
 				item.position = original_translation + Vector3(0, .33 + translation_y, 0)
@@ -66,6 +69,7 @@ func _process(_delta):
 			activated = false
 
 func start_timer():
+	get_player().get_node("SFX").play("Bonk")
 	if not activated:
 		timer = 0.0
 		for block in blocks:
@@ -77,11 +81,11 @@ func start_timer():
 func _on_Area_body_entered(body):
 	if is_decoration:
 		return
-	if body == $"../../../../Player": #and body.velocity.y > 0:
+	if body == get_player(): #and body.velocity.y > 0:
 		start_timer()
 
 func _on_Area_area_entered(area):
 	if is_decoration:
 		return
-	if area == $"../../../../Player".get_node("HammerArea"):
+	if area == get_player().get_node("HammerArea"):
 		start_timer()

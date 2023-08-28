@@ -6,3 +6,4 @@
 script = ExtResource("1")
 steps = Array[String](["walkto", "jumpattack", "down", "walkback"])
 attributes = {}
+walkto_distance = 0.0

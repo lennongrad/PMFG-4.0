@@ -79,6 +79,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if paused:
+		$Status.unhide()
 		return
 	for entity in need_player_position:
 		entity.pass_player(player)
@@ -161,12 +162,21 @@ func collected_item(item):
 	get_node("/root/MarioRun").add_item(item)
 	$Player.collect_item(item)
 
+func open_shop(keeper):
+	if not paused:
+		emit_signal("pause")
+		paused = true
+		$ShopMenu.start_menu(keeper)
+
 func open_menu():
-	emit_signal("pause")
-	$OverworldMenu.start_menu()
+	if not paused:
+		emit_signal("pause")
+		paused = true
+		$OverworldMenu.start_menu()
 
 func close_menu():
 	emit_signal("unpause")
+	paused = false
 	$Player.end_menu()
 
 func start_pipe():

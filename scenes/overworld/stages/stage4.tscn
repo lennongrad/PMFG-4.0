@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://c6yg2j7jibka2"]
+[gd_scene load_steps=68 format=3 uid="uid://c6yg2j7jibka2"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Stage.gd" id="1_8bdrb"]
 [ext_resource type="Texture2D" uid="uid://2eyu1tpt70bq" path="res://textures/background-bright.png" id="2_a7rkf"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://duxy5erta1bpx" path="res://scenes/overworld/QuestionBlock.tscn" id="33_jcsbs"]
 [ext_resource type="PackedScene" uid="uid://d0psgji3r8243" path="res://scenes/overworld/CoinRow.tscn" id="35_r80r3"]
 [ext_resource type="PackedScene" uid="uid://djkn8bkgnhrcg" path="res://scenes/overworld/Bush.tscn" id="36_d3m4c"]
+[ext_resource type="PackedScene" uid="uid://baaj20w7ro4ha" path="res://scenes/overworld/shopkeeper.tscn" id="40_alyj4"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyce"]
 panorama = ExtResource("2_a7rkf")
@@ -1128,6 +1129,9 @@ transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501
 
 [node name="Bush5" parent="Bushes" instance=ExtResource("36_d3m4c")]
 transform = Transform3D(0.999501, 0, 0.0315852, 0, 1, 0, -0.0315852, 0, 0.999501, 35.7741, -8.57032, -0.00419116)
+
+[node name="Shopkeeper" parent="." instance=ExtResource("40_alyj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613325, -8.07224, -0.877488)
 
 [connection signal="body_entered" from="Water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="." method="_on_water_body_exited"]

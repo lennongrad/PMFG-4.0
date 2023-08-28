@@ -269,6 +269,7 @@ attacks = [ExtResource("1"), ExtResource("2")]
 firstStrikeAttack = ExtResource("2")
 height = 0.32
 flying = false
+spiky = false
 experience = 40
 atlas = ExtResource("9")
 tattle_description = "HP: 4. Masked fellers.

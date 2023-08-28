@@ -47,11 +47,13 @@ func start_menu():
 	menu_state = MenuState.NONE
 	chosen_badges()
 	$Panel/Buttons/Mario.grab_focus()
+	$SFX.play("Menu/In")
 	active = true
 	global_timer = 0
 
 func end_menu():
 	active = false
+	$SFX.play("Menu/Out")
 	$"..".close_menu()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,6 +71,14 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("menu") and global_timer > 10:
 		end_menu()
+	
+	if (Input.is_action_just_pressed("ui_up") 
+		or Input.is_action_just_pressed("ui_down") 
+		or Input.is_action_just_pressed("ui_left") 
+		or Input.is_action_just_pressed("ui_right")):
+		$SFX.play("Menu/Move")
+	if Input.is_action_just_pressed("jump"):
+		$SFX.play("Menu/Option")
 	
 	for e in range(0, tabs.size()):
 		if $Panel/TabContainer.current_tab != e:

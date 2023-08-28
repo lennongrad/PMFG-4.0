@@ -102,7 +102,11 @@ func _physics_process(delta):
 		self.hero.velocity = Vector3.ZERO
 		hero.get_node("Sprite2D").rotation_degrees.z = 0
 		hero.position.y = 0
-		hero.get_node("Circles").emitting = hero.in_water()
+		if hero.in_water():
+			sfx.play("Splash")
+			hero.get_node("Circles").emitting = hero.in_water()
+		else:
+			sfx.play("Land")
 		hero.progress_attack()
 
 func area_body_entered(body):
@@ -148,5 +152,6 @@ func tween_completed():
 	self.hero.velocity.x = horizontal_velocity
 	self.hero.velocity.y = (gravity / 2) * distance / horizontal_velocity + enemyTopHeight / distance * horizontal_velocity;
 	jumpsquat = false
+	sfx.play("Jump")
 	if hero.in_water():
 		hero.get_node("WaterParticles").play()

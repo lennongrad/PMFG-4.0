@@ -18,7 +18,7 @@ var texture_width = 136
 var texture_height = 26
 var extra_height = texture_height
 
-var timer = 1000
+var timer = 100
 
 #
 #[ 0 1 2 
@@ -58,9 +58,11 @@ func do_input(direction, check_for_win):
 	if adj == null:
 		return null
 	swap(index, adj)
+	$SFX.play("Menu/Move")
 	if check_for_win:
 		if check_win():
 			has_won = true
+			$SFX.play("Correct")
 	return adj
 
 func check_win():
@@ -90,6 +92,8 @@ func is_solvable(f_puzzle_size, empty_row):
 
 func _ready():
 	randomize()
+	
+	$SFX.play("Menu/In")
 	
 	$Tape1.modulate.a = 0
 	$Tape2.modulate.a = 0
@@ -143,6 +147,7 @@ func _process(delta):
 	
 	if has_started_dialog:
 		if Input.is_action_just_pressed("jump"):
+			$SFX.play("Menu/Option")
 			emit_signal("finished_win")
 			has_paused = true
 	elif has_won:
@@ -157,6 +162,7 @@ func _process(delta):
 			
 			if $Tape1.modulate.a  > .99 and not has_started_dialog:
 				has_started_dialog = true
+				$SFX.play("Sparkle")
 				$Book/Title.text = enemy_name
 				$Book/RichTextLabel.text = " ".join(enemy_tattle.split("\n"))
 				$Book/MoveText.set_active(true)

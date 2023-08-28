@@ -153,6 +153,8 @@ func take_damage(damage, effectiveness, attributes):
 	add_child(starDamageDisplay)
 	health -= damage
 	
+	$SFX.play("EnemyHit")
+	
 	if stats.attributes.has("angry") and not is_angry:
 		is_angry = true
 		if stats.secondary_frames != null:
@@ -171,6 +173,7 @@ func death_check():
 # this whole situation sucks.
 func die():
 	if not currentlyDying:
+		$SFX.play("Death")
 		currentlyDying = true
 		change_state("dying")
 		if battleTag != null:

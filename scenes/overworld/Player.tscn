@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ds1tf2gdnpfne"]
+[gd_scene load_steps=62 format=3 uid="uid://ds1tf2gdnpfne"]
 
 [ext_resource type="SpriteFrames" uid="uid://bnnpynq8x6hsv" path="res://textures/mario/_frames.tres" id="1"]
 [ext_resource type="Script" path="res://scripts/overworld/Player.gd" id="2"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://chrwhnjtqyfyc" path="res://particles/circle_01.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://bycxt4bc2o1gp" path="res://textures/ui/controlstick.png" id="15"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="16_sadjj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a3m0e"]
 height = 0.511256
@@ -423,6 +424,7 @@ mesh = SubResource("41")
 
 [node name="Hammer" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(-1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -0.116554, 0.232203, -0.04)
+pixel_size = 0.0115
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = ExtResource("3")
@@ -477,5 +479,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="SFX" parent="." instance=ExtResource("16_sadjj")]
 
 [connection signal="body_entered" from="HammerArea" to="." method="_on_HammerArea_body_entered"]

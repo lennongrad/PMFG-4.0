@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://gy264ejqrfhj"]
+[gd_scene load_steps=16 format=3 uid="uid://gy264ejqrfhj"]
 
 [ext_resource type="Texture2D" uid="uid://o8liai85g0ws" path="res://sprites/UI/hammerlight.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://b2eospotfrebc" path="res://sprites/UI/smalllight.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cyh0fpbctux4u" path="res://sprites/UI/biglight.png" id="3"]
 [ext_resource type="Script" path="res://scripts/battle/Hammerlight.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="5_qgtl7"]
 
 [sub_resource type="AtlasTexture" id="3"]
 atlas = ExtResource("2")
@@ -199,3 +200,5 @@ position = Vector2(106.003, 17.5521)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("10")
 animation = &"active"
+
+[node name="SFX" parent="." instance=ExtResource("5_qgtl7")]

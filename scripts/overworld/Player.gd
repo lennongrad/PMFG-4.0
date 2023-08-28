@@ -87,6 +87,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_down"):
 		if over_pipe_timer > 15 and over_pipe:
+			$SFX.play("Pipe")
 			state = PLAYER_STATE.EXIT
 			$"..".start_exit()
 			position.x = pipe_position_exit.x
@@ -118,6 +119,8 @@ func _physics_process(delta):
 			$AnimatedSprite3D.play("LookDown")
 
 	if is_on_floor():
+		if jump_timer > 4:
+			$SFX.play("Land", false)
 		jump_timer = 0
 		
 		var space = get_world_3d().direct_space_state
@@ -128,7 +131,6 @@ func _physics_process(delta):
 				last_ground_position.append(position)
 				if last_ground_position.size() > 5:
 					last_ground_position.pop_front()
-		
 		
 		is_wall_sliding = false
 		last_height = position.y
@@ -153,6 +155,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("jump") and not by_bush and (
 			(state == PLAYER_STATE.CONTROL or state == PLAYER_STATE.SPINNING)):
+			$SFX.play("Jump")
 			jump_timer = -6
 			velocity.y += effective_jump_power
 			shouldSnap = false
@@ -174,6 +177,7 @@ func _physics_process(delta):
 				state = PLAYER_STATE.SPINNING
 				last_direction = velocity.normalized()
 				spin_timer = 30
+				$SFX.play("Spinning")
 			if Input.is_action_just_pressed("back") and not is_in_water:
 				state = PLAYER_STATE.HAMMER
 				hammer_timer = 0
@@ -237,7 +241,9 @@ func _physics_process(delta):
 			PLAYER_STATE.CONTROL:
 				if spin_timer < 0:
 					spin_timer += 1
+				
 				if horizontalVelocity.length() > 0.01:
+					$SFX.play("Footsteps", false)
 					var effective_speed = current_speed
 					if is_in_water:
 						effective_speed *= .5
@@ -269,6 +275,7 @@ func _physics_process(delta):
 						if spriteRotation > 0:
 							spriteRotation = max(0, spriteRotation - delta * 2000)
 				else:
+					$SFX.stop("Footsteps")
 					if is_in_water:
 						$AnimatedSprite3D.play("Swim")
 					else:
@@ -288,6 +295,9 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("menu"):
 					state = PLAYER_STATE.MENU
 					$"..".open_menu()
+				if Input.is_action_just_pressed("test"):
+					state = PLAYER_STATE.MENU
+					$"..".open_shop(null)
 			PLAYER_STATE.DOWN:
 				down_timer += 1
 				$AnimatedSprite3D.play("Down")
@@ -296,8 +306,9 @@ func _physics_process(delta):
 					state = PLAYER_STATE.CONTROL
 			PLAYER_STATE.HAMMER:
 				$Hammer.visible = true
-				hammer_timer += 1
+				hammer_timer += .75
 				if hammer_timer < 2:
+					$SFX.play("Swing")
 					$Hammer.rotation_degrees.z = 0
 					if is_diag:
 						$AnimatedSprite3D.play("DiagPreparation")
@@ -345,6 +356,7 @@ func _physics_process(delta):
 					$Hammer.position = Vector3(.183, .268, -.04)
 					$HammerArea.play()
 					get_viewport().get_camera_3d().shake()
+					$SFX.play("Thud")
 				elif hammer_timer < 30:
 					if hammer_timer > 12:
 						$HammerArea/CollisionShape3D.disabled = true
@@ -354,7 +366,7 @@ func _physics_process(delta):
 						else:
 							$Hammer.play("Slam")
 							$AnimatedSprite3D.play("Impact2")
-						$Hammer.position = Vector3(.143, .3, -.04)
+						$Hammer.position = Vector3(.143, .35, -.04)
 					else:
 						$Hammer.rotation_degrees.z = 90
 						if is_diag:
@@ -374,6 +386,7 @@ func _physics_process(delta):
 					if $Hammer.rotation_degrees.z > 0:
 						$Hammer.rotation_degrees.z *= -1
 	else:
+		$SFX.stop("Footsteps")
 		jump_timer += 1
 		match state:
 			PLAYER_STATE.SPINNING:
@@ -450,6 +463,10 @@ func _physics_process(delta):
 						spriteRotation = 0
 				horizontalVelocity = horizontalVelocity.rotated(deg_to_rad(-rotation_degrees.y))
 				velocity = Vector3(horizontalVelocity.x, velocity.y, horizontalVelocity.y)
+	
+	if state != PLAYER_STATE.SPINNING:
+		$SFX.stop("Spinning")
+	
 	if dont_snap_next_frame:
 		dont_snap_next_frame = false
 		shouldSnap = false
@@ -497,6 +514,7 @@ func start_pipe():
 	visible = false
 
 func _on_finished_growing():
+	$SFX.play("Explosion")
 	after_growing = true
 	velocity.y = 6
 	velocity.x = 14
@@ -511,6 +529,7 @@ func update_hammer(type):
 
 func collect_item(item):
 	state = PLAYER_STATE.ITEM
+	$SFX.play("Triumphant")
 	$ItemGet.set_item(item)
 	item_timer = 0
 	$Checkers.visible = true
@@ -538,6 +557,7 @@ func play_hurt():
 
 func enter_water(y_position):
 	is_in_water = true
+	$SFX.play("Splash")
 	$WaterParticles.set_global_position(Vector3(
 		$WaterParticles.global_position.x, 
 		y_position - .2, 
@@ -546,6 +566,7 @@ func enter_water(y_position):
 
 func exit_water(y_position):
 	is_in_water = false
+	$SFX.play("Splash")
 	$WaterParticles.set_global_position(Vector3(
 		$WaterParticles.global_position.x, 
 		y_position - .2, 
@@ -553,6 +574,7 @@ func exit_water(y_position):
 	$WaterParticles.play()
 
 func collected_coin(type="coin"):
+	$SFX.play("Coin")
 	$"../Status".unhide()
 	match type:
 		"coin":

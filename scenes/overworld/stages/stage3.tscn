@@ -255,6 +255,7 @@ shadow_enabled = true
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.5073, -0.711784, -0.319577)
 fov = 93.3143
 bounds_size = Vector3(9.415, 6.02, 20.57)
+bounds_offset = Vector3(0.52, 0, 0)
 
 [node name="BackCamera3" parent="." instance=ExtResource("2_hif68")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 33.6788, -5.04018, -2.38499)
@@ -366,20 +367,14 @@ uvScale = Vector2(1, 1)
 [node name="BorderMesh" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.432175, 0.655016, -0.619821, -0.791555, 0.604835, 0.0872605, 0.432047, 0.452911, 0.779876, 36.774, -4.26563, -3.94226)
 size = Vector3(1.5, 6, 1.5)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh2" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -2.69898, -5.19339)
 size = Vector3(1.5, 6, 1.5)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh9" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -1.93543, -5.19339)
 size = Vector3(1, 6, 1)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="Pyramid" parent="Floors/BorderMesh9" instance=ExtResource("7_1fus4")]
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 2.81757, 0)
@@ -387,32 +382,22 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 2.81757, 0)
 [node name="BorderMesh4" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.0602, -0.549656, -8.13552)
 size = Vector3(1, 1, 6)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh6" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2706, 1.76887, -10.6285)
 size = Vector3(8, 14, 6)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh5" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.718592, -0.183013, -0.670919, 0.00439056, 0.965926, -0.258782, 0.695419, 0.183013, 0.69491, 25.9374, -5.81641, -2.35703)
 size = Vector3(1, 1, 3)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh7" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(0.718592, -0.183013, -0.670919, 0.00439056, 0.965926, -0.258782, 0.695419, 0.183013, 0.69491, 25.9374, -5.81641, -2.35703)
 size = Vector3(1, 1, 3)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="BorderMesh8" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(-0.174764, 0.434435, -0.883586, -0.788152, 0.476149, 0.389998, 0.590147, 0.764557, 0.259187, 33.2815, -6.0269, 0.581745)
 size = Vector3(1, 3, 1)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="Pyramid" parent="Floors/BorderMesh8" instance=ExtResource("7_1fus4")]
 transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, 2.98023e-08, 1, 9.53674e-07, 1.44915, 0)
@@ -420,8 +405,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 4.47035e-08, 0, 2.98023e-08, 1, 9.53674e-
 [node name="BorderMesh3" parent="Floors" instance=ExtResource("6_f6ygb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2706, -5.71062, -7.01267)
 size = Vector3(8, 1, 5)
-size_moderation_main = null
-size_moderation_secondary = null
 
 [node name="InvisibleStopper" type="StaticBody3D" parent="Floors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6866, -3.504, 1.08847)

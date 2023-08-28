@@ -21,7 +21,8 @@ func _ready():
 	#	hero.position, enemyPosition, .5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	
 func tween_completed():
+	sfx.stop("Footsteps")
 	hero.progress_attack()
 
 func _physics_process(_delta):
-	pass
+	sfx.play("Footsteps", false)

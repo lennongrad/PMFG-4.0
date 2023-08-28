@@ -117,6 +117,7 @@ attacks = [ExtResource("2_dskqt")]
 firstStrikeAttack = ExtResource("2_dskqt")
 height = 0.32
 flying = false
+spiky = false
 experience = 5
 atlas = ExtResource("1_515jc")
 tattle_description = "HP: 2. Metallic meanies. They lack a sense of self-preservation."

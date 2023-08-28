@@ -114,6 +114,7 @@ attacks = [ExtResource("2_on5b5")]
 firstStrikeAttack = ExtResource("2_on5b5")
 height = 0.32
 flying = true
+spiky = false
 experience = 30
 atlas = ExtResource("1_5wgio")
 tattle_description = "HP: 4. A winged warrior of the Bowser army who will deftly dodge your groundborne hammer attacks."

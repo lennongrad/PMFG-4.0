@@ -201,6 +201,7 @@ attacks = [ExtResource("2_hy37e")]
 firstStrikeAttack = ExtResource("2_hy37e")
 height = 0.32
 flying = false
+spiky = false
 experience = 80
 atlas = ExtResource("1_me211")
 tattle_description = "HP: 9. Super tough minions of Bowser. They can charge up their attack power at will."

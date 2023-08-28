@@ -14,7 +14,8 @@ func _ready():
 	self.interpolate_property(self.persistent_state, "position", marioPosition, 1)
 	
 func tween_completed():
+	sfx.stop("Footsteps")
 	self.persistent_state.progress_attack()
 
 func _physics_process(_delta):
-	pass
+	sfx.play("Footsteps", false)

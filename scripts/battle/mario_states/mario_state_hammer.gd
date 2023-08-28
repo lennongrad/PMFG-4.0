@@ -23,7 +23,6 @@ func _ready():
 func finish():
 	hero.get_node("Hammer").visible = false
 	hero.progress_attack()
-	hero.get_node("HammerLight").deactivate()
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left") and not holdingDown and not brokeHold:
@@ -58,14 +57,17 @@ func _physics_process(_delta):
 			hero.get_node("Sprite2D").play("HoldHammer1")
 			hero.get_node("Hammer").position = Vector3(-.155, .405, -.04)
 		elif animationCountdown < 13:
+			sfx.play("Swing", false)
 			hero.get_node("Hammer").play("SidewaysBlur")
 			hero.get_node("Sprite2D").play("Impact1")
 			hero.get_node("Hammer").position = Vector3(.183, .268, -.04)
 		elif animationCountdown == 13:
+			sfx.play("Thud", false)
 			hero.unfocus_camera()
 			var damage = $"/root/MarioRun".get_equipped_hammer().type.attack
 			if hero.get_current_attack().attributes.has("attack"):
 				damage += hero.get_current_attack().attributes["attack"]
+			hero.get_node("HammerLight").deactivate()
 			
 			var effectiveness = "GOOD"
 			if holdDownCounter > 120:

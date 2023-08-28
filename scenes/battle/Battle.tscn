@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://dl453tpdxha5r"]
 
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
-[ext_resource type="Resource" uid="uid://bol7w10rbg3se" path="res://stats/enemyencounter/enemyencounter_blooper.tres" id="2_d2vtv"]
+[ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="2_haw8o"]
 [ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
-[ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon_flood.tres" id="3_jyj18"]
+[ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="3_0yag0"]
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="4_ngmgf"]
 [ext_resource type="Script" path="res://scripts/battle/Battle.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="8"]
@@ -25,8 +25,8 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="Battle" type="Node3D"]
 process_mode = 3
 script = ExtResource("5")
-data = ExtResource("2_d2vtv")
-battle_background = ExtResource("3_jyj18")
+data = ExtResource("2_haw8o")
+battle_background = ExtResource("3_0yag0")
 debug = true
 
 [node name="Camera3D" type="Camera3D" parent="."]

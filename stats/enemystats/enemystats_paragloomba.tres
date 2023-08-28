@@ -109,6 +109,7 @@ attacks = [ExtResource("2_jmyna")]
 firstStrikeAttack = ExtResource("2_jmyna")
 height = 0.32
 flying = true
+spiky = false
 experience = 30
 atlas = ExtResource("1_i4o3u")
 tattle_description = "HP: 5. Despite their underground persuation, these Gloombas have taken to the skies to avoid attacks."

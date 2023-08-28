@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ftpb0min3mkg"]
+[gd_scene load_steps=11 format=3 uid="uid://ftpb0min3mkg"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Pipe.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://ba8gnxggbnhd1" path="res://textures/pipebase.png" id="2"]
 [ext_resource type="ArrayMesh" uid="uid://ckmwkfe4asvhf" path="res://Pipe.obj" id="3"]
 [ext_resource type="Texture2D" uid="uid://bnmcr0wcr6nt6" path="res://textures/metal.jpg" id="3_38kuu"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="5_o4auj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po3w2"]
 albedo_color = Color(0.239216, 1, 0.2, 0.643137)
@@ -42,3 +43,5 @@ mesh = SubResource("3")
 [node name="Base" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, -4.80825e-08, 1.1, 0, -1.1, -4.80825e-08, 0, 0, 0)
 mesh = SubResource("5")
+
+[node name="SFX" parent="." instance=ExtResource("5_o4auj")]

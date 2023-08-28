@@ -13,8 +13,9 @@ func _ready():
 	interpolate_property(hero, "position", hero.get_home_position(), .5)
 	
 func tween_completed():
+	sfx.stop("Footsteps")
 	hero.get_node("Sprite2D").flip_h = true
 	hero.progress_attack()
 
 func _physics_process(_delta):
-	pass
+	sfx.play("Footsteps", false)

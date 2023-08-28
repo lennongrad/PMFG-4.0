@@ -4,6 +4,7 @@ class_name State
 
 var hero
 var target
+var sfx
 
 func _physics_process(_delta):
 	hero.set_velocity(velocity)
@@ -19,6 +20,7 @@ func setup(p_hero, p_target):
 	self.hero = p_hero
 	self.target = p_target
 	self.velocity = Vector3(0,0,0)
+	self.sfx = self.hero.get_node("SFX")
 
 func area_body_entered(_body):
 	pass

@@ -3,7 +3,7 @@ extends Node
 var rng = RandomNumberGenerator.new()
 
 var items = [
-#	load("res://stats/heroattack/items/mushroom.tres"),
+	load("res://stats/heroattack/items/mushroom.tres"),
 #	load("res://stats/heroattack/items/maplesyrup.tres"),
 #	load("res://stats/heroattack/items/cookiecombo.tres"),
 #	load("res://stats/heroattack/items/fireflower.tres"),
@@ -66,7 +66,7 @@ var active_partner
 var enemies = {}
 
 var fp = 0
-var coins = 0
+var coins = 60
 
 var current_stage = 0
 
@@ -135,27 +135,31 @@ var possible_badges = [
 func get_random_item(items = 1.0, weapons = 1.0, badges = 1.0):
 	var combined_list = []
 	var probability_total = 0
-	if items != 0:
+	var items_probability = items / possible_items.size()
+	var weapons_probability = weapons / possible_weapons.size()
+	var badges_probability = badges / possible_badges.size()
+	
+	if items_probability != 0:
 		for item in possible_items:
 			combined_list.append(item)
-			probability_total += item["probability"] * items
-	if weapons != 0:
+			probability_total += item["probability"] * items_probability
+	if weapons_probability != 0:
 		for item in possible_weapons:
 			combined_list.append(item)
-			probability_total += item["probability"] * weapons
-	if badges != 0: 
+			probability_total += item["probability"] * weapons_probability
+	if badges_probability != 0: 
 		for item in possible_badges:
 			combined_list.append(item)
-			probability_total += item["probability"] * badges
+			probability_total += item["probability"] * badges_probability
 	
 	var chance = rng.randf_range(0.0, probability_total)
 	for item in combined_list:
 		if item["item"].is_badge:
-			chance -= item["probability"] * badges 
+			chance -= item["probability"] * badges_probability 
 		elif item["item"].is_weapon:
-			chance -= item["probability"] * weapons
+			chance -= item["probability"] * weapons_probability
 		else:
-			chance -= item["probability"] * items
+			chance -= item["probability"] * items_probability
 		if chance <= 0:
 			return item["item"]
 
@@ -359,9 +363,9 @@ func add_item(item, auto_equip = false):
 	else:
 		items.append(item)
 
-
 func item_used(item):
-	items.remove_at(items.find(item))
+	if items.find(item) != -1:
+		items.remove_at(items.find(item))
 
 func equip_boots(index):
 	equipped_boots = boots[index]

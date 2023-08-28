@@ -165,7 +165,7 @@ size = Vector3(6.7, 2.81, 4.08)
 battle_background = ExtResource("10_fynia")
 
 [node name="EnemySpawner2" parent="EnemySpawners" instance=ExtResource("6_8dcmp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99086, 0.962242, 0.977478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13419, 0.388455, 3.96788)
 encounter_data = ExtResource("11_qnqvk")
 size = Vector3(5, 2.81, 2.99)
 battle_background = ExtResource("10_fynia")

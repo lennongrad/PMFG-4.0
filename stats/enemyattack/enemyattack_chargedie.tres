@@ -6,3 +6,4 @@
 script = ExtResource("1_fku66")
 steps = Array[String](["chargedie", "selfdestruct"])
 attributes = {}
+walkto_distance = 0.0

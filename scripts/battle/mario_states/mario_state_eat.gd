@@ -23,7 +23,9 @@ func _process(_delta):
 		hero.get_node("EatenItem").position = Vector3(0.06, 0.28, .006)
 		hero.get_node("EatenItem").scale = Vector3(.75, .75, .75)
 		hero.get_node("Sprite2D").play("Eat")
+		sfx.play("Eat", false)
 	elif eatTimer == 150:
+		sfx.stop("Eat")
 		if hero.get_current_attack().attributes.has("hp"):
 			hero.heal(hero.get_current_attack().attributes["hp"])
 		if hero.get_current_attack().attributes.has("fp"):

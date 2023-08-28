@@ -201,6 +201,16 @@ func _process(delta):
 	$ActionMenu/Background.texture_offset += Vector2(1, 1) * .5
 	$CanSwitch.visible = $"..".can_switch_partner()
 	
+	if state != UIState.STATE_HIDE:
+		if (Input.is_action_just_pressed("ui_up") 
+			or Input.is_action_just_pressed("spin") 
+			or Input.is_action_just_pressed("ui_down") 
+			or Input.is_action_just_pressed("ui_left") 
+			or Input.is_action_just_pressed("ui_right")):
+			$SFX.play("Menu/Move")
+		if Input.is_action_just_pressed("jump"):
+			$SFX.play("Menu/Option")
+	
 	recentMovement += 1
 	match state:
 		UIState.STATE_PROJECTOR:

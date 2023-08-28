@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://divf7jrq67nb0"]
+[gd_scene load_steps=25 format=3 uid="uid://divf7jrq67nb0"]
 
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="1"]
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dfou0dyuo7d4c" path="res://logo.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dr52c7r70mol8" path="res://sprites/UI/icons.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://cteuxhihl63vm" path="res://sprites/mario_thumbsup.png" id="8_vecmw"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="9_yv1ok"]
 
 [sub_resource type="Shader" id="1"]
 code = "shader_type canvas_item;
@@ -388,5 +389,7 @@ grow_vertical = 0
 texture = ExtResource("8_vecmw")
 expand_mode = 3
 stretch_mode = 4
+
+[node name="SFX" parent="." instance=ExtResource("9_yv1ok")]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_TextureButton_pressed"]

@@ -201,6 +201,7 @@ attacks = [ExtResource("2_i0p5i")]
 firstStrikeAttack = ExtResource("2_i0p5i")
 height = 0.32
 flying = false
+spiky = false
 experience = 20
 atlas = ExtResource("1_ugxbi")
 tattle_description = "HP: 3. Aspiring mushroom soldiers. Their attacks are predictable, but don't let your guard up!"

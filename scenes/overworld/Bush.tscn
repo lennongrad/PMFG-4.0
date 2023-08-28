@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://djkn8bkgnhrcg"]
+[gd_scene load_steps=14 format=3 uid="uid://djkn8bkgnhrcg"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Bush.gd" id="1_aev4j"]
 [ext_resource type="Texture2D" uid="uid://b7ntqfd5lhewi" path="res://textures/grass/bush9.png" id="2_0yjgj"]
 [ext_resource type="Shader" path="res://scenes/overworld/Bush.gdshader" id="2_3ebm7"]
 [ext_resource type="Texture2D" uid="uid://cuwpdgcgglarn" path="res://textures/ui/exclamation.png" id="4_haa7l"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="5_ncadf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egpjx"]
 size = Vector3(1.305, 0.99, 0.215)
@@ -28,10 +29,10 @@ size = Vector2(1.5, 0.75)
 [sub_resource type="BoxShape3D" id="BoxShape3D_duyep"]
 size = Vector3(1, 0.715, 0.01)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a51im"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkigf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8bao"]
-material = SubResource("StandardMaterial3D_a51im")
+material = SubResource("StandardMaterial3D_gkigf")
 size = Vector3(1, 0.55, 0.135)
 
 [node name="Bush" type="Area3D"]
@@ -68,6 +69,8 @@ shape = SubResource("BoxShape3D_duyep")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30038, 0)
 cast_shadow = 3
 mesh = SubResource("BoxMesh_b8bao")
+
+[node name="SFX" parent="." instance=ExtResource("5_ncadf")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

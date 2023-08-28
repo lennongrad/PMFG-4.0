@@ -201,6 +201,7 @@ attacks = [ExtResource("2_mknfu")]
 firstStrikeAttack = ExtResource("2_mknfu")
 height = 0.32
 flying = false
+spiky = false
 experience = 25
 atlas = ExtResource("1_grhsm")
 tattle_description = "HP: 4. Underground urchins looking for a quick fight. Mildly tougher than their surface counterparts."

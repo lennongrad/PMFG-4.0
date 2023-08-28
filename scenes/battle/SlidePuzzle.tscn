@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2aggppd4uqcw"]
+[gd_scene load_steps=16 format=3 uid="uid://2aggppd4uqcw"]
 
 [ext_resource type="Script" path="res://scripts/battle/SlidePuzzle.gd" id="1"]
 [ext_resource type="Resource" uid="uid://djx0oyaubmg0v" path="res://stats/enemystats/enemystats_redshyguy.tres" id="2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://n8gxt38s06sw" path="res://sprites/UI/bigx.png" id="10"]
 [ext_resource type="PackedScene" uid="uid://bw0eqsy6ft8ja" path="res://scenes/MoveText.tscn" id="11"]
 [ext_resource type="FontFile" path="res://fonts/borderfont.tres" id="13"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="14_keq8m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4763j"]
 font_size = 20
@@ -61,7 +62,6 @@ offset_right = 361.57
 offset_bottom = 28.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("13")
-text = "Red Shy Guy"
 label_settings = SubResource("LabelSettings_4763j")
 
 [node name="TextureRect2" type="TextureRect" parent="Book"]
@@ -128,3 +128,5 @@ stretch_margin_bottom = 4
 texture_over = ExtResource("5")
 texture_progress = ExtResource("4")
 tint_progress = Color(0.305882, 0, 0.545098, 1)
+
+[node name="SFX" parent="." instance=ExtResource("14_keq8m")]

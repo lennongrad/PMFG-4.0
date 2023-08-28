@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cc6e8hf8dein5"]
+[gd_scene load_steps=64 format=3 uid="uid://cc6e8hf8dein5"]
 
 [ext_resource type="PackedScene" uid="uid://b6sxe0ovnsssg" path="res://scenes/battle/HurtParticles.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://bk0bg1a6row6n" path="res://stats/enemystats/enemystats_bulletbill.tres" id="2_nxovo"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cvfvtm847tucm" path="res://particles/smoke_02.png" id="20_6l71x"]
 [ext_resource type="Texture2D" uid="uid://d3gcdwhn2vafe" path="res://particles/smoke_07.png" id="21_alj8c"]
 [ext_resource type="Texture2D" uid="uid://d0712mmggq54n" path="res://textures/inksplatter.png" id="21_ng7cd"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="24_4flma"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -455,6 +456,8 @@ amount = 1
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_s3eac")
 draw_pass_1 = SubResource("QuadMesh_7me03")
+
+[node name="SFX" parent="." instance=ExtResource("24_4flma")]
 
 [connection signal="area_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_SlingshotArea_area_entered"]
 [connection signal="body_entered" from="SlingshotAmmo/SlingshotArea" to="." method="_on_slingshot_area_body_entered"]

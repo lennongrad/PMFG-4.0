@@ -29,3 +29,6 @@ func _process(_delta):
 		$Background.position.x += -$Background.position.x * .1
 	else:
 		$Background.position.x += (2500 - $Background.position.x) * .1
+		
+	if progress != 0:
+		$SFX.play("Ding/" + str(progress), false)

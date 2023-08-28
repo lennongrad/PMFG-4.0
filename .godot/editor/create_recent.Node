@@ -1,9 +1,12 @@
+Node3D
+AudioStreamPlayer
+AnimatedSprite2D
+Control
+AnimatedSprite3D
+Area3D
 MeshInstance3D
 Sprite3D
-Node3D
-AnimatedSprite3D
 CollisionShape3D
-Area3D
 Marker3D
 GPUParticles3D
 StaticBody3D
@@ -12,7 +15,6 @@ MultiMeshInstance3D
 RigidBody3D
 Camera3D
 VisibleOnScreenNotifier3D
-Control
 HSplitContainer
 NinePatchRect
 SpotLight3D

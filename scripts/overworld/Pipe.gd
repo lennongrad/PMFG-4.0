@@ -8,11 +8,12 @@ var direction = 0
 var has_finished = false
 var has_finished_shrinking = false
 
-func _ready():
-	pass # Replace with function body.
-
 func _process(_delta):
 	timer += direction * .75
+	
+	if timer > 30 and timer < 32 and not has_finished:
+		$SFX.play("Expand", false)
+	
 	if timer < 55:
 		if timer > 10:
 			$Pipe.scale = Vector3(16,16,18) * (.01 + min(pow(float(timer) / 45, 8), 1))

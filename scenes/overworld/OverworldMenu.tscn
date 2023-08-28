@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://d1o04oyd0lpnl"]
+[gd_scene load_steps=60 format=3 uid="uid://d1o04oyd0lpnl"]
 
 [ext_resource type="Texture2D" uid="uid://0jhhj65rnos" path="res://sprites/UI/checker4.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://dgjak5cq3fm4w" path="res://sprites/UI/patch.png" id="2"]
@@ -25,9 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://dcu4swrsbn7t6" path="res://textures/mario/icon.png" id="21"]
 [ext_resource type="Texture2D" uid="uid://d1ebok5k4sdxx" path="res://sprites/badges/multibounce.png" id="26"]
 [ext_resource type="Texture2D" uid="uid://bc4au3byondaw" path="res://sprites/UI/star3.png" id="28"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="30_0n5fq"]
 [ext_resource type="Texture2D" uid="uid://dch22mfn5qpbj" path="res://sprites/boots/jump_basic.png" id="52"]
 [ext_resource type="Texture2D" uid="uid://q7ihtrebce8e" path="res://sprites/UI/bubble.png" id="54"]
-[ext_resource type="PackedScene" uid="uid://n7fuq2es8b13" path="res://scenes/Status.tscn" id="55"]
 [ext_resource type="PackedScene" uid="uid://sy2vy4sv7adc" path="res://scenes/Text.tscn" id="56"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="57"]
 
@@ -37,7 +37,7 @@ bg_color = Color(0, 0, 0, 0.639216)
 [sub_resource type="StyleBoxFlat" id="2"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="Shader" id="3"]
+[sub_resource type="Shader" id="Shader_uc1a0"]
 code = "shader_type canvas_item;
 
 varying flat vec4 modulate;
@@ -54,7 +54,7 @@ void fragment(){
 }"
 
 [sub_resource type="ShaderMaterial" id="4"]
-shader = SubResource("3")
+shader = SubResource("Shader_uc1a0")
 
 [sub_resource type="FontFile" id="5"]
 subpixel_positioning = 0
@@ -90,6 +90,8 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/30/0/ascent = 0.0
 cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0
@@ -97,9 +99,29 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_em16g"]
-font_size = 26
+font_size = 20
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
@@ -229,7 +251,7 @@ animations = [{
 [sub_resource type="Gradient" id="19"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0823529)
 
-[sub_resource type="GradientTexture2D" id="20"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x7faj"]
 gradient = SubResource("19")
 
 [sub_resource type="ParticleProcessMaterial" id="21"]
@@ -241,7 +263,7 @@ angle_min = -5.0
 angle_max = 5.0
 scale_min = 0.2
 scale_max = 0.2
-color_ramp = SubResource("20")
+color_ramp = SubResource("GradientTexture2D_x7faj")
 
 [sub_resource type="FontFile" id="23"]
 subpixel_positioning = 0
@@ -358,409 +380,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Shader" id="29"]
-code = "/*
-	Port of libretro's crt-geom.glsl to Godot shading language.
-	Source: https://github.com/libretro/glsl-shaders/blob/master/crt/shaders/crt-geom.glsl
-	
-	This program is free software; you can redistribute it and/or modify it
-	under the terms of the GNU General Public License as published by the Free
-	Software Foundation; either version 2 of the License, or (at your option)
-	any later version.
-*/
-
-shader_type canvas_item;
-render_mode blend_mix;
-
-// CRTGeom Target Gamma
-uniform float CRTgamma: hint_range(0.1, 5.0, 0.1) = 2.4; // hola
-
-// CRTGeom Monitor Gamma
-uniform float monitorgamma: hint_range(0.1, 5.0, 0.1) = 2.2;
-
-// CRTGeom Distance
-uniform float d: hint_range(0.1, 3.0, 0.1) = 1.6;
-
-// CRTGeom Curvature Toggle
-uniform float CURVATURE: hint_range(0.0, 1.0, 1.0) = 1.0;
-
-// CRTGeom Curvature Radius
-uniform float R: hint_range(0.1, 10.0, 0.1) = 2.0;
-
-// CRTGeom Corner Size
-uniform float cornersize: hint_range(0.001, 1.0, 0.005) = 0.03;
-
-// CRTGeom Corner Smoothness
-uniform float cornersmooth: hint_range(80.0, 2000.0, 100.0) = 1000.0;
-
-// CRTGeom Horizontal Tilt
-uniform float x_tilt: hint_range(-0.5, 0.5, 0.05) = 0.0;
-
-// CRTGeom Vertical Tilt
-uniform float y_tilt: hint_range(-0.5, 0.5, 0.05) = 0.0;
-
-// CRTGeom Horiz. Overscan %
-uniform float overscan_x: hint_range(-125.0, 125.0, 1.0) = 100.0;
-
-// CRTGeom Vert. Overscan %
-uniform float overscan_y: hint_range(-125.0, 125.0, 1.0) = 100.0;
-
-// CRTGeom Dot Mask Toggle
-uniform float DOTMASK: hint_range(0.0, 0.3, 0.3) = 0.3;
-
-// CRTGeom Sharpness
-uniform float SHARPER: hint_range(1.0, 3.0, 1.0) = 1.0;
-
-// CRTGeom Scanline Weight
-uniform float scanline_weight: hint_range(0.1, 0.5, 0.05) = 0.3;
-
-// CRTGeom Luminance
-uniform float lum: hint_range(0.0, 0.1, 0.01) = 0.0;
-
-// CRTGeom Interlacing Simulation
-uniform float interlace_detect: hint_range(0.0, 1.0, 1.0) = 1.0;
-
-uniform vec2 OutputSize;
-uniform vec2 TextureSize;
-uniform vec2 InputSize;
-uniform int FrameCount;
-//uniform int FrameDirection; // not used
-
-varying vec2 overscan;
-varying vec2 aspect;
-varying vec3 stretch;
-varying vec2 sinangle;
-varying vec2 cosangle;
-varying vec2 one;
-varying float mod_factor;
-varying vec2 ilfac;
-
-/*
-NOTE: Godot shading language does not support \"\"#define\", so \"FIX(c)\"
-has been inlined where used, and commented accordingly.
-*/
-//#define FIX(c) max(abs(c), 1e-5);
-
-float intersect(vec2 xy) {
-	float A = dot(xy,xy)+d*d;
-	float B = 2.0*(R*(dot(xy,sinangle)-d*cosangle.x*cosangle.y)-d*d);
-	float C = d*d + 2.0*R*d*cosangle.x*cosangle.y;
-	return (-B-sqrt(B*B-4.0*A*C))/(2.0*A);
-}
-
-vec2 bkwtrans(vec2 xy) {
-	float c = intersect(xy);
-	vec2 point = vec2(c)*xy;
-	point -= vec2(-R)*sinangle;
-	point /= vec2(R);
-	vec2 tang = sinangle/cosangle;
-	vec2 poc = point/cosangle;
-	float A = dot(tang,tang)+1.0;
-	float B = -2.0*dot(poc,tang);
-	float C = dot(poc,poc)-1.0;
-	float a = (-B+sqrt(B*B-4.0*A*C))/(2.0*A);
-	vec2 uv = (point-a*sinangle)/cosangle;
-	float r = max(abs( R*acos(a) ), 1e-5); // FIX(R*acos(a))
-	return uv*r/sin(r/R);
-}
-
-vec2 fwtrans(vec2 uv) {
-	float r = max(abs( sqrt(dot(uv,uv)) ), 1e-5); // FIX(sqrt(dot(uv,uv)))
-	uv *= sin(r/R)/r;
-	float x = 1.0-cos(r/R);
-	float D = d/R + x*cosangle.x*cosangle.y+dot(uv,sinangle);
-	return d*(uv*cosangle-x*sinangle)/D;
-}
-
-vec3 maxscale() {
-	vec2 c = bkwtrans(-R * sinangle / (1.0 + R/d*cosangle.x*cosangle.y));
-	vec2 a = vec2(0.5,0.5)*aspect;
-	vec2 lo = vec2(fwtrans(vec2(-a.x,c.y)).x, fwtrans(vec2(c.x,-a.y)).y)/aspect;
-	vec2 hi = vec2(fwtrans(vec2(+a.x,c.y)).x, fwtrans(vec2(c.x,+a.y)).y)/aspect;
-	return vec3((hi+lo)*aspect*0.5,max(hi.x-lo.x,hi.y-lo.y));
-}
-
-
-void vertex() {
-	// START of parameters
-	
-	// gamma of simulated CRT
-	//CRTgamma = 1.8;
-	
-	// gamma of display monitor (typically 2.2 is correct)
-	//monitorgamma = 2.2;
-	
-	// overscan (e.g. 1.02 for 2% overscan)
-	overscan = vec2(1.00,1.00);
-	
-	// aspect ratio
-	aspect = vec2(1.0, 0.75);
-	
-	// lengths are measured in units of (approximately) the width
-	// of the monitor simulated distance from viewer to monitor
-	//d = 2.0;
-	
-	// radius of curvature
-	//R = 1.5;
-	
-	// tilt angle in radians
-	// (behavior might be a bit wrong if both components are
-	// nonzero)
-	const vec2 angle = vec2(0.0, 0.0);
-	
-	// size of curved corners
-	//cornersize = 0.03;
-	
-	// border smoothness parameter
-	// decrease if borders are too aliased
-	//cornersmooth = 1000.0;
-	
-	// END of parameters
-	
-	// Precalculate a bunch of useful values we'll need in the fragment
-	// shader.
-	sinangle = sin(vec2(x_tilt, y_tilt)) + vec2(0.001);//sin(vec2(max(abs(x_tilt), 1e-3), max(abs(y_tilt), 1e-3)));
-	cosangle = cos(vec2(x_tilt, y_tilt)) + vec2(0.001);//cos(vec2(max(abs(x_tilt), 1e-3), max(abs(y_tilt), 1e-3)));
-	stretch = maxscale();
-	
-	ilfac = vec2(1.0,clamp(floor(InputSize.y/200.0), 1.0, 2.0));
-	
-	// The size of one texel, in texture-coordinates.
-	vec2 sharpTextureSize = vec2(SHARPER * TextureSize.x, TextureSize.y);
-	one = ilfac / sharpTextureSize;
-	
-	// Resulting X pixel-coordinate of the pixel we're drawing.
-	mod_factor = UV.x * TextureSize.x * OutputSize.x / InputSize.x;
-}
-
-/*
-NOTE: Godot shading language does not support \"\"#define\", so these ones
-must be commented/uncommented in the corresponding \"#ifdef\"/\"#ifNdef\" sections.
-*/
-
-// Enable interpolation in linear gamma (disable for gain speed).
-// Default in original GLSL source: enabled
-//#define LINEAR_PROCESSING
-
-// Enable 3x oversampling of the beam profile
-// Default in original GLSL source: enabled
-//#define OVERSAMPLE
-
-// Use the older, purely gaussian beam profile
-// Default in original GLSL source: disabled
-//#define USEGAUSSIAN
-
-/*
-NOTE: Godot shading language does not support \"\"#define\", so \"TEX2D(c)\"
-has been inlined and enclosed in corresponding \"\"#ifdef LINEAR_PROCESSING\"
-blocks.
-*/
-
-//#ifdef LINEAR_PROCESSING
-//#define TEX2D(c) pow(COMPAT_TEXTURE(Texture, (c)), vec4(CRTgamma))
-//#else
-//#define TEX2D(c) COMPAT_TEXTURE(Texture, (c))
-//#endif
-
-vec2 transform(vec2 coord) {
-	coord *= TextureSize / InputSize;
-	coord = (coord-vec2(0.5))*aspect*stretch.z+stretch.xy;
-	return (bkwtrans(coord)/vec2(overscan_x / 100.0, overscan_y / 100.0)/aspect+vec2(0.5)) * InputSize / TextureSize;
-}
-
-float corner(vec2 coord) {
-	coord *= TextureSize / InputSize;
-	coord = (coord - vec2(0.5)) * vec2(overscan_x / 100.0, overscan_y / 100.0) + vec2(0.5);
-	coord = min(coord, vec2(1.0)-coord) * aspect;
-	vec2 cdist = vec2(cornersize);
-	coord = (cdist - min(coord,cdist));
-	float dist = sqrt(dot(coord,coord));
-	return clamp((cdist.x-dist)*cornersmooth,0.0, 1.0);
-}
-
-// Calculate the influence of a scanline on the current pixel.
-//
-// 'distance' is the distance in texture coordinates from the current
-// pixel to the scanline in question.
-// 'color' is the colour of the scanline at the horizontal location of
-// the current pixel.
-vec4 scanlineWeights(float distance, vec4 color) {
-	// \"wid\" controls the width of the scanline beam, for each RGB
-	// channel The \"weights\" lines basically specify the formula
-	// that gives you the profile of the beam, i.e. the intensity as
-	// a function of distance from the vertical center of the
-	// scanline. In this case, it is gaussian if width=2, and
-	// becomes nongaussian for larger widths. Ideally this should
-	// be normalized so that the integral across the beam is
-	// independent of its width. That is, for a narrower beam
-	// \"weights\" should have a higher peak at the center of the
-	// scanline than for a wider beam.
-
-	//#ifdef USEGAUSSIAN
-	//vec4 wid = 0.3 + 0.1 * pow(color, vec4(3.0));
-	//vec4 weights = vec4(distance / wid);
-	//return (lum + 0.4) * exp(-weights * weights) / wid;
-	//#else
-	vec4 wid = 2.0 + 2.0 * pow(color, vec4(4.0));
-	vec4 weights = vec4(distance / scanline_weight);
-	return (lum + 1.4) * exp(-pow(weights * inversesqrt(0.5 * wid), wid)) / (0.6 + 0.2 * wid);
-	//#endiF
-}
-
-
-void fragment() {
-	// Here's a helpful diagram to keep in mind while trying to
-	// understand the code:
-	//
-	//  |      |      |      |      |
-	// -------------------------------
-	//  |      |      |      |      |
-	//  |  01  |  11  |  21  |  31  | <-- current scanline
-	//  |      | @    |      |      |
-	// -------------------------------
-	//  |      |      |      |      |
-	//  |  02  |  12  |  22  |  32  | <-- next scanline
-	//  |      |      |      |      |
-	// -------------------------------
-	//  |      |      |      |      |
-	//
-	// Each character-cell represents a pixel on the output
-	// surface, \"@\" represents the current pixel (always somewhere
-	// in the bottom half of the current scan-line, or the top-half
-	// of the next scanline). The grid of lines represents the
-	// edges of the texels of the underlying texture.
-	
-	// Texture coordinates of the texel containing the active pixel.
-	vec2 xy = (CURVATURE > 0.5) ? transform(UV.xy) : UV.xy;
-	
-	float cval = corner(xy);
-	
-	// Of all the pixels that are mapped onto the texel we are
-	// currently rendering, which pixel are we currently rendering?
-	vec2 ilvec = vec2(0.0,ilfac.y * interlace_detect > 1.5 ? mod(float(FrameCount),2.0) : 0.0);
-	vec2 ratio_scale = (xy * TextureSize - vec2(0.5) + ilvec)/ilfac;
-	
-	//#ifdef OVERSAMPLE
-	float filter_ = InputSize.y/OutputSize.y;//fwidth(ratio_scale.y);
-	//#endif
-	
-	vec2 uv_ratio = fract(ratio_scale);
-	
-	// Snap to the center of the underlying texel.
-	xy = (floor(ratio_scale)*ilfac + vec2(0.5) - ilvec) / TextureSize;
-	
-	// Calculate Lanczos scaling coefficients describing the effect
-	// of various neighbour texels in a scanline on the current
-	// pixel.
-	vec4 coeffs = PI * vec4(1.0 + uv_ratio.x, uv_ratio.x, 1.0 - uv_ratio.x, 2.0 - uv_ratio.x);
-	
-	// Prevent division by zero.
-	coeffs = max(abs( coeffs ), 1e-5); // FIX(coeffs)
-	
-	// Lanczos2 kernel.
-	coeffs = 2.0 * sin(coeffs) * sin(coeffs / 2.0) / (coeffs * coeffs);
-	
-	// Normalize.
-	coeffs /= dot(coeffs, vec4(1.0));
-	
-	// Calculate the effective colour of the current and next
-	// scanlines at the horizontal location of the current pixel,
-	// using the Lanczos coefficients above.
-	vec4 col  = clamp(mat4(
-					
-					//#ifdef LINEAR_PROCESSING
-					pow(texture(TEXTURE, ( xy + vec2(-one.x, 0.0)		)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy							)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy + vec2(one.x, 0.0)		)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy + vec2(2.0 * one.x, 0.0)	)), vec4(CRTgamma))) * coeffs,
-					//#else
-					//texture(TEXTURE, ( xy + vec2(-one.x, 0.0)		)),
-					//texture(TEXTURE, ( xy							)),
-					//texture(TEXTURE, ( xy + vec2(one.x, 0.0)		)),
-					//texture(TEXTURE, ( xy + vec2(2.0 * one.x, 0.0)	))) * coeffs,
-					//#endif
-					
-					0.0, 1.0);
-
-    vec4 col2 = clamp(mat4(
-					
-					//#ifdef LINEAR_PROCESSING
-					pow(texture(TEXTURE, ( xy + vec2(-one.x, one.y)		)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy + vec2(0.0, one.y)		)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy + one						)), vec4(CRTgamma)),
-					pow(texture(TEXTURE, ( xy + vec2(2.0 * one.x, one.y))), vec4(CRTgamma))) * coeffs,
-					//#else
-					//texture(TEXTURE, ( xy + vec2(-one.x, one.y)		)),
-					//texture(TEXTURE, ( xy + vec2(0.0, one.y)		)),
-					//texture(TEXTURE, ( xy + one						)),
-					//texture(TEXTURE, ( xy + vec2(2.0 * one.x, one.y)))) * coeffs,
-					//#endif
-					
-					0.0, 1.0);
-	
-	//#ifndef LINEAR_PROCESSING
-	//col  = pow(col , vec4(CRTgamma));
-	//col2 = pow(col2, vec4(CRTgamma));
-	//#endif
-	
-	// Calculate the influence of the current and next scanlines on
-	// the current pixel.
-	vec4 weights  = scanlineWeights(uv_ratio.y, col);
-	vec4 weights2 = scanlineWeights(1.0 - uv_ratio.y, col2);
-
-	//#ifdef OVERSAMPLE
-	uv_ratio.y =uv_ratio.y+1.0/3.0*filter_;
-	weights = (weights+scanlineWeights(uv_ratio.y, col))/3.0;
-	weights2=(weights2+scanlineWeights(abs(1.0-uv_ratio.y), col2))/3.0;
-	uv_ratio.y =uv_ratio.y-2.0/3.0*filter_;
-	weights=weights+scanlineWeights(abs(uv_ratio.y), col)/3.0;
-	weights2=weights2+scanlineWeights(abs(1.0-uv_ratio.y), col2)/3.0;
-	//#endif
-	
-	vec3 mul_res  = (col * weights + col2 * weights2).rgb * vec3(cval);
-	
-	// dot-mask emulation:
-	// Output pixels are alternately tinted green and magenta.
-	vec3 dotMaskWeights = mix(
-		vec3(1.0, 1.0 - DOTMASK, 1.0),
-		vec3(1.0 - DOTMASK, 1.0, 1.0 - DOTMASK),
-		floor(mod(mod_factor, 2.0))
-	);
-	
-	mul_res *= dotMaskWeights;
-	
-	// Convert the image gamma for display on our output device.
-	mul_res = pow(mul_res, vec3(1.0 / monitorgamma));
-	
-	// Color the texel.
-	COLOR = vec4(mul_res, 1.0);
-} 
-"
-
-[sub_resource type="ShaderMaterial" id="30"]
-resource_local_to_scene = true
-shader = SubResource("29")
-shader_parameter/CRTgamma = 2.8
-shader_parameter/monitorgamma = 3.0
-shader_parameter/d = 1.5
-shader_parameter/CURVATURE = 1.0
-shader_parameter/R = 3.7
-shader_parameter/cornersize = 0.03
-shader_parameter/cornersmooth = 1000.0
-shader_parameter/x_tilt = 0.05
-shader_parameter/y_tilt = 0.0
-shader_parameter/overscan_x = 100.0
-shader_parameter/overscan_y = 100.0
-shader_parameter/DOTMASK = 0.0
-shader_parameter/SHARPER = 3.0
-shader_parameter/scanline_weight = 0.35
-shader_parameter/lum = 0.0
-shader_parameter/interlace_detect = 1.0
-shader_parameter/OutputSize = Vector2(1024, 896)
-shader_parameter/TextureSize = Vector2(256, 224)
-shader_parameter/InputSize = Vector2(256, 224)
-shader_parameter/FrameCount = 0
-
 [node name="OverworldMenu" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -774,7 +393,6 @@ grow_vertical = 2
 script = ExtResource("9")
 
 [node name="Background" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -959,15 +577,18 @@ offset_bottom = 4.14001
 
 [node name="Label" type="Label" parent="Panel/TabContainer/Mario/ItemHeader"]
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -130.5
-offset_top = -15.0
+offset_top = -12.0
 offset_right = 130.5
-offset_bottom = 4.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = SubResource("7")
 label_settings = SubResource("LabelSettings_em16g")
 
@@ -1540,14 +1161,7 @@ animation = &"down"
 autoplay = "down"
 frame_progress = 0.960502
 
-[node name="Status" parent="." instance=ExtResource("55")]
-visible = false
-material = SubResource("30")
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-mouse_filter = 2
-mouse_default_cursor_shape = 7
+[node name="SFX" parent="." instance=ExtResource("30_0n5fq")]
 
 [connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Hammer" to="." method="_on_Hammer_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Mario/Equipment/Boots" to="." method="_on_Boots_pressed"]

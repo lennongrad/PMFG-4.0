@@ -27,7 +27,8 @@ func _process(_delta):
 	#$Cursor.position = 
 	
 	if not disabled:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and fade_timer == -1:
+			$SFX.play("StartGame")
 			fade_timer = 0
 	else:
 		visible = false

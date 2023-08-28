@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djn7hpj5g1pku"]
+[gd_scene load_steps=15 format=3 uid="uid://djn7hpj5g1pku"]
 
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="2_j6ug6"]
 [ext_resource type="PackedScene" uid="uid://c6yg2j7jibka2" path="res://scenes/overworld/stages/stage4.tscn" id="3_j685p"]
@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b2u55pjoogue4" path="res://scenes/overworld/stages/stage2.tscn" id="10_w1e5k"]
 [ext_resource type="PackedScene" uid="uid://ds1tf2gdnpfne" path="res://scenes/overworld/Player.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://hdas3iby8cfh" path="res://scenes/overworld/Partner.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://d4ggks0n5ldsl" path="res://scenes/overworld/shop_menu.tscn" id="14_frs64"]
 [ext_resource type="PackedScene" uid="uid://d1o04oyd0lpnl" path="res://scenes/overworld/OverworldMenu.tscn" id="17"]
 [ext_resource type="PackedScene" uid="uid://b2vb3qukmqe0k" path="res://scenes/overworld/Widescreen.tscn" id="29"]
 [ext_resource type="PackedScene" uid="uid://divf7jrq67nb0" path="res://scenes/TitleScreen.tscn" id="31"]
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
+debug = true
 stages = [ExtResource("4_tohov"), ExtResource("3_j685p"), ExtResource("10_w1e5k"), ExtResource("3_sm82m")]
-start_stage = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44885, 1.75504)
@@ -42,6 +43,8 @@ grow_vertical = 2
 [node name="OverworldMenu" parent="." instance=ExtResource("17")]
 offset_top = 0.0
 offset_bottom = 0.0
+
+[node name="ShopMenu" parent="." instance=ExtResource("14_frs64")]
 
 [node name="Status" parent="." instance=ExtResource("10")]
 

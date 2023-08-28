@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bv3g1ioa2lcvq" path="res://textures/cheepcheep/rest3.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://c3uvkikuiht6s" path="res://textures/cheepcheep/jump1.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://dmh68uj466gfe" path="res://textures/cheepcheep/jump3.png" id="16"]
-[ext_resource type="Resource" path="res://stats/enemyattack/enemyattack_leapattack.tres" id="17"]
+[ext_resource type="Resource" uid="uid://cpxkliix330u2" path="res://stats/enemyattack/enemyattack_leapattack.tres" id="17"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{
@@ -133,6 +133,7 @@ attacks = [ExtResource("17")]
 firstStrikeAttack = ExtResource("17")
 height = 0.32
 flying = false
+spiky = false
 experience = 30
 atlas = ExtResource("1_6tou3")
 tattle_description = "HP: 5. Little fishies.
