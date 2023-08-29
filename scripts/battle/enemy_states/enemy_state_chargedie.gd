@@ -39,6 +39,7 @@ func tween_completed():
 		current_tween = 1
 		var adjusted_position = mario.position
 		particles.get_node("BillTrail").emitting = true
+		sfx.play("Shoot", false)
 		interpolate_property(persistent_state, "position", adjusted_position, .4)
 
 func area_body_entered(body):

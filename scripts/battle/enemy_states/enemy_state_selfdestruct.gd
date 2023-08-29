@@ -5,6 +5,7 @@ var deathTimer = 0
 
 func _ready():
 	persistent_state.animated_sprite.play("Dying")
+	sfx.play("Explosion", false)
 	particles.get_node("ExplosionOrange").emitting = true
 	particles.get_node("ExplosionSmoke").emitting = true
 	persistent_state.health = 0
@@ -19,6 +20,7 @@ func _process(_delta):
 	if deathTimer == 20:
 		particles.get_node("ExplosionSmoke").emitting = false
 	if deathTimer > 20 and deathTimer < 30:
+		
 		persistent_state.animated_sprite.scale.y = float(29 -  deathTimer) / 10
 	if deathTimer > 40:
 		persistent_state.animated_sprite.visible = false

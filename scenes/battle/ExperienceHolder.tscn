@@ -1,19 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://6fsap7dhl5ku"]
+[gd_scene load_steps=10 format=3 uid="uid://6fsap7dhl5ku"]
 
 [ext_resource type="Texture2D" uid="uid://d3d0j4p8yulte" path="res://sprites/UI/progressover.png" id="1"]
 [ext_resource type="Script" path="res://scenes/battle/ExperienceHolder.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://cd41usim7lhx5" path="res://fonts/TTYDfont.otf" id="3"]
 [ext_resource type="LabelSettings" uid="uid://b3bw580f7is53" path="res://fonts/status_settings.tres" id="3_uteqr"]
 [ext_resource type="LabelSettings" uid="uid://d2xrjlgdawtoo" path="res://fonts/small_status_setting.tres" id="4_myrp1"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="6_0et0c"]
 
 [sub_resource type="FontFile" id="2"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("3")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -44,9 +42,6 @@ subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
 fallbacks = Array[Font]([ExtResource("3")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -102,7 +97,7 @@ offset_top = -4.72089
 offset_right = -7.6239
 offset_bottom = 29.2791
 theme_override_fonts/font = SubResource("2")
-text = "32"
+text = "0"
 label_settings = ExtResource("3_uteqr")
 horizontal_alignment = 2
 
@@ -162,3 +157,5 @@ anchor_bottom = 1.0
 offset_left = -1.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="SFX" parent="." instance=ExtResource("6_0et0c")]

@@ -76,6 +76,7 @@ func _process(_delta):
 		if not selected:
 			if timer < 140:
 				if $Choices.position.y > 270 and velocity > 0:
+					$SFX.play("Land")
 					velocity *= -.3
 				$Choices.position.y += velocity
 				velocity += .1
@@ -83,10 +84,13 @@ func _process(_delta):
 			else:
 				if Input.is_action_just_pressed("ui_right"):
 					change_choice(1)
+					$SFX.play("Menu/Move")
 				if Input.is_action_just_pressed("ui_left"):
 					change_choice(-1)
+					$SFX.play("Menu/Move")
 				if Input.is_action_just_pressed("jump"):
 					select()
+					$SFX.play("Menu/Option")
 				$Choices.position.y = 270
 				$Choices/HP.modulate.a = 1
 				$Choices/FP.modulate.a = 1
@@ -98,6 +102,8 @@ func _process(_delta):
 		else:
 			var difference = 9
 			var alpha = 1
+			if timer == 20:
+				$SFX.play("Triumphant")
 			if timer > 50:
 				alpha = max(0, 1 - float(timer - 50) / 50)
 				if timer == 100:

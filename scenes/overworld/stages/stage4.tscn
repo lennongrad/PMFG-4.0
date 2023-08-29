@@ -968,7 +968,7 @@ texture_filter = 0
 texture = ExtResource("29_58mkx")
 
 [node name="TinyFlower10" type="Sprite3D" parent="Decorations"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40543, -8.11092, 2.79882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.40543, -8.34238, 2.79882)
 billboard = 2
 alpha_cut = 1
 texture_filter = 0

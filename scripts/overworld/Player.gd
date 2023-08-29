@@ -452,6 +452,7 @@ func _physics_process(delta):
 						spriteRotation = 0
 						$WallJumpParticles.position.x = 0.158
 					if Input.is_action_just_pressed("jump"):
+						$SFX.play("Jump")
 						horizontalVelocity = normal * 10
 						velocity.y = 5.5
 						is_wall_sliding = false

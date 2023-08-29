@@ -624,7 +624,7 @@ transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412
 mesh = SubResource("PlaneMesh_vklyi")
 
 [node name="PathStep8" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4237, -5.6038, -0.247424)
+transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4456, -5.6038, -0.208689)
 sorting_use_aabb_center = false
 mesh = SubResource("PlaneMesh_3ivs3")
 

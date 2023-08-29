@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnpdimmh16lk4"]
+
+[ext_resource type="AudioStream" uid="uid://taj5kqqiomht" path="res://music/Route_04.mp3" id="1_owlc4"]
+[ext_resource type="Script" path="res://scripts/Music.gd" id="2_4k2du"]
+[ext_resource type="AudioStream" uid="uid://dfyc36rrvvnie" path="res://music/Azure_Towers_Wedding_Resort.mp3" id="3_7xenf"]
+[ext_resource type="AudioStream" uid="uid://ci6m32ihna8ob" path="res://music/Dungeon_Map_-_Creepy_Laboratory.wav" id="4_ytgvc"]
+[ext_resource type="AudioStream" uid="uid://bl70c2rmeh7fw" path="res://music/Battle_Theme_Test.mp3" id="5_hseki"]
+
+[node name="Music" type="Node3D"]
+
+[node name="Grass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_owlc4")
+volume_db = -8.0
+script = ExtResource("2_4k2du")
+
+[node name="Sky" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7xenf")
+volume_db = -8.0
+script = ExtResource("2_4k2du")
+
+[node name="Water" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ytgvc")
+volume_db = -8.0
+script = ExtResource("2_4k2du")
+
+[node name="Battle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hseki")
+volume_db = -8.0
+script = ExtResource("2_4k2du")

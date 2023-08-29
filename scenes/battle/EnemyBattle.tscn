@@ -248,7 +248,7 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_1yvqe"]
 material = SubResource("StandardMaterial3D_cv0gi")
-size = Vector2(3, 3)
+size = Vector2(6, 3)
 
 [sub_resource type="Curve" id="Curve_hfxbh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

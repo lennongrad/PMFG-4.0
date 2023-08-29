@@ -16,11 +16,13 @@ func _physics_process(delta):
 		self.animated_sprite.rotation_degrees.z = -squirt_timer * 90 / 20
 	elif squirt_timer < 60:
 		self.animated_sprite.play("Squirt")
-	elif squirt_timer < 120:
+	elif squirt_timer < 80:
 		persistent_state.unfocus_camera()
 		particles.get_node("Ink").emitting = true
-	elif squirt_timer < 140:
-		self.animated_sprite.rotation_degrees.z = (-90 + (squirt_timer - 120) * 90 / 20)
+		sfx.play("Squirt", false)
+	elif squirt_timer < 130:
+		sfx.stop("Squirt")
+		self.animated_sprite.rotation_degrees.z = (-90 + (squirt_timer - 80) * 90 / 50)
 		particles.get_node("Ink").emitting = false
 	else:
 		self.persistent_state.progress_attack()

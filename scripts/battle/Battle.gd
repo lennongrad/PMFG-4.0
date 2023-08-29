@@ -139,6 +139,7 @@ func decrement_experience(decrease):
 	if decrease:
 		experience_waiting -= 1
 		$"/root/MarioRun".add_experience(1)
+		$SFX.play("Dot", false)
 	var n_position = Vector2(get_viewport().get_size()) / 2 + Vector2(0, -70)
 	$ExperienceHolder.position += (n_position - $ExperienceHolder.position) * .1
 	$ExperienceHolder.centered = true

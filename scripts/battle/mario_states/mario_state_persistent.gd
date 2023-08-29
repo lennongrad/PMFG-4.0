@@ -153,20 +153,20 @@ func hurt(attributes):
 	animation_wait = 30
 
 func gain_fp(gain_for):
-	$SFX.play("Heal", false)
 	var gained = $"/root/MarioRun".gain_fp(gain_for)
 	if gained > 0:
 		$FPUp.change_text("+" + str(gained) + " FP")
 		$FPUp.reactivate()
 		$Flowers.activate()
+		$SFX.play("Heal", false)
 
 func heal(heal_for):
-	$SFX.play("Heal", false)
 	var healed = $"/root/MarioRun".heal(stats, heal_for)
 	if healed > 0:
 		$HPUp.change_text("+" + str(healed) + " HP")
 		$HPUp.reactivate()
 		$Hearts.activate()
+		$SFX.play("Heal", false)
 
 func play_victory_pose():
 	is_victory_posing = true

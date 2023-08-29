@@ -34,4 +34,5 @@ func _process(_delta):
 		visible = false
 
 func _on_TextureButton_pressed():
+	$SFX.play("StartGame")
 	fade_timer = 0

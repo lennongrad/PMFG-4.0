@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl453tpdxha5r"]
+[gd_scene load_steps=15 format=3 uid="uid://dl453tpdxha5r"]
 
 [ext_resource type="PackedScene" uid="uid://c71qr4iswnv5h" path="res://scenes/CutoutTransition.tscn" id="2"]
-[ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="2_haw8o"]
+[ext_resource type="Resource" uid="uid://d2b1as7thblgc" path="res://stats/enemyencounter/enemyencounter_goomba.tres" id="2_nt33j"]
 [ext_resource type="PackedScene" uid="uid://civqh7gvslnr4" path="res://scenes/battle/HeroBattle.tscn" id="3"]
 [ext_resource type="Resource" path="res://stats/battlebackground/water_dungeon.tres" id="3_0yag0"]
 [ext_resource type="Script" path="res://scripts/overworld/Camera.gd" id="4_ngmgf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6fsap7dhl5ku" path="res://scenes/battle/ExperienceHolder.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://cvtwnd0www7vq" path="res://scenes/battle/BattleUI.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://f7nmgoj22llb" path="res://scenes/battle/LevelUp.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="12_0wcs0"]
 [ext_resource type="Resource" uid="uid://bsllwvtyjnqfo" path="res://stats/herostats/goombario.tres" id="17"]
 
 [sub_resource type="Environment" id="1"]
@@ -25,7 +26,7 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="Battle" type="Node3D"]
 process_mode = 3
 script = ExtResource("5")
-data = ExtResource("2_haw8o")
+data = ExtResource("2_nt33j")
 battle_background = ExtResource("3_0yag0")
 debug = true
 
@@ -90,5 +91,7 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="SFX" parent="." instance=ExtResource("12_0wcs0")]
 
 [connection signal="finishedSpinning" from="Spin" to="." method="_on_Spin_finishedSpinning"]

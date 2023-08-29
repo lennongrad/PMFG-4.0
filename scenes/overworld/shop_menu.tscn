@@ -305,28 +305,29 @@ axis_stretch_horizontal = 1
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.041
-anchor_top = 0.79
-anchor_right = 0.484
-anchor_bottom = 0.956
-offset_left = 317.047
-offset_top = -35.69
-offset_right = 294.628
-offset_bottom = -1.51599
+anchor_left = 0.524
+anchor_top = 0.73
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.308044
+offset_top = -4.03
+offset_right = -10.9999
+offset_bottom = -20.0
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ItemArea" type="Control" parent="Panel"]
 texture_filter = 1
 layout_mode = 1
-anchor_left = 0.539
-anchor_top = 0.175
-anchor_right = 0.979
-anchor_bottom = 0.96
-offset_left = -318.187
-offset_top = -72.425
-offset_right = -318.707
-offset_bottom = 4.44
+anchor_left = 0.036
+anchor_top = 0.033
+anchor_right = 0.476
+anchor_bottom = 0.969
+offset_left = 0.211912
+offset_top = 0.136993
+offset_right = -0.308105
+offset_bottom = -0.159027
 
 [node name=" Background" type="NinePatchRect" parent="Panel/ItemArea"]
 texture_filter = 1

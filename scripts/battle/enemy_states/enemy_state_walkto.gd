@@ -12,10 +12,15 @@ func _ready():
 		marioPosition.x += persistent_state.get_current_attack().walkto_distance
 	
 	self.interpolate_property(self.persistent_state, "position", marioPosition, 1)
-	
-func tween_completed():
-	sfx.stop("Footsteps")
-	self.persistent_state.progress_attack()
 
 func _physics_process(_delta):
-	sfx.play("Footsteps", false)
+	if not self.persistent_state.stats.flying:
+		sfx.play("Footsteps", false)
+	else:
+		sfx.play("Flap", false)
+
+func tween_completed():
+	sfx.stop("Footsteps")
+	sfx.stop("Flap")
+	self.persistent_state.progress_attack()
+

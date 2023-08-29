@@ -18,6 +18,7 @@
 [ext_resource type="LabelSettings" uid="uid://d2xrjlgdawtoo" path="res://fonts/small_status_setting.tres" id="14_74af6"]
 [ext_resource type="Texture2D" uid="uid://iw168lgachnc" path="res://sprites/badgepips/0e.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://chowyi5pgprt" path="res://sprites/items/fireflower.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://cxo3lpu0iwn5s" path="res://sprites/mario/iconhp.png" id="16_qbclv"]
 [ext_resource type="Texture2D" uid="uid://b7supm8rafo00" path="res://sprites/other/fp.png" id="17"]
 [ext_resource type="SpriteFrames" path="res://sprites/hammer_basic/frames.tres" id="18"]
 [ext_resource type="Texture2D" uid="uid://crjd435luk77c" path="res://sprites/other/bp.png" id="19"]
@@ -248,12 +249,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="Gradient" id="19"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0823529)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x7faj"]
-gradient = SubResource("19")
-
 [sub_resource type="ParticleProcessMaterial" id="21"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
@@ -263,7 +258,6 @@ angle_min = -5.0
 angle_max = 5.0
 scale_min = 0.2
 scale_max = 0.2
-color_ramp = SubResource("GradientTexture2D_x7faj")
 
 [sub_resource type="FontFile" id="23"]
 subpixel_positioning = 0
@@ -326,6 +320,16 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3em5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -5.0
+angle_max = 5.0
+scale_min = 0.2
+scale_max = 0.2
 
 [sub_resource type="AtlasTexture" id="24"]
 atlas = ExtResource("7")
@@ -475,10 +479,10 @@ anchor_left = 0.041
 anchor_top = 0.79
 anchor_right = 0.484
 anchor_bottom = 0.956
-offset_left = 12.3
-offset_top = -10.4898
-offset_right = 0.200012
-offset_bottom = -1.30405
+offset_left = 15.3
+offset_top = 0.094574
+offset_right = -2.79999
+offset_bottom = -1.85007
 autowrap_mode = 2
 
 [node name="Buttons" type="Control" parent="Panel"]
@@ -720,7 +724,7 @@ grow_vertical = 2
 tooltip_text = "You're Mario, silly!"
 focus_neighbor_top = NodePath("../../../Equipment/Badges")
 focus_neighbor_right = NodePath("../Level")
-focus_neighbor_bottom = NodePath("../../Stats/FP")
+focus_neighbor_bottom = NodePath("../../Stats/HP")
 focus_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
@@ -779,6 +783,7 @@ text = "Lvl.20"
 label_settings = ExtResource("8_d8q0o")
 
 [node name="Pieces" type="Label" parent="Panel/TabContainer/Mario/Header"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -825,13 +830,12 @@ offset_bottom = -0.000656128
 show_behind_parent = true
 texture_filter = 1
 anchors_preset = 0
-offset_left = 90.0
-offset_right = 130.0
+offset_left = 197.0
+offset_right = 237.0
 offset_bottom = 40.0
 tooltip_text = "Your Badge Points stat. Having more BP allows you to equip more badges at once, granting useful effects."
 focus_neighbor_left = NodePath("../FP")
 focus_neighbor_top = NodePath("../../Bar/Level")
-focus_neighbor_right = NodePath("../../Pieces")
 focus_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Header/Stats/BP"]
@@ -886,9 +890,11 @@ label_settings = ExtResource("8_d8q0o")
 show_behind_parent = true
 texture_filter = 1
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 97.0
+offset_right = 137.0
 offset_bottom = 40.0
 tooltip_text = "Your Flower Points stat. Every battle you start with a number of FP equal to this stat, and can spend it to use cool moves."
+focus_neighbor_left = NodePath("../HP")
 focus_neighbor_top = NodePath("../../Bar/Label")
 focus_neighbor_right = NodePath("../BP")
 focus_mode = 2
@@ -927,6 +933,65 @@ text = "FP"
 label_settings = ExtResource("14_74af6")
 
 [node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/FP"]
+texture_filter = 1
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = -10.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("22")
+text = "20"
+label_settings = ExtResource("8_d8q0o")
+
+[node name="HP" type="Control" parent="Panel/TabContainer/Mario/Header/Stats"]
+show_behind_parent = true
+texture_filter = 1
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+tooltip_text = "Your Health Points stat. This is the highest your HP can go at once."
+focus_neighbor_top = NodePath("../../Bar/Label")
+focus_neighbor_right = NodePath("../FP")
+focus_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/TabContainer/Mario/Header/Stats/HP"]
+texture_filter = 1
+position = Vector2(18.6519, 19.8425)
+texture = ExtResource("16_qbclv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Panel/TabContainer/Mario/Header/Stats/HP/Sprite2D"]
+modulate = Color(1, 0.8, 0.329412, 0.709804)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(0, -3)
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_l3em5")
+texture = ExtResource("28")
+lifetime = 4.0
+local_coords = true
+
+[node name="Label3" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/HP"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 37.0
+offset_right = 14.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("23")
+text = "HP"
+label_settings = ExtResource("14_74af6")
+
+[node name="Label2" type="Label" parent="Panel/TabContainer/Mario/Header/Stats/HP"]
 texture_filter = 1
 layout_mode = 0
 anchor_right = 1.0

@@ -14,6 +14,7 @@ func _ready():
 	self.animated_sprite.get_node("Decoration/Wings").play("FastFlap")
 	self.persistent_state.move_and_slide()
 	self.persistent_state.velocity = Vector3(-2.75, -2.7, 0)
+	sfx.play("Shoot", false)
 
 func _physics_process(delta):
 	if persistent_state.position.y > startY:
@@ -35,6 +36,7 @@ func area_body_entered(body):
 	if body == persistent_state.current_target.get_node("Area3D") and not hasCollided:
 		hasCollided = true
 		self.persistent_state.animated_sprite.rotation_degrees.z = 0
+		sfx.play("EnemyHit", false)
 		if lastDodgeInput < 10:
 			self.persistent_state.register_damage(persistent_state.current_target, 1, "NICE")
 		else:

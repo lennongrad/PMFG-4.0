@@ -5,6 +5,7 @@ signal unpause
 
 @export var debug: bool
 @export var stages: Array
+@export var stage_music: Array
 @export var start_stage = 0
 
 @onready var player = $Player
@@ -21,6 +22,8 @@ var currentBattle = null
 var paused = false
 var entering_battle
 var is_exiting = false
+var stage_number
+var next_stage_number
 
 var waiting_for_menu = false
 
@@ -37,7 +40,9 @@ func update_need_player_position():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var stage = stages[(get_node("/root/MarioRun").current_stage + start_stage) % stages.size()].instantiate()
+	stage_number = (get_node("/root/MarioRun").current_stage + start_stage) % stages.size()
+	next_stage_number = (get_node("/root/MarioRun").current_stage + start_stage + 1) % stages.size()
+	var stage = stages[stage_number].instantiate()
 	#var stage = load("res://scenes/overworld/stages/test_stage.tscn").instantiate()
 	stage.connect("water_enter", Callable(self, "_on_stage_water_enter"))
 	stage.connect("water_exit", Callable(self, "_on_stage_water_exit"))
@@ -50,6 +55,7 @@ func _ready():
 	_err = self.connect("unpause", Callable(partner, "_on_unpause"))
 	#add this enemy stuff to enemy spawn function
 #	set_environment()
+	
 	
 	if has_node("Stage/Pipes/PipeInto"):
 		player.pipe_position = $Stage/Pipes/PipeInto.global_transform.origin + Vector3(0, .8, 0)
@@ -90,7 +96,6 @@ func _process(_delta):
 	var activeCamera = $Player.get_camera_3d();
 	if(activeCamera):
 		$Camera3D.set_camera_position(activeCamera)
-	#$Camera3D.target = "../Player/" + $Player.get_camera_3d()
 	
 	if cameraRotationsLeft == 0 and debug:
 		if Input.is_action_pressed("rotate_left"):
@@ -120,10 +125,12 @@ func _on_encounter_trigger(p_encountered_enemy, p_strike_type):
 			encountered_enemy.play_hurt()
 		"jump":
 			$Player.play_jump()
+			$Player/SFX.play("EnemyHit")
 			encountered_enemy.play_hurt()
 		"enemy":
 			$Player.play_hurt()
 	entering_battle = true
+	play_music("Battle", .5)
 
 func on_reset(did_win):
 	paused = false
@@ -147,9 +154,24 @@ func get_water_level():
 
 func start_exit():
 	is_exiting = true
+	if stage_music[stage_number] != stage_music[next_stage_number]:
+		fade_out_music(2.5)
 
 func finish_exit():
 	$Spin.start_spinning()
+
+func fade_out_music(time_taken = 3):
+	for child in $/root/Music.get_children():
+		if(child.current_playing):
+			child.fade_out(time_taken)
+
+func play_music(name, time_taken = 3):
+	for child in $/root/Music.get_children():
+		if(child.name == name):
+			if(not child.current_playing):
+				child.fade_in(time_taken)
+		elif(child.current_playing):
+			child.fade_out(time_taken)
 
 #func set_environment():
 #	if get_node_or_null("WorldEnvironment") != null:
@@ -191,6 +213,7 @@ func finished_pipe():
 
 func _on_finished_shrinking():
 	player.finished_shrinking()
+	play_music(stage_music[stage_number], 1.5)
 	$Letterbox.toggle()
 
 func _on_Control_finishedSpinning():
@@ -203,6 +226,7 @@ func _on_Control_finishedSpinning():
 	elif encountered_enemy != null:
 		encountered_enemy = null
 		$Camera3D.current = true
+		play_music(stage_music[stage_number], 1)
 		update_need_player_position()
 	elif is_exiting:
 		get_node("/root/MarioRun").current_stage += 1

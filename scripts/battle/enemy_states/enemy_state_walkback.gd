@@ -12,9 +12,13 @@ func _ready():
 
 func _process(_delta):
 	self.persistent_state.velocity = Vector3(0,0,0)
-	sfx.play("Footsteps", false)
+	if not self.persistent_state.stats.flying:
+		sfx.play("Footsteps", false)
+	else:
+		sfx.play("Flap", false)
 
 func tween_completed():
 	sfx.stop("Footsteps")
+	sfx.stop("Flap")
 	self.persistent_state.animated_sprite.set_flip_h(false)
 	self.persistent_state.progress_attack()

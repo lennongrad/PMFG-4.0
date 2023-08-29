@@ -14,6 +14,8 @@ func _physics_process(_delta):
 	transformTimer += 1
 	if down:
 		if transformTimer < 50:
+			if transformTimer == 5:
+				sfx.play("Thud", false)
 			self.persistent_state.animated_sprite.play("Down")
 		elif transformTimer < 100:
 			self.persistent_state.animated_sprite.play("GetUp")
@@ -23,10 +25,14 @@ func _physics_process(_delta):
 		if transformTimer < 75:
 			pass
 		elif transformTimer < 100:
+			if transformTimer == 80:
+				sfx.play("Shrink", false)
 			self.persistent_state.get_node("Exclamation").visible = true
 		elif transformTimer < 150:
 			self.persistent_state.get_node("Exclamation").visible = false
 		elif transformTimer < 200:
+			if transformTimer == 160:
+				sfx.play("Expand", false)
 			self.persistent_state.animated_sprite.play("Hurt")
 		else:
 			self.animated_sprite.get_node("Decoration/Wings").play("SlowFlap")

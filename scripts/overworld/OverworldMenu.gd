@@ -89,6 +89,8 @@ func _process(_delta):
 			$Panel/TopBorder.modulate = tabs[e].border_modulate
 			$Panel/BottomBorder.modulate = tabs[e].border_modulate
 	
+	$Panel/TabContainer/Mario/Header/Bar/Level.text = "Lvl." + str(get_node("/root/MarioRun").get_level())
+	$Panel/TabContainer/Mario/Header/Stats/HP/Label2.text = str(get_node("/root/MarioRun").get_mario_max_hp())
 	$Panel/TabContainer/Mario/Header/Stats/FP/Label2.text = str(get_node("/root/MarioRun").get_max_fp())
 	$Panel/TabContainer/Mario/Header/Stats/BP/Label2.text = str(get_node("/root/MarioRun").get_max_bp())
 	

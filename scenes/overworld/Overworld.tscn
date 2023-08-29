@@ -17,8 +17,8 @@
 
 [node name="Overworld" type="Node3D"]
 script = ExtResource("4")
-debug = true
 stages = [ExtResource("4_tohov"), ExtResource("3_j685p"), ExtResource("10_w1e5k"), ExtResource("3_sm82m")]
+stage_music = ["Grass", "Grass", "Sky", "Water"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44885, 1.75504)

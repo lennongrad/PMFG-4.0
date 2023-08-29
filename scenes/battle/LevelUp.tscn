@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://f7nmgoj22llb"]
+[gd_scene load_steps=22 format=3 uid="uid://f7nmgoj22llb"]
 
 [ext_resource type="PackedScene" uid="uid://41wflhs2tl64" path="res://scenes/battle/LevelUpOption.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://b7supm8rafo00" path="res://sprites/other/fp.png" id="2"]
@@ -7,14 +7,12 @@
 [ext_resource type="Script" path="res://scripts/battle/LevelUp.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://djpos7m1f7nsd" path="res://sprites/other/hphd.png" id="5_eswur"]
 [ext_resource type="Texture2D" uid="uid://twwn2jxia5cg" path="res://sprites/UI/confetti.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://b5knj5utnd1mx" path="res://scenes/sfx.tscn" id="8_m1ci1"]
 
 [sub_resource type="CanvasItemMaterial" id="1"]
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("3")])
-face_index = null
-embolden = null
-transform = null
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -238,3 +236,5 @@ stat_name = "BP"
 icon = ExtResource("4")
 left_side = 55
 right_side = 55
+
+[node name="SFX" parent="." instance=ExtResource("8_m1ci1")]

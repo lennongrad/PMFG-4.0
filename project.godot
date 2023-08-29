@@ -26,6 +26,7 @@ config/windows_native_icon="res://icon.ico"
 MarioRun="*res://scripts/Mario_Run.gd"
 Global="*res://scripts/Global.gd"
 Fps="res://scenes/FPS.tscn"
+Music="*res://scenes/music.tscn"
 
 [debug]
 
@@ -64,6 +65,18 @@ texture={
 "process/size_limit": 0,
 "roughness/mode": 0,
 "roughness/src_normal": ""
+}
+wav={
+"compress/mode": 0,
+"edit/loop_begin": 0,
+"edit/loop_end": -1,
+"edit/loop_mode": 1,
+"edit/normalize": false,
+"edit/trim": false,
+"force/8_bit": false,
+"force/max_rate": false,
+"force/max_rate_hz": 44100,
+"force/mono": false
 }
 
 [input]

@@ -3,7 +3,7 @@ extends Node
 var rng = RandomNumberGenerator.new()
 
 var items = [
-	load("res://stats/heroattack/items/mushroom.tres"),
+	#load("res://stats/heroattack/items/mushroom.tres"),
 #	load("res://stats/heroattack/items/maplesyrup.tres"),
 #	load("res://stats/heroattack/items/cookiecombo.tres"),
 #	load("res://stats/heroattack/items/fireflower.tres"),
@@ -61,12 +61,13 @@ var experience = 0
 var level_ups_waiting = 0
 
 var party = {}
+var mario
 var active_partner
 
 var enemies = {}
 
 var fp = 0
-var coins = 60
+var coins = 0
 
 var current_stage = 0
 
@@ -228,6 +229,12 @@ func get_hp(stats):
 
 func get_partner_hp():
 	return get_hp(active_partner)
+
+func get_level():
+	return level_bonuses.size() + 1
+
+func get_mario_max_hp():
+	return get_max_hp(mario)
 
 func get_partner_max_hp():
 	return get_max_hp(active_partner)
@@ -401,7 +408,8 @@ func _ready():
 	party[load("res://stats/herostats/mario.tres")] = {"hp": 0}
 	
 	for member in party:
-		party[member].hp = get_max_hp(member) - 3
-	fp = get_max_fp() - 3
+		party[member].hp = get_max_hp(member) 
+	fp = get_max_fp() 
 	
 	active_partner = load("res://stats/herostats/goombario.tres")
+	mario = load("res://stats/herostats/mario.tres")

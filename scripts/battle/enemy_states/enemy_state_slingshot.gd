@@ -20,6 +20,7 @@ func _ready():
 	shootTimer.start()
 
 func shoot():
+	sfx.play("Shoot", false)
 	self.persistent_state.unfocus_camera();
 	self.persistent_state.animated_sprite.play("Rest")
 	self.persistent_state.slingshot_ammo.position = self.persistent_state.slingshotHomePosition
@@ -52,6 +53,7 @@ func _physics_process(delta):
 func slingshot_area_body_entered(body):
 	if body == persistent_state.current_target.get_node("Area3D") and not hasCollided:
 		hasCollided = true
+		sfx.play("EnemyHit", false)
 		if lastDodgeInput < 10:
 			self.persistent_state.register_damage(persistent_state.current_target, 1, "NICE")
 		else:
