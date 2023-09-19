@@ -1,1 +1,3 @@
 Initially created several years ago as an impromptu homage to the original Paper Mario game, I have since began working again on my Untitled Paper Mario Fangame, mostly out of a desire to bring joy to other Paper Mario fans. I believe I have faithfully recreated the whimsical artistic style of the original game in greater graphic fidelity and, while the gameplay is not finished, I believe the currently implemented battle and overworld elements offer a little bit of fun and nostalgia.
+
+To download the game and for more information, visit https://sonicfangameshq.com/forums/showcase/untitled-paper-mario-fangame-sage-23-demo.1795/.
