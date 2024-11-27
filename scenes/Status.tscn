@@ -14,16 +14,17 @@
 
 [sub_resource type="ParticleProcessMaterial" id="3"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 angle_min = -5.0
 angle_max = 5.0
+gravity = Vector3(0, 0, 0)
 scale_min = 0.15
 scale_max = 0.15
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -41,6 +42,9 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="5"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -50,6 +54,9 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

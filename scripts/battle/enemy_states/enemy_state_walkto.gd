@@ -23,4 +23,3 @@ func tween_completed():
 	sfx.stop("Footsteps")
 	sfx.stop("Flap")
 	self.persistent_state.progress_attack()
-

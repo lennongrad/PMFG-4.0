@@ -43,10 +43,10 @@ shader = SubResource("1")
 bg_color = Color(0.113725, 0.0941176, 0.176471, 1)
 
 [sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("1")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("1")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -95,10 +95,10 @@ outline_size = 32
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("1")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("1")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -225,10 +225,10 @@ animations = [{
 }]
 
 [sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("1")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("1")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

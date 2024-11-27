@@ -29,15 +29,15 @@ uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color;
 uniform vec3 uv1_scale;
 uniform vec3 uv1_offset;
- 
+
 uniform vec4 main_color : source_color;
 uniform vec4 intersection_color : source_color;
-uniform float intersection_max_threshold = 0.5;
+uniform float intersection_max_threshold = 0.7;
 uniform sampler2D displ_tex : hint_default_white;
-uniform float displ_amount = 0.6;
+uniform float displ_amount = 0.4;
 uniform float near = 0.15;
 uniform float far = 300.0;
- 
+
 float linearize(float c_depth) {
 	c_depth = 2.0 * c_depth - 1.0;
 	return near * far / (far + c_depth * (near - far));
@@ -54,19 +54,23 @@ void fragment() {
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo,base_uv - TIME / 14.0);
 	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	
-	float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).x);
-	float zpos = linearize(FRAGCOORD.z);
-	float diff = zdepth - zpos;
- 
+
+	float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).r;
+	vec4 upos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depth, 1.0);
+	vec3 pixel_position = upos.xyz / upos.w;
+	float diff = VERTEX.z - pixel_position.z;
+	if(pixel_position.z < VERTEX.z - displ_amount){
+		diff = 1.0;
+	}
+
 	ALBEDO = vec3(diff);
 	vec2 displ = texture(displ_tex, UV - TIME / 7.0).rg;
-	displ = ((displ * 2.0) - 1.0) * displ_amount;
+	//displ = ((displ * 2.0) - 1.0) * displ_amount;
 	diff += displ.x;
-	
+
 	vec4 tx = albedo_tex.rgba;
 	tx.rgb += vec3(displ.x, displ.x, displ.y) * .05;
- 
+
 	vec4 col = mix(intersection_color, tx, step(intersection_max_threshold, diff));
 	ALBEDO = col.rgb;
  	ALPHA = .8;
@@ -87,8 +91,8 @@ shader_parameter/uv1_scale = Vector3(16, 4, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/main_color = Color(1, 1, 1, 1)
 shader_parameter/intersection_color = Color(0.72549, 0.729412, 0.780392, 1)
-shader_parameter/intersection_max_threshold = 0.3
-shader_parameter/displ_amount = 0.3
+shader_parameter/intersection_max_threshold = 0.7
+shader_parameter/displ_amount = 0.4
 shader_parameter/near = 0.15
 shader_parameter/far = 600.0
 shader_parameter/texture_albedo = SubResource("CompressedTexture2D_kj62s")

@@ -11,13 +11,11 @@
 
 [sub_resource type="ParticleProcessMaterial" id="1"]
 particle_flag_disable_z = true
+angle_min = -45.0
+angle_max = 45.0
 direction = Vector3(0, 0, 0)
 spread = 126.95
 gravity = Vector3(0, 1, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = -45.0
-angle_max = 45.0
 scale_min = 2.0
 scale_max = 2.5
 
@@ -26,6 +24,9 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="FontFile" id="5"]
 fallbacks = Array[Font]([ExtResource("5")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -47,6 +48,9 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("5")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -71,17 +75,35 @@ cache/0/50/0/scale = 1.0
 cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/50/0/kerning_overrides/30/0 = Vector2(0, 0)
 cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_xd6l5"]
-font_size = 50
-outline_size = 24
+[sub_resource type="LabelSettings" id="LabelSettings_t27y0"]
+font_size = 42
+outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(8, 8)
+shadow_offset = Vector2(4, 5)
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("5")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -155,18 +177,14 @@ local_coords = true
 
 [node name="Item" type="TextureRect" parent="Item"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.561
-anchor_top = 0.5
-anchor_right = 0.561
-anchor_bottom = 0.5
-offset_left = -90.7911
-offset_top = -60.4025
-offset_right = 71.0469
-offset_bottom = 60.4025
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_wf40h")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="Rays" type="Control" parent="Item"]
 modulate = Color(1, 1, 1, 0.215686)
@@ -190,7 +208,7 @@ scale = Vector2(1, 3.74927)
 polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 438.074, 601.821)
 
 [node name="Polygon2D5" type="Polygon2D" parent="Item/Rays"]
-position = Vector2(-1111.52, -483.488)
+position = Vector2(-1121.57, -483.74)
 rotation = -0.785398
 scale = Vector2(1, 3.74927)
 polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 438.074, 601.821)
@@ -203,17 +221,12 @@ polygon = PackedVector2Array(430, 0, 460, 0, 460, 600, 446.026, 623.706)
 [node name="Description" type="Control" parent="."]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 1
-anchor_left = 0.288
-anchor_top = 0.76
-anchor_right = 0.701
-anchor_bottom = 0.953
-offset_left = -68.712
-offset_top = -36.28
-offset_right = -81.299
-offset_bottom = -62.309
+anchor_left = 0.25
+anchor_top = 0.65
+anchor_right = 0.75
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.4, 1.4)
 
 [node name="Textbox" type="Panel" parent="Description"]
 layout_mode = 1
@@ -238,13 +251,14 @@ patch_margin_bottom = 24
 axis_stretch_horizontal = 1
 
 [node name="BottomBorder" type="NinePatchRect" parent="Description/Textbox"]
-layout_mode = 0
-anchor_top = 1.091
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.091
-offset_top = -36.8641
+anchor_bottom = 1.0
+offset_top = -25.1416
 offset_right = 6.10352e-05
-offset_bottom = 11.1359
+offset_bottom = 22.8584
 texture = ExtResource("8")
 patch_margin_left = 24
 patch_margin_top = 24
@@ -259,42 +273,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
 offset_top = 12.0
-offset_right = -4.0
-offset_bottom = -2.68597
+offset_right = -26.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("5")
-text = "The ultimate refreshment that can get Mario's FP back from the brink"
+theme_override_font_sizes/font_size = 25
+text = "The ultimate refreshment that can get Mario's FP back from the brink."
 label_settings = SubResource("LabelSettings_chb17")
 autowrap_mode = 2
 
 [node name="Title" type="Control" parent="Description"]
 layout_mode = 1
-anchor_left = 0.025
-anchor_top = -0.444
-anchor_right = 0.979
-anchor_bottom = -0.111
-offset_left = 9.53841
-offset_top = 16.2416
-offset_right = -27.0298
-offset_bottom = 14.2746
+anchor_left = 0.05
+anchor_top = -0.343
+anchor_right = 0.927
+anchor_bottom = -0.067
+offset_left = 0.0249996
+offset_top = -0.251244
+offset_right = 7.18347
+offset_bottom = 5.16375
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleShadow" type="NinePatchRect" parent="Description/Title"]
-modulate = Color(0, 0, 0, 0.639216)
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -4.14288
-offset_right = 418.0
-offset_bottom = 44.8571
+anchors_preset = -1
+anchor_left = 0.067
+anchor_right = 0.984
+anchor_bottom = 1.056
+offset_left = 4.944
+offset_top = 1.0
+offset_right = 5.08801
+offset_bottom = 4.968
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 patch_margin_left = 40
 patch_margin_top = 40
@@ -303,15 +318,16 @@ patch_margin_bottom = 40
 
 [node name="Title" type="NinePatchRect" parent="Description/Title"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -7.0
-offset_right = 422.422
-offset_bottom = 40.0
+anchors_preset = -1
+anchor_left = 0.067
+anchor_right = 0.984
+anchor_bottom = 1.056
+offset_left = -0.0559998
+offset_top = -4.0
+offset_right = 0.0880127
+offset_bottom = -0.0319977
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("4")
 patch_margin_left = 40
 patch_margin_top = 40
@@ -319,30 +335,35 @@ patch_margin_right = 40
 patch_margin_bottom = 40
 
 [node name="Label" type="Label" parent="Description/Title/Title"]
-layout_mode = 0
-anchor_right = 1.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.013
 anchor_bottom = 1.0
 offset_left = -11.0
-offset_right = 13.0
+offset_right = 0.124512
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = SubResource("6")
 text = "SUPER MUSHROOM"
-label_settings = SubResource("LabelSettings_xd6l5")
+label_settings = SubResource("LabelSettings_t27y0")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Label" type="Label" parent="Description"]
+[node name="Label2" type="Label" parent="Description/Title"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.43493
-offset_top = -70.3642
-offset_right = -283.171
-offset_bottom = -139.364
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = -0.074
+anchor_right = 0.008
+anchor_bottom = -0.074
+offset_left = -29.46
+offset_top = -11.1743
+offset_right = 115.54
+offset_bottom = 15.8257
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)

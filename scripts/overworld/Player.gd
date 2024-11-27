@@ -136,17 +136,18 @@ func _physics_process(delta):
 		last_height = position.y
 		over_pipe_timer += 1
 		
-		if after_growing and state == PLAYER_STATE.PIPE:
+		if after_growing and state == PLAYER_STATE.PIPE and pipe_fall_timer < 0:
 			$"..".finished_pipe()
-			pipe_fall_timer += 1
+			pipe_fall_timer = 15
 		
-		if pipe_fall_timer > 0 and pipe_fall_timer < 10:
-			$FallParticles.emitting = true
-		else:
-			$FallParticles.emitting = false
-		
-		if pipe_fall_timer > 20 and state == PLAYER_STATE.PIPE:
+		pipe_fall_timer -= 1
+		if pipe_fall_timer > 5:
 			$AnimatedSprite3D.play("GetUp")
+		elif pipe_fall_timer > 0:
+			$FallParticles.emitting = true
+		elif pipe_fall_timer == 0:
+			$FallParticles.emitting = false
+			state = PLAYER_STATE.CONTROL
 		
 		var effective_jump_power = jump_power
 		if is_in_water:
@@ -522,6 +523,7 @@ func _on_finished_growing():
 	visible = true
 
 func finished_shrinking():
+	return
 	state = PLAYER_STATE.CONTROL
 
 func update_hammer(type):

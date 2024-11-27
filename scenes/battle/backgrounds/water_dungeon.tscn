@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://btp7h1i2msuxu" path="res://scenes/overworld/BorderMesh.tscn" id="5"]
 [ext_resource type="Material" uid="uid://fbcpvb41g01y" path="res://textures/watermaterial.tres" id="5_0a7ai"]
 [ext_resource type="Texture2D" uid="uid://ccw8ceu7n11u4" path="res://textures/stone/stone-wall.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cxln8d4yhy8wj" path="res://textures/stone/stone.png" id="6_i8lem"]
 [ext_resource type="Texture2D" uid="uid://digimmg8eciv8" path="res://textures/stone/stone-border.png" id="8"]
 
 [sub_resource type="StandardMaterial3D" id="17"]
@@ -59,7 +60,7 @@ void vertex() {
 void fragment() {
 	vec2 base_uv = UV;
 	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	//ALBEDO = albedo.rgb * albedo_tex.rgb;
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	SPECULAR = specular;
@@ -70,8 +71,6 @@ void fragment() {
 	ALBEDO = texture(texture_albedo, UV - disp).rgb;
 }
 "
-
-[sub_resource type="CompressedTexture2D" id="22"]
 
 [sub_resource type="ShaderMaterial" id="23"]
 render_priority = 0
@@ -87,7 +86,7 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/center = Vector2(2.809, 0)
 shader_parameter/size = 0.238
-shader_parameter/texture_albedo = SubResource("22")
+shader_parameter/texture_albedo = ExtResource("6_i8lem")
 
 [sub_resource type="PlaneMesh" id="24"]
 material = SubResource("23")
@@ -119,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.
 mesh = SubResource("7")
 
 [node name="Underwater" type="MeshInstance3D" parent="Water"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0419931, -0.469077)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0419932, -0.469077)
 mesh = SubResource("24")
 
 [node name="BorderMesh" parent="." instance=ExtResource("5")]

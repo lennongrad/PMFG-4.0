@@ -62,4 +62,3 @@ func spawn_enemy(position_offset = Vector3.ZERO):
 	_err = get_overworld().connect("unpause", Callable(enemy, "_on_unpause"))
 	enemy.set_encounter(encounter_data)
 	enemy.battle_background = battle_background
-

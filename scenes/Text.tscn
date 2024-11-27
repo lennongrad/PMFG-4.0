@@ -7,6 +7,9 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("1")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -38,7 +41,7 @@ curve = SubResource("Curve_m27v6")
 
 [sub_resource type="ParticleProcessMaterial" id="6"]
 emission_shape = 3
-emission_box_extents = Vector3(145, 40.626, 0)
+emission_box_extents = Vector3(170.746, 30.8714, 0)
 gravity = Vector3(0, 0, 0)
 scale_min = 1.5
 scale_max = 2.0

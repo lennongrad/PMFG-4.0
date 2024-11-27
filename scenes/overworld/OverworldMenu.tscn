@@ -58,10 +58,10 @@ void fragment(){
 shader = SubResource("Shader_uc1a0")
 
 [sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -80,10 +80,10 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 [sub_resource type="StyleBoxEmpty" id="6"]
 
 [sub_resource type="FontFile" id="7"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -129,10 +129,10 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2te8c"]
 
 [sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -156,10 +156,10 @@ corner_radius_top_left = 4
 anti_aliasing_size = 5.0
 
 [sub_resource type="FontFile" id="13"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -176,10 +176,10 @@ cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -251,19 +251,17 @@ animations = [{
 
 [sub_resource type="ParticleProcessMaterial" id="21"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 angle_min = -5.0
 angle_max = 5.0
+gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.2
 
 [sub_resource type="FontFile" id="23"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -302,10 +300,10 @@ cache/0/26/0/kerning_overrides/20/0 = Vector2(0, 0)
 cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="22"]
+fallbacks = Array[Font]([ExtResource("57")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
-fallbacks = Array[Font]([ExtResource("57")])
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -323,11 +321,9 @@ cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3em5"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 angle_min = -5.0
 angle_max = 5.0
+gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.2
 
@@ -441,12 +437,12 @@ stretch_mode = 1
 [node name="TopBorder" type="NinePatchRect" parent="Panel"]
 modulate = Color(0.709804, 0.337255, 0.686275, 1)
 texture_filter = 1
-layout_mode = 0
-anchor_top = -0.06
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
-offset_top = 8.0
+offset_top = -24.2114
 offset_right = 1.0
-offset_bottom = 119.0
+offset_bottom = 121.0
 texture = ExtResource("2")
 patch_margin_left = 24
 patch_margin_top = 24
@@ -457,13 +453,14 @@ axis_stretch_horizontal = 1
 [node name="BottomBorder" type="NinePatchRect" parent="Panel"]
 modulate = Color(0.709804, 0.337255, 0.686275, 1)
 texture_filter = 1
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.057
-offset_top = -119.0
+anchor_bottom = 1.0
+offset_top = -124.0
 offset_right = 1.0
-offset_bottom = -6.80002
+offset_bottom = 20.7008
 texture = ExtResource("3")
 patch_margin_left = 24
 patch_margin_top = 24
@@ -561,11 +558,13 @@ anchor_bottom = 0.993
 offset_top = -1.99998
 offset_bottom = -0.200012
 theme_override_styles/panel = SubResource("6")
+current_tab = 0
 tabs_visible = false
 
 [node name="Mario" type="TabBar" parent="Panel/TabContainer"]
 texture_filter = 1
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="ItemHeader" type="Control" parent="Panel/TabContainer/Mario"]
 texture_filter = 1
@@ -669,13 +668,13 @@ offset_top = -0.629944
 offset_bottom = -0.629944
 focus_mode = 0
 mouse_filter = 2
+theme_override_colors/guide_color = Color(0, 0, 0, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/guide_color = Color(0, 0, 0, 0)
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = -3
 theme_override_constants/item_margin = 7
 theme_override_constants/scrollbar_margin_top = 560
+theme_override_constants/v_separation = -3
+theme_override_constants/h_separation = 0
 theme_override_fonts/font = SubResource("12")
 theme_override_icons/arrow = ExtResource("15")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6cqb2")
@@ -1203,6 +1202,7 @@ animation = &"Hold"
 visible = false
 texture_filter = 1
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Panel/TabContainer/Party"]
 texture_filter = 1

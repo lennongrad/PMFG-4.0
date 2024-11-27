@@ -3,6 +3,7 @@ extends Control
 var test_random_items = []
 var active = false
 var global_timer = 1
+var out_of_bounds = 8000
 
 var keeper
 
@@ -17,13 +18,13 @@ func get_price(item):
 	return item.name.length()
 
 func _ready():
-	position.y = 1100
+	position.y = out_of_bounds
 
 func _process(_delta):
 	global_timer += 1
 	
 	if not active:
-		position.y += (1100 - position.y) * .05
+		position.y += (out_of_bounds - position.y) * .05
 		$Background.modulate.a += -$Background.modulate.a * .1
 		$Cursor.modulate.a = 0
 		return

@@ -70,9 +70,9 @@ shader = ExtResource("13_0lxiu")
 shader_parameter/albedo = Color(0.839216, 0.968627, 1, 0.811765)
 shader_parameter/uv1_scale = Vector3(10, 10, 0)
 shader_parameter/uv1_offset = null
-shader_parameter/main_color = Color(0.517647, 0.517647, 0.858824, 1)
-shader_parameter/intersection_color = Color(0, 0, 0.541176, 1)
-shader_parameter/intersection_max_threshold = 0.5
+shader_parameter/main_color = Color(0.981881, 0.995251, 0.987708, 1)
+shader_parameter/intersection_color = Color(1, 1, 1, 1)
+shader_parameter/intersection_max_threshold = 1.0
 shader_parameter/displ_amount = 2.255
 shader_parameter/near = 0.26
 shader_parameter/far = 300.0
@@ -147,7 +147,7 @@ light_energy = 0.4
 shadow_enabled = true
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.173813, -8.75325, 0.177402)
+transform = Transform3D(-0.999792, -0.0204015, -8.74046e-08, -0.0204015, 0.999792, -1.78355e-09, 8.74228e-08, 0, -1, -0.173813, -4.6883, 0.177402)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_hivjp")
 

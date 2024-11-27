@@ -25,7 +25,7 @@ func _process(_delta):
 	$Item/Cloud.scale = (((Vector2(get_viewport().get_size()) - Vector2(1000, 600)) * .9 + Vector2(1000, 600))
 	* Vector2(.001, .001666))
 	
-	timer += .1
+	timer += .05
 	$Item/Rays.rotation = timer
 	if active:
 		$Item/Rays.modulate.a += (.2 - $Item/Rays.modulate.a) * .025

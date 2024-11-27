@@ -537,7 +537,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.708
 mesh = SubResource("PlaneMesh_p2gq3")
 
 [node name="PathOut3" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-1.41296, 0, -0.099476, 0, 1, 0, 0.141256, 0, -0.99504, 31.368, -5.61244, -4.45276)
+transform = Transform3D(-1.41296, 0, -0.0994757, 0, 1, 0, 0.141256, 0, -0.99504, 31.368, -5.61244, -4.45276)
 sorting_offset = -1.0
 sorting_use_aabb_center = false
 mesh = SubResource("PlaneMesh_p2gq3")
@@ -624,12 +624,12 @@ transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412
 mesh = SubResource("PlaneMesh_vklyi")
 
 [node name="PathStep8" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.4456, -5.6038, -0.208689)
+transform = Transform3D(0.0698771, 0, -0.996981, 0, 1, 0, 0.897283, 0, 0.0776412, 27.446, -5.599, -0.209)
 sorting_use_aabb_center = false
 mesh = SubResource("PlaneMesh_3ivs3")
 
 [node name="PathStep9" type="MeshInstance3D" parent="Paths"]
-transform = Transform3D(-0.0698772, 0, 0.996981, 0, 1, 0, -0.897283, 0, -0.0776413, 28.3746, -5.6252, 0.588179)
+transform = Transform3D(-0.0698772, 0, 0.996981, 0, 1, 0, -0.897283, 0, -0.0776413, 28.3207, -5.6252, 0.546906)
 sorting_offset = 3.0
 mesh = SubResource("PlaneMesh_pnrm6")
 

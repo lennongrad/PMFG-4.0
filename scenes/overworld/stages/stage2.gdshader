@@ -35,16 +35,22 @@ void fragment() {
 	vec4 albedo2_tex = texture(texture2_albedo,base_uv + TIME / 7.0);
 	ALBEDO = (albedo.rgb) * (albedo2_tex.rgb * .5 + albedo_tex.rgb);
 	
-//	float zdepth = linearize(texture(DEPTH_TEXTURE, SCREEN_UV).x);
-//	float zpos = linearize(FRAGCOORD.z);
-//	float diff = zdepth - zpos;
- 
-//	ALBEDO = vec3(diff);
-//	vec2 displ = texture(displ_tex, UV - TIME / 7.0).rg;
-//	displ = ((displ * 2.0) - 1.0) * displ_amount;
-//	diff += displ.x;
+	float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).r;
+	vec4 upos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depth, 1.0);
+	vec3 pixel_position = upos.xyz / upos.w;
+	float diff = VERTEX.z - pixel_position.z;
+	if(pixel_position.z < VERTEX.z - displ_amount){
+		diff = 1.0;
+	}
 	
-	vec4 tx = albedo_tex.rgba;
+	vec2 displ = texture(displ_tex, UV - TIME / 7.0).rg;
+	//displ = ((displ * 2.0) - 1.0) * displ_amount;
+	diff += displ.x;
+	
+	vec4 tx = albedo_tex.rgba * main_color;
+	tx.rgb += vec3(displ.x, displ.x, displ.y) * .05;
+	vec4 col = mix(intersection_color, tx, step(intersection_max_threshold, diff));
+	ALBEDO = col.rgb;
 //	tx.rgb += vec3(displ.x, displ.x, displ.y) * .05;
  
 //	vec4 col = mix(intersection_color, tx, step(intersection_max_threshold, diff));

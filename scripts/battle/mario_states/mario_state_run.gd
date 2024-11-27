@@ -32,7 +32,7 @@ func _process(_delta):
 			smash_counter = min(smash_max + 10, smash_counter + 10)
 			particles_count = 0
 		hero.get_node("RunParticles").emitting = (not hero.in_water()) and particles_count < 2
-		smash_counter = max(0, smash_counter - 1)
+		smash_counter = max(0, smash_counter - .5)
 		smash_light.progress = smash_counter
 		smash_light.is_good = smash_counter > smash_max
 
